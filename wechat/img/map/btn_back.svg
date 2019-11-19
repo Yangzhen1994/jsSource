@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>btn_back</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#20E2D7" offset="0%"></stop>
+            <stop stop-color="#F9FEA5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="地图找房_00" transform="translate(-14.000000, -34.000000)" fill="#666666">
+            <g id="top-bar_show">
+                <polyline id="btn_back" points="30 41 17.83 41 23.42 35.41 22 34 14 42 22 50 23.41 48.59 17.83 43 30 43 30 41"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

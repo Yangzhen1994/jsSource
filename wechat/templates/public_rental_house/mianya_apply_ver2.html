@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>免押申请</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/prh_ver2.css">
+</head>
+<body class="grayBody">
+    <section class="step_outer">
+        <ul>
+            <li class="accept">提交申请</li>
+            <li>审查通过</li>
+            <li>退还押金</li>
+        </ul>
+    </section>
+    <div class="retire_box2" style="padding-bottom: 0px;">
+        <div class="items">
+            <span>合同编号</span>
+            <input readonly="true" type="text" value="城租备-2018093001"/>
+        </div>
+        <div class="items">
+            <span>申请金额</span>
+            <input readonly="true" type="text" value="3000元"/>
+        </div>
+        <div class="items">
+            <span>服务费</span>
+            <input readonly="true" type="text" value="30元"/>
+        </div>
+        <div class="items">
+            <span>返还押金</span>
+            <input readonly="true" type="text" value="2970元"/>
+        </div>
+        <div class="radio_box">我已阅读并同意<a href="#">免押申请服务协议</a></div>
+    </div>
+    <div style="height:0.6rem"></div>
+    <button class="btj">提 交</button>
+
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //协议
+    $(".radio_box").click(function(){
+        $(this).toggleClass("choosed");
+    })
+    //按钮
+    $(".btj").click(function(){
+        if(!$(".radio_box").hasClass("choosed")){
+            $.alert("请阅读并同意免押申请服务协议！");
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+        setTimeout(function () {
+            $.alert("提交成功！");
+        },200)
+    })
+</script>
+</body>
+</html>

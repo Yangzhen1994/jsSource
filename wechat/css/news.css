@@ -1,0 +1,172 @@
+body{
+    background: #E8E9ED;
+}
+.mock_margin{
+    width: 100%;
+    height: 0.1rem;
+    background: #E8E9ED;
+    top:0.48rem;
+}
+.news_header_list{
+    width:100%;
+    height:0.48rem;
+    background: #fff;
+    /*padding:10px 0;*/
+    position: fixed;
+    top:0;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: auto;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    line-height: 0.48rem;
+    padding-top:0.13rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.news_header_list .item{
+    width:0.8rem;
+    height: 0.26rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 0.3rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+.news_header_list .active{
+    color: #ffffff;
+    border-radius: 1rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+}
+#newsWrap{
+    background: #fff;
+    height: 91.30%;
+    position: fixed;
+    top:0.58rem;
+}
+.policy_info_box{
+    /*width:100%;*/
+    height:2.6rem;
+    border-bottom: 1px solid #f4f2ee;
+    padding:0.24rem 0.18rem;
+    background: #fff;
+}
+.policy_info_label p{
+    opacity: 0.3;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 0.12rem;
+}
+.policy_info_label label{
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.18rem;
+}
+.policy_info_P{
+    opacity: 0.3;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.12rem;
+    margin-top: 0.1rem;
+    margin-bottom:0.15rem;
+}
+
+.policy_info_item{
+    width:3.39rem;
+    height:0.96rem;
+    margin: 0 auto;
+    margin-bottom:0.1rem;
+    position: relative;
+}
+.policy_info_list{
+ padding: 0.12rem 0;
+}
+.policy_info_list .policy_info_item:last-child{
+    margin-bottom: 0;
+}
+.policy_info_item_img{
+    width:1.44rem;
+    height:0.96rem;
+    margin-right:0.05rem;
+    position: absolute;
+}
+.policy_info_item img{
+    width:1.44rem;
+    height:0.96rem;
+}
+.policy_info_title{
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #444444;
+    line-height: 0.17rem;
+    margin-top: 0.06rem;
+}
+.policy_info_detail{
+    width: 1.9rem;
+    height:0.96rem;
+
+}
+.policy_info_content{
+    opacity: 0.3;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 0.16rem;
+    margin-top:0.17rem;
+    height: 0.32rem;
+}
+/********新闻详情*********/
+.main{
+    width: 100%;
+    background: 100%;
+    padding: 0.24rem 0.18rem;
+    box-sizing: border-box;
+}
+.main img{
+    width: 100%;
+    margin-left: -30px;
+}
+.title{
+   padding: 0 0.1rem;
+    text-align: center;
+    margin: 0 auto;
+    font-family: PingFangSC-Medium;
+    font-size:0.16rem;
+    color: #444444;
+    letter-spacing:0.007rem;
+    line-height: 0.3rem;
+    margin-bottom: 0.12rem;
+}
+.date{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 13px;
+    text-align: center;
+    margin-bottom: 0.16rem;
+}
+.content{
+    text-indent: 2em;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #666666;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 0.25rem;
+}

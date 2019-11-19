@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="121px" height="166px" viewBox="0 0 121 166" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>蒙版复制 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="32.4808846%" y1="12.7301897%" x2="67.9712695%" y2="83.1438337%" id="linearGradient-1">
+            <stop stop-color="#FF9191" offset="0%"></stop>
+            <stop stop-color="#F56C6C" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="121" height="166" rx="2"></rect>
+        <text id="text-4" font-family="FontName" font-size="12" font-weight="normal" fill="#FFFFFF">
+            <tspan x="17" y="114">租房政策权威解读</tspan>
+        </text>
+        <filter x="-0.5%" y="-12.5%" width="102.1%" height="125.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.825464221   0 0 0 0 0.213113848   0 0 0 0 0.213113848  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-6" font-family="FontName" font-size="18" font-weight="normal" fill="#FFFFFF">
+            <tspan x="17" y="141">尽在掌握</tspan>
+        </text>
+        <filter x="-0.7%" y="-8.3%" width="102.8%" height="116.7%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.825464221   0 0 0 0 0.213113848   0 0 0 0 0.213113848  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="100%" y1="35.7777778%" x2="0%" y2="65.4608122%" id="linearGradient-8">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="35.9486137%" x2="0%" y2="65.2750984%" id="linearGradient-9">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="9.3782717%" y1="35.5894947%" x2="111.408385%" y2="84.971007%" id="linearGradient-10">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="9.3782717%" y1="36.0863711%" x2="111.408385%" y2="83.7652014%" id="linearGradient-11">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-12" points="0.197761252 0.470258163 25.9807097 0.470258163 25.9807097 24.579186 0.197761252 24.579186"></polygon>
+    </defs>
+    <g id="61改版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="发现-政策资讯" transform="translate(-15.000000, -376.000000)">
+            <g id="编组-2复制" transform="translate(15.000000, 336.000000)">
+                <g id="蒙版复制-3" transform="translate(0.000000, 40.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="蒙版复制-2" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <g id="租房政策权威解读" mask="url(#mask-3)" fill="#FFFFFF" fill-opacity="1">
+                        <use filter="url(#filter-5)" xlink:href="#text-4"></use>
+                        <use xlink:href="#text-4"></use>
+                    </g>
+                    <g id="尽在掌握" mask="url(#mask-3)" fill="#FFFFFF" fill-opacity="1">
+                        <use filter="url(#filter-7)" xlink:href="#text-6"></use>
+                        <use xlink:href="#text-6"></use>
+                    </g>
+                    <polygon id="矩形" fill="url(#linearGradient-8)" opacity="0.235072545" mask="url(#mask-3)" points="99.4866593 126 46 149.460769 157.513341 214 211 190.539231"></polygon>
+                    <polygon id="矩形-copy-3" fill="url(#linearGradient-9)" opacity="0.228073847" mask="url(#mask-3)" points="125.810821 104 72 127.460769 184.189179 192 238 168.539231"></polygon>
+                    <polygon id="矩形-copy" fill="url(#linearGradient-10)" opacity="0.375883557" mask="url(#mask-3)" points="-65.7609783 -48 64 36.3410409 1.76097828 67 -128 -17.3410409"></polygon>
+                    <polygon id="矩形-copy-4" fill="url(#linearGradient-11)" opacity="0.177362351" mask="url(#mask-3)" points="-48.7609783 -13 81 69.8742402 18.7609783 100 -111 17.1257598"></polygon>
+                    <g id="Group" mask="url(#mask-3)">
+                        <g transform="translate(19.000000, 22.000000)">
+                            <path d="M44.0268021,62 L2.97232858,62 C1.33011487,62 0,60.6564148 0,58.9956063 L0,57.0035149 C0,55.3453427 1.33011487,54 2.97232858,54 L44.0268021,54 C45.6690158,54 47,55.3453427 47,57.0035149 L47,58.9956063 C47,60.6564148 45.6690158,62 44.0268021,62" id="Fill-1" stroke="#FFFFFF" stroke-width="1" fill="#FF7171"></path>
+                            <polygon id="Fill-3" stroke="none" fill="#FFFFFF" opacity="0.437611607" points="80 54.3238152 75.417974 61 35 27.6771059 39.5811856 21"></polygon>
+                            <g id="Group-7" stroke="none" stroke-width="1" fill="none" transform="translate(58.000000, 37.000000)">
+                                <mask id="mask-13" fill="white">
+                                    <use xlink:href="#path-12"></use>
+                                </mask>
+                                <g id="Clip-6"></g>
+                                <path d="M25.1351226,20.4144643 L23.4560258,22.7903571 C22.0578968,24.7689286 19.4168,25.1671429 17.5582194,23.67875 L1.09099355,10.4921429 C0.102993548,9.69928571 -0.0957806452,8.20642857 0.647316129,7.15375 L4.69912258,1.42160714 C5.44221935,0.368928571 6.84538065,0.158214286 7.83421935,0.948392857 L24.3006065,14.1358929 C26.1600258,15.6251786 26.5332516,18.4358929 25.1351226,20.4144643" id="Fill-5" fill="#FFFFFF" mask="url(#mask-13)"></path>
+                            </g>
+                            <path d="M37.7183307,4.23460244 L37.7183307,4.23460244 C38.022308,4.46222431 38.0839845,4.89629393 37.8549002,5.20155427 L19.3166922,29.8773533 C19.088489,30.1817314 18.6558721,30.2417248 18.3518948,30.0141029 C18.0470364,29.7855988 17.6153006,29.8447099 17.3862163,30.1508525 L15.1385467,33.1434625 C14.9094624,33.4469584 14.9711389,33.8819102 15.2742351,34.1086499 L32.2044474,46.8616505 C32.5093057,47.0910369 32.9419227,47.0283968 33.171007,46.7240187 L35.4186766,43.7322909 C35.6468798,43.4279128 35.5860844,42.9947254 35.2821071,42.7662213 L35.281226,42.7662213 C34.9772487,42.5359527 34.9164533,42.1027653 35.1455376,41.7983872 L53.6828645,17.1217059 C53.9119488,16.8182101 54.3445657,16.7564522 54.648543,16.9858386 C54.9525203,17.2161072 55.3842561,17.1543494 55.6142215,16.849089 L57.8618911,13.8573612 C58.0900943,13.5521009 58.0292989,13.1189135 57.7253216,12.8904094 L40.7951093,0.138290984 C40.490251,-0.0902131436 40.0585151,-0.0293375264 39.8303119,0.275040559 L37.5817612,3.26676835 C37.3526769,3.57114644 37.4143534,4.0043338 37.7183307,4.23460244" id="Fill-8" stroke="none" fill="#FFFFFF"></path>
+                            <path d="M50.6609795,22.9191737 L39.0888398,39.2830413 C38.5294012,40.0746628 37.4721055,40.236124 36.7279221,39.6401013 L21.672518,27.5923238 C20.9283345,26.9953785 20.7791509,25.8725308 21.3385895,25.0809093 L32.9107292,8.71519647 C33.4701679,7.923575 34.5274635,7.76488165 35.2725143,8.36090434 L50.3279184,20.4068366 C51.0712345,21.0028593 51.2212855,22.1275523 50.6609795,22.9191737" id="Fill-10" stroke="none" fill="#FFCF11"></path>
+                            <path d="M40.6043869,50 L6.39475931,50 C5.07230577,50 4,51.1075838 4,52.4744268 L4,54 L43,54 L43,52.4744268 C43,51.1075838 41.9268405,50 40.6043869,50" id="Fill-12" stroke="#FFFFFF" stroke-width="1" fill="#FF7171"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

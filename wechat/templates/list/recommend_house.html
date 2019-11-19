@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--jqueryweui 需要放在适配js前不然会覆盖rem适配-->
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>推荐房源</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/house_list.css">
+    <link rel="stylesheet" href="../../css/frame/jquery.range.css">
+    <style>
+        .filter_area{
+            top:0;
+        }
+        .mescroll{
+            top:0.48rem;
+            height: 92.80%;
+        }
+        .filter_card{
+            top:0.48rem;
+            height: 92.80%;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div class="header">
+    <img class="back" src="../img/house_list/back.png" alt="">
+    <div class="search_wrap pr border_all">
+        <input type="text" id="search" placeholder="输入您想住的区域或小区">
+        <img src="../img/glass.png" alt="">
+    </div>
+    <img class="to_map_icon"src="../img/house_list/map_icon.png" alt="">
+</div>-->
+<div class="filter_area border_bottom">
+    <ul class="clearfix">
+        <li class="fl border_right district_filter"><span>区域</span><img src="../../img/house_list/arrow-bottom.png"></li>
+        <li class="fl border_right rent_type_filter"><span>合/整租</span><img src="../../img/house_list/arrow-bottom.png"></li>
+        <li class="fl border_right rent_bill_filter"><span>租金</span><img src="../../img/house_list/arrow-bottom.png"></li>
+        <li class="fl border_right orther_filter"><span>筛选</span><img src="../../img/house_list/arrow-bottom.png"></li>
+        <li class="fl order_filter" ><span>排序</span><img src="../../img/house_list/paixu.png"></li>
+    </ul>
+</div>
+
+<!--滑动区域-->
+<div id="mescroll" class="mescroll">
+    <!--展示上拉加载的数据列表-->
+    <ul id="recommendhouseList" class="house_list">
+        <!-- <li class="clearfix pr border_bottom">
+             <div class="house_img">
+                 <img src="../mock/img/banner1.png" alt="">
+             </div>
+             <div class="house_info">
+                 <p class="house_title">花果山小区4居室-南卧</p>
+                 <div class="house_tips">
+                     <span class="house_area">7.9m<sup>2</sup></span><span class="line">|</span><span class="house_floors">6/6层</span>
+                 </div>
+                 <div class="pr has_mestro">
+                     <img src="../img/house_list/map_icon_gray.png" alt=""><span>距5号线科韵路站448米</span>
+                 </div>
+                 <div class="tags">
+                     <span class="tag">城壹认证</span><span class="tag">首次出租</span><span class="tag">离地铁近</span>
+                 </div>
+             </div>
+         </li>-->
+    </ul>
+</div>
+<!--区域-->
+<div class="filter_card district_area hide">
+    <ul class="first_ul">
+        <li class="district_type"><a href="javascript:;" class="selected">附近</a>
+            <ul class="pa district_type_distance second_ul">
+                <li onclick="areaHandle(this)"> <a href="javascript:;">不限</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;"><500米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">500米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">1000米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">1500米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">2000米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">2500米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">3000米</a></li>
+                <li onclick="areaHandle(this)"> <a href="javascript:;">&gt;3000米</a></li>
+            </ul>
+        </li>
+        <li class="district_type"><a href="javascript:;">区域</a>
+            <ul class="pa district_type_area hide second_ul"></ul>
+        </li>
+        <li class="district_type"><a href="javascript:;">地铁</a>
+            <ul class="pa district_type_subway hide second_ul"  id="secondSubWwayUl">
+                <!-- <li><a href="javascript:;" class="selected">一号线</a>
+                     <ul class="line_detail third_ul">
+                         <li><a href="javascript:;">1</a></li>
+                         <li><a href="javascript:;">1</a></li>
+                         <li><a href="javascript:;">1</a></li>
+                     </ul>
+                 </li>-->
+            </ul>
+            <div class="third_ul_wrap"  id="thirdSubWwayUl"></div>
+            <!--<ul class="line_detail hide third_ul"></ul>-->
+        </li>
+        <li class="district_type"><a href="javascript:;">公交</a>
+            <ul class="pa district_type_busway hide second_ul" id="secondBusWwayUl">
+                <!-- <li onclick="getThirdUl(this)"><a href="javascript:;">1路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">10路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">101路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">12路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">13路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">14路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">15路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">105路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">109路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">102路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">102路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">111路</a></li>
+                 <li onclick="getThirdUl(this)"><a href="javascript:;">114路</a></li>-->
+            </ul>
+            <div class="third_ul_wrap" ></div>
+        </li>
+        <li class="bus_number" style="display: none">
+            <a href="javascript:;" class="bus_num_selected">1</a>
+            <a href="javascript:;">2</a>
+            <a href="javascript:;">3</a>
+            <a href="javascript:;">4</a>
+            <a href="javascript:;">5</a>
+            <a href="javascript:;">6</a>
+            <a href="javascript:;">7</a>
+            <a href="javascript:;">8</a>
+            <a href="javascript:;">9</a>
+        </li>
+    </ul>
+    <div class="district_btns hide">
+        <button class="clear">重置</button>
+        <button class="confirm">确定</button>
+    </div>
+</div>
+<!--整租合租-->
+<div class="filter_card rent_type_area hide pr">
+    <div class="whole_rent pr border_bottom">
+        <p class="rent_type_title">城壹宜居·合租</p>
+        <p class="rent_type_desc">传递信用价值&nbsp;&nbsp;&nbsp;&nbsp;乐享诚信生活</p>
+        <ul class="clearfix">
+            <li class="fl whole">不限</li>
+            <li class="fl whole">1居</li>
+            <li class="fl whole">2居</li>
+            <li class="fl whole">3居+</li>
+        </ul>
+    </div>
+    <div class="togather_rent pr">
+        <p class="rent_type_title">城壹宜居·整租</p>
+        <p class="rent_type_desc">传递信用价值&nbsp;&nbsp;&nbsp;&nbsp;乐享诚信生活</p>
+        <ul class="clearfix">
+            <li class="fl togather">不限</li>
+            <li class="fl togather">1居</li>
+            <li class="fl togather">2居</li>
+            <li class="fl togather">3居</li>
+            <li class="fl togather">3居+</li>
+        </ul>
+    </div>
+    <div class="rent_type_btns">
+        <button class="clear">重置</button>
+        <button class="confirm">确定</button>
+    </div>
+</div>
+<!--租金-->
+<div class="filter_card rent_bill_area hide pr">
+    <div class="range_area border_bottom">
+        <div class="range_price">不限</div>
+        <input type="hidden" id="priceSlider"/>
+        <div class="pa" style="font-size: 0.12rem;color: #999;bottom: 0.1rem;left: 0.28rem">0元</div>
+        <div class="pa" style="font-size: 0.12rem;color: #999;bottom: 0.1rem;right: 0.26rem">不限</div>
+    </div>
+    <div id="priceArea" class="price_area">
+        <ul class="clearfix">
+            <li><a href="javascript:;">不限</a></li>
+            <li><a href="javascript:;"><500元</a></li>
+            <li><a href="javascript:;">500-1000元</a></li>
+            <li><a href="javascript:;">1000-1500元</a></li>
+            <li><a href="javascript:;">1500-2000元</a></li>
+            <li><a href="javascript:;">2500-3000元</a></li>
+            <li><a href="javascript:;">3000-3500元</a></li>
+            <li><a href="javascript:;">3500-4000元</a></li>
+            <li><a href="javascript:;">4000-4500元</a></li>
+            <li><a href="javascript:;">4500-5000元</a></li>
+            <li><a href="javascript:;">>5000元</a></li>
+        </ul>
+    </div>
+    <div class="rent_bill_btns">
+        <button class="clear">重置</button>
+        <button class="confirm">确定</button>
+    </div>
+</div>
+<!--筛选-->
+<div class="filter_card orther_area hide orther_area_wrap" id="ortherArea">
+    <div  class="wrap_ul">
+        <div class="house_type border_bottom">
+            <p class="house_type_title orther_title">房源类型</p>
+            <ul class="clearfix">
+                <li class="fl">政策房源</li>
+                <li class="fl">个人房源</li>
+                <li class="fl">品牌公寓</li>
+                <li class="fl">平台房源</li>
+                <li class="fl">中介房源</li>
+            </ul>
+        </div>
+        <div class="house_acreage border_bottom">
+            <p class="house_acreage_title orther_title">房源面积</p>
+            <ul class="clearfix">
+                <li class="fl">&le;10m<sup>2</sup></li>
+                <li class="fl">10-20m<sup>2</sup></li>
+                <li class="fl">20-40m<sup>2</sup></li>
+                <li class="fl">40-60m<sup>2</sup></li>
+                <li class="fl">60-80m<sup>2</sup></li>
+                <li class="fl">80-100m<sup>2</sup></li>
+                <li class="fl">100-120m<sup>2</sup></li>
+                <li class="fl">&ge;120<sup>2</sup></li>
+            </ul>
+        </div>
+        <div class="house_orientations border_bottom">
+            <p class="house_orientations_title orther_title">房源朝向</p>
+            <ul class="clearfix">
+                <li class="fl">东</li>
+                <li class="fl">南</li>
+                <li class="fl">西</li>
+                <li class="fl">北</li>
+                <li class="fl">南北</li>
+                <li class="fl">东西</li>
+                <li class="fl">东南</li>
+                <li class="fl">西南</li>
+            </ul>
+
+        </div>
+        <div class="house_floor border_bottom" style="height: 1.02rem">
+            <p class="house_floor_title orther_title">楼层</p>
+            <ul class="clearfix" style="padding-left: 0.61rem;padding-right: 0.53rem">
+                <li class="fl">6层以下</li>
+                <li class="fl">6-12层</li>
+                <li class="fl">12层以上</li>
+
+
+            </ul>
+
+        </div>
+        <div class="house_zhuangxiu border_bottom" style="height: 1.02rem">
+            <p class="house_zhuangxiu_title orther_title">装修</p>
+            <ul class="clearfix">
+                <li class="fl">毛坯</li>
+                <li class="fl">普通装修</li>
+                <li class="fl">精装修西</li>
+                <li class="fl">豪华装修</li>
+
+            </ul>
+
+        </div>
+        <div class="house_tese border_bottom" style="height: 1.86rem">
+            <p class="house_tese_title orther_title">房源特色</p>
+            <ul class="clearfix">
+                <li class="fl">首次出租</li>
+                <li class="fl">独立阳台</li>
+                <li class="fl">离地铁近</li>
+                <li class="fl">独立卫生间</li>
+                <li class="fl">有厨房</li>
+                <li class="fl">家电齐全</li>
+                <li class="fl">随时看房</li>
+                <li class="fl">有电梯</li>
+                <li class="fl">城壹认证</li>
+                <li class="fl">政府认证</li>
+            </ul>
+        </div>
+        <div class="house_arround border_bottom">
+            <p class="house_arround_title orther_title">房源周边</p>
+            <ul class="clearfix">
+                <li class="fl">交通</li>
+                <li class="fl">超市</li>
+                <li class="fl">金融</li>
+                <li class="fl">医疗</li>
+                <li class="fl">教育</li>
+                <li class="fl">餐饮</li>
+                <li class="fl">娱乐</li>
+                <li class="fl">公园</li>
+            </ul>
+        </div>
+        <div class="house_state" style="height: 1.65em">
+            <p class="house_state_title orther_title">房源状态</p>
+            <ul class="clearfix">
+                <li class="fl">立即入住</li>
+                <li class="fl">可预订</li>
+                <li class="fl">转租</li>
+                <li class="fl">换租</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pr orther_btns" style="z-index: 1999">
+        <button class="clear">重置</button>
+        <button class="confirm">确定</button>
+    </div>
+</div>
+
+<!--排序-->
+<div class="filter_card order_area hide">
+    <div class="order_card">
+        <ul>
+            <li><a href="javascript:;">智能推荐</a></li>
+            <li><a href="javascript:;">最新发布</a></li>
+            <li><a href="javascript:;">价格从高到低</a></li>
+            <li><a href="javascript:;">价格从低到高</a></li>
+            <li><a href="javascript:;">价格从小到大</a></li>
+            <li><a href="javascript:;">价格从大到小</a></li>
+        </ul>
+    </div>
+</div>
+<script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/house_list.js"></script>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/frame/jquery.range.js"></script>
+<script>
+    $('.back').on('click',function () {
+        window.history.go(-1)
+    })
+    //初始化列表
+    scrollLoading('mescroll','recommendhouseList')
+    $('.header,.filter_area,.district_area ,.range_area,.rent_type_area,.order_area').on('touchmove',function (e) {
+        e=event || window.event;
+        e.preventDefault()
+    })
+    $('.second_ul').on('touchmove',function (e) {
+        e=e.event||window.event
+        e.stopPropagation()
+    })
+    /*******filter 菜单*******/
+    $('.district_filter').click(function () {
+        $(this).find('span').eq(0).css('color','#ff8200')
+        $(this).siblings('li').not('.order_filter').find('img').attr('src','../../img/house_list/arrow-bottom.png')
+        $('.order_filter').find('img').attr('src','../../img/house_list/paixu.png')
+        $('.district_area').toggleClass('hide').siblings('.filter_card').addClass('hide')
+        if($('.district_area').hasClass('hide')){
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-bottom.png')
+            var value = $(this).text().trim()
+            if(value=='区域'){
+                $(this).find('span').eq(0).css('color','#000')
+                $(this).removeClass('filtered')
+            }else{
+                $(this).addClass('filtered')
+            }
+        }else{
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-top.png')
+        }
+    });
+    $('.rent_type_filter').click(function () {
+        $(this).find('span').eq(0).css('color','#ff8200')
+        $(this).siblings('li').not('.order_filter').find('img').attr('src','../../img/house_list/arrow-bottom.png')
+        $('.order_filter').find('img').attr('src','../../img/house_list/paixu.png')
+        $('.rent_type_area').toggleClass('hide').siblings('.filter_card').addClass('hide')
+        if($('.rent_type_area').hasClass('hide')){
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-bottom.png')
+            var value = $(this).text().trim()
+            // alert(value)
+            if(value=='合/整租'){
+                $(this).find('span').eq(0).css('color','#000')
+                $(this).removeClass('filtered')
+            }else{
+                $(this).addClass('filtered')
+            }
+        }else{
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-top.png')
+        }
+    });
+    $('.rent_bill_filter').click(function () {
+        $(this).find('span').eq(0).css('color','#ff8200')
+        $(this).siblings('li').not('.order_filter').find('img').attr('src','../../img/house_list/arrow-bottom.png')
+        $('.order_filter').find('img').attr('src','../../img/house_list/paixu.png')
+        $('.rent_bill_area').toggleClass('hide').siblings('.filter_card').addClass('hide')
+        if($('.rent_bill_area').hasClass('hide')){
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-bottom.png')
+            var value = $(this).text().trim()
+            if(value=='租金'){
+                $(this).find('span').eq(0).css('color','#000')
+                $(this).removeClass('filtered')
+            }else{
+                $(this).addClass('filtered')
+            }
+
+        }else {
+            $(this).find('img').eq(0).attr('src', '../../img/house_list/arrow-top.png')
+            var value = $(this).text().trim()
+            if(value=='不限' || value=='租金'){
+                $('#priceSlider').jRange('setValue', '0,10000');
+            }else if(value.indexOf('以上')>-1){
+                var key = (value.split('k')[0])*1000
+                $('#priceSlider').jRange('setValue', ''+key+',10000');
+            }
+        }
+
+
+    });
+    $('.orther_filter').click(function () {
+        $(this).find('span').eq(0).css('color','#ff8200')
+        $(this).siblings('li').not('.orther_filter').find('img').attr('src','../../img/house_list/arrow-bottom.png')
+        $('.order_filter').find('img').attr('src','../../img/house_list/paixu.png')
+        $('.orther_area').toggleClass('hide').siblings('.filter_card').addClass('hide')
+        if($('.orther_area').hasClass('hide')){
+
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-bottom.png')
+            var value = $(this).text().trim()
+            if(value=='筛选'){
+                $(this).find('span').eq(0).css('color','#000')
+                $(this).removeClass('filtered')
+            }else
+            {
+                $(this).addClass('filtered')
+            }
+        }else{
+
+            $(this).find('img').eq(0).attr('src','../../img/house_list/arrow-top.png')
+        }
+    });
+    $('.order_filter').click(function () {
+        $(this).find('span').eq(0).css('color','#ff8200')
+        $(this).siblings('li').not('.order_filter').find('img').attr('src','../../img/house_list/arrow-bottom.png')
+        $('.order_area').toggleClass('hide').siblings('.filter_card').addClass('hide')
+        if($('.order_area').hasClass('hide')){
+
+            $(this).find('img').eq(0).attr('src','../../img/house_list/paixu.png')
+            var value = $(this).text().trim()
+            if(value=='排序'){
+                $(this).find('span').eq(0).css('color','#000')
+                $(this).removeClass('filtered')
+            }else
+            {
+                $(this).addClass('filtered')
+            }
+        }else{
+            $(this).find('img').eq(0).attr('src','../../img/house_list/phone_ico/btn_order_sel.png')
+        }
+    });
+
+    //filter 统一的事件
+    $('.filter_area li').on('click',function () {
+        $(this).siblings('li').not('.filtered').find('span').css('color','#000')
+    })
+
+    /**********************************区域筛选**************************/
+
+
+    // 区域左侧点击type
+    $('.district_type').click(function () {
+
+        $(this).find('a').eq(0).addClass('selected')
+        $(this).find('ul').eq(0).show()
+        var $lis = $(this).siblings('li')
+        $lis.each(function (index,item) {
+            $(item).find('a').eq(0).removeClass('selected')
+            $(item).find('ul').eq(0).hide()
+        })
+
+        switch ( $(this).find('a').eq(0).text()){
+            case '附近':
+                $('.district_btns').hide()
+                $('.bus_number').hide()
+                $('.line_detail').hide()
+                $('.bus_line_detail').hide()
+                //console.log($(this).text())
+                break;
+            case '区域':
+                $('.district_btns').hide()
+                $('.bus_number').hide()
+                $('.line_detail').hide()
+                $('.bus_line_detail').hide()
+                if($('.district_type_area li').length!=0){
+                    return false
+                }
+                //console.log($(this).text())
+                // 异步加载行政区
+                HttpUtils.get('../../mock/distrct.json','',function (data) {
+                    var data = data.data
+                    $('.district_type_area').append('<li onclick="areaHandle(this)"> <a href="javascript:;">不限</a></li>')
+                    setTimeout(function () {
+                        data.forEach(function (item,index) {
+                            var li =  '<li onclick="areaHandle(this)"> <a href="javascript:;">'+item.name+'</a></li>'
+                            $('.district_type_area').append(li)
+                        })
+                    })
+                })
+
+                break;
+            case '地铁':
+                $('.district_btns').show()
+                $('.bus_line_detail').hide()
+                $('.bus_number').hide()
+                var chooseIndex = $(this).find('ul').eq(0).find('.selected').parent().index()
+                //alert(chooseIndex)
+                if(chooseIndex>0){
+                    $('.district_type_subway ').parent().find('.line_detail').eq(chooseIndex).show()
+                }else{
+
+                    $('.district_type_subway ').parent().find('.line_detail').eq(0).show()
+                }
+
+                if($(this).find('ul').eq(0).find('li').length!=0){
+                    return false
+                }
+                //console.log($(this).text())
+                getLines('../../mock/subway.json','district_type_subway','line_detail')
+                //console.log($(this).text())
+                break;
+            case '公交':
+                $('.district_btns').show()
+                $('.line_detail').hide()
+                $('.bus_number').show()
+                // $('.bus_number a').eq(0).trigger('click')
+                var chooseIndex = $(this).find('ul').eq(0).find('.selected').parent().index()
+                //alert(chooseIndex)
+                if(chooseIndex>0){
+                    $('.district_type_busway ').parent().find('.bus_line_detail').eq(chooseIndex).show()
+                }else{
+                    $('.district_type_busway').parent().find('.bus_line_detail').eq(0).show()
+                }
+
+                if($(this).find('ul').eq(0).find('li').length!=0){
+                    return false
+                }
+
+                $('.bus_number a').eq(0).trigger('click')
+                //console.log($(this).text())
+                break;
+            default:
+                break
+        }
+    });
+    //公交num点击
+    $('.bus_number a').click(function () {
+        $(this).addClass('bus_num_selected');
+        $(this).siblings().removeClass('bus_num_selected');
+        $('.district_type_busway').html('')
+        $('.bus_line_detail').remove()
+        var index = $(this).text();
+        var url = '../../mock/bus.json?line='+index
+        getLines(url,'district_type_busway','bus_line_detail')
+    })
+    // 2ji点击
+    function areaHandle(obj,e) {
+        e = event || window.event
+        e.stopPropagation()
+
+        $(obj).find('a').eq(0).addClass('selected')
+        var $lis = $(obj).siblings('li')
+        $lis.each(function (index,item) {
+            $(item).find('a').eq(0).removeClass('selected')
+        })
+        var $ortherParentLi = $(obj).parents('li').eq(0).siblings('li').find('.selected')
+        console.log($ortherParentLi)
+        $ortherParentLi.each(function (index,item) {
+            $(item).removeClass('selected')
+        })
+
+        var key = $(obj).text().trim();
+        var belong = $(obj).parents('li').eq(0).find('a').eq(0).text().trim()
+        console.log(key)
+        if(key == '不限'){
+            $('.district_filter span').text('全广州')
+        }else if(key.indexOf('>')==-1 && belong == '附近'){
+            var value = key.replace(/[^0-9]/ig,"");
+            $('.district_filter span').text(value*1/1000+'km')
+        }else if(key.indexOf('>')>-1 && belong == '附近'){
+            var value = key.replace(/[^0-9]/ig,"");
+            $('.district_filter span').text('>'+value*1/1000+'km')
+        }else if(key.length>2){
+            $('.district_filter span').text(key.substring(0,2)+'...')
+        }else{
+            $('.district_filter span').text(key)
+        }
+        $('.district_filter span').css('color','#ff8200')
+        $('.district_filter').trigger('click')
+    }
+    function areaHandleSubWay(obj,e) {
+        e = event || window.event
+        e.stopPropagation()
+
+        $(obj).find('a').eq(0).toggleClass('selected')
+
+        var $uls = $(obj).parent().siblings('ul.third_ul')
+        $uls.each(function (index,item) {
+            $(item).find('.selected').removeClass('selected')
+        })
+        var $ortherParentLi = $(obj).parents('li').eq(0).siblings('li').find('.selected')
+        console.log($ortherParentLi)
+        $ortherParentLi.each(function (index,item) {
+            $(item).removeClass('selected')
+        })
+        var key = $(obj).text().trim();
+        if(key.length>2){
+            $('.district_filter span').text(key.substring(0,2)+'...')
+        }else{
+            $('.district_filter span').text(key)
+        }
+        $('.district_filter span').css('color','#ff8200')
+        //$('.district_filter').trigger('click')
+
+    }
+    //2级点击
+    function getThirdUl(obj,e) {
+        //alert($(obj).index())
+        e = event || window.event
+        e.stopPropagation()
+
+
+        $(obj).find('a').eq(0).addClass('selected')
+        $(obj).find('ul').eq(0).removeClass('hide')
+        var $lis = $(obj).siblings('li')
+        $lis.each(function (index,item) {
+            $(item).find('a').eq(0).removeClass('selected')
+            $(item).find('ul').eq(0).addClass('hide')
+        })
+
+        var $ortherParentUl = $(obj).parents('li').eq(0).siblings('li').find('.selected')
+        console.log($ortherParentUl)
+        $ortherParentUl.each(function (index,item) {
+            $(item).removeClass('selected')
+        })
+
+
+        $(obj).parents('li').eq(0).find('.third_ul').eq($(obj).index()).removeClass('hide')
+        $(obj).parents('li').eq(0).find('.third_ul').eq($(obj).index()).show()
+        var $lines = $(obj).parents('li').eq(0).find('.third_ul').eq($(obj).index()).siblings('.third_ul')
+        $lines.each(function (index,item) {
+
+            $(item).addClass('hide')
+            $(item).hide()
+        })
+    }
+    // 获得地铁或公交线路
+    function getLines(url,obj,thirdLineClass) {
+        HttpUtils.get(url,'',function (data) {
+            var data = data.lines;
+            setTimeout(function () {
+                data.forEach(function (item,index) {
+                    var stages = item.stages;
+                    var id = thirdLineClass+index
+                    var thirdLi = ''
+                    var thirdUl = '<ul id="'+thirdLineClass+index+'" class="hide third_ul '+thirdLineClass+'">'
+                    stages.forEach(function (item1,index1) {
+                        thirdLi += '<li onclick="areaHandleSubWay(this)"><a href="javascript:;">'+item1.stageName+'</a></li>'
+                    });
+                    thirdUl = thirdUl + thirdLi +'</ul>'
+                    //console.log(thirdUl)
+                    if(index>0){
+                        var li =  '<li onclick="getThirdUl(this)"><a href="javascript:;">'+item.lineName+'</a>'+
+
+                            '</li>'
+                    }else{
+                        var li =  '<li onclick="getThirdUl(this)"><a href="javascript:;">'+item.lineName+'</a>'+
+
+                            '</li>'
+                    }
+
+                    $('.'+obj).append(li)
+                    $('.'+obj).parent().find('.third_ul_wrap').append(thirdUl)
+                    $('.'+obj).parent().find('.third_ul').eq(0).show()
+                    $('.third_ul').on('touchmove',function (e) {
+                        e=e.event||window.event
+                        e.stopPropagation()
+                    })
+                    var filterCard= new MeScroll(id, {
+                        down:{
+                            use:false,
+                            isBounce:false
+                        },
+                        //上拉加载的配置项
+                        up: {
+                            use:false,
+                            isBounce:false
+                        }
+                    });
+                })
+            })
+
+        })
+
+    }
+
+    $('.district_btns .clear').on('click',function () {
+        $('.district_area .second_ul .selected,.district_area .third_ul .selected').removeClass('selected')
+    })
+    $('.district_btns .confirm').on('click',function () {
+
+        if($('.third_ul .selected').length>0){
+
+        }else if($('.second_ul .selected').length>0){
+            var value = $('.second_ul .selected').text()
+            if(value.length>3){
+                $('.district_filter').find('span').text(value.substring(0,3)+'...')
+            }else{
+                $('.district_filter').find('span').text(value)
+            }
+
+        }else{
+            $('.district_filter').find('span').text('区域')
+        }
+        $('.district_filter').trigger('click')
+    })
+    /**************************整租合租筛选**********************************/
+    $('.whole_rent li,.togather_rent li').click(function () {
+        $(this).toggleClass('selected')
+        $(this).parents('div').eq(0).siblings().find('li').removeClass('selected')
+    })
+    $('.rent_type_area .clear').click(function () {
+        $(this).parent().parent().find('li').removeClass('selected')
+    })
+    $('.rent_type_area .confirm').click(function () {
+        var length = $('.rent_type_area .selected').length
+        if(length>1){
+            $('.rent_type_filter span').css('color','#ff8200')
+            if($('.rent_type_area .selected').eq(0).hasClass('whole')){
+                $('.rent_type_filter span').text('整/多选')
+            }else{
+                $('.rent_type_filter span').text('合/多选')
+            }
+
+        }else{
+            var key = $('.rent_type_area .selected').text().trim()
+            if(!key){
+                $('.rent_type_filter span').css('color','#ff8200')
+                $('.rent_type_filter span').text('不限')
+            }else{
+                $('.rent_type_filter span').css('color','#ff8200')
+                if($('.rent_type_area .selected').eq(0).hasClass('whole')){
+                    $('.rent_type_filter span').text('整/'+key)
+                }else{
+                    $('.rent_type_filter span').text('合/'+key)
+                }
+            }
+        }
+
+        $('.rent_type_filter').trigger('click')
+    })
+
+    /************租金********/
+    //租金范围选择
+    $(document).ready(function(){
+        $('#priceSlider').jRange({
+            from: 0,
+            to: 6000,
+            step: 500,
+            format: '0元',
+            width: '3.03rem',
+            showLabels: false,
+            showScale: false,
+            isRange : true,
+            theme: "theme-blue",
+            ondragend:function (data) {
+
+                console.log(data)
+                $('.price_area li a').removeClass('selected');
+                if(data.split(',')[1] == '6000'){
+                    if(data.split(',')[0] == 0 ){
+                        $('.range_price').text('不限')
+                    }else{
+                        $('.range_price').text(data.split(',')[0]+'元以上')
+                    }
+
+                }else{
+                    $('.range_price').text(data.replace(',','-')+'元')
+                }
+
+
+
+
+            },
+            onbarclicked:function (data) {
+
+                console.log(data)
+                $('.price_area li a').removeClass('selected')
+                if(data.split(',')[1] == '6000'){
+                    if(data.split(',')[0] == 0 ){
+                        $('.range_price').text('不限')
+                    }else{
+                        $('.range_price').text(data.split(',')[0]+'元以上')
+                    }
+
+                }else{
+                    $('.range_price').text(data.replace(',','-')+'元')
+                }
+            },
+
+        });
+
+
+
+
+    });
+
+    //租金li点击
+    $('.price_area ul li a').click(function () {
+        $(this).addClass('selected')
+        $(this).parent().siblings().find('a').removeClass('selected')
+        if($(this).text()=='不限'){
+            $('#priceSlider').jRange('setValue', '0,10000');
+            $('.range_price').text('不限')
+        }else if($(this).text()=='<500元'){
+            $('#priceSlider').jRange('setValue', '0,500');
+            $('.range_price').text('小于500')
+        }else if($(this).text()=='>5000元'){
+            $('#priceSlider').jRange('setValue', '5000,10000');
+            $('.range_price').text('5000以上')
+        }else{
+            var str = $(this).text().split('-')[0]+','+$(this).text().split('-')[1].substring(0,$(this).text().split('-')[1].length-1)
+            //alert(str)
+            $('#priceSlider').jRange('setValue',str );
+            $('.range_price').text(str.replace(',','-'))
+        }
+    })
+
+    $('.rent_bill_area .clear').click(function () {
+        $('.price_area li a').removeClass('selected')
+        $('.range_price').text('不限')
+        $('#priceSlider').jRange('setValue','0,10000' );
+    })
+    $('.rent_bill_area .confirm').click(function () {
+
+        var key = $('.range_price').text().trim()
+        $('.rent_bill_filter span').css('color','#ff8200')
+        if(!key){
+            $('.rent_type_filter span').css('color','#ff8200')
+            $('.rent_type_filter span').text('不限')
+        }else if(key=='不限'){
+            $('.rent_bill_filter span').text(key)
+        }else if(key.indexOf('以上')>-1){
+            var value = (key.replace(/[^0-9]/ig,""))*1/1000;
+            $('.rent_bill_filter span').text(value+'k以上')
+        }else if(key.indexOf('小于')>-1){
+            $('.rent_bill_filter span').text(0+'-'+key.replace(/[^0-9]/ig,"")+'元')
+        }else{
+            var s1 = (key.split('-')[0])*1/1000+'k'
+            var s2 = (key.split('-')[1].replace(/[^0-9]/ig,"").trim())*1/1000+'k'
+            $('.rent_bill_filter span').text(s1+'-'+s2)
+        }
+
+        $('.rent_bill_filter').trigger('click')
+
+    })
+    /************其他条件筛选********/
+
+    $('.orther_area li').on('click',function (e) {
+        $(this).toggleClass('selected')
+    })
+    $('.orther_area .clear').on('click',function () {
+        $('.orther_area li').removeClass('selected')
+    })
+    $('.orther_area .confirm').on('click',function () {
+        var length = $('.orther_area .selected').length
+        if(length>1){
+            $('.orther_filter span').css('color','#ff8200')
+            $('.orther_filter span').text('多选')
+        }else{
+            var key = $('.orther_area .selected').text().trim()
+            if(!key){
+                $('.orther_filter span').css('color','#000')
+                $('.orther_filter span').text('筛选')
+            }else{
+                $('.orther_filter span').css('color','#ff8200')
+                $('.orther_filter span').text(key)
+            }
+        }
+        $('.orther_filter').trigger('click')
+    })
+    //排序
+    $('.order_area li').on('click',function () {
+        $(this).siblings().removeClass('selected')
+        $(this).addClass('selected')
+        $(this).find('a').css('color','#ff8200')
+        $('.order_filter span').text( $(this).find('a').text().substring(0,2)+'...')
+        $('.order_filter').trigger('click')
+    })
+
+
+
+
+
+
+
+
+
+
+    setTimeout(function () {
+        var rejectWxArr = ['secondSubWwayUl','secondBusWwayUl','priceArea','ortherArea']
+        rejectWxArr.forEach(function (item,index) {
+            var filterCard= new MeScroll(item, {
+                down:{
+                    use:false,
+                    isBounce:false
+                },
+                //上拉加载的配置项
+                up: {
+                    use:false,
+                    isBounce:false
+                }
+            });
+        })
+    })
+</script>
+</html>

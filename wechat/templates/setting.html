@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>设置</title>
+    <script rel="stylesheet" src="../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/frame/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script rel="stylesheet" src="../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../js/common.js"></script>
+    <style>
+        body{
+            background: #E8E9ED;
+            height: 100%;
+        }
+        .main{
+            background: #fff;
+        }
+        .date{
+            background: #E8E9ED;
+            text-align: center;
+            position: absolute;
+            top:-0.36rem;
+            font-family: PingFangSC-Regular;
+            font-size: 0.12rem;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            padding: 0.04rem 0.12rem;
+            background: rgba(0,0,0,.2);
+            border-radius: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .setting_list{
+            padding-left: 0.18rem;
+            width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .setting_list li{
+            width: 100%;
+            height: 0.7rem;
+            line-height: 0.72rem;
+            position: relative;
+        }
+        .setting_list li img{
+            position: relative;
+            top:2px;
+        }
+        .setting_list li img.arrow{
+            position: absolute;
+            right:0.18rem;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        .setting_list li span{
+            font-family: PingFangSC-Regular;
+            font-size: 0.14rem;
+            color: #666666;
+            letter-spacing: 0;
+            margin-left: 8px;
+            display: inline-block;
+        }
+        .mock_margin {
+            width: 120%;
+            height: 0.1rem;
+            background: #E8E9ED;
+            position: relative;
+            left: -20%;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <ul class="setting_list">
+        <li class="border_bottom">
+            <a href="javascript:;">
+                <img src="../img/setting_icons/ico_01.svg" alt=""><span>关于我们</span>
+                <img class="arrow" src="../img/setting_icons/btn_to.svg" alt="">
+            </a>
+        </li>
+        <li class="">
+            <a href="javascript:;">
+                <img src="../img/setting_icons/ico_02.svg" alt=""><span>版权信息</span>
+                <img class="arrow" src="../img/setting_icons/btn_to.svg" alt="">
+            </a>
+        </li>
+        <div class="mock_margin"></div>
+        <li class="">
+
+            <img src="../img/setting_icons/ico_03.svg" alt=""><span>退出登录</span>
+            <img class="arrow" src="../img/setting_icons/btn_to.svg" alt="">
+        </li>
+    </ul>
+</div>
+</body>
+</html>

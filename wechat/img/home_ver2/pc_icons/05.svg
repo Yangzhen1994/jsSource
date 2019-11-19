@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="19px" viewBox="0 0 20 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>编组 36</title>
+    <desc>Created with Sketch.</desc>
+    <g id="元素" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标切图" transform="translate(-99.000000, -1456.000000)">
+            <g id="编组-36" transform="translate(96.000000, 1454.000000)">
+                <rect id="矩形复制-15" fill="#D8D8D8" opacity="0" x="0" y="0" width="24" height="24"></rect>
+                <path d="M19,13.8292943 L19,8.17070571 C19.3127789,8.06015422 19.6493646,8 20,8 C21.6568542,8 23,9.34314575 23,11 C23,12.6568542 21.6568542,14 20,14 C19.6493646,14 19.3127789,13.9398458 19,13.8292943 Z" id="形状结合" fill="#FFB467"></path>
+                <path d="M3,13.8292943 L3,8.17070571 C3.31277893,8.06015422 3.64936458,8 4,8 C5.65685425,8 7,9.34314575 7,11 C7,12.6568542 5.65685425,14 4,14 C3.64936458,14 3.31277893,13.9398458 3,13.8292943 Z" id="形状结合复制" fill="#FFB467" transform="translate(5.000000, 11.000000) scale(-1, 1) translate(-5.000000, -11.000000) "></path>
+                <circle id="椭圆形复制-3" fill="#FFB467" cx="13" cy="19" r="2"></circle>
+                <path d="M13,19 L13,19 C9.6862915,19 7,16.3137085 7,13 L7,9 C7,5.6862915 9.6862915,3 13,3 L13,3 L13,3 C16.3137085,3 19,5.6862915 19,9 L19,13" id="路径" stroke="#555555" stroke-width="1.5" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

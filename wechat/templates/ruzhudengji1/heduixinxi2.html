@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>核对信息</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/check_in_form.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <form class="check_in_form " id="checkInForm">
+        <div  class="border_bottom" style="padding-bottom: 0.32rem">
+            <p>小区信息</p>
+            <div class="input_area clearfix">
+                <div class="clearfix">
+                    <label for=""><span>*</span>小区名称</label>
+                    <div class="fl pr select_wrap" name="building_name" style="width: 100%">
+                        <select>
+                            <option value="area" style="color: rgba(0,0,0,.4)">请选择小区</option>
+                        </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>楼栋号</label>
+                    <div class="pr input_wrap">
+                        <input class="build_num" type="text" value="" placeholder=""/><span class="pa unit">栋</span>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="margin-left: 0.05rem">
+                    <label for=""><span>*</span>房间号</label>
+                    <div class="pr input_wrap w144">
+                        <input class="room_num" type="text" value="" placeholder="" name="room_num"/><span class="pa unit">室</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix border_bottom chengzhuren"  style="padding-bottom: 0.32rem">
+            <p style="margin-top: 0.32rem">承租人信息</p>
+            <div class="input_area clearfix">
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>姓名</label>
+                    <div class="pr input_wrap  w103" style="margin-left: 0">
+                        <input class="name" type="text" value="" placeholder=""  class="name" name="name"/>
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>性别</label>
+                    <div class="pr select_wrap  w103">
+                        <select class="sex" name="sex">
+                            <option value="boy" style="color: rgba(0,0,0,.4)">男</option>
+                            <option value="girl" style="color: rgba(0,0,0,.4)">女</option>
+                        </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>民族</label>
+                    <div class="pr select_wrap  w103">
+                        <select class="minzu" name="minzu">
+                            <option value="area" style="color: rgba(0,0,0,.4)">汉</option>
+                        </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>出生日期</label>
+                    <div class="pr input_wrap">
+                        <input name="birthday" class="birthday" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="margin-left: 0.05rem">
+                    <label for=""><span>*</span>手机号码</label>
+                    <div class="pr input_wrap w144">
+                        <input class="phone" type="text" value="" placeholder="" name="phone_num"/>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="width: 100%">
+                    <label for=""><span>*</span>身份证号码</label>
+                    <div class="pr input_wrap" style="width: 100%">
+                        <input class="id_card" type="text" value="" placeholder="" name="id_card"/>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="width: 100%">
+                    <label for=""><span>*</span>户口所在地</label>
+                    <div class="pr input_wrap" style="width: 100%">
+                        <input class="hukou" type="text" value="" placeholder="" name="hukou"/>
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>身体状况</label>
+                    <div class="pr input_wrap">
+                        <input name="body_healthy" class="body_healthy" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="margin-left: 0.05rem">
+                    <label for=""><span>*</span>文化程度</label>
+                    <div class="pr select_wrap w144" style="margin-left: 0">
+                        <select name="wenhuachengdu" class="wenhuachengdu" type="text" value=""/>
+                        <option value="0">高中</option>
+                        <option value="1">大学</option>
+                        </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="fl clearfix " style="width: 100%">
+                    <label for=""><span>*</span>工作单位</label>
+                    <div class="pr input_wrap" style="width: 100%">
+                        <input class="work_address" type="text" value="" placeholder="" name="work_address"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix ruzhuren_wrap"></div>
+        <div class="clearfix">
+
+            <div class="ruzhuren_area border_bottom" id="addBtn">
+                <span style="font-size: 0.2rem;color: #ff8200;display:inline-block;margin-right: 0;margin-top: -0.04rem">+</span> 添加入住人
+            </div>
+
+
+        </div>
+        <div class="clearfix border_bottom" style="padding-bottom: 0.32rem">
+            <p>车辆情况</p>
+            <div class="input_area clearfix">
+                <div class="fl clearfix">
+                    <label for="">机动车</label>
+                    <div class="pr input_wrap">
+                        <input class="car_count" type="text" value="" placeholder=""/><span class="pa unit">辆</span>
+                    </div>
+                </div>
+                <div class="fl clearfix " style="margin-left: 0.05rem">
+                    <label for="">车辆型号</label>
+                    <div class="pr input_wrap w144">
+                        <input class="car_type" type="text" value="" placeholder="" name=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix ">
+                    <label for="">车辆权属</label>
+                    <div class="pr select_wrap "  style="margin-left: 0">
+                        <select class="car_belong" type="text" value="" placeholder="" name="">
+                            <option value="1">自有</option>
+                        </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </div>
+                </div>
+                <div class="fl clearfix " style="margin-left: 0.05rem">
+                    <label for="">残疾人专用车</label>
+                    <div class="pr input_wrap w144">
+                        <input class="car_type" type="text" value="" placeholder="" name=""/><span class="pa unit">辆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix border_bottom" style="padding-bottom: 1rem">
+            <p>紧急联系人</p>
+            <div class="clearfix choose_jinji input_area">
+                <ul>
+                    <!--<li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                    <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                    <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                    <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>-->
+                </ul>
+
+            </div>
+            <div class="clearfix input_area">
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>联系人</label>
+                    <div class="pr input_wrap" style="width: 1.03rem;">
+                        <input name="link_man" class="link_man" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix" style="margin-left: 0.05rem">
+                    <label for=""><span>*</span>联系电话</label>
+                    <div class="pr input_wrap" style="width: 2.02rem;">
+                        <input name="link_phone" class="phone" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix">
+                    <label for=""><span>*</span>与住户关系</label>
+                    <div class="pr input_wrap" style="width: 1.03rem;">
+                        <input class="link_nexus" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+                <div class="fl clearfix" style="margin-left: 0.05rem">
+                    <label for=""><span>*</span>联系地址</label>
+                    <div class="pr input_wrap" style="width: 2.02rem;">
+                        <input class="link_address" type="text" value="" placeholder=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="btns ">
+        <button class="clear" onclick="window.history.go(-1)">更改</button>
+        <button type="submit" class="confirm" form="checkInForm">确认提交</button>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+   /* var html = window.sessionStorage.getItem('Html')
+    html = JSON.parse(html)
+    console.log(html,$(html))
+    $('body').append($(html))*/
+
+    $('input,select').css('color','#d7d7d7').attr('readonly',true).on('click',function () {
+
+        $(this).blur()
+    })
+
+</script>
+</body>
+</html>

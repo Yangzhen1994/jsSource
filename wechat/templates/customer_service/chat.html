@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>联系客服</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/customer_service.css">
+</head>
+<body class="grayBody">
+    <section class="chat_box">
+        <div class="chat_boxin clearfix">
+            <!--<div class="nowtime"><span></span></div>
+            <div class="robot"></div>
+            //客服输出
+            <div class="service_box">
+                <img src="../../img/customer_service/chat1.png"/>
+                <p>您好，请问有什么可以帮你？</p>
+            </div>
+            //提问人输出
+            <div class="customer_box">
+                <img src="../../img/customer_service/chat2.png"/>
+                <p>你好，我想咨询一下如何办理车位申请怎么办理？</p>
+            </div>-->
+            <!--知识库
+            <div class="service_box">
+                <img src="../../img/customer_service/chat1.png"/>
+                <div class="zsk_box">
+                    <p>你是否存在以下问题：</p>
+                    <p>萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。</p>
+                    <div class="way">我要查看<span onclick="moreAnsFnc()">更多回答</span></div>
+                    <div class="way">我要<span onclick="rengongfuc()">人工咨询</span></div>
+                    <div class="rgtime">人工客服工作时间为 9:00-18:00</div>
+                </div>
+            </div>-->
+            <!--更多回答-->
+            <!--<div class="service_box">
+                <img src="../../img/customer_service/chat1.png"/>
+                <div class="zsk_box">
+                    <p>你是否存在以下问题：</p>
+                    <p>萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。</p>
+                    <p>萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。</p>
+                    <p>萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。</p>
+                    <div class="way">我要<span onclick="rengongfuc()">人工咨询</span></div>
+                    <div class="rgtime">人工客服工作时间为 9:00-18:00</div>
+                </div>
+            </div>-->
+        </div>
+    </section>
+    <section class="edit_box">
+        <input type="text" placeholder="请输入您要咨询的问题"/>
+        <button>发送</button>
+    </section>
+</body>
+<script>
+    var myDate = new Date();
+    var cus_first = 1;//标记人工咨询点击，人工变为0
+    firstfuc();//初始化
+
+    //更多回答和人工咨询的事件绑定
+    //$(".moreansBtn").live("click",moreAnsFnc);
+    //$(".rengongBtn").live("click",rengongfuc);
+
+    //点击发送
+    $(".edit_box button").click(function(){
+        sendfuc();
+    })
+    //键盘绑定
+    $(document).keyup(function(event){
+        if(event.keyCode ==13){
+            sendfuc();
+        }
+    });
+
+    //现在时间
+    function nowtimefuc(){
+        var hours,minutes;
+        if(myDate.getHours()<10){
+            hours="0"+myDate.getHours()
+        }else{
+            hours=myDate.getHours()
+        }
+        if(myDate.getMinutes()<10){
+            minutes="0"+myDate.getMinutes()
+        }else{
+            minutes=myDate.getMinutes()
+        }
+        return myDate.getMonth()+1 +"月"+ myDate.getDate() +"日"+" "+hours+" : "+minutes;
+    }
+
+    //初始化，定义自动带入时间，以及首句欢迎
+    function firstfuc(){
+        //初始显示节点
+        var begin_node=[];
+        begin_node.push('<div class="nowtime">');
+        begin_node.push('<span>'+nowtimefuc()+'</span>');
+        begin_node.push('</div>');
+        begin_node.push('<div class="robot"><p>感谢您使用城壹宜居平台，请反馈您使用中的问题，我们将竭诚为您服务！</p></div>');
+        $(".chat_boxin").append(begin_node.join(""));
+        scrollToBottom();
+    }
+
+    //发送
+    function sendfuc(){
+        if($(".edit_box input").val()==""){
+            return false;
+        }else{
+            var send_str = $(".edit_box input").val();//变量储存
+            $(".edit_box input").val("");//清空输入框
+            customerfuc(send_str);
+            //没有人工咨询之前，调用zskfuc()，如果判定人工服务，调用rengongfuc()
+            if(cus_first==1){
+                setTimeout(function(){zskfuc()},800)
+            }else{
+                //程序调用回答的处理
+            }
+        }
+    }
+
+    //用户提问
+    function customerfuc(str){
+        var send_node = [];
+        send_node.push('<div class="customer_box">');
+        send_node.push('<img src="../../img/customer_service/chat2.png"/>');
+        send_node.push('<p>'+str+'</p>');
+        send_node.push('</div>');
+        $(".chat_boxin").append(send_node.join(""));
+        scrollToBottom();
+    }
+
+    //知识库匹配
+    function zskfuc(){
+        var ans_str = "萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。";
+        var zsk_node = [];
+        zsk_node.push('<div class="service_box">');
+        zsk_node.push('<img src="../../img/customer_service/chat1.png"/>');
+        zsk_node.push('<div class="zsk_box">');
+        zsk_node.push('<p>你是否存在以下问题：</p>');
+        zsk_node.push('<p>'+ans_str+'</p>');
+        zsk_node.push('<div class="way">我要查看<span class="moreansBtn" onclick="moreAnsFuc($(this))">更多回答</span></div>');
+        zsk_node.push('<div class="way">我要<span class="rengongBtn" onclick="rengongFuc()">人工咨询</span></div>');
+        zsk_node.push('<div class="rgtime">人工客服工作时间为 9:00-18:00</div>');
+        zsk_node.push('</div>');
+        zsk_node.push('</div>');
+        $(".chat_boxin").append(zsk_node.join(""));
+        scrollToBottom();
+    }
+
+    //moreansBtn解绑,只触发自身
+    function off1fuc(node){
+        node.removeAttr('onclick');
+    }
+
+    /*//moreansBtn解绑,只触发自身
+    function off1fuc(node){
+        node.die().live("click",function(){
+            return false;
+        })
+    }
+    //moreansBtn解绑,全部
+    function off1allfuc(){
+        $(".moreansBtn").each(function(){
+            $(this).die().live("click",function(){
+                return false;
+            })
+        })
+    }
+
+    //rengongBtn解绑
+    function off2fuc(){
+        $(".rengongBtn").each(function(){
+            $(this).die().live("click",function(){
+                return false;
+            })
+        })
+    }*/
+
+    //更多回答
+    function moreAnsFuc(node){
+        customerfuc("我要查看更多回答");
+        node.removeAttr('onclick');
+        var ans_str1 = "萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。";
+        var ans_str2 = "萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。";
+        var ans_str3 = "萝岗物业月停费用标准为500元/月，您可在我们的微信公众号上在线进行月停的申请。";
+        var more_node = [];
+        more_node.push('<div class="service_box">');
+        more_node.push('<img src="../../img/customer_service/chat1.png"/>');
+        more_node.push('<div class="zsk_box">');
+        more_node.push('<p>你是否存在以下问题：</p>');
+        more_node.push('<p>'+ans_str1+'</p>');
+        more_node.push('<p>'+ans_str2+'</p>');
+        more_node.push('<p>'+ans_str3+'</p>');
+        more_node.push('<div class="way">我要<span class="rengongBtn" onclick="rengongFuc()">人工咨询</span></div>');
+        more_node.push('<div class="rgtime">人工客服工作时间为 9:00-18:00</div>');
+        more_node.push('</div>');
+        more_node.push('</div>');
+        setTimeout(function(){
+            $(".chat_boxin").append(more_node.join(""));
+            scrollToBottom();
+        },800)
+    }
+
+    //人工
+    function rengongFuc(){
+        cus_first = 0;//
+        customerfuc("我要人工咨询");
+        var rg_node=[];
+        //判断工作时间
+        var first_service= 0;
+        if((myDate.getHours()<8)||(myDate.getHours()>17)){
+            var robothtml='<p>很抱歉，请在工作时间进行人工咨询！</p>';
+        }else{
+            var robothtml='<p>亲，欢迎您进行问题咨询，当前为您服务的是2号客服</p>';
+            //首句提问
+            first_service=[];
+            first_service.push('<div class="service_box">');
+            first_service.push('<img src="../../img/customer_service/chat1.png"/>');
+            first_service.push('<p>您好，请问有什么可以帮你？</p>');
+            first_service.push('</div>');
+        }
+        rg_node.push('<div class="robot">'+robothtml+'</div>');
+        //双重定时器，第一个触发提示，第二个判定OK，附带出回答
+        setTimeout(function(){
+            $(".chat_boxin").append(rg_node.join(""));
+            scrollToBottom();
+            if(first_service!==0){
+                setTimeout(function(){
+                    $(".chat_boxin").append(first_service.join(""));
+                    scrollToBottom();
+                },1000);
+            }
+        },800)
+        $(".moreansBtn").each(function () {
+            $(this).removeAttr('onclick');
+        })
+        $(".rengongBtn").each(function () {
+            $(this).removeAttr('onclick');
+        })
+        //off2fuc();//开始人工后解除已出现的所有人工咨询按钮的触发
+        //off1allfuc();//开始人工后解除已出现的所有更多回答按钮的触发
+    }
+
+    //页面拉到最底部
+    function scrollToBottom(){
+        var h = $(document).height()-$(window).height();
+        $(document).scrollTop(h);
+    }
+</script>
+</html>

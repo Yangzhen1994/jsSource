@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>户籍家庭资格自检</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+    <style>
+        .form_outer .ph_common_btns{margin-bottom: 0px;}
+        .form_outer .ph_common_btns button{color: #fff;background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);}
+        .form_outer p{font-size:0.12rem;color: #ACACAC;width:3.5rem;margin:0 auto;padding-bottom: 0.2rem;}
+    </style>
+</head>
+<body>
+    <!--在线自检-->
+    <section class="form_outer">
+        <form id="prh_apply_form">
+            <div class="molabel">
+                <span class="fl">户籍</span>
+                <ul class="radio_box">
+                    <li>广州市</li>
+                    <li>非广州市</li>
+                </ul>
+            </div>
+            <div class="molabel c_house">
+                <span class="fl">是否拥有产权房</span>
+                <ul class="radio_box">
+                    <li>是</li>
+                    <li>否</li>
+                </ul>
+            </div>
+            <div class="molabel">
+                <span class="fl">已享受政策房类型</span>
+                <ul class="radio_box">
+                    <li>无</li>
+                    <li>安居房</li>
+                    <li>经适房</li>
+                    <li>回迁房</li>
+                </ul>
+            </div>
+            <div class="molabel">
+                <span class="fl">家庭人数</span>
+                <input class="fr" type="text" id="family_num" placeholder="请输入家庭人数"/>
+            </div>
+            <div class="molabel">
+                <span class="fl">住房人均面积</span>
+                <input class="fr" type="text" id="c_area" placeholder="请输入住房人均面积"/>
+            </div>
+            <div class="molabel">
+                <span class="fl">年龄</span>
+                <input class="fr" type="text" id="age" placeholder="请输入年龄"/>
+            </div>
+            <div class="molabel">
+                <span class="fl">家庭人均年收入</span>
+                <input class="fr" type="text" id="income" placeholder="请输入家庭人均年收入"/>
+            </div>
+            <div class="molabel">
+                <span class="fl">家庭净资产</span>
+                <input class="fr" type="text" id="assets" placeholder="家庭净资产"/>
+            </div>
+            <div class="molabel g_house">
+                <span class="fl">是否租住公房</span>
+                <ul class="radio_box">
+                    <li>是</li>
+                    <li>否</li>
+                </ul>
+            </div>
+            <div class="molabel">
+                <span class="fl">租住公房人均面积</span>
+                <input class="fr" type="text" id="g_area" placeholder="请输入租住公房人均面积"/>
+            </div>
+        </form>
+        <div class="ph_common_btns">
+            <button>查询</button>
+        </div>
+        <p class="shengming">声明：城壹宜居不会保存您所填写的信息，此自检结果仅供参考，请以住建委官方网站信息为准。</p>
+    </section>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //radio_box
+    $(".radio_box").each(function(){
+        $(this).find("li").click(function(){
+            $(this).addClass("choosed").siblings("li").removeClass("choosed");
+        })
+    })
+    //验证
+    function judgfun(){
+        var radio_boxs=$(".radio_box");
+        for(var i=0;i<radio_boxs.length;i++){
+            if(radio_boxs.eq(i).find(".choosed").length==0){
+                $.alert("请选择"+radio_boxs.eq(i).siblings("span").html());
+                stopScroll($('.weui-mask'));
+                return false;
+            }
+        }
+        if($("#family_num").val()==""){
+            $.alert("请输入家庭人数!");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($(".c_house .radio_box li").eq(0).hasClass("choosed")){
+            if($("#c_area").val()==""){
+                $.alert("请输入住房人均面积!");
+                stopScroll($('.weui-mask'));
+                return false;
+            }
+        }
+        if($("#age").val()==""){
+            $.alert("请输入年龄!");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($("#income").val()==""){
+            $.alert("请输入家庭人均年收入!");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($("#assets").val()==""){
+            $.alert("请输入家庭净资产!");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($(".g_house .radio_box li").eq(0).hasClass("choosed")){
+            if($("#g_area").val()==""){
+                $.alert("请输入租住公房人均面积!");
+                stopScroll($('.weui-mask'));
+                return false;
+            }
+        }
+        return true;
+    }
+    //查询
+    $(".ph_common_btns button").click(function(){
+        if(judgfun()){
+        }
+    })
+</script>
+</html>

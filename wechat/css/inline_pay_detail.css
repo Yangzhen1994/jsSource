@@ -1,0 +1,66 @@
+body{
+    background:#E8E9ED ;
+    width: 100%;
+    padding:0.1rem 0.12rem;
+    box-sizing: border-box;
+}
+.wrap{
+    background: #fff;
+    width: 100%;
+    padding: 0.24rem 0.12rem;
+    box-sizing: border-box;
+}
+.wrap .title{
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    margin-bottom: 0.14rem;
+}
+
+.wrap ul li span{
+    display: inline-block;
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.13rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.13rem;
+
+}
+.wrap ul li{
+    margin-bottom: 0.1rem;
+  /*  white-space: nowrap;*/
+}
+.wrap ul li:last-child{
+    margin-bottom: 0;
+}
+.room_address+span{
+    width: 75%;
+    line-height: 0.18rem !important;
+    margin-top: -0.025rem;
+}
+
+.mock_table{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.24rem;
+    margin-bottom: 0.16rem;
+}
+
+.mock_table div{
+    width: 0.8rem;
+    height:0.32rem;
+    background: rgba(255,130,0,0.20);
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: rgba(0,0,0,.4);
+    letter-spacing: 0;
+    line-height: 0.35rem;
+    text-align: center;
+    margin-right: 0.02rem;
+    margin-bottom: 0.02rem;
+    box-sizing: border-box;
+}

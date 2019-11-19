@@ -1,0 +1,729 @@
+/*报修样式表*/
+body{
+    background: #f1f1f1;
+    font-family: PingFangSC-Regular;
+}
+input::placeholder{color:#bfbfbf;}
+.header_box{
+    height:0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    position: fixed;
+    font-size:0.2rem;
+    color: #030303;
+    letter-spacing: -0.48px;
+    background:#fff;
+    width:100%;
+    z-index: 10;
+    border-bottom: 0.1rem solid #f1f1f1;
+}
+.header_box .back{
+    width: 0.12rem;
+    top:50%;
+    left: 0.14rem;
+    position: absolute;
+    transform: translateY(-50%);
+}
+.header_box .fill_btn{
+    width: 0.2rem;
+    top:50%;
+    right: 0.19rem;
+    position: absolute;
+    transform: translateY(-50%);
+}
+.header_box a{
+    position: absolute;
+    display: block;
+    right:0px;
+    top:0px;
+    font-weight: normal;
+    font-size: 0.14rem;
+    padding-right:0.16rem;
+    color: #464646;
+    letter-spacing: -0.42px;
+}
+.offerHeight{
+    height:0.58rem;
+    width: 100%;
+}
+/*问题填写*/
+.problem_box{
+    padding:0.08rem 0.14rem;
+    background: #fff;
+    padding-bottom: 0.02rem;
+}
+.problem_box textarea{
+    display: block;
+    resize: none;
+    width:100%;
+    font-size: 0.14rem !important;
+    line-height: 0.22rem;
+    text-align: justify;
+    color:#3B3B3B ;
+}
+textarea::-webkit-input-placeholder{
+    color:#B9B9B9;
+    font-size: 0.14rem;
+}
+.add_box1{
+    padding:0px 0.12rem;
+    height:0.29rem;
+    background: #fff;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.08rem;
+}
+.add_box1 span{
+    position: relative;
+    font-size: 0.14rem;
+    color: #3B3B3B;
+    background: #F4F4F4;
+    border-radius:0.15rem;
+    height:0.29rem;
+    line-height: 0.29rem;
+    box-sizing: border-box;
+}
+.add_box1 span{
+    float:right;
+    padding:0px 0.2rem 0px 0.36rem;
+}
+.add_box1 span:before{
+    content: "";
+    display: block;
+    width: 0.14rem;
+    height: 0.19rem;
+    background: url(../img/feedback/Bitmap.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0.05rem;
+    left: 0.14rem;
+}
+#sumbit_btn{
+    display: block;
+    width:100%;
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    background: #FF7911;
+    height:0.56rem;
+    line-height: 0.56rem;
+    font-size: 0.18rem;
+    text-align: center;
+    color:#fff;
+}
+/*图片上传区域*/
+.upload_op_area{
+    width: 100%;
+    /* opacity: 0.4;*/
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    position: relative;
+}
+
+.upload_op_area label{
+    opacity: 1 !important;
+    font-size: 0.12rem;
+    width: 1.28rem;
+    height: 0.96rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin: auto;
+    z-index: 1231;
+}
+.upload_op_area label>div{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.upload_op_area label img{
+    width: 0.32rem;
+    height: 0.32rem;
+
+}
+.upload_op_area label span{
+    margin-right: 0 !important;
+    display: block;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #444444 !important;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.12rem;
+    height: 0.12rem;
+}
+i{
+    color: #FF8200;
+    font-style: normal;
+}
+.note{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size:0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.12rem;
+    margin-bottom: 0.18rem;
+}
+
+/*其他**/
+#rentForm>div>p {
+    font-size: 0.18rem;
+    color: #444;
+    margin-top: 0.32rem;
+}
+/**选中状态**/
+.uplaod_tab>div.selected{
+    color: #ff8200;
+    border-bottom: 1px solid #ff8200;
+}
+.mock_checkbox.choosed{
+    background: url("../img/house_detail/duigou_bg_icon.png") !important;
+    background-size: 100% 100% !important;
+}
+.mock_checkbox.choosed:before{
+    border: 0px solid #ff8200 !important;
+}
+.weui-uploader__input-box{
+    background: url("../img/feedback/add.png");
+    background-repeat:no-repeat ;
+    background-size: 100% 100%;
+    background-position: center center;
+    border: none;
+    position: relative;
+}
+.weui-uploader__input-box span{
+    position: absolute;
+    width: 100%;
+    font-size: 0.12rem;
+    color:#ccc;
+    text-align: center;
+    line-height: 0.2rem;
+    bottom: 0.06rem;
+    left: 0px;
+}
+.weui-uploader__input-box:after, .weui-uploader__input-box:before{
+    width: 0;
+}
+.weui-cell{
+    justify-content: space-between;
+    padding:0.1rem 0px;
+}
+.weui-uploader__files li:nth-child(4n){
+    margin-right: 0px;
+}
+.weui-uploader__file{
+    width:0.8rem;
+    height:0.8rem;
+    margin-right:0.08rem;
+    margin-bottom: 0.1rem;
+    border-radius: 0.1rem;
+}
+.weui-uploader__bd{
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.weui-uploader__input-box{
+    margin-right: 0px;
+    margin-bottom: 0px;
+    width:0.8rem;
+    height:0.8rem;
+}
+.weui-cells:before{
+    border:0px;
+    height:0px;
+}
+.weui-cells:after{
+    border:0px;
+    height:0px;
+}
+/*报修样式new*/
+.pro_card{
+    background: #fff;
+    margin-bottom: 0.2rem;
+    box-shadow: 0px 0px 0.1rem #ccc;
+}
+ul.more_info{
+    padding:0px 0.125rem;
+    background: #fff;
+}
+ul.more_info li{
+    padding:0.15rem 0px;
+    overflow: hidden;
+    border-bottom:1px solid #f1f1f1;
+    line-height: 0.26rem;
+    font-size: 0.14rem;
+}
+ul.more_info li span{float:left;}
+ul.more_info li input{
+    float:right;
+    height:0.26rem;
+    font-size: 0.14rem !important;
+    text-align: right;
+    width:2.4rem;
+}
+#mescroll{
+    border-top:0.1rem solid #f1f1f1;
+    box-sizing: border-box;
+}
+.repair_card{
+    background: #fff;
+    padding:0.1rem 0.04rem;
+    border-bottom: 0.1rem solid #d8d8d8;
+    /*border-top:2px solid #ff8200;*/
+}
+.user_box{ /*border-bottom: 0.02rem solid #E8E9ED;*/}
+.user_box .box1{
+    height: 0.2rem;
+    overflow: hidden;
+    padding:0px 0.04rem 0.05rem 0.02rem;
+    border-bottom: 1px solid #DBDBDB;
+}
+.user_box .box1 span{
+    line-height: 0.2rem;
+    font-size: 0.14rem;
+    color:#3b3b3b;
+    float:left;
+    position: relative;
+    padding-left: 0.2rem;
+}
+.user_box .box1 span:nth-child(1):before{
+    content: "";
+    display: block;
+    width: 0.13rem;
+    height: 0.15rem;
+    background: url(../img/feedback/san.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0.02rem;
+    left: 0rem;
+}
+.user_box .box1 span:nth-child(2){
+    float: right;
+    padding-left:0.18rem;
+}
+.user_box .box1 span:nth-child(2):before{
+    content:"";
+    display: block;
+    width:0.13rem;
+    height:0.18rem;
+    background:url("../img/feedback/Bitmap5.png") no-repeat;
+    background-size:100% 100%;
+    position: absolute;
+    top:0.01rem;
+    left:0rem;
+}
+.user_box .box2{
+    padding:0rem 0.12rem 0px 0.12rem;
+}
+.user_box .box2 p{
+    font-size:0.16rem;
+    color: #3B3B3B;
+    line-height:0.24rem;
+}
+.user_box .box2 .imgs_box{
+    padding-top:0.13rem;
+    margin-bottom: 0.13rem;
+    overflow: hidden;
+}
+.user_box .box2 .imgs_box img{
+    float: left;
+    width:1.06rem;
+    height: 1.06rem;
+    border-radius: 0.1rem;
+    margin-right:0.1rem;
+}
+.user_box .box2 .imgs_box img:nth-child(3){
+    margin-right: 0px;
+}
+.user_box .box2 .add_info{
+    height:0.2rem;
+    padding-right: 0.04rem;
+    padding-bottom: 0.08rem;
+}
+.user_box .box2 .add_info span{
+    float: right;
+    font-size:0.14rem;
+    color: #565656;
+    position: relative;
+    padding-left:0.22rem;
+    line-height: 0.2rem;
+}
+.user_box .box2 .add_info span:before{
+    content:"";
+    display: block;
+    width:0.17rem;
+    height:0.17rem;
+    background:url("../img/feedback/Bitmap4.png") no-repeat;
+    background-size:100% 100%;
+    position: absolute;
+    top:0.02rem;
+    left:0rem;
+}
+.property_box{
+    padding:0.12rem 0px 0.1rem 0px;
+    border-bottom: 1px solid #E8E9ED;
+}
+.property_box .tit{
+    font-size: 0.14rem;
+    line-height:0.38rem;
+    border-bottom: 1px solid #E8E9ED;
+    margin-bottom: 0.1rem;
+    color:#ff8200;
+    font-weight:bold;
+}
+.property_box p{
+    font-size: 0.14rem;
+    line-height: 0.24rem;
+    color:#474747;
+    text-align: justify;
+}
+.property_box p b{color:#ff8200;}
+.property_box .time{
+    font-size: 0.12rem;
+    text-align: right;
+    color:#666;
+}
+.star_box{
+    padding:0.15rem 0px;
+    line-height: 0.26rem;
+    overflow: hidden;
+}
+.star_box span{float:left; margin-right: 0.1rem;}
+.stars{float: left;position: relative;top:-0.01rem;}
+.stars li{float:left;font-size: 0.2rem;margin-right:0.08rem;}
+.stars li.choosed{color:#ff8200;}
+.stars_outer button{
+    float:right;
+    height:0.26rem;
+    line-height: 0.26rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    color:#fff;
+    width:0.8rem;
+    text-align: center;
+    font-size: 0.12rem !important;
+    font-weight: normal !important;
+    border-radius:0.04rem;
+}
+.evaluate_box textarea{
+    display: block;
+    resize: none;
+    width: 100%;
+    font-size: 0.14rem !important;
+    line-height: 0.22rem;
+    text-align: justify;
+    color: #3B3B3B;
+    background: #F8F8F8;
+    border: 1px solid #E4E4E4;
+    border-radius:0.06rem;
+    box-sizing: border-box;
+    padding:0.08rem 0.1rem;
+    margin-bottom: 0.07rem;
+}
+.cost_box{
+    padding:0.08rem 0px 0.08rem 0px;
+    overflow: hidden;
+    border-bottom:1px solid #E8E9ED;
+    line-height: 0.26rem;
+    font-size: 0.14rem;
+}
+.cost_box span:nth-child(1){float:left;}
+.cost_box span:nth-child(2){float:right;}
+.cost_box input{
+    float:right;
+    height:0.26rem;
+    font-size: 0.14rem !important;
+    text-align: right;
+}
+.cost_box i{color:#ccc;}
+.evaluate_box button{
+    display: block;
+    width:3rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.16rem !important;
+    text-align: center;
+    color: #fff;
+    margin:0.16rem auto 0.1rem auto;
+    font-weight: normal !important;
+}
+.evaluate_box p{
+    text-indent: 2em;
+    font-size: 0.14rem;
+    line-height: 0.24rem;
+    color:#474747;
+    text-align: justify;
+    border-top:1px solid #E8E9ED;
+    padding-top:0.1rem;
+}
+.evaluate_box .time{
+    font-size: 0.12rem;
+    text-align: right;
+    color:#666;
+    border-bottom:1px solid #E8E9ED;
+    padding-bottom: 0.08rem;
+}
+/*说明*/
+#sm_box{
+    border-top:0.1rem solid #f1f1f1;
+    background: #fff;
+    padding:0px 0.18rem;
+    font-size: 0.14rem;
+    line-height: 0.22rem;
+    padding-bottom: 1px;
+}
+#sm_box .tit{
+    font-size: 0.18rem;
+    text-align: center;
+    line-height: 0.56rem;
+    border-bottom: 1px solid #d8d8d8;
+}
+#sm_box .content{
+    padding:0.14rem 0px;
+    border-bottom: 1px solid #d8d8d8;
+}
+#sm_box p{
+    text-align: justify;
+}
+#sm_box button {
+    display: block;
+    width: 3rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.16rem !important;
+    text-align: center;
+    color: #fff;
+    margin: 0.16rem auto;
+    font-weight: normal !important;
+}
+/*新增*/
+.more_info select{
+    float: right;
+    height: 0.26rem;
+    font-size: 0.14rem !important;
+    text-align: right;
+    direction: rtl;
+}
+.more_info select option{
+    text-align: right;
+    direction: rtl;
+}
+/*评价星星改单选 12-17*/
+.end_box{
+    padding: 0.15rem 0px;
+    line-height: 0.26rem;
+    overflow: hidden;
+    font-size: 0.14rem;
+}
+.end_box span{
+    float:left;
+    margin-right: 0.1rem;
+}
+.end_box .radio_box{
+    float:left;
+}
+.end_box .radio_box li{
+    float:left;
+    margin-right:0.2rem;
+    position: relative;
+    padding-left:0.17rem;
+}
+.end_box .radio_box li:last-child{
+    margin-right:0.04rem;
+}
+.end_box .radio_box li:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width:0.14rem;
+    height: 0.14rem;
+    box-sizing: border-box;
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+    top:0.06rem;
+    left:0px;
+}
+.end_box .radio_box .choosed:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width:0.08rem;
+    height: 0.08rem;
+    box-sizing: border-box;
+    background: #ff8200;
+    border-radius: 50%;
+    top:0.09rem;
+    left:0.03rem;
+}
+/*大修2018-12-21*/
+/*处理状态流程*/
+.step_box{margin-top:0.12rem;border-bottom: 1px solid #E8E9ED;padding-bottom: 0.08rem;}
+.step_box ul{
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.09rem;
+}
+.step_box ul li{
+    width:0.45rem;
+    height:0.45rem;
+    border-radius: 50%;
+    line-height:0.45rem;
+    text-align: center;
+    color:#fff;
+    font-size: 0.12rem;
+    background: rgba(191,191,191,0.80);
+    float:left;
+    position: relative;
+}
+.step_box ul li:before{
+    content:"";
+    display: block;
+    width:0.2rem;
+    height:0.03rem;
+    background: rgba(191,191,191,0.80);
+    position: absolute;
+    top:0.21rem;
+    left:-0.25rem;
+    z-index: 3;
+}
+.step_box ul li.half{
+    border:0.01rem solid #ff8200;
+    box-sizing: border-box;
+}
+.step_box ul li.half:before{
+    content:"";
+    display: block;
+    width:0.2rem;
+    height:0.03rem;
+    background: rgba(255,121,17,0.80);
+    position: absolute;
+    top:0.2rem;
+    left:-0.25rem;
+    z-index: 3;
+}
+.step_box ul li.accept{
+    background: rgba(255,121,17,0.80);
+}
+.step_box ul li.accept:before{
+    content:"";
+    display: block;
+    width:0.2rem;
+    height:0.03rem;
+    background: rgba(255,121,17,0.80);
+    position: absolute;
+    top:0.21rem;
+    left:-0.25rem;
+    z-index: 3;
+}
+.step_box ul li.accept:after{
+    content:"";
+    display: block;
+    width:0.1rem;
+    height:0.03rem;
+    background: rgba(255,121,17,0.80);
+    position: absolute;
+    top:0.21rem;
+    left:0.52rem;
+    z-index: 4;
+}
+/*撤销*/
+#revoke_box{
+    border-top:0.1rem solid #f1f1f1;
+    padding:0.1rem 0.2rem;
+    font-size: 0.14rem;
+}
+#revoke_box .block{
+    margin-bottom: 0.1rem;
+}
+#revoke_box p{
+    line-height: 0.28rem;
+    margin-bottom: 0.04rem;
+}
+#revoke_box .label1{
+    height:0.36rem;
+    line-height: 0.36rem;
+    position: relative;
+}
+#revoke_box .label1 select{
+    display: block;
+    font-size: 0.14rem !important;
+    height: 0.36rem;
+    width:100%;
+    box-sizing: border-box;
+    padding-left: 0.08rem;
+    border: 1px solid #E8E8E8;
+}
+#revoke_box .label1 select+img{
+    width: 0.13rem;
+    height: 0.08rem;
+    position: absolute;
+    bottom: 0.13rem;
+    right: 0.2rem;
+    pointer-events: none;
+}
+#revoke_box textarea{
+    display: block;
+    box-sizing: border-box;
+    width:100%;
+    resize: none;
+    padding-left: 0.08rem;
+    border: 1px solid #E8E8E8;
+    line-height: 0.28rem;
+    height:1rem;
+}
+#revoke_box button{
+    display: block;
+    width:80%;
+    margin:0 auto;
+    font-weight: normal !important;
+    font-size: 0.14rem !important;
+    text-align: center;
+    color:#fff;
+    line-height: 0.4rem;
+    background: #ff8200;
+    border-radius: 0.04rem;
+}
+.user_box .new_box1{
+    position: relative;
+    padding:0px 0.12rem;
+}
+.user_box .new_box1 p{
+    line-height: 0.22rem;
+    font-size: 0.14rem;
+    padding:0.02rem 0px;
+    text-align: justify;
+}
+.user_box .new_box1 p:nth-child(2){
+    width:78%;
+}
+.revoke_btn{
+    position: absolute;
+    display: block;
+    width: 0.6rem;
+    text-align: center;
+    line-height: 0.32rem;
+    background: #ff8200;
+    color: #fff;
+    border-radius: 0.04rem;
+    font-size: 0.12rem;
+    top: 0rem;
+    right: 0.12rem;
+}
+.revoke_ok{background: #ccc;}
+.wuye_box{
+    border: 0.02rem solid #E8E9ED;
+    padding: 0px 0.08rem;
+}

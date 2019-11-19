@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>选择房源点</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+</head>
+<body>
+    <!--公租房申请表-->
+    <section class="form_outer">
+        <form id="prh_apply_form">
+            <div class="molabel">意向登记房源点</div>
+            <div class="molabel2">
+                <span class="fl">第一房源点</span>
+                <select id="first_choose">
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第二房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第三房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第四房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第五房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第六房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第七房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第八房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第九房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel2">
+                <span class="fl">第十房源点</span>
+                <select>
+                    <option value="0">请选择</option>
+                    <option>萝岗和苑</option>
+                    <option>棠德花苑</option>
+                    <option>棠悦花园</option>
+                </select>
+            </div>
+            <div class="molabel">
+                <p>如未分配至以上房源点，是否服从分配：</p>
+                <ul class="radio_box">
+                    <li>是</li>
+                    <li>否</li>
+                </ul>
+            </div>
+        </form>
+        <div class="ph_common_btns">
+            <button>取 消</button>
+            <button>提 交</button>
+        </div>
+    </section>
+    <!--补上公共底部-->
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //radio_box
+    $(".radio_box li").click(function(){
+        $(this).addClass("choosed").siblings("li").removeClass("choosed");
+    })
+    //验证（第一房源点为必选）
+    function judgfun(){
+        if($("#first_choose option:selected").val()==0){
+            $.alert("至少选择第一房源点!");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($(".radio_box .choosed").length==0){
+            $.alert("请选择是否服从分配！");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        return true;
+    }
+    //取消
+    $(".ph_common_btns button").eq(0).click(function(){
+        window.history.go(-1);
+    })
+    //提交
+    $(".ph_common_btns button").eq(1).click(function(){
+        if(judgfun()){
+            setTimeout(function () {
+                window.location.href="prh_apply3.html";
+            },200)
+        }
+    })
+</script>
+</html>

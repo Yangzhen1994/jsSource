@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>求租发布</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/renting_info.css">
+</head>
+<body>
+<div class="wrapper">
+    <!-- 容器 -->
+    <div class="weui-tab" id="tab">
+        <div class="weui-navbar">
+            <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+                求租信息
+            </a>
+            <a class="weui-navbar__item " href="#tab2">
+                求租发布
+            </a>
+        </div>
+        <div class="weui-tab__bd">
+            <!--求租信息-->
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <ul class="renting_info_list" id="rentingInfoList">
+
+                </ul>
+            </div>
+            <!--求租发布-->
+            <div id="tab2" class="weui-tab__bd-item ">
+                <form class="rent_form " id="rent_form">
+                    <div>
+                        <p>基础信息</p>
+                        <div class="input_area">
+                            <div class="clearfix">
+                                <label for=""><span>*</span>求租地段</label>
+                                <div class="fl pr select_wrap">
+                                    <select>
+                                        <option value="area" style="color: rgba(0,0,0,.4)">请选择区域</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                                </div>
+                                <div class="fl pr select_wrap  w144">
+                                    <select>
+                                        <option value="busiss">请选择商圈</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                                </div>
+
+                            </div>
+                            <div class="clearfix">
+                                <label for=""><span>*</span>租金</label>
+                                <div class="fl pr select_wrap">
+                                    <select>
+                                        <option value="money">请选择租金</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                                </div>
+                                <div class="fl pr select_wrap  w144">
+                                    <select>
+                                        <option value="room">期望厅室</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                                </div>
+
+                            </div>
+                            <div class="clearfix" class="pr">
+                                <label for=""><span>*</span>最晚入住时间</label>
+                                <div class="fl pr input_wrap">
+                                    <input class="rent_time" type="text" id="inRoom" onclick="this.blur()">
+                                    <img src="../../img/rili.svg" alt="" class="pa date_icon">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <p>补充信息</p>
+                        <div class="input_area">
+                            <label for=""><span>*</span>标题</label>
+                            <div class=" pr input_wrap w_100">
+                                <input class="title" type="text" id="title">
+                            </div>
+                            <label for=""><span>*</span>房源要求</label>
+                            <div class=" pr input_wrap w_100" style="height: 0.8rem;box-sizing: content-box">
+                                <textarea class="request" type="text" id="request"
+                                          placeholder="对房源的要求，周边交通及生活配套..."></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix">
+                        <p>其他信息</p>
+                        <div class="clearfix input_area">
+                            <div class="fl clearfix">
+                                <label for=""><span>*</span>联系人</label>
+                                <div class="pr input_wrap" style="width: 1.03rem;">
+                                    <input class="link_man" type="text" value="" placeholder=""/>
+                                </div>
+                            </div>
+                            <div class="fl clearfix" style="margin-left: 0.05rem">
+                                <label for=""><span>*</span>联系电话</label>
+                                <div class="pr input_wrap" style="width: 2.02rem;">
+                                    <input class="phone" type="text" value="" placeholder=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix input_area">
+                            <div class="clearfix">
+                                <label for="">接听时段</label>
+                                <div class="fl pr select_wrap" style="width: 1.03rem;">
+                                    <select id="listenTime0" style="padding-left: 25%;" class="start_time" type="text"
+                                            value=""
+                                            placeholder="">
+                                        <option>01:00</option>
+                                        <option>02:00</option>
+                                        <option>03:00</option>
+                                        <option>04:00</option>
+                                        <option>05:00</option>
+                                        <option>06:00</option>
+                                        <option>07:00</option>
+                                        <option selected>08:00</option>
+                                        <option>09:00</option>
+                                        <option>10:00</option>
+                                        <option>11:00</option>
+                                        <option>12:00</option>
+                                        <option>13:00</option>
+                                        <option>14:00</option>
+                                        <option>15:00</option>
+                                        <option>16:00</option>
+                                        <option>17:00</option>
+                                        <option>18:00</option>
+                                        <option>19:00</option>
+                                        <option>20:00</option>
+                                        <option>21:00</option>
+                                        <option>22:00</option>
+                                        <option>23:00</option>
+                                        <option>24:00</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png"
+                                                  alt="">
+                                </div>
+                                <div class="fl"
+                                     style="font-size: 0.14rem;color: #444;vertical-align: middle;margin: 0.12rem 0.06rem">
+                                    至
+                                </div>
+                                <div class="fl pr select_wrap" style="width: 1.03rem;">
+                                    <select style="padding-left: 25%;" id="listenTime1" class="end_time" type="text"
+                                            value=""
+                                            placeholder="">
+                                        <option>01:00</option>
+                                        <option>02:00</option>
+                                        <option>03:00</option>
+                                        <option>04:00</option>
+                                        <option>05:00</option>
+                                        <option>06:00</option>
+                                        <option>07:00</option>
+                                        <option>08:00</option>
+                                        <option selected>09:00</option>
+                                        <option>10:00</option>
+                                        <option>11:00</option>
+                                        <option>12:00</option>
+                                        <option>13:00</option>
+                                        <option>14:00</option>
+                                        <option>15:00</option>
+                                        <option>16:00</option>
+                                        <option>17:00</option>
+                                        <option>18:00</option>
+                                        <option>19:00</option>
+                                        <option>20:00</option>
+                                        <option>21:00</option>
+                                        <option>22:00</option>
+                                        <option>23:00</option>
+                                        <option>24:00</option>
+                                    </select><img src="../../img/house_list/arrow-bottom.png"
+                                                  alt="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+                <div class="tips"><img src="../../img/tip.svg" alt="">已开启隐私保护</div>
+                <div class="serve_hot_line">客服热线：<span>400-100-3696</span></div>
+                <div class="serve_hot_line_desc">发布过程中如有疑问可以拨打此号码</div>
+                <div class="btns">
+                    <button class="clear">重置</button>
+                    <button class="confirm">确定</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<input type="text" id="timeHide" style="display: none">
+</body>
+<script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/house_list.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<!--<script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>-->
+<script>
+    // timePicker('inRoom','timeHide')
+    $('.weui-navbar__item ').on('click', function () {
+        if ($(this).text() == '求组发布') {
+            $('.wrapper').css('height', 'auto')
+        } else {
+            $('.wrapper').css('height', '100%')
+        }
+    })
+    calendarPick('inRoom', 'timeHide')
+    scrollLoading('tab1', 'rentingInfoList')
+    $('#listenTime0').on('change', function () {
+        $('#listenTime1').html('')
+        var start = $(this).val().trim().substring(0, 2)
+        var length = (start.charAt(0) == 0) ? (+start.substring(1, 2)) : (+start)
+        console.log(start, length)
+        for (var i = length + 1; i <= 24; i++) {
+            var str = i >= 10 ? i : ('0' + i)
+            $('#listenTime1').append('<option>' + str + ':00</option>')
+        }
+    })
+    //撤销弹窗mock
+    initDelConfiem()
+    function initDelConfiem() {
+        var delReason = '<ul class="del_reason_ul">' +
+                '<li onclick="chooseReason(this)"><label for="delReason0"></label><input type="radio" name="del_reason" id="delReason0" value="我已经租到房子了"/><span>我已经租到房子了</span></li>' +
+                '<li onclick="chooseReason(this)"><label for="delReason1"></label><input type="radio" name="del_reason" id="delReason1" value="推荐的房源不合适"/><span>推荐的房源不合适</span></li>' +
+                '</ul>'
+        $.modal({
+            title: "撤销后其他用户将看不到你的求租信息，请选择撤销原因后撤销",
+            text: delReason,
+            autoClose: false,
+            buttons: [
+                {
+                    text: "撤销", className: "font_org", onClick: function () {
+                    if ($('.del_reason_ul input[name="del_reason"]:checked').length > 0) {
+                        console.log('撤销操作')
+                        $.closeModal();
+                    } else {
+                        $.toast('请选择一个理由', 'text');
+                        $('.weui-mask_transparent').css({
+                            'z-index': 2000
+                        })
+                        stopScroll($('.weui-mask'))
+                        return false
+                    }
+                }
+
+                },
+                {
+                    text: "取消", className: "default", onClick: function () {
+                    console.log('取消操作');
+                    $.closeModal();
+                }
+                },
+            ]
+        });
+        stopScroll($('.weui-mask'))
+    }
+
+    function chooseReason(obj, e) {
+        e = event || window.event
+        var target = e.target.nodeName.toLocaleLowerCase()
+        if (target == 'span') {
+            var isCheck = $(e.target).prev().prop('checked')
+            $(e.target).prev().prop('checked', !isCheck)
+        }
+
+        if ($(obj).find('input').prop('checked')) {
+            //console.log($(obj).find('input').val())
+            $(obj).addClass('checked_li')
+            $.each($(obj).siblings('li'), function (index, item) {
+                $(item).removeClass('checked_li')
+            })
+        } else {
+            $(obj).removeClass('checked_li')
+        }
+    }
+</script>
+</html>

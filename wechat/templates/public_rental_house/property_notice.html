@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>物业通知</title>
+    <script src="../../../../housing-rental-wechat/src/main/resources/static/wechat/js/frame/jquery.min.js"></script>
+    <script src="../../../../housing-rental-wechat/src/main/resources/static/wechat/js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../../../housing-rental-wechat/src/main/resources/static/wechat/css/common.css">
+    <link rel="stylesheet" href="../../css/wordslist.css">
+    <script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="show_selects">
+        <select>
+            <option>全部</option>
+            <option>萝岗和苑</option>
+            <option>棠悦花园</option>
+            <option>棠德花苑</option>
+            <option disabled="disabled">安厦花园</option>
+            <option disabled="disabled">广氮花园</option>
+            <option disabled="disabled">泰安花园</option>
+            <option disabled="disabled">榕悦花园</option>
+            <option disabled="disabled">保利瀚林花园</option>
+            <option disabled="disabled">佳兆业盛世广场</option>
+            <option disabled="disabled">大田花园</option>
+            <option disabled="disabled">亨元花园</option>
+            <option disabled="disabled">瑞东花园</option>
+            <option disabled="disabled">苗和苑</option>
+        </select>
+    </div>
+    <div id="words_outer" class="mescroll">
+        <div id="wordslist">
+            <!--一个数据-->
+            <div class="items">
+                <div class="box1 top"><span>萝岗和苑燃气开通注意事项</span><i>2019-04-14 20:00</i></div>
+                <div class="box2">
+                    <div class="detail">萝岗和苑燃气开通注意事项 (内容概要)</div>
+                    <img src="../../img/wordslist/icon.png"/>
+                </div>
+                <div class="box3">
+                    <span>萝岗和苑</span>
+                    <a href="#">详情>></a>
+                </div>
+            </div>
+            <!--一个数据-->
+            <div class="items">
+                <div class="box1"><span>萝岗和苑燃气开通注意事项</span><i>2019-04-14 20:00</i></div>
+                <div class="box2">
+                    <div class="detail">萝岗和苑燃气开通注意事项 (内容概要)</div>
+                    <img src="../../img/wordslist/icon.png"/>
+                </div>
+                <div class="box3">
+                    <span>萝岗和苑</span>
+                    <a href="#">详情>></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var mescroll = new MeScroll("words_outer", {
+        up: {
+            use:false,
+            isBounce:false
+        }
+    });
+</script>
+</html>

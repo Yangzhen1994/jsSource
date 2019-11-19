@@ -1,0 +1,13 @@
+壹窝社区ver2页面说明 （base原型壹窝社区第三版V2.4）
+
+index.html                主页
+
+my_list.html              我的帖子
+
+detail.html               详情页(状态按钮已在里面)
+
+write.html                发帖（暂存的按钮组已在里面）
+
+new_reply.html            新消息列表页
+
+comment.html              评论及其回复详情页（超过2条才有）

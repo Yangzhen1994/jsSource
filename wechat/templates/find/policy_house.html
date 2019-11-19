@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>政策房源</title>
+</head>
+<body>
+<section id="policy" v-cloak>
+    <!--公租小区-->
+    <div id="PH_box">
+        <!--条件-->
+        <div class="condition">
+            <div id="sc1" class="sc" v-on:click="fb1_show">区域选择</div>
+            <div id="sc2" class="sc" v-on:click="fb2_show">房源分类</div>
+        </div>
+        <!--结果-->
+        <div class="res_box">
+            <!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区-花果山小区</span></div>
+                <div class="box3">8564套房源</div>
+            </div>
+            <!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区</span></div>
+                <div class="box3">8564套房源</div>
+            </div>
+            <!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区-花果山小区犯得上犯得上犯得上</span></div>
+                <div class="box3">8564套房源</div>
+            </div>
+            <!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区-花果山小区</span></div>
+                <div class="box3">8564套房源</div>
+            </div><!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区-花果山小区</span></div>
+                <div class="box3">8564套房源</div>
+            </div>
+            <!--一条数据-->
+            <div class="item">
+                <div class="img_box" style="background-image: url('../../img/find/sq.jpg')"></div>
+                <div class="box1">保利瀚林花园</div>
+                <div class="box2"><span>黄浦区-花果山小区</span></div>
+                <div class="box3">8564套房源</div>
+            </div>
+
+        </div>
+    </div>
+    <!--新增航拍-->
+    <div class="HP_outer">
+        <div class="tit_outer inner"><h3>航拍社区</h3></div>
+        <div id="HP_video">
+            <div class="HP_cards">
+                <div class="swiper-wrapper">
+                    <!--航拍卡片-->
+                    <div class="swiper-slide">
+                        <a href="video.html"><img src="../../img/find/hp1.hpg"/></a>
+                        <div class="box1"><span>萝岗和苑</span><i v-on:click="zanfuc($event)">56</i></div>
+                    </div>
+                    <!--航拍卡片-->
+                    <div class="swiper-slide">
+                        <a href="video.html"><img src="../../img/find/hp1.hpg"/></a>
+                        <div class="box1"><span>榕悦花园</span><i v-on:click="zanfuc($event)">56</i></div>
+                    </div>
+                    <!--航拍卡片-->
+                    <div class="swiper-slide">
+                        <a href="video.html"><img src="../../img/find/hp1.hpg"/></a>
+                        <div class="box1"><span>棠德花苑</span><i v-on:click="zanfuc($event)">56</i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--公租小区地图展示，拿现有-->
+    <div class="inner">
+        <div class="tit_outer"><h3>社区展示</h3></div>
+        <div id="map_nav_outer">
+            存放现有地图引用
+        </div>
+    </div>
+    <!--申请流程-->
+    <div id="sqlc" class="inner">
+        <div class="tit_outer"><h3>申请流程</h3></div>
+        <ul>
+            <li><p class="p1">住保办发布公租房摇号分配指引</p></li>
+            <li><span>第一步</span><p>申请人领取资料</p></li>
+            <li><span>第二步</span><p>参观房源点</p></li>
+            <li><span>第三步</span><p>意向登记</p></li>
+            <li><span>第四步</span><p>意向登记复核</p></li>
+            <li><span>第五步</span><p>公示意向登记情况<br>异议复核</p></li>
+            <li><span>第六步</span><p>公布配租名单</p></li>
+            <li><span>第七步</span><p>摇号预分配</p></li>
+            <li><span>第八步</span><p>摇号预分配结果公示<br>接受举报</p></li>
+            <li><span>第九步</span><p>领取资格复核资料或<br>预分配结果通知书</p></li>
+            <li><span>第十步</span><p>递交资格复核资料</p></li>
+            <li><span>第十一步</span><p>资格复核、举报及<br>异议核查</p></li>
+            <li><span>第十二步</span><p>发放入住通知书<br>办理入住手续</p></li>
+        </ul>
+    </div>
+    <!--条件帅选弹出层1：区域选择-->
+    <div id="fb1" class="fix_outer">
+        <ul>
+            <li v-on:click="fb1fuc($event)">全部区域</li>
+            <li v-on:click="fb1fuc($event)">天河区</li>
+            <li v-on:click="fb1fuc($event)">黄浦区</li>
+            <li v-on:click="fb1fuc($event)">番禺区</li>
+            <li v-on:click="fb1fuc($event)">增城区</li>
+            <li v-on:click="fb1fuc($event)">南沙区</li>
+            <li v-on:click="fb1_close">取消</li>
+        </ul>
+    </div>
+    <!--条件帅选弹出层2：房源分类-->
+    <div id="fb2" class="fix_outer">
+        <ul>
+            <li v-on:click="fb2fuc($event)">全部分类</li>
+            <li v-on:click="fb2fuc($event)">公租房</li>
+            <li v-on:click="fb2fuc($event)">廉租房经适房</li>
+            <li v-on:click="fb2fuc($event)">存量公房</li>
+            <li v-on:click="fb2fuc($event)">直管公房</li>
+            <li v-on:click="fb2fuc($event)">共有产权房</li>
+            <li v-on:click="fb2_close">取消</li>
+        </ul>
+    </div>
+    <div class="index_logo">
+        <img src="../../img/logo.svg" alt=""/>
+        <span>城壹宜居</span>
+        <p class="index_logo_p">传递信用 | 乐享生活</p>
+    </div>
+</section>
+</body>
+<script>
+    //政策房源
+    var policy = new Vue({
+        el:"#policy",
+        methods:{
+            //fb1弹出
+            fb1_show:function(){
+                $("#sc1").removeClass("choosed");
+                $("#fb1").fadeIn(100);
+            },
+            //fb1隐藏
+            fb1_close:function(){
+                $("#fb1").fadeOut(100);
+            },
+            //fb1选项点击
+            fb1fuc:function(event){
+                $("#sc1").addClass("choosed").text($(event.currentTarget).text());
+                this.fb1_close();
+            },
+            //fb2弹出
+            fb2_show:function(){
+                $("#sc2").removeClass("choosed");
+                $("#fb2").fadeIn(100);
+            },
+            //fb2隐藏
+            fb2_close:function(){
+                $("#fb2").fadeOut(100);
+            },
+            //fb2选项点击
+            fb2fuc:function(event){
+                $("#sc2").addClass("choosed").text($(event.currentTarget).text());
+                this.fb2_close();
+            },
+            //航拍
+            swiper_HP:function() {
+                var swiper1 = new Swiper('.HP_cards', {
+                    loop: true,
+                    slidesPerView: 'auto',
+                    paginationType: 'bullets',
+                    paginationClickable: true,
+                    spaceBetween: -12,
+                    loopedSlides: 5,
+                    autoplay: false,
+                    speed: 1000,
+                    lazyLoading: true,
+                    lazyLoadingInPrevNext: true,
+                });
+
+            }
+        }
+    });
+    policy.swiper_HP();
+</script>
+</html>

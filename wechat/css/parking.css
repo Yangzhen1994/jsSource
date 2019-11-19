@@ -1,0 +1,480 @@
+body{
+    color:#333;
+}
+/*预约首页*/
+.wrapper{
+    padding:0.12rem;
+}
+.parking1{
+    padding-bottom: 0.7rem;
+}
+.parking1 li{
+    width: 100%;
+    height: 1.23rem;
+    margin-bottom: 0.1rem;
+    position: relative;
+}
+.parking1 li a{
+    display: block;
+    height:100%;
+}
+.parking1 li img{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.parking1 li p{
+    position: absolute;
+    color:#fff;
+}
+.parking1 li p:nth-of-type(1){
+    font-size: 0.18rem;
+    margin-bottom: 0.1rem;
+    top: 0.48rem;
+    left: 0.2rem;
+    font-weight: 420;
+    height: 0.18rem;
+    line-height: 0.18rem;
+}
+.parking1 li p:nth-of-type(2){
+    font-size: 0.12rem;
+    line-height: 0.12rem;
+    height: 0.12rem;
+    top: 0.76rem;
+    left: 0.2rem;
+}
+/*标准文本*/
+.standard_text{
+    padding:0.2rem;
+}
+.standard_text h3{
+    text-align: center;
+    font-size:0.16rem;
+    line-height: 0.2rem;
+    padding:0.1rem 0px;
+    margin-bottom: 0.1rem;
+}
+.standard_text b{
+    display: block;
+    font-size:0.12rem;
+    line-height: 0.32rem;
+}
+.standard_text p{
+    text-indent: 2em;
+    font-size: 0.12rem;
+    line-height: 0.2rem;
+    margin-bottom: 0.04rem;
+    text-align: justify;
+}
+.standard_text .date{
+    line-height: 0.2rem;
+    font-size: 0.12rem;
+    text-align: right;
+    margin-top: 0.1rem;
+    font-weight: bold;
+}
+/*告知书*/
+ul.step_box{
+    background:#f1f1f1;
+    padding:0.1rem 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    color:#333;
+    position: relative;
+    margin-bottom: 0.1rem;
+}
+ul.step_box:before{
+    content: "";
+    display: block;
+    height:1px;
+    width:90%;
+    left:5%;
+    top:0.25rem;
+    background: #333;
+    position: absolute;
+}
+ul.step_box li{
+    float:left;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    font-size: 0.12rem;
+    line-height: 0.24rem;
+}
+ul.step_box li span{
+    display: block;
+    font-size:0.16rem;
+    text-align: center;
+    width: 0.32rem;
+    height:0.32rem;
+    line-height: 0.3rem;
+    box-sizing: border-box;
+    border:1px solid #333;
+    margin:0 auto;
+    border-radius: 50%;
+    background: #fff;
+}
+.next_btn{
+    display: block;
+    margin:0.2rem auto;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    width: 50%;
+    height: 0.4rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.4rem;
+    font-size: 0.14rem;
+}
+/*车辆分类*/
+.kinds_outer{
+    padding-top:0.3rem;
+}
+.kinds{
+    overflow: hidden;
+}
+.kinds li{
+    background:#f1f1f1;
+    height:0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.16rem;
+    width:80%;
+    margin:0 auto;
+    margin-bottom: 0.3rem;
+}
+.kinds li a{
+    display: block;
+    height: 100%;
+    color:#333;
+}
+/*填写表*/
+.mock_margin{
+    width: 100%;
+    height: 0.1rem;
+    background: #e8e9ed;
+}
+#fill_form{
+    padding:0.2rem 0px;
+    padding-bottom: 1rem;
+    font-size: 0.14rem;
+    line-height: 0.28rem;
+    width:3.6rem;
+    margin: 0 auto;
+}
+#fill_form h4{
+    text-align: center;
+    font-size:0.16rem;
+    line-height: 0.2rem;
+    margin-bottom: 0.2rem;
+    font-weight: normal;
+}
+.base_message,.material{
+    padding-bottom: 0.1rem;
+}
+.tit{
+    height:0.32rem;
+    line-height: 0.32rem;
+    background: #ffaa40;
+    color:#fff;
+    padding-left: 0.08rem;
+    margin-bottom: 0.2rem;
+}
+.paddingLR{
+    padding:0px 0.04rem;
+    overflow: hidden;
+}
+input,select{
+    padding-left:0.08rem;
+}
+.fl{float:left;}
+.fr{float:right;}
+.molabel{
+    zoom:1;
+    width:45%;
+    margin-bottom: 0.1rem;
+}
+.molabel:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.spe{
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+}
+.molabel label{}
+.molabel input,.molabel select{
+    display: block;
+    border:1px solid #ccc;
+    height: 0.28rem;
+    width:100%;
+}
+.spe label{
+    float:left;
+    width:0.8rem;
+}
+.spe input{
+    border:1px solid #ccc;
+    height: 0.28rem;
+    width:2.72rem;
+}
+.readonly{
+    background:#f1f1f1;
+}
+.car_kinds{
+    clear:both;
+    margin-bottom: 0.2rem;
+}
+.star{
+    position: relative;
+    margin-right: 0.06rem;
+    color:#ff8200;
+    font-style: normal;
+}
+.car_kinds ul{
+    padding-left:0.1rem;
+    padding-top:0.06rem;
+}
+.car_kinds li{
+    height:0.16rem;
+    line-height:0.16rem;
+    position: relative;
+    padding-left: 0.18rem;
+    font-size: 0.14rem;
+    cursor:pointer;
+    margin-bottom: 0.1rem;
+}
+.car_kinds li:before{
+    content:"";
+    position: absolute;
+    box-sizing: border-box;
+    border:1px solid #333;
+    width:0.12rem;
+    height:0.12rem;
+    left:0.02rem;
+    top:0.02rem;
+    border-radius: 0.02rem;
+}
+.car_kinds li.choosed:before{
+    border:none;
+    background-image: url("../../weChat/img/parking/choosed.png");
+    background-size: 100% 100%;
+    width:0.16rem;
+    height:0.16rem;
+    left:0px;
+    top:0px;
+}
+/*申请材料*/
+/*预约信息*/
+.appointment .tit{
+    margin-bottom: 0.1rem;
+}
+#time_slot{
+    position: relative;
+    left:0.1rem;
+}
+.add_info{
+    padding:0px 0.1rem;
+    width:3.4rem;
+}
+.add_info textarea{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height:1.5rem;
+    padding:0.1rem;
+    border:1px solid #ccc;
+}
+textarea::-webkit-input-placeholder{
+    color:#999;
+}
+/*日历样式拷贝*/
+.date_area{
+    margin-bottom: 0.08rem;
+}
+.date_area .title,.time_area .title,form>.title{
+    font-family: PingFangSC-Medium;
+    font-size:0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    margin-bottom: 0.12rem;
+    height: 0.14rem;
+    line-height: 0.14rem;
+}
+.date_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.date_item{
+    width: 0.5rem;
+    height: 0.56rem;
+    background: #FFFFFF;
+    border: 1px solid #D8D8D8;
+    box-sizing: border-box;
+    margin:0.08rem 0.1rem;
+}
+.date_item_num{
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 0.18rem;
+
+}
+.date_item_week{
+    width: 100%;
+    height: 0.22rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 0.22rem;
+    text-align: center;
+    background: rgba(0,0,0,.2);
+}
+.date_item_num{
+    width: 100%;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    text-align: center;
+    background: #FFFFFF;
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 1px;
+
+}
+
+.date_item.current{
+    border: 1px solid #ff8200;
+}
+.date_item.current .date_item_week{
+    background: #FF8200;;;border: 0px solid #ff8200;
+}
+.date_item.current .date_item_num{
+    background:rgba(255,130,0,0.10);
+}
+/*图片上传*/
+.img_box{
+    padding-left:0.9rem;
+    position: relative;
+    margin-bottom: 0.14rem;
+}
+.img_box>span{
+    display: block;
+    width:0.9rem;
+    line-height: 0.8rem;
+    position: absolute;
+    top:0px;
+    left:0px;
+    text-align: right;
+    box-sizing: border-box;
+    padding-right:0.1rem;
+}
+.img_upload_box li{
+    float:left;
+    width:0.8rem;
+    height:0.8rem;
+    margin-right:0.1rem;
+    margin-bottom:0.1rem;
+    position: relative;
+}
+.img_upload_box li img{
+    display: block;
+    width:100%;
+    height:100%;
+    border-radius: 0.1rem;
+}
+.img_upload_box li span{
+    display: block;
+    position: absolute;
+    width:0.2rem;
+    height:0.2rem;
+    border-radius:50%;
+    line-height: 0.18rem;
+    text-align: center;
+    color:#fff;
+    background:red;
+    right:-0.04rem;
+    top:-0.04rem;
+    font-size: 0.14rem;
+}
+.add_box{
+    float:left;
+    height:0.8rem;
+    width:0.8rem;
+    background-image: url("../../wechat/img/parking/add.png");
+    background-size: 100% 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0.1rem;
+}
+.add_box span{
+    color: #ccc;
+    display: block;
+    line-height: 0.2rem;
+    bottom: 0.05rem;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+.add_box input{
+    display: block;
+    width:100%;
+    height:100%;
+}
+/*预约成功*/
+.success_box1{
+    width:3.2rem;
+    margin:0 auto;
+    padding-top:0.16rem;
+}
+.success_box1 img{
+    display: block;
+    width:100%;
+    margin-bottom: 0.2rem;
+}
+.success_box1 p{
+    text-align: center;
+    font-size: 0.16rem;
+    line-height: 0.3rem;
+    font-weight: bold;
+}
+.success_box1 .red{
+    color:red;
+}
+.care_box{
+    padding:0.1rem 0.2rem;
+    background: #f1f1f1;
+    margin-top:0.2rem;
+    margin-bottom:0.8rem;
+}
+.care_box .red{
+    color:red;
+}
+.care_box b{
+    display: block;
+    font-size:0.12rem;
+    line-height: 0.24rem;
+}
+.care_box p{
+    font-size: 0.12rem;
+    line-height: 0.2rem;
+    margin-bottom: 0.04rem;
+    text-align: justify;
+}
+.cancel_btn{
+    display: block;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    width:70%;
+    margin:0 auto;
+    height: 0.44rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.44rem;
+    font-size: 0.14rem;
+}

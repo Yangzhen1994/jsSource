@@ -1,0 +1,63 @@
+.rent_message_list li{
+    padding:0.1rem;
+    margin:0.1rem 0px;
+    color:#444;
+    font-family: PingFangSC-Medium;
+}
+.rent_message_list li .fl_box{
+    float:left;
+    width:70%;
+    color:#444;
+    line-height: 0.24rem;
+}
+.rent_message_list li .fr_box{
+    float:right;
+    width:30%;
+    text-align: right;
+    padding-top:0.06rem;
+    line-height: 0.22rem;
+}
+.fl_box h3{
+    font-size: 0.18rem;
+    height:0.24rem;
+    line-height: 0.24rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: normal;
+}
+.rent_message_list li p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:0.16rem;
+
+}
+.fl_box span{
+    padding:0px 0.08rem;
+}
+.fl_box span:nth-child(1){
+    padding-left: 0px;
+}
+.rent_message_list li .p2{
+    color:#FF8200;
+}
+.rent_message_list li .p3{
+    color:#FF8200;
+}
+.rent_message_list li .p4{
+    font-size: 0.14rem;
+    color:red;
+    padding-right:0.05rem;
+}
+.rent_message_list li .p4 span{
+    float: right;
+    padding-left:0.24rem;
+    position: relative;
+}
+.rent_message_list li .p4 img{
+    position:absolute;
+    width:0.18rem;
+    top:0.02rem;
+    left:0px;
+}

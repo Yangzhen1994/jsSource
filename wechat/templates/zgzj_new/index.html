@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>广州保障对象</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/frame/vue.min.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/zgzj_new.css">
+</head>
+<body>
+<!--主体部分-->
+<section id="ind_box" v-cloak>
+    <div class="box1">选择您自检的保障类别</div>
+    <ul class="radio_box">
+        <li value="1">户籍家庭</li>
+        <li value="2">新就业无房职工</li>
+        <li value="3">来穗务工人员</li>
+    </ul>
+    <div class="ft_box">
+        <button v-on:click="nextStepfuc">下一步</button>
+        <p><span>温馨提示</span></p>
+        <div>本结果仅供参考，具体以相关部门的审核结果为准</div>
+    </div>
+</section>
+<!--免责声明-->
+<section class="fix_outer" id="mz" v-cloak>
+    <div class="mz_box">
+        <h3>免责声明</h3>
+        <p>这是一段免责声明这是一段免责声明这是一段免责声明这是一段免责声明这是一段免责声明这是一段免责声明。</p>
+        <div class="nt">下次不再提示</div>
+        <ul>
+            <li id="refuse">拒绝</li>
+            <li id="accept">接受</li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //主体
+    var vm1 = new Vue({
+        el:"#ind_box",
+        methods:{
+            //radio
+            radiofuc:function(){
+                $(".radio_box").each(function(){
+                    $(this).find("li").click(function(){
+                        $(this).addClass("choosed").siblings("li").removeClass("choosed");
+                    })
+                })
+            },
+            //跳转
+            nextStepfuc:function(){
+                if($(".radio_box .choosed").length==0){
+                    $.alert("请选择您自检的保障类别!");
+                    stopScroll($('.weui-mask'));
+                    return false;
+                }else{
+                    var num = $(".radio_box .choosed").attr("value");
+                    switch(num){
+                        case 1:
+                            window.location.href="hj.html"
+                            break;
+                        case 2:
+                            window.location.href="xjy.html"
+                            break;
+                        case 3:
+                            window.location.href="ls.html"
+                            break;
+                    }
+                }
+            }
+        }
+    });
+    vm1.radiofuc();
+    //免责
+    var vm2 = new Vue({
+        el:"#mz",
+        methods:{
+            mzfuc:function(mzbool){
+                if(mzbool){
+                    $(".fix_outer").hide();
+                }else{
+                    //提示
+                    $(".nt").click(function(){
+                        $(this).toggleClass("choosed");
+                    })
+                    //拒绝返回上一页
+                    $("#refuse").click(function(){
+                        window.history.go(-1);
+                    })
+                    //接受关闭免责，获取mz的值保存，判定下次是否出现
+                    $("#accept").click(function(){
+                        if($(".nt").hasClass("choosed")){
+                            mz = true;//免责判定，需要保存，方法自定
+                        }
+                        $(".fix_outer").fadeOut(100);
+                    })
+                }
+            }
+        }
+    })
+    vm2.mzfuc(false);//false传参
+</script>
+</html>

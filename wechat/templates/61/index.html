@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>六一园游会 · 报名</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        #banner61{
+            display: block;
+            width:100%;
+        }
+        #box1{
+            color:#444444;
+            padding:0px 0.125rem;
+            font-size: 0.12rem;
+            padding-bottom: 0.14rem;
+            border-bottom: 1px solid #d8d8d8;
+        }
+        #box1 h1{
+            line-height: 0.48rem;
+            color:#3f3f3f3;
+            font-size: 0.2rem;
+            font-weight: normal;
+        }
+        #box1 ul{
+            overflow: hidden;
+            margin-bottom: 0.1rem;
+        }
+        #box1 ul li{
+            background: #ffe7cd;
+            color:#ff8200;
+            float:left;
+            line-height: 0.28rem;
+            padding:0px 0.12rem;
+            margin-right:0.1rem;
+        }
+        #box1 p{
+            font-size: 0.14rem;
+            line-height: 0.32rem;
+        }
+        #box1 .add{
+            color:#a9a9a9;
+            margin-top: 0.06rem;
+        }
+        #box1 span{color:#ff8200;}
+        #box2{
+            padding:0px 0.125rem;
+            padding-bottom: 0.7rem;
+        }
+        #box2 .item{
+            padding:0.08rem 0px;
+            line-height: 0.4rem;
+            height:0.4rem;
+            font-size: 0.14rem;
+            border-bottom: 1px solid #d8d8d8;
+        }
+        #box2 .item span{float:left;}
+        #box2 .item span:before{
+            content:'* ';
+            color:red;
+        }
+        #box2 .item input{
+            outline: none;
+            border:none;
+            text-align: right;
+            float:right;
+            width:1.8rem;
+            height:0.4rem;
+            color:#ff8200;
+        }
+        .yzm_box{
+            position: relative;
+        }
+        .yzm_box .item{
+            /*width:2.4rem;*/
+        }
+        .yzm_box img{
+            display: none;
+            position: absolute;
+            right:0px;
+            bottom:0px;
+            height:0.4rem;
+            width:0.98rem;
+            background: #b8f0b8;
+        }
+        #bm{
+            position: fixed;
+            bottom:0px;
+            left:0px;
+            height:0.48rem;
+            line-height: 0.48rem;
+            display: block;
+            width:100%;
+            color:#fff;
+            font-size: 0.16rem;
+            text-align: center;
+            background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="banner61" src="../../img/61/banner.jpg"/>
+    <div id="box1">
+        <h1>庆六一，快乐游园会</h1>
+        <ul>
+            <li>集体组织</li>
+            <li>陶冶情操</li>
+            <li>亲子同行</li>
+        </ul>
+        <p>· 活动时间：2019年6月1-2日</p>
+        <p>· 活动地点：棠德花苑东三街</p>
+        <p>· 参与对象：3-14岁学员</p>
+        <div class="add"><span>* </span>3-6岁学员可邀请家长一起参与，6-14岁青少年可自己独立完成</div>
+    </div>
+    <div id="box2">
+        <div class="item">
+            <span>姓名</span>
+            <input id="name" type="text" placeholder="请输入姓名"/>
+        </div>
+        <div class="item">
+            <span>手机</span>
+            <input id="tel" type="tel" maxlength='11' placeholder="请输入手机号"/>
+        </div>
+        <div class="item">
+            <span>年龄</span>
+            <input id="age" type="tel" maxlength="3" placeholder="请输入年龄"/>
+        </div>
+        <div class="yzm_box">
+            <div class="item">
+                <span>验证码</span>
+                <input id="yzm" type="text" maxlength="4" placeholder="请输入图片验证码"/>
+            </div>
+            <img id="yzm_img" src=""/>
+        </div>
+    </div>
+    <button id="bm">提 交</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //验证
+    function judgfun(){
+        if($("#name").val()==""){
+            $.alert({text:"请输入姓名!",onOK:function(){$("#name").focus();}});
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($("#tel").val()==""){
+            $.alert({text:"请输入手机号码!",onOK:function(){$("#tel").focus();}});
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if(!DcUtils.isMobile($("#tel").val())){
+            $.alert({text:"请输入有效的手机号码！",onOK:function(){$("#tel").focus();}});
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if($("#age").val()==""){
+            $.alert({text:"请输入年龄!",onOK:function(){$("#age").focus();}});
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        //验证码验证另行补全
+        if($("#yzm").val()==""){
+            $.alert({text:"请输入正确的图片验证码!",onOK:function(){$("#yzm").focus();}});
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        return true;
+    }
+    //提交跳转
+    $("#bm").click(function(){
+        if(judgfun()){
+            setTimeout(function () {
+                window.location.href="success.html";
+            },200)
+        }
+    })
+</script>
+</html>

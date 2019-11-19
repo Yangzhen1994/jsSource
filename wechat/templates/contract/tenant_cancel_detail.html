@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>解约详情</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/contract_manage_detail.css">
+</head>
+<body>
+<div class="my_room_detail">
+    <div class="my_room_detail_list">
+        <div class="info_label clearfix">
+            <div class="house_info_label fl">简介</div>
+            <div class="look_contract_label fr">查看合同 <div class="fr"><img  src="../../img/personal/btn_to.svg" alt=""></div></div>
+        </div>
+        <div id="apponitWrap" class="house_detail">
+            <ul id="myHouse" class="house_list ">
+                <li class="clearfix pr" ><a href="http://www.baidu.com?houseId=1231231123"></a>
+                    <div class="house_img pr "><a href="http://www.baidu.com?houseId=1231231123"><img
+                            src="../../mock/img/banner1.png" alt=""></a><a href="true" class="vr_round">VR</a>
+                    </div>
+                    <div class="house_info "><p class="house_title">编码：CY-N201805091234</p>
+                        <div class="house_tips isAppointment clearfix">
+                            <span class="house_floors">解约</span>
+                            <div class="price fr"><span class="price_before">￥</span>1149<span class="price_after"
+                                                                                               style="font-size: 0.12rem">元/月</span>
+                            </div>
+                        </div>
+                        <div class="pr has_mestro"><img src="../../img/house_list/map_icon_gray.png"
+                                                        alt=""><span>近地铁1号线XX站</span></div>
+                        <div class="tags"><span class="tag">城壹认证</span><span class="tag">采光好</span><span
+                                class="tag">随时看房</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="contract_data">
+        <p>2018/05/09-2019/05/09</p>
+        <div>1 年</div>
+
+    </div>
+    <div class="pay_type">
+        <div class="pay_data fl">
+            <p>每期租金</p>
+            <div>7800元</div>
+        </div>
+        <div class="pay_money fl">
+            <p>付款方式</p>
+            <div>押一付三</div>
+        </div>
+    </div>
+    <div class="person_form">
+        <div style="padding-left:0.18rem;">
+            <p class="person_info_label" style="padding-top:0.24rem;">房东信息</p>
+            <div class="about ">
+                <div class="person_icon fl">
+                    <div class="touxiang">
+                        <img src="../../img/personal/index_city1.png" alt="">
+                    </div>
+                    <img class="certified" src="../../img/personal/certification.svg" alt="">
+                </div>
+                <div class="person_info fl">
+                    <p class="person_name fl">帅叔</p>
+                    <div class="star" id="star" data-score="5">
+                        <div class="fr"><span>9.5</span>分</div>
+                    </div>
+                    <div class="person_label">
+                        <p class="fl">读书</p>
+                        <p class="fl">喝茶</p>
+                        <p class="fl">旅游</p>
+                        <p class="fl">侠骨柔情</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info_item">
+                <span class="info_item_label">性别:</span>
+                <span><img src="../../img/personal/man.svg" alt=""></span>
+            </div>
+            <div class="info_item">
+                <span class="info_item_label">年龄:</span>
+                <span>80 萌叔</span>
+            </div>
+            <div class="info_item">
+                <span class="info_item_label">职业:</span>
+                <span class="info_item_label">产品经理</span>
+            </div>
+            <div class="info_item">
+                <span >星座:</span>
+                <span >处女座</span>
+            </div>
+            <div class="call_icon">
+                <img src="../../img/call.png" alt="">
+            </div>
+        </div>
+        <span id='agreeDiv' class="font14_4">
+                <img style="position: relative; top: 2px;margin-right: 2px;width: 0.16rem;height: 0.16rem"
+                     src="../../img/login/check_box_choosed.png" alt="">
+                     <input type="checkbox" id="agreeCheck" style="display: none" checked>我同意
+                <a href=../../../../wechat/agreement_sign.html" class="font14_4"
+                   style="text-decoration: underline;">
+                    《城壹宜居在线签约服务协议》</a>
+            </span>
+    </div>
+    <div class="btns">
+        <button class="confirm" style="display: block;margin: 0 auto;float: none">同意解约</button>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var isAgree = true;
+    $('#agreeDiv').on('click', function () {
+        $('#agreeCheck').prop('checked', !$('#agreeCheck').prop('checked'));
+        isAgree = !isAgree
+        if ($('#agreeCheck').prop('checked')) {
+            $(this).find('img').attr('src', '../../img/login/check_box_choosed.png')
+        } else {
+            $(this).find('img').attr('src', '../../img/login/check_box_no.png')
+        }
+    })
+    $('.confirm').click(function () {
+        if(!isAgree){
+            $.alert('请同意协议');
+            stopScroll($('.weui-mask'))
+            return;
+        }
+    })
+</script>
+</body>
+</html>

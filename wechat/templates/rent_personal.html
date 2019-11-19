@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>个人中心</title>
+    <script rel="stylesheet" src="../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/frame/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">-->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/frame/mescroll.css">
+    <script rel="stylesheet" src="../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../js/common.js"></script>
+
+
+    <!--new-->
+    <link rel="stylesheet" href="../css/rent_personal.css">
+</head>
+<body>
+<div class="rent_container">
+    <div class="header pr clearfix">
+        <div class="switch_img fl">
+            <img src="../img/personal/tab.svg" alt="">
+            <span class="switch_renter hide">切换为租户</span>
+            <span class="switch_host ">切换为房东</span>
+        </div>
+        <div class="rent_message">
+                <img src="../img/personal/message.png" alt="">
+            <div class="message_num">3</div>
+        </div>
+    </div>
+    <div class="person_verified">
+        <!--未登录-->
+        <div class="about hide clearfix">
+            <div class="no_person_icon fl">
+                <img src="../img/personal/no_login_person.png" alt="">
+            </div>
+            <div class="person_info fl">
+                <p class="login_or_register">登录/注册</p>
+                <p class="login_or_remark">注册手机号不会透露给任何人</p>
+            </div>
+        </div>
+        <!--已登录-->
+        <div class="about ">
+            <div class="person_icon fl">
+                <a href="./user/user_info.html">
+                <img src="../img/personal/photo.jpg" alt="">
+                <img class="icon_certified  hide" src="../img/personal/certification.svg" alt="">
+                <img class="icon_no_certified" src="../img/personal/no_certification.svg" alt="">
+                </a>
+            </div>
+            <div class="person_info fl">
+                <a href="./user/user_info.html">
+                <p class="person_name fl">帅叔</p>
+                <div class="star" id="star" data-score="5">
+                   <div class="fr"><span>9.5</span>分</div>
+                </div>
+                <div class="person_label">
+                    <p class="fl">读书</p>
+                    <p class="fl">喝茶</p>
+                    <p class="fl">旅游</p>
+                    <p class="fl">侠骨柔情</p>
+                </div>
+                </a>
+            </div>
+            <div class="authenticated fr hide">
+                <img src="../img/personal/certified.svg" alt="">
+                <!--<span>已认证</span>-->
+            </div>
+            <div class="no_authentication fr" >
+                <img src="../img/personal/no_certified.svg" alt="">
+                <!--<span>未认证</span>-->
+            </div>
+        </div>
+        <div class="operate clearfix ">
+            <div class="operate_item appoint_look_div fl" >
+                <a href="javascript:;" style="display:block;">
+                    <div class="operate_item_div">
+                        <img src="../img/personal/fun_icon_01.svg" alt="">
+                    </div>
+                    <p>预约看房</p>
+                </a>
+            </div>
+           <!-- <div class="operate_item fl my_rent hide">
+                <a href="i_rent/i_rent.html" style="display:block;">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_05.svg" alt="">
+                </div>
+                <p>我要出租</p>
+                </a>
+            </div>-->
+            <div class="operate_item fl my_income hide">
+                <a href="host_house/host_my_income.html" style="display:block;">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_12@2x.png" alt="">
+                </div>
+                <p>我的收益</p>
+                </a>
+            </div>
+            <div class="operate_item inline_pay fl " onclick="inline_pay()">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_02.svg" alt="">
+                </div>
+                <p>在线支付</p>
+            </div>
+            <div class="operate_item fl my_house hide"  onclick="my_room_resource()">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_06.svg" alt="">
+                </div>
+                <p>我的房源</p>
+            </div>
+            <div class="operate_item my_room_resource fl" onclick="my_house()">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_03.svg" alt="">
+                </div>
+                <p>我的住房</p>
+            </div>
+            <div class="operate_item fl" onclick="my_contact()">
+                <div class="operate_item_div">
+                    <img src="../img/personal/fun_icon_04.svg" alt="">
+                </div>
+                <p>合同管理</p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="person_list">
+        <div class="list_item my_collect border_bottom">
+            <a ,href="./collect_list/my_collect.html" style="width: 100%;display:block;height: 100%">
+                <div class="fl">
+                    <img src="../img/personal/shoucang.svg" alt="">
+                    <span>我的收藏</span>
+                </div>
+                <div class="fr">
+                    <img src="../img/personal/btn_to.svg" alt="">
+                </div>
+            </a>
+        </div>
+     <!--   <div class="list_item recommend_room clearfix border_bottom">
+            <a href="./list/recommend_house.html" class="clearfix" style="display: block;width: 100%;height: 100%">
+                <div class="fl">
+                    <img src="../img/personal/tuijian.svg" alt="">
+                    <span>推荐房源</span>
+                </div>
+                <div class="fr">
+                    <img src="../img/personal/btn_to.svg" alt="">
+                </div>
+            </a>
+        </div>-->
+        <div class="list_item sys_info border_bottom">
+            <a href="./system_info/system_info_list.html" class="clearfix" style="display: block;width: 100%;height: 100%">
+            <div class="fl">
+                <img src="../img/personal/xiaoxi.svg" alt="">
+                <span>系统消息</span>
+            </div>
+            <div class="fr">
+                <img src="../img/personal/btn_to.svg" alt="">
+            </div>
+            </a>
+        </div>
+        <div class="list_item personal_info border_bottom">
+            <a href="./user/user_info.html" class="clearfix">
+            <div class="fl">
+
+                <img src="../img/personal/geren.svg" alt="">
+                <span>个人信息</span>
+
+            </div>
+            <div class="fr">
+                <img src="../img/personal/btn_to.svg" alt="">
+            </div>
+            </a>
+        </div>
+        <div class="list_item sys_set">
+            <div class="fl">
+                <img src="../img/personal/shezhi.svg" alt="">
+                <span>系统设置</span>
+            </div>
+            <div class="fr">
+                <img src="../img/personal/btn_to.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="weui-tabbar">
+        <a href="index.html" href="javascript:;" class="weui-tabbar__item">
+            <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>-->
+            <div class="weui-tabbar__icon nav_home">
+                <!--<img src="../img/index/nav_svg/nav_home_sel.svg" alt="">-->
+            </div>
+            <p class="weui-tabbar__label">首页</p>
+        </a>
+        <a href="list/house_list.html" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon nav_rent">
+                <!--<img src="../img/index/nav_svg/nav_rent.svg" alt="">-->
+            </div>
+            <p class="weui-tabbar__label">我要租房</p>
+        </a>
+        <a href="news/life_server.html" href="javascript:;" class="weui-tabbar__item">
+            <div class="weui-tabbar__icon nav_info">
+                <!--<img src="../img/index/nav_svg/nav_info.svg" alt="">-->
+            </div>
+            <p class="weui-tabbar__label">便民服务</p>
+        </a>
+        <a href="#" href="javascript:;" class="weui-tabbar__item  weui-bar__item--on">
+            <div class="weui-tabbar__icon nav_my">
+                <!--<img src="../img/index/nav_svg/nav_my.svg" alt="">-->
+            </div>
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script rel="stylesheet" src="../js/jquery.raty.js"></script>
+<script>
+
+        console.log($('.star'))
+        $.fn.raty.defaults.path = '../img';
+        function star(obj,num) {
+            $(obj).raty({
+                size: 32,
+                targetKeep: true,
+                targetType: 'hint', //类型选择，number是数字值，hint，是设置的数组值
+                hints: ['差', '一般', '好', '非常好', '全五星'],
+//                score:num,//评星值
+                score: function() {
+                    return $(this).attr('data-score');
+                }
+
+            });
+        }
+        var ac = $('.star').find('span').text();
+        star('.star',ac);
+
+
+    //登陆注册
+    $('.login_or_register').click(function(){
+        window.location.href="login_register/login_register.html"
+    })
+        var ishost = false
+        appoint_look(ishost)
+    //切换为租客
+    $('.switch_renter').click(function(){
+        ishost = !ishost
+
+        appoint_look(ishost)
+
+
+        $('.switch_renter').hide();
+        $('.switch_host').show();
+        $('.recommend_room').show();
+        $('.my_room_resource').show();
+        $('.my_house').hide();
+        $('.my_collect').show();
+        $('.inline_pay').show();
+        $('.sys_set').show();
+        $('.my_income').hide();
+        $('.person_list').css("height","2.92rem");
+        ;
+    })
+    //切换为房东
+
+    $('.switch_host').click(function(){
+        ishost = !ishost
+        appoint_look(ishost)
+        $('.switch_renter').show();
+        $('.switch_host').hide();
+        $('.recommend_room').hide();
+        $('.my_house').show();
+        $('.my_room_resource').hide();
+        $('.my_collect').hide();
+        $('.inline_pay').hide();
+        $('.my_income').show();
+        $('.person_list').css("height","2.17rem");
+    })
+//    预约看房
+        function appoint_look(flag){
+        if(!flag){
+            $('.appoint_look_div').on('click',function () {
+                window.location.href="appoint_look/appoint_look_room.html"
+            })
+        }else{
+            $('.appoint_look_div').on('click',function () {
+                window.location.href="appoint_look/houst_appoint_look_room.html"
+            })
+        }
+
+        }
+    function my_room_resource(){
+        window.location.href="host_house/host_my_house.html"
+    }
+    function my_house(){
+        window.location.href="my_live_house/user_my_house_resource_list.html"
+    }
+    function my_contact(){
+        window.location.href="contract/contract_manage.html"
+    }
+    function inline_pay(){
+        window.location.href="bill/inline_pay.html"
+    }
+//    认证
+    $('.no_authentication').click(function(){
+        window.location.href="user/certification1.html"
+    })
+
+        var url = window.location.href.split('?')[1];
+        if(url){
+            $('.icon_certified').show();
+            $('.icon_no_certified').hide();
+            $('.authenticated').show();
+            $('.no_authentication').hide();
+        }else{
+            $('.icon_certified').hide();
+            $('.icon_no_certified').show();
+            $('.authenticated').hide();
+            $('.no_authentication').show();
+        }
+
+        $(".my_collect").click(function(){
+            window.location.href="collect_list/my_collect.html"
+        });
+        $(".recommend_room").click(function(){
+            window.location.href="list/recommend_house.html"
+        });
+        $(".sys_info").click(function(){
+            window.location.href="system_info/system_info_list.html"
+        });
+        $(".personal_info").click(function(){
+            window.location.href = 'user/user_info.html'
+        });
+        $(".sys_set").click(function(){
+            window.location.href = './setting.html'
+        })
+
+    $(".rent_message").click(function () {
+        window.location.href="system_info/system_info_list.html"
+    })
+</script>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>来穗务工人员</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/frame/vue.min.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/zgzj_new.css">
+</head>
+<body>
+<!--主体部分-->
+<section class="form_box" id="ls_box" v-cloak>
+    <div class="item_spe">
+        <div class="desc">申请对象</div>
+        <div class="cs_box" v-on:click="fixshowfuc">{{ objname }}</div>
+    </div>
+    <!--对象1-->
+    <div id="obj1_box" v-if="num == 1">
+        <div class="item">
+            <div class="desc">一、申请人在广州市申报居住登记，办理并持有《广东省居住证》3年以上，且申请时仍在有效期内</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">二、申请人在广州地区参加社会保险（含广东省、广州市社会保险，社会保险的内容包括基本养老、职工社会医疗、工伤、失业和生育保险）连续缴费（含补缴）满2年或者5年内累计缴费满3年，且申请时处于在保状态</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">三、申请人在申请时已在本市办理就业登记，已在本市用人单位签订2年以上期限的劳动合同，且申请时处于合同有效期内；或者属于在本市辖区内办理了工商登记的企业出资人或者个体工商户经营者，且申请时工商登记未被注销、吊销</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">四、申请人及共同申请的家庭成员在本市无自有产权住房，在本市未承租直管公房或者单位自管房，且申请时在本市未享受公共租赁住房（含廉租房）保障</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">五、申请人及其配偶未违反计划生育政策</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">六、申请人及共同申请的家庭成员没有犯罪记录及在申请之日前5年内没有公安机关作出的处以行政拘留、责令社区戒毒、强制隔离戒毒、收容教育、收容教养等治安违法记录</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+    </div>
+    <!--对象2-->
+    <div id="obj2_box" v-if="num == 2">
+        <div class="item">
+            <div class="desc">一、持有高级工、技师、高级技师（或者三级、二级、一级）职业资格证书的高技能人才</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">二、获国家、省和本市党委、政府授予的荣誉称号，或者获得“广州市优秀异地务工人员”、“广州市优秀异地务工技能人才”称号人员</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">三、本市及以上见义勇为评定委员会表彰或者奖励人员</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">四、持有《广东省居住证》，申请时证件及证明仍在有效期内</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">五、在广州地区参加社会保险，申请时证件及证明仍在有效期内</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">六、已在本市办理就业登记或者工商登记，申请时证件及证明仍在有效期内</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">七、申请人及共同申请的家庭成员在本市无自有产权住房，在本市未承租直管公房或者单位自管房，且申请时在本市未享受公共租赁住房（含廉租房）保障</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">八、申请人及其配偶未违反计划生育政策</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+        <div class="item">
+            <div class="desc">九、申请人及共同申请的家庭成员没有犯罪记录及在申请之日前5年内没有公安机关作出的处以行政拘留、责令社区戒毒、强制隔离戒毒、收容教育、收容教养等治安违法记录</div>
+            <ul class="radio_box">
+                <li v-on:click="radiofuc($event)">是</li>
+                <li v-on:click="radiofuc($event)">否</li>
+            </ul>
+        </div>
+    </div>
+    <!--提交-->
+    <div class="ft_box">
+        <button v-on:click="submitfuc">下一步</button>
+        <p><span>温馨提示</span></p>
+        <div>本次自检依据《广州市住房保障办公室 广州市来穗人员服务管理局关于印发来穗务工人员申请承租市本级公共租赁住房实施细则的通知》（穗住保规字〈2017〉1号）</div>
+    </div>
+    <!--选择弹出层-->
+    <div class="fix_outer" style="display: none;">
+        <ul id="cul">
+            <li v-on:click="obj1fuc(num==2)">来穗时间长、稳定就业的来穗务工人员</li>
+            <li v-on:click="obj2fuc(num==1)">高技能人才或者获得荣誉称号的来穗务工人员</li>
+            <li v-on:click="fixclosefuc">取 消</li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(document).unbind();//解绑公共js scrollfixed()
+    //主体
+    var vm1 = new Vue({
+        el:"#ls_box",
+        data:{
+            num:"",
+            objname:''
+        },
+        methods:{
+            //radio
+            radiofuc:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+            },
+            //弹出
+            fixshowfuc:function(){
+                $(".fix_outer").fadeIn(100);
+            },
+            //对象1方法,判定是否执行更新数据
+            obj1fuc:function(bool){
+                if(bool==true){
+                    this.num = 1;
+                    this.objname = "来穗时间长、稳定就业的来穗务工人员";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //对象2方法,判定是否执行更新数据
+            obj2fuc:function(bool){
+                if(bool==true){
+                    this.num = 2;
+                    this.objname = "高技能人才或者获得荣誉称号的来穗务工人员";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //关闭选择层
+            fixclosefuc:function(){
+                $(".fix_outer").fadeOut(100);
+            },
+            //关闭+清除
+            clearradiofuc:function(){
+                $(".fix_outer").fadeOut(100,function(){
+                    var radio_choosed = $(".choosed");
+                    var warn_box = $(".warnning");
+                    //console.log(radio_choosed.length);
+                    for(var i=0;i<radio_choosed.length;i++){
+                        radio_choosed.eq(i).removeClass("choosed");
+                    }
+                    for(var j=0;j<warn_box.length;j++){
+                        warn_box.eq(j).removeClass("warnning");
+                    }
+                });
+            },
+            //跳转
+            submitfuc:function(){
+                //校验漏填
+                var radio_boxs=$(".radio_box");
+                //console.log(radio_boxs.length);
+                for(var i=0;i<radio_boxs.length;i++){
+                    if(radio_boxs.eq(i).find(".choosed").length==0){
+                        $.alert({
+                            text:"请补全问题"+ (i+1) +"相关信息！",
+                            onOK:function(){
+                                radio_boxs.eq(i).siblings(".desc").addClass("warnning");
+                                var h = radio_boxs.eq(i).siblings(".desc").offset().top;
+                                console.log(h);
+                                $(document).scrollTop(h);
+                            }
+                        });
+                        stopScroll($('.weui-mask'));
+                        return false;
+                    }
+                }
+                //后台传值判定跳转，bool(true or false)
+                var bool = true;
+                switch (bool) {
+                    case true:
+                        window.location.href="success.html"
+                        break;
+                    case false:
+                        window.location.href="fail.html"
+                        break;
+                }
+            }
+        }
+    });
+    vm1.obj1fuc(true);//初始化
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>广州塔购票</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/canton_tower.css">
+</head>
+<body class="grayBody">
+<section class="tb_box1"><span></span>已阅读并接受<a href="gmxz.html">《购买须知》</a>中的条款</section>
+<section class="tb_box2">
+    <img src="../../img/canton_tower/img1.png"/>
+    <div class="detail_box">
+        <div class="box1">460米  摩天轮游乐套票(成人)</div>
+        <p>有效期：2018-10-24  星期三</p>
+        <p>兑票及入塔时段：09:30-12:00</p>
+        <div class="box2"><span>X 1</span><span>￥298.00元</span></div>
+    </div>
+</section>
+<section class="tb_box3">
+    <div class="box1">购买者信息</div>
+    <div class="molabel">
+        <img class="img1" src="../../img/canton_tower/people.png">
+        <span>姓名</span>
+        <input id="name" type="text" readonly="true" value="吴剑波"/>
+    </div>
+    <div class="molabel">
+        <img class="img2" src="../../img/canton_tower/phone.png">
+        <span>手机号</span>
+        <input id="phone" type="text" placeholder="请输入手机号" value="15876525067"/>
+    </div>
+    <div id="add_people_btn"><img src="../../img/canton_tower/add.png">您需要选择<span>1</span>位出行人</div>
+</section>
+<div style="height:0.5rem;width:100%;"></div>
+<div class="buy_btn_box">
+    <div class="total_price">待支付：<span>￥298.00</span></div>
+    <button>立即支付</button>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(".tb_box1 span").click(function(){
+        $(this).toggleClass("choosed");
+    })
+    $("#add_people_btn").click(function(){
+        window.location.href="add_people.html";
+    })
+    //点击支付
+    $(".buy_btn_box button").click(function(){
+        if(!$(".tb_box1 span").hasClass("choosed")){
+            $.alert("请阅读《购买须知》相关条款并接受！");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        if(!DcUtils.isMobile($("#phone").val())){
+            $.alert("请填些正确的手机号！");
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+        if($("#add_people_btn").length>0){
+            $.alert("请补全出行人信息！");
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,113 @@
+主体
+
+index.html                   公租房主页(预留备份)
+
+index_ver2.html              公租房主页2.0
+
+community_detail.html        小区详情页
+
+house_detail.html            房源详情页
+
+house_detail_map.html        地图展示（引用原来的）
+
+合同
+
+contract_detail.html          合同详情（引用原来）
+
+contract_待签字.html           合同管理---合同待签字（为方便查看带中文字符，后自行去掉）
+
+contract_已签字.html           合同管理---合同已签字（为方便查看带中文字符，后自行去掉）
+
+contract_单位租户.html         合同管理---单位租户（为方便查看带中文字符，后自行去掉）
+
+sign_success.html              签字成功
+
+
+细分化页面
+
+progress_query.html            进度查询(修改base 9-28原型)
+
+bank_card.html                 银行卡信息
+
+pay_record.html                租金缴纳记录(可用)
+
+pay_record_备份.html           租金缴纳记录（原稿备份）
+
+renewal_apply.html             续租申请
+
+retire_apply.html              退租申请
+
+exchange_apply.html            交换申请
+
+房源推荐                        直接复制现在我的收藏（一样）
+
+新闻动态                        原本有
+
+my_housekeeper.html            我的管家
+
+my_credit.html                 社会信用
+
+publicity.html                 信息公示
+
+checkin_notice.html            入住通知书
+
+公租房申请流程组块               (待出UI稿)
+
+empty.html                     查无数据
+
+retire_notice.html             退租通知
+
+invoice_apply.html             发票申领
+
+invoice_electronic.html        电子发票成功发送
+
+invoice_paper.html             纸质发票成功发送
+
+invoice_detail.html            查看发票
+
+pay_online.html                在线支付
+
+/*------------9-29原型新增----------------*/
+
+商业项目板块（在business_project里面）
+
+在线客服    （在customer_service里面）
+
+my_mianya.html                 我的免押(9-29原型新增)
+
+prh_apply1.html                公租房申请
+
+prh_apply2.html                选择房源点
+
+prh_apply3.html                公租房申请提交成功
+
+income_success.html            租金提取（房东——我的收益新增提醒页面，注：原页面还要补充按钮）
+
+my_house.html                  我的住房(9-29原型更改)
+
+jz_service.html                家政服务进度
+
+jz_banjia.html                 家政服务详情_搬家
+
+jz_weixiu.html                 家政服务详情_维修
+
+jz_baojie.html                 家政服务详情_保洁
+
+
+/*------------------10-22原型新增或修改-------------------*/
+
+renewal_apply.html             续租申请
+
+exchange_apply.html            交换申请
+
+retire_success.html            退租申请预约成功
+
+shoulidian.html                广州来穗人员公租房申请受理点
+
+zijian.html                    在线自检
+
+zijian_ok.html                 自检有资格
+
+zijian_.html                   自检没资格
+
+

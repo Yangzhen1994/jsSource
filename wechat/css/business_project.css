@@ -1,0 +1,197 @@
+/*商业项目样式表 by Alen since 2018/10/06*/
+
+/*商铺列表*/
+.header .search_wrap input{
+    padding-left:0.16rem;
+}
+.order_area .order_card .selected a{
+    color:#ff8200;
+}
+.house_tips span, .has_mestro span{
+    color:#999;
+    opacity: 1;
+}
+.house_list .tag{
+    padding:0rem 0.06rem;
+    height:0.18rem;
+    line-height: 0.18rem;
+}
+.house_tips{
+    line-height: 0.28rem;
+    height:0.28rem;
+    margin-bottom: 0rem;
+}
+.house_list .house_price{
+    float:right;
+    color:#ff8200;
+    opacity: 1;
+    font-size: 0.16rem;
+}
+.zuqi{
+    font-size:0.12rem;
+    line-height: 0.25rem;
+    color:#999;
+}
+.header .search_wrap i{
+    width: 0.16rem;
+    height: 0.16rem;
+    position: absolute;
+    right: 0.24rem;
+    top:0.09rem;
+    display: block;
+}
+.header .search_wrap i img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top:0;
+}
+.header .search_wrap i:before{
+    left:-0.24rem
+}
+#new_shop_area li{
+    font-size: 0.13rem;
+    width:1.06rem;
+    height: 0.28rem;
+}
+/*商铺详情*/
+#banner_box img{width:100%;height:2.19rem;}
+#banner_box .swiper-pagination-bullet{
+    border:0px;
+    opacity: 1;
+    background: #fff;
+}
+#banner_box .swiper-pagination-bullet-active{
+    background: #ff8200;
+}
+.shop_tit span{
+    color:#ff8200;
+}
+.house_brief .shop_tit,.house_brief .shop_price{
+    font-size: 0.22rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.26rem;
+    margin-bottom: 0.14rem;
+}
+.house_infos{
+    padding:0.16rem 0px;
+}
+.mestro span{
+    opacity: 0.8;
+}
+.park_desc{
+    padding-bottom: 0.2rem;
+}
+.park_desc p{
+    font-size: 0.14rem;
+    line-height: 0.24rem;
+    margin-bottom: 0.1rem;
+    color:#444;
+}
+.park_desc p:before{
+    content: "· ";
+}
+.matching_icon img{
+    margin-bottom: 0.06rem;
+}
+.matching_icon>div{
+    font-size: 0.13rem;
+}
+.yjimg{display: block;width:100%;padding-bottom: 0.6rem;}
+/*车位详情*/
+.baseinfo_box,.describe_box,.pics_box,.history_box{
+    padding-bottom: 0.14rem;
+    width:3.4rem;
+    margin: 0 auto;
+    color:#444;
+}
+.tit{
+    font-size: 0.18rem;
+    line-height: 0.4rem;
+    color:#000;
+    padding-top: 0.16rem;
+    padding-bottom: 0.1rem;
+}
+.baseinfo_box p{
+    font-size: 0.14rem;
+    position: relative;
+    padding-left:1.22rem;
+    line-height: 0.22rem;
+    margin-bottom: 0.04rem;
+}
+.baseinfo_box p span{
+    position: absolute;
+    display: block;
+    width:1.22rem;
+    top:0px;
+    left:0px;
+    text-align: right;
+}
+.describe_box p{
+    font-size: 0.14rem;
+    line-height: 0.22rem;
+    margin-bottom: 0.04rem;
+    text-indent: 2em;
+    text-align: justify;
+}
+.pics_box .pics{
+    overflow: hidden;
+}
+.pics_box .pics img{
+    float:left;
+    width:1.65rem;
+    height:1.2rem;
+    margin-bottom: 0.1rem;
+}
+.pics_box .pics img:nth-child(2n){
+    float: right;
+}
+.history_box{
+    padding-bottom: 0.7rem;
+}
+.dashed-line{
+    border-top:1px dashed #d8d8d8;
+    margin:0.12rem 0px;
+}
+.history_box p{
+    font-size: 0.14rem;
+    position: relative;
+    padding-left:0.8rem;
+    line-height: 0.22rem;
+    margin-bottom: 0.04rem;
+}
+.history_box p span{
+    position: absolute;
+    display: block;
+    width:0.8rem;
+    top:0px;
+    left:0px;
+    text-align: right;
+}
+.orange{
+    color:#ff8200 !important;
+}
+.button_outer{
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:0.6rem;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+}
+.button_outer a{
+    display:inline-block;
+    width:30%;
+    height:0.4rem;
+    line-height: 0.4rem;
+    text-align: center;
+    font-size: 0.16rem;
+    color:#fff;
+    margin:0.1rem auto;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.06rem;
+}

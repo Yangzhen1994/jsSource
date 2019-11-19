@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>入住验证</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/register_login.css">
+    <script src="../../js/gVerify.js"></script>
+    <style>
+        body{
+            background: #fff;
+        }
+        .login_card{
+            padding: 0.18rem;
+        }
+        #normalLoginLi{
+            margin-left: 0.17rem;
+        }
+        .yzm_btn_span{
+            width: 100px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="login_card clearfix">
+    <ul class="radio_area clearfix">
+        <li class="fl way_li_active" id="normalLoginLi"><img src="../../img/login/radio_box_choosed.png" alt=""><input type="radio" name="login_way" id="normalLogin" checked style="display: none"><label for="normalLogin">个人登录</label></li>
+        <li class="fl" id="componyLoginLo"><img src="../../img/login/radio_box_no.png" alt=""><input type="radio" name="login_way" id="phoneLogin" checked style="display: none"><label for="phoneLogin">企业登录</label></li>
+    </ul>
+    <form class="login_form default_way_form" id="userForm">
+
+        <ul class="pr">
+
+            <li class="border_bottom"><input type="text" name="username" id="username" class="username" placeholder="请输入姓名" required></li>
+            <li class="border_bottom"><input type="text" name="id_card" id="id_card" class="id_card" placeholder="请输入身份证" required></li>
+            <li class="clearfix pr border_bottom"><input type="text" name="yzm" id="validateCode" class="yzm" placeholder="请输入验证码" style="width: 70%" required>
+                <span class="pa yzm_btn_span" id="vContainer1"></span>
+            </li>
+            <div class="" style="top: 0.04rem;
+            width: 50%;
+            padding-left: 0.17rem;
+            box-sizing: border-box;
+            color: #444;
+            font-size: 0.14rem;
+            position: relative !important;
+
+            color: #ff8200;">注:请填写承租人信息</div>
+
+        </ul>
+    </form>
+    <form class="login_form phone_way_form hide" id="componyForm">
+        <ul>
+            <li class="border_bottom"><input type="text" name="compony_code" id="componyCode" class="phone_num" placeholder="请输入企业编号"></li>
+            <li class="border_bottom"><input type="text" name="compony_name" id="componyName" class="phone_num" placeholder="请输入企业名称"></li>
+            <li class="clearfix pr border_bottom"><input type="text" name="yzm" id="validateCode1" class="yzm" placeholder="请输入验证码" style="width: 70%" required>
+                <span class="pa yzm_btn_span" id="vContainer2"></span>
+            </li>
+        </ul>
+    </form>
+    <button class="login_btn" form="userForm">
+        下一步
+    </button>
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $('form').submit(function (e) {
+        e.preventDefault()
+    })
+    //yzm
+    var verifyCode1 = new GVerify({
+        id: "vContainer1", //容器Id
+        canvasId: "id1", //canvas的ID
+        width: "88", //默认canvas宽度
+        height: "30", //默认canvas高度
+        type: "", //图形验证码默认类型blend:数字字母混合类型、number:纯数字、letter:纯字母
+        code: "nmsl"
+    },'id1');
+    var verifyCode2 = new GVerify("vContainer2",'id2');
+
+    // 登录方式切换
+    $('#normalLoginLi').click(function () {
+        $('.login_btn').attr('form','defaultWayForm')
+        $('.default_way_form').removeClass('hide')
+        $('.phone_way_form').addClass('hide')
+        $('#normalLogin').prev().attr('src','../../img/login/radio_box_choosed.png')
+        $('#phoneLogin').prev().attr('src','../../img/login/radio_box_no.png')
+        $('.radio_area li').eq(0).addClass('way_li_active')
+        $('.radio_area li').eq(0).siblings().removeClass('way_li_active')
+    });
+    $('#componyLoginLo').click(function () {
+        $('.login_btn').attr('form','phoneWayForm')
+        $('.default_way_form').addClass('hide')
+        $('.phone_way_form').removeClass('hide')
+        $('#phoneLogin').prev().attr('src','../../img/login/radio_box_choosed.png')
+        $('#normalLogin').prev().attr('src','../../img/login/radio_box_no.png')
+        $('.radio_area li').eq(1).addClass('way_li_active')
+        $('.radio_area li').eq(1).siblings().removeClass('way_li_active')
+    })
+
+
+
+    $('.login_btn').click(function(){
+
+        var form = $(this).attr('form');
+        var formData = {};
+        if(form == "userForm"){
+            var res = verifyCode1.validate(document.getElementById("validateCode").value);
+
+            if(checkEmpty($("#username")) && checkEmpty($("#id_card")) && checkEmpty($('#validateCode'))){
+                if(!DcUtils.isIdCard($("#id_card").val())){
+                    $.alert("身份证错误");
+                    return false
+                    stopScroll($('.weui-mask'))
+                }
+                if(res){
+                    formData.username = $("#username").val();
+                    formData.idCard = $("#id_card").val();
+                    formData.yzm = $("#validateCode").val();
+                    HttpUtils.post('yanzheng/user', formData,yzSuccess,yzError);
+                }else{
+                    $.alert("验证码错误");
+                    return false
+                    stopScroll($('.weui-mask'))
+                }
+
+
+            }
+        }else{
+            var res = verifyCode2.validate(document.getElementById("validateCode1").value);
+            if(checkEmpty($("#componyCode")) && checkEmpty($("#componyName")) && checkEmpty($('#validateCode1'))){
+                if(res){
+                    formData.componyCode = $("#componyCode").val();
+                    formData.componyName = $("#componyName").val();
+                    formData.yzm = $("#validateCode1").val();
+                    HttpUtils.post('yanzheng/compony', formData,yzSuccess,yzSuccess);
+                }else{
+                    $.alert("验证码错误");
+                    return false
+                    stopScroll($('.weui-mask'))
+                }
+
+
+            }
+
+        }
+    });
+
+
+    function loginSuccess(data) {
+        window.location.href = './heduixinxi.html';
+    }
+    function loginError(data) {
+        if(data.code == 4011){
+
+        }else{
+
+        }
+    }
+</script>
+</body>
+</html>

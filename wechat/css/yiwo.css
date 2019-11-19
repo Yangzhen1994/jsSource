@@ -1,0 +1,82 @@
+body{background: #f1f1f1;}
+#yiwo_list{
+    padding-top:0.1rem;
+    height:calc(100% - 0.6rem);
+    box-sizing: border-box;
+}
+#yiwo_list .items{
+    background: #fff;
+    padding:0.12rem 0.16rem;
+    margin-bottom: 0.04rem;
+}
+#yiwo_list .items a{
+    display: block;
+    overflow: hidden;
+}
+#yiwo_list .items img{
+    width:1.44rem;
+    height:0.96rem;
+    float:left;
+}
+#yiwo_list .items .info_box{
+    width:1.86rem;
+    float:right;
+}
+#yiwo_list .items b{
+    display: block;
+    line-height: 0.2rem;
+    height:0.42rem;
+    overflow: hidden;
+    font-size: 0.14rem;
+    color:#444;
+    text-align: justify;
+    font-weight: normal;
+}
+#yiwo_list .items span{
+    display: block;
+    font-size:0.12rem;
+    color: #838383;
+    line-height: 0.18rem;
+}
+#yiwo_list .items p{
+    font-size:0.12rem;
+    color:rgba(0,0,0,0.3);
+    line-height: 0.18rem;
+    height:0.36rem;
+    overflow: hidden;
+    text-align: justify;
+}
+/*详情页*/
+#article_box{
+    border-top:0.1rem solid #f1f1f1;
+    padding:0.18rem 0.18rem;
+    background: #fff;
+}
+#article_box h1{
+    font-size:0.16rem;
+    color: #444444;
+    line-height: 0.22rem;
+    text-align: center;
+    margin-bottom: 0.06rem;
+}
+#article_box h2{
+    font-weight: normal;
+    font-size:0.12rem;
+    color:rgba(0,0,0,0.3);
+    line-height: 0.2rem;
+    text-align: center;
+    margin-bottom: 0.12rem;
+}
+#article_box img{
+    display: block;
+    margin:0.14rem auto;
+    max-width: 100%;
+}
+#article_box p{
+    text-indent: 2em;
+    font-size:0.14rem;
+    color: #666666;
+    line-height: 0.25rem;
+    text-align: justify;
+    margin-bottom: 0.02rem;
+}

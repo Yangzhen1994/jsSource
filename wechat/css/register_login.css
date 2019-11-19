@@ -1,0 +1,207 @@
+body{
+    background: #fff;
+}
+.wrapper{
+    width: 3rem;
+    margin:  0 auto;
+    padding-top: 0.1rem;
+    height: 100%;
+    box-sizing: border-box;
+}
+.login_form{
+    font-size: 0.12rem !important;
+    margin-bottom: 0.05rem;
+}
+.login_form li,.register_form li,.forget_pwd_form1 li,.forget_pwd_form2 li{
+    width: 100%;
+    height: 0.62rem;
+    line-height: 0.62rem;
+    position: relative;
+}
+.login_form li input,.register_form li input,.forget_pwd_form1 li input,.forget_pwd_form2 li input{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 0.2rem;
+    line-height: 0.2rem;
+    position: absolute;
+    bottom:0.09rem;
+    display: block;
+    padding-left: 0.17rem;
+    box-sizing: border-box;
+    font-size: 0.14rem;
+
+}
+
+.remember_div img{
+    position: relative;
+    top:3px;
+    margin-right: 2px;
+}
+.remember_pwd,.forget_pwd{
+    font-size: 0.12rem;
+    color: #666;
+}
+.login_btn,.register_btn{
+    font-size: 0.16rem;
+    display: block;
+    width: 100%;
+    height: 0.48rem;
+    line-height: 0.48rem;
+   font-weight: 900;
+    color: #fff;
+    text-align: center;
+    border: none;
+    outline: none;
+    margin-top: 0.33rem;
+    border-radius: 0.04rem;
+    -moz-border-radius: 0.04rem;
+    -webkit-border-radius: 0.04rem;
+    background-image: linear-gradient(90deg, #FFAB42 100%, #FF8200 100%);
+
+}
+.yzm_btn,.register_yzm_btn{
+    display: block;
+    width: 0.88rem !important;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    height: 0.32rem !important;
+    line-height: 0.32rem !important;
+    right: 0;
+    font-size: 0.12rem;
+    text-align: center;
+    color: #FF8200;
+    white-space: nowrap;
+    overflow: hidden;
+    background: rgba(255,130,0,0.10);
+    border: 0 solid #FF8200;
+    border-radius: 0.0225rem;
+    -moz-border-radius: 0.0225rem;
+    -webkit-border-radius: 0.0225rem;
+    transform: translateY(-50%);
+    top:50%;
+}
+.yzm_btn_span{
+    display: block;
+    width: 0.88rem !important;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    height: 0.32rem !important;
+    line-height: 0.32rem !important;
+    right: 0;
+    font-size: 0.12rem;
+    text-align: center;
+    color: #FF8200;
+    white-space: nowrap;
+    background: rgba(255,130,0,0.10);
+    border: 0 solid #FF8200;
+    border-radius: 0.0225rem;
+    -moz-border-radius: 0.0225rem;
+    -webkit-border-radius: 0.0225rem;
+    bottom:0.09rem;
+}
+.yzm_btn_span:before{
+    border: 1px solid #ff8200;
+}
+.remember_div img{
+    width: 0.16rem;
+    height: 0.16rem;
+}
+/****忘记密码*****/
+.progressing{
+    width: 100%;
+    height: 16px;
+    position: relative;
+    margin-top: 12px;
+}
+.step1,.step2{
+    width: 0.24rem;
+    height: 0.24rem;
+    color: #fff;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    line-height: 0.24rem;
+    font-size: 0.16rem;
+    position: absolute;
+    top:0;
+    z-index: 2;
+}
+.step1{
+    left: 0;
+}
+.step2 {
+    right: 0;
+    background: #d7d7d7;
+}
+.bg_org{
+    background: #FF8200;
+}
+.line_org{
+    width: 50%;
+    height: 1px;
+    background: #FF8200;
+    position: absolute;
+    top:0.11rem;
+    transform: translateY(-50%);
+    left: 0;
+}
+.line_org2{
+    width: 50%;
+    height: 1px;
+    background: #d8d8d8;
+    position: absolute;
+    top:0.11rem;
+    right: 0;
+}
+.hot_tel{
+
+    width: 1.45rem;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 0.12rem;
+}
+.text1{
+    font-size: 0.14rem;
+    position: absolute;
+    top:-0.17rem;
+    left: 20%;
+}
+.text2{
+    font-size:  0.14rem;
+    position: absolute;
+    top:-0.17rem;
+    right: 20%;
+    color: #d8d8d8;
+}
+.back{
+    position: absolute;
+    left:2px;
+    top:3px;
+}
+.back:hover{
+    cursor: pointer;
+}
+#card2 .text2{
+    color: #FF8200;
+}
+#card2 .line_org2{
+    background: #FF8200;
+    transform: translateY(-50%);
+}
+.ok{
+    width: 0.16rem;
+    position: absolute;
+    right: 0;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    bottom: 0.12rem;
+    display: none;
+}

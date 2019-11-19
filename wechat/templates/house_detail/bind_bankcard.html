@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>收租账户</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/frame/iosSelect.css"/>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/bankcard_mock.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+
+    <script src="../../js/frame/iosSelect.js"></script>
+    <script src="../../js/frame/iscroll.js"></script>
+    <style>
+        .wrapper{
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
+            padding-top: 0.24rem;
+            box-sizing: border-box;
+            padding-left: 0.375rem;
+            padding-right: 0.375rem;
+            background: #fff;
+        }
+        div.form li {
+            width: 100%;
+            height: 0.72rem;
+        }
+        .next{
+            width: 100%;
+            height: 0.48rem;
+            margin-top: 0.75rem;
+        }
+        #nextBtn{
+            background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+            border-radius: 0.04rem;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+        }
+        div.form li input {
+             width: 100%;
+             font-size: 0.12rem;
+             height: 0.17rem;
+             line-height: 0.17rem;
+             position: absolute;
+             bottom: 0.09rem;
+             box-sizing: border-box;
+             padding-left: 0.165rem;
+             color: #444;
+         }
+            .picker-button{
+                margin-top: 0.07rem;
+            }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="font_org" style="font-size: 0.18rem">收租账户</div>
+    <div class="weui-tab__bd">
+        <div>
+            <div class="form">
+                <ul>
+                    <li class="clearfix border_bottom">
+                        <input type="text"  id="hostName" onclick="this.blur()" readonly>
+                    </li>
+                    <li class="clearfix border_bottom">
+                        <input type="text"  id="bankCard" maxlength="39">
+                    </li>
+                    <li class="clearfix border_bottom">
+                        <select name="" id=""></select>
+                        <input type="text" placeholder="选择银行" id="chooseBank" >
+                    </li>
+                </ul>
+            </div>
+            <div class="next">
+                <button id="nextBtn">下一步</button>
+            </div>
+        </div>
+    </div>
+
+<div class="container"></div>
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+
+    //4位空格
+
+    $('#bankCard').on('keyup',function(e) {
+        e = event || window.event
+        handleKeyUp($(this),e);
+        var reg = /^[0-9]*$/g
+        var str = this.value.charAt(this.value.length - 1)
+        if(this.value && !reg.test(str)){
+            this.value = this.value.substring(0,this.value.length - 1)
+        }
+       /* //获取当前光标位置 this.selectionStart属性待研究低ie不支持
+        var position = this.selectionStart;
+        var str = this.value.charAt(this.value.length - 1)
+        if(this.value && !reg.test(str)){
+            this.value = this.value.substring(0,this.value.length - 1)
+        }
+        this.value =this.value.replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");
+        var input = this;
+
+        //重新定位光标位置，start和end都需要设置，不然就是截取片段了
+        input.selectionStart = position;
+        input.selectionEnd = position;*/
+    });
+
+    var destorySelect = false;
+    $("#chooseBank").bind('click',function () {
+        setTimeout(function () {
+            stopScroll($('.weui-picker-container'))
+        })
+
+        var card = $('#bankCard').val()
+
+        if(card.length>15){
+            //匹配成功自动填充银行
+            card = card.replace(/\s+/g,"");
+            //调用js的银行卡验证 不完整 请改为接口验证
+            // 此处尝试调用了第三方接口但存在跨域问题无法获得返回结果
+            /*var url  = 'https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?cardNo=6216910108232197&cardBinCheck=true';
+                $.getJSON(url,function (re) {
+                console.log(re)
+             })*/
+            var cardInfo = bankCardAttribution(card);
+            console.log(cardInfo)
+            if(cardInfo == 'error'){
+                destorySelect = true
+                $.alert('银行卡有误');
+                $("#chooseBank").val('');
+                $('#bankCard').focus();
+                stopScroll($('.weui-mask'))
+
+            }else{
+                destorySelect = true
+                $("#chooseBank").val(cardInfo.bankName)
+
+            }
+
+
+        }else{
+            destorySelect = false
+        }
+
+    })
+
+    //初始化银行列表
+    var bankList  = [];
+    window.bankcardList.forEach(function (item,index) {
+        bankList.push({
+            'value':item.bankName,
+            'id':item.bankCode
+        })
+    })
+
+    var showBankDom = document.querySelector('#chooseBank');
+    showBankDom.addEventListener('click', function () {
+        if(destorySelect){
+            return
+        }
+        setTimeout(function () {
+            stopScroll($('.olay'))
+        })
+        var id = showBankDom.dataset['id'];             // 获取元素的data-id属性值
+        var bankSelect = new IosSelect(1,
+            [bankList],
+            {
+                container: '.container',
+                title: '银行卡选择',
+                itemHeight: 38,
+                itemShowCount: 5,
+                oneLevelId: id,                     // 第一级默认值 设置后从第一个开始
+                callback: function (selectOne) {
+                    showBankDom.value = selectOne.value;
+                    destorySelect = false
+                },
+                fallback:function () {//取消
+                    showBankDom.focus();
+                    destorySelect = false
+                },
+                shadowback:function () {//点阴影取消
+                    showBankDom.focus();
+                    destorySelect = false
+                }
+            });
+    });
+
+    // 点击下一步
+    $('#nextBtn').click(function () {
+        if($('#bankCard').val().trim() == ''){
+            $.alert('请填写银行卡号')
+            $('#bankCard').focus()
+            stopScroll($('.weui-mask'))
+            return false
+        }
+        if($('#chooseBank').val().trim() == ''){
+            $.alert('请选择一个银行')
+            stopScroll($('.weui-mask'))
+            return false
+        }
+    })
+    //输入格式化fix
+    function getCursorPosition(textDom){
+        var cursorPos = 0
+        if (textDom.setSelectionRange) {
+            // webkit support
+            textDom.focus()
+            cursorPos = textDom.selectionStart
+        }
+        return cursorPos
+    }
+
+    function setCursorPosition(textDom, pos) {
+        if (textDom.setSelectionRange) {
+            textDom.focus()
+            textDom.setSelectionRange(pos, pos)
+        }
+    }
+
+    function handleKeyUp (obj,e) {
+
+        var elem = obj[0]
+        // for some andriod system keyboard can not input (eg: vivo)
+        setTimeout(function() {
+            var str = elem.value;
+            var currentPos = getCursorPosition(elem);
+            var posAfterText = '';
+            var posPreText = '';
+            var isNextBlank = false;// the next is blank or not
+            var isPreBlank = false;
+            var isLastPos = true;
+            if (currentPos !== str.length) { // not the last one
+            posAfterText = str.substr(currentPos, 1)
+            posPreText = str.substr(currentPos - 1, 1)
+            isNextBlank = /^\s+$/.test(posAfterText)
+            isPreBlank = /^\s+$/.test(posPreText)
+            isLastPos = false
+        }
+           // elem.value = elem.value.replace(/[^0-9]/ig,"");
+        if (elem.value.length <= 39) { // maxlength
+            var length = elem.value.length;
+            //console.log(length)
+            for(var i = 0;i<length;i++){
+                var reg = /^[0-9]*$/g;
+                var char = elem.value.charAt(i)
+                //console.log(char)
+                if(char != ' ' && !reg.test(char)){
+                    //elem.value = elem.value.replace(char,'');
+                    elem.value = elem.value.replace(char,'');
+                    setTimeout(function () {
+                        setCursorPosition(elem, currentPos - 1)
+                    })
+
+                    break;
+                }
+            }
+            elem.value = elem.value.replace(/\s/g, '').replace(/(\w{4})(?=\w)/g, '$1 ');
+
+        }
+
+            console.log(e.keyCode)
+            if (e.keyCode === 8) { // delete key
+                if (isPreBlank) {
+                    setCursorPosition(elem, currentPos - 1)
+                } else {
+                    setCursorPosition(elem, currentPos)
+                }
+            } else if (!isLastPos) {
+                if (isNextBlank) {
+                    setCursorPosition(elem, currentPos + 1)
+                } else {
+                    setCursorPosition(elem, currentPos)
+                }
+            } else {
+                setCursorPosition(elem, elem.value.length)
+            }
+    }, 0)
+    }
+</script>
+</body>
+</html>

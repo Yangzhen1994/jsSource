@@ -1,0 +1,46 @@
+.wrapper{
+    width: 100%;
+    background: #E8E9ED;
+}
+.card{
+    width: 100%;
+    background: #fff;
+    margin-bottom: 0.1rem;
+    padding-left:0.18rem;
+    padding-right:0.18rem;
+    padding-bottom: 0.2rem;
+    padding-top: 0.24rem;
+    box-sizing: border-box;
+}
+.card li>div.fl{
+    width: 2.33rem;
+}
+.card ul li{margin-bottom: 0.2rem;min-height: 0.14rem;line-height: 0.14rem}
+.card ul li:last-child{
+    margin-bottom: 0;
+}
+.card .title {
+    font-family: PingFangSC-Regular;
+    font-size: 0.18rem;
+    color: #444;
+    letter-spacing: 0;
+    line-height: 0.18rem;
+    margin-bottom: 0.24rem;
+}
+.card span{
+    display: inline-block;
+    color: #444;
+    font-size: 0.14rem;
+}
+.card .second_title{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    width: 0.9rem;
+    text-align: right;
+    margin-right: 0.16rem;
+}
+.add_desc+div span{line-height: 0.18rem;margin-top: -0.01rem}

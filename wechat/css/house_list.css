@@ -1,0 +1,562 @@
+body{
+    overflow: hidden;
+    height: 100%;
+}
+.header{
+    width: 100%;
+    height:0.44rem;
+    background: rgba(255,255,255,1);
+    position: fixed;
+    top:0;
+
+}
+.back{
+    width: 0.16rem;
+    top:50%;
+    left: 0.14rem;
+   position: absolute;
+    transform: translateY(-50%);
+}
+.to_map_icon{
+    width: 0.2rem;
+    height: 0.21rem;
+    position: absolute;
+    right: 0.12rem;
+    top:50%;
+    transform: translateY(-50%);
+}
+.header .search_wrap{
+    background: #F1F1F1;
+    border: 0 solid rgba(0,0,0,0.10);
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    width: 2.89rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    margin: 0 auto;
+   position: absolute !important;
+    left:50%;
+    top:50%;
+
+    transform: translate(-50%,-50%);
+}
+.header .search_wrap:before{
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+}
+.header .search_wrap input{
+
+    width: 100%;
+    height: 0.18rem;
+    outline: none;
+    border: none;
+    background: #F1F1F1;
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: rgba(0,0,0,.4);
+    padding-left: 0.32rem;
+    box-sizing: border-box;
+    margin-top: 0rem;
+    line-height: 0.18rem;
+}
+.header .search_wrap img{
+    width: 0.14rem;
+    height: 0.14rem;
+    position: absolute;
+    left: 0.09rem;
+    top:0.09rem;
+}
+.filter_area{
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.10);
+    height: 0.48rem;
+   /* top:6.6%;*/
+    position: fixed;
+    top:0.44rem;
+}
+.filter_area li{
+    width: 20%;
+    height: 0.14rem;
+    font-size: 0.12rem;
+    line-height: 0.12rem;
+    margin-top: 0.18rem;
+    box-sizing: border-box;
+    font-family: PingFangSC-Regular;
+    color: #666666;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.filter_area li span{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 0.13rem;
+}
+.filter_area li img{
+    width: 0.08rem;
+    height: 0.04rem;
+    position: relative;
+    margin-left: 0.02rem;
+    vertical-align: top;
+    top:0.04rem;
+}
+.filter_area li.order_filter img{
+    width: 0.08rem;
+    height: 0.11rem;
+    top:0.01rem;
+}
+.mescroll{
+    position: fixed;
+    top:0.92rem;
+    bottom: 0;
+    height: auto;
+    margin-bottom:0.6rem;
+}
+/*****列表筛选********/
+.district_area,.rent_type_area,.rent_bill_area,.orther_area,.order_area{
+    height:calc(100% - 0.92rem);
+    width: 100%;
+    overflow: auto;
+    position: fixed !important;
+    top:0.92rem;
+    background: #fff;
+    z-index: 999;
+}
+
+
+.orther_area>div:first-child{
+    padding-bottom: 0rem;
+}
+.district_area .district_type{
+    height:0.44rem;
+    line-height: 0.44rem;
+    background: #fff;
+    text-align: center;
+    width: 1.25rem;
+}
+.district_area>ul{
+    height: 100%;
+    background: #fff;
+
+}
+.district_area .district_type a{
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+
+}
+.district_type_distance,.district_type_area{
+    width: 2.5rem;
+}
+/*.district_type_subway,.district_type_busway{
+        width: 1rem !important;
+}*/
+.district_area a.selected ,.order_area li a.selected{
+    color: #ff8200 !important;
+  /*  border-bottom: 1px solid #ff8200 !important;
+    border-width: 50%;*/
+    position: relative;
+    opacity: 1 !important;
+}
+.order_area li a{color:#444444;font-family: PingFangSC-Regular;  font-size: 0.14rem;display:inline-block;position: relative;height: 100%}
+.district_area a.selected:after,.order_area li.selected a:after{
+    position: absolute;
+    content: "";
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    position: absolute;
+    width: 50%;
+    height: 0;
+    left: 25%;
+    bottom: 0;
+    /*border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;*/
+    -webkit-transform:scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    -moz-transform:scaleY(0.5);
+    -moz-transform-origin: 0 0;
+    transform:scaleY(0.5);
+    transform-origin: 0 0;
+    border-top: 2px solid #ff8200;
+}
+.order_area li.selected a:after{width: 100%;
+    left:0;}
+.district_area .district_type .second_ul{
+    width: 2.5rem;
+    background: #FAFAFA;
+    top: 0rem;
+    left: 1rem;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+.second_ul{
+    left: 1.25rem !important;
+}
+.second_ul li:nth-of-type(1) {
+    text-align: center;
+}
+.district_area .district_type .second_ul li{
+    width: 1rem;
+    height: 0.44rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    line-height:0.44rem;
+    box-sizing: border-box;
+}
+.district_area .district_type .second_ul li a{
+    height: 0.44rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    opacity: 0.4;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    text-align: center;
+   width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.third_ul_wrap{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1.5rem;
+}
+.third_ul{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5rem !important;
+    background: #f3f3f3 !important;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-bottom: 92px;
+    overflow: scroll;
+    z-index: 1;
+}
+
+.third_ul li{
+    width: 100% !important;
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+
+.third_ul li a{
+    height: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0.14rem;
+    color: #444444;
+    opacity: 0.4;
+}
+.rent_type_area .whole_rent{
+    width: 100%;
+    height: 1.43rem;
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.10);
+    box-sizing: border-box;
+    padding-top: 0.28rem;
+}
+.rent_type_area .togather_rent{
+    background: #FFFFFF;
+    padding-top: 0.28rem;
+}
+.rent_type_area .rent_type_title{
+    width: 100%;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    height: 0.13rem;
+    color: #444444;
+    letter-spacing: 0;
+
+    font-size: 0.13rem;
+
+    margin-bottom: 0.12rem;
+}
+.rent_type_area .rent_type_desc{
+    width:100%;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #BEBEBE;
+    letter-spacing: 0;
+    text-align: center;
+    height: 0.12rem;
+    margin-bottom: 0.24rem;
+}
+.rent_type_area  ul,.orther_area ul{
+    padding-left: 0.18rem;
+    padding-right: 0.08rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.orther_area ul{
+    margin-top: 0.14rem;
+}
+.rent_type_area  ul li,.orther_area ul li{
+    cursor: none;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    border-radius: 0.04rem;
+    -webkit-border-radius: 0.04rem;
+    -moz-border-radius:0.04rem;
+    width: 0.79rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    margin-right: 0.07rem;
+    margin-bottom: 0.08rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.rent_type_area .selected,.orther_area .selected{
+    background: rgba(255,130,0,0.10);
+    border: 1px solid #ff8200;
+    border-radius: 0.04rem;
+    -webkit-border-radius: 0.04rem;
+    -moz-border-radius:0.04rem;
+    color: #ff8200;
+    opacity: 1;
+    box-sizing: border-box;
+}
+
+.district_btns,.rent_type_area .rent_type_btns,.rent_bill_area .rent_bill_btns,.orther_btns{
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.10);
+    width: 100%;
+    height:0.68rem;
+    position: fixed;
+    bottom:0;
+    left:0;
+    padding-top: 0.12rem;
+    box-sizing: border-box;
+    z-index: 99
+}
+.clear{
+    float: left;
+    outline: none;
+    border: none;
+    background: #CCCCCC;
+    border-radius: 0.04rem;
+    -webkit-border-radius: 0.04rem;
+    -moz-border-radius:0.04rem;
+    width: 1.1rem;
+    height: 0.44rem;
+    font-size: 0.16rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.44rem;
+    margin-left: 0.15rem;
+}
+.confirm{
+    float: left;
+    margin-left: 0.15rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    -webkit-border-radius: 0.04rem;
+    -moz-border-radius:0.04rem;
+    width: 2.2rem;
+    height: 0.44rem;
+    font-size: 0.16rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.44rem;
+}
+
+.rent_bill_area .range_area{
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.10);
+    width: 100%;
+    height:19%;
+    padding-top: 0.16rem;
+    box-sizing: border-box;
+}
+.rent_bill_area .range_price{
+    width: 100%;
+    text-align: center;
+    color: #ff8200;
+    font-size: 0.12rem;
+}
+.rent_bill_area .price_area{
+    width: 100%;
+    height: 65.24%;
+    background: #FFFFFF;
+    overflow: scroll;
+}
+.rent_bill_area .price_area li{
+    width: 100%;
+    height: 0.44rem;
+    line-height: 0.44rem;
+
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+}
+.rent_bill_area .price_area li a{
+    font-size: 0.14rem;
+    color: rgba(0,0,0,.4);
+    display: inline-block;
+    height: 100%;
+}
+
+
+.bus_number{
+    width: 1.25rem;
+    height: auto !important;
+    padding: 0 0.18rem !important;
+    box-sizing: border-box;
+    margin-top: 0.15rem;
+   padding-left: 0.28rem !important;
+}
+.bus_number a{
+    display: inline-block;
+    background: #CCCCCC;
+    border-radius: 0.04rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.18rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    width: 0.32rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    margin-bottom: 0.04rem;
+
+}
+.bus_num_selected{
+    background: #ff8200 !important;
+}
+#priceSlider{
+    margin:  0 auto;
+}
+.slider-container{
+    margin: 0 auto;
+    position: absolute;
+    top:0.48rem;
+    left:0.36rem;
+}
+.theme-blue .back-bar{
+    height: 0.03rem !important;
+    background: #ededed !important;
+}
+.selected-bar{
+    background-color: #ff8200 !important;
+    background-image: linear-gradient(to bottom, rgba(255,130,0,.5), rgba(255,130,0,1)) !important;
+    background-repeat: repeat-x !important;
+}
+.theme-blue .back-bar .pointer{
+     width: 0.48rem !important;
+     height: 0.48rem !important;
+     border-radius: 50% !important;
+     -webkit-border-radius: 50% !important;
+     -moz-border-radius: 50% !important;
+     top:-0.04rem !important;
+    background: url("../img/house_list/phone_icon/circle.png") !important;
+    background-size: 100% 100% !important;
+    border: none !important;
+    top:-0.26rem !important;
+ }
+.slider-container .back-bar .pointer-label{
+    top:0.24rem !important;
+    left: -0.06rem !important;
+    font-size: 0.12rem !important;
+}
+.price_area li a.selected{
+    color: #ff8200 !important;
+    border-bottom: 1px solid #ff8200 !important;
+    box-sizing: border-box;
+}
+.slider-container .back-bar .pointer-label{
+
+}
+/*其他条件筛选*/
+.orther_area>div>div{
+    padding-top: 0.2rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1.44rem;
+}
+.orther_title{
+    width: 100%;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    height: 0.14rem;
+    line-height: 0.14rem;
+}
+.house_type ul li{
+    line-height: 0.35rem;
+}
+.house_acreage ul li{
+    line-height: 0.26rem;
+}
+.border_bottom:before{
+    border-color: rgba(0,0,0,.1);
+}
+.order_area{
+    background: rgba(0,0,0,.5);
+}
+.order_area .order_card{
+    width: 100%;
+    background: #fff;
+    height: auto;
+    position: absolute;
+    top:0;
+    z-index: 9;
+    padding-bottom: 4px;
+}
+.order_area .order_card li{
+    width: 100%;
+    height: 0.44rem;
+    line-height: 0.44rem;
+    box-sizing: border-box;
+    line-height: 0.44rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+
+}
+

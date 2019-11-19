@@ -1,0 +1,146 @@
+/*通知类文档列表页重写2019-04-17 by Alen*/
+body{background: #e8e8e8;}
+.inner{
+    padding:0.12rem;
+}
+/*小区选择*/
+#show_selects{
+    background: #fff;
+    position: fixed;
+    top:0.1rem;
+    width:3.5rem;
+    left:0.125rem;
+}
+#show_selects select{
+    display: block;
+    width:100%;
+    height:0.36rem;
+    box-sizing: border-box;
+    font-size: 0.14rem !important;
+    background: #fff;
+    padding-left:0.12rem;
+}
+#show_selects:before{
+    content:"";
+    display: block;
+    position: absolute;
+    width:0;
+    height:0;
+    border-width:0.07rem 0.07rem 0;
+    border-style:solid;
+    border-color:#FF941D transparent transparent;
+    top:0.15rem;
+    right:0.18rem;
+}
+#show_selects select option{color:#ff8200;}
+#show_selects select option:disabled{color:#ccc;}
+.zs_p{
+    font-size: 0.14rem;
+    line-height: 0.4rem;
+    background: #fff;
+    margin-bottom: 0.1rem;
+    padding-left: 0.1rem;
+    text-align: center;
+}
+#words_outer{
+    position: fixed;
+    height:calc(100% - 0.53rem);
+    top:0.53rem;
+}
+#wordslist{
+    width:3.5rem;
+    margin:0 auto;
+    font-size: 0.14rem;
+}
+#wordslist .items{
+    background: #fff;
+    margin-bottom: 0.07rem;
+}
+#wordslist .items .box1{
+    height:0.36rem;
+    line-height: 0.36rem;
+    background: #F7F7F7;
+    padding:0px 0.06rem;
+}
+#wordslist .items .top{
+    position: relative;
+    padding-left: 0.2rem;
+}
+#wordslist .items .top:before{
+    content:"";
+    position: absolute;
+    left:0.04rem;
+    top:0.13rem;
+    display: block;
+    height:0.13rem;
+    width:0.11rem;
+    background: url("../img/wordslist/top.png");
+    background-size: 100% 100%;
+}
+#wordslist .items .box1 b{
+    float:left;
+    width:1.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#wordslist .items .box1 i{
+    font-style: normal;
+    color: #9A9A9A;
+    font-size: 0.12rem;
+    float:right;
+}
+#wordslist .items .box2{
+    padding:0.05rem 0px;
+    height:0.98rem;
+    overflow: hidden;
+}
+#wordslist .items .box2 .detail{
+    float:left;
+    width:1.8rem;
+    padding-top:0.24rem;
+    line-height: 0.24rem;
+    height:0.48rem;
+    padding-left:0.1rem;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color:#515151;
+}
+#wordslist .items .box2 img{
+    float:left;
+    width:0.98rem;
+    height:0.98rem;
+}
+#wordslist .items .box3{
+    width:3.3rem;
+    padding:0px 0.05rem;
+    margin: 0 auto;
+    border-top: 1px solid #e5e5e5;
+    height:0.46rem;
+    line-height: 0.46rem;
+}
+#wordslist .items .box3 span{
+    position: relative;
+    float:left;
+    padding-left:0.18rem;
+    color: #515151;
+}
+#wordslist .items .box3 span:before{
+    content:"";
+    position: absolute;
+    left:0rem;
+    top:0.16rem;
+    display: block;
+    height:0.14rem;
+    width:0.12rem;
+    background: url("../img/wordslist/adress.png");
+    background-size: 100% 100%;
+}
+#wordslist .items .box3 a{
+    color: #134D8C;
+    float: right;
+}

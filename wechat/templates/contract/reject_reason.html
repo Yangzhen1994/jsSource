@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>驳回原因</title>
+    <script rel="stylesheet" src="../../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/frame/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <script rel="stylesheet" src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/common.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <style>
+        body{
+
+
+        }
+        .mock_margin{
+            width: 100%;
+            height: 0.1rem;
+            background: #E6E7EB;
+        }
+        .wrap {
+            width: 3.12rem;
+            margin: 0 auto;
+        }
+        .form_area{
+            width: 100%;
+            background: #fff;
+        }
+        .title{
+            margin-top: 0.24rem;
+            opacity: 0.4;
+            font-family: PingFangSC-Regular;
+            font-size: 0.14rem;
+            color: #000000;
+            letter-spacing: 0;
+            line-height: 0.14rem;
+            position: relative;
+        }
+        .title span{
+
+
+            color: #FC5455;
+        }
+        .text_area{
+            padding: 5px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 1.4rem;
+            margin-top: 0.12rem;
+            border-radius: 0.02rem;
+            -webkit-border-radius: 0.02rem;
+            -moz-border-radius: 0.02rem;
+        }
+        .text_area:before{
+            border:1px solid rgba(0,0,0,0.10)
+        }
+        .confirm_reject{
+            width: 100%;
+            display: inline-block;
+            margin: 0 auto;
+            margin-top: 0.24rem;
+            color: #fff;
+            height: 0.48rem ;
+            font-size: 0.16rem;
+            line-height: 0.48rem;
+        }
+        #rejectReason{
+            display: block;
+            height: 100%;
+            width: 100%;
+            font-size: 0.14rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+<div class="mock_margin"></div>
+    <div class="wrap">
+        <div class="form_area">
+            <div class="title"><span>*</span>必须如实填写</div>
+            <div class="text_area border_all">
+                <textarea maxlength="200" id="rejectReason" placeholder="驳回租客租房请求的真实原因…"></textarea>
+            </div>
+            <button class="confirm_reject">确定提交</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+</html>

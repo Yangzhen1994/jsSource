@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>户籍家庭</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/frame/vue.min.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/zgzj_new.css">
+</head>
+<body>
+<!--主体部分-->
+<section class="form_box" id="xjy_box" v-cloak>
+    <div class="item_spe">
+        <div class="desc">保障人口</div>
+        <div class="cs_box" v-on:click="fixshowfuc">{{ objname }}</div>
+        <div class="yiren" v-if="num == 1">* 经民政部门认定的孤儿，及年满30周岁以上的单身可独立申请。</div>
+    </div>
+    <!--问题1-->
+    <div class="item" v-if="num == 1">
+        <div class="desc">申请人户籍情况</div>
+        <ul class="radio_box">
+            <li v-on:click="radiofuc($event)">均为广州市户籍，并在本市工作或居住</li>
+            <li v-on:click="noGZ($event)">非广州市户籍</li>
+        </ul>
+    </div>
+    <div class="item" v-if="num==2 || num==3 || num==4">
+        <div class="desc">申请人及共同申请人户籍情况</div>
+        <ul class="radio_box">
+            <li v-on:click="radiofuc($event)">均为广州市户籍，并在本市工作或居住</li>
+            <li v-on:click="radiofuc($event)">申请人为广州市户籍（本市工作或居住），申请人配偶及未满18周岁非本市城镇户籍，但在本市工作或居住</li>
+            <li v-on:click="radiofuc($event)">申请人为广州市户籍（本市工作或居住），共同申请人户籍因就学、服兵役等原因迁出本地</li>
+            <li v-on:click="noGZ($event)">非广州市户籍</li>
+        </ul>
+    </div>
+    <!--资产情况-->
+    <div class="big_tit">资产情况</div>
+    <div class="item">
+        <div class="desc">人均可收入</div>
+        <ul class="radio_box" v-if="num == 1">
+            <li v-on:click="radiofuc($event)">小于等于42792元</li>
+            <li v-on:click="radiofuc($event)">大于42792元</li>
+        </ul>
+        <ul class="radio_box" v-if="num == 2">
+            <li v-on:click="radiofuc($event)">小于等于39226元</li>
+            <li v-on:click="radiofuc($event)">大于39226元</li>
+        </ul>
+        <ul class="radio_box" v-if="num==3 || num==4">
+            <li v-on:click="radiofuc($event)">小于等于35660元</li>
+            <li v-on:click="radiofuc($event)">大于35660元</li>
+        </ul>
+    </div>
+    <div class="item">
+        <div class="desc">资产净额</div>
+        <ul class="radio_box" v-if="num == 1">
+            <li v-on:click="radiofuc($event)">小于等于22万元</li>
+            <li v-on:click="radiofuc($event)">大于22万元</li>
+        </ul>
+        <ul class="radio_box" v-if="num == 2">
+            <li v-on:click="radiofuc($event)">小于等于40万元</li>
+            <li v-on:click="radiofuc($event)">大于40万元</li>
+        </ul>
+        <ul class="radio_box" v-if="num==3">
+            <li v-on:click="radiofuc($event)">小于等于56万元</li>
+            <li v-on:click="radiofuc($event)">大于56万元</li>
+        </ul>
+        <ul class="radio_box" v-if="num==4">
+            <li v-on:click="radiofuc($event)">小于等于81万元</li>
+            <li v-on:click="radiofuc($event)">大于81万元</li>
+        </ul>
+    </div>
+    <!--房屋情况-->
+    <div class="big_tit">房屋情况</div>
+    <div class="item">
+        <div class="desc">本市是否有自有产权住房</div>
+        <ul class="radio_box">
+            <li v-on:click="radiospe1_1($event)">是</li>
+            <li v-on:click="radiospe1_2($event)">否</li>
+        </ul>
+    </div>
+    <div class="item" v-if="zyf==1">
+        <div class="desc">自有产权住房人均建筑面积</div>
+        <ul class="radio_box">
+            <li v-on:click="radiofuc($event)">9平米以下（含9平米）</li>
+            <li v-on:click="radiofuc($event)">9~15平米（15平米）</li>
+            <li v-on:click="radiofuc($event)">15平米以上</li>
+        </ul>
+    </div>
+    <div class="item">
+        <div class="desc">是否承租直管房或单位公房</div>
+        <ul class="radio_box">
+            <li v-on:click="radiospe2_1($event)">是</li>
+            <li v-on:click="radiospe2_2($event)">否</li>
+        </ul>
+    </div>
+    <div class="item" v-if="dwgf==1">
+        <div class="desc">自有产权住房人均建筑面积</div>
+        <ul class="radio_box">
+            <li v-on:click="radiofuc($event)">9平米以下（含9平米）</li>
+            <li v-on:click="radiofuc($event)">9~15平米（15平米）</li>
+            <li v-on:click="radiofuc($event)">15平米以上</li>
+        </ul>
+    </div>
+    <div class="item">
+        <div class="desc">申请人及共同申请人享受购买安居房、经济适用住房、拆迁安置新社区住房、落实侨房政策专用房等购房优惠政策</div>
+        <ul class="radio_box">
+            <li v-on:click="radiofuc($event)">是</li>
+            <li v-on:click="radiofuc($event)">否</li>
+        </ul>
+    </div>
+    <!--提交-->
+    <div class="ft_box">
+        <button v-on:click="submitfuc">下一步</button>
+        <p><span>温馨提示</span></p>
+        <div>本次自检依据《广州市公共租赁住房保障办法》（穗府办规〈2016〉9号）、（广州市人民政府办公厅关于进一步加强户籍家庭住房保障工作的通知）（穗府办规〈2018〉24号）</div>
+    </div>
+    <!--选择弹出层-->
+    <div class="fix_outer" style="display: none;">
+        <ul id="cul">
+            <li v-on:click="obj1fuc(num==2 || num==3 || num==4)">1人</li>
+            <li v-on:click="obj2fuc(num==1 || num==3 || num==4)">2人</li>
+            <li v-on:click="obj3fuc(num==1 || num==2 || num==4)">3人</li>
+            <li v-on:click="obj4fuc(num==1 || num==2 || num==3)">4人或以上</li>
+            <li v-on:click="fixclosefuc">取 消</li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(document).unbind();//解绑公共js scrollfixed()
+    //主体
+    var vm1 = new Vue({
+        el:"#xjy_box",
+        data:{
+            num:"",
+            objname:'',
+            zyf:'',//自有房
+            dwgf:''//单位公房
+        },
+        methods:{
+            //radio
+            radiofuc:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+            },
+            //非广州户籍
+            noGZ:function(event){
+                //console.log(event.currentTarget);
+                //$(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                //$(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+                $.confirm("非广州市户籍不符合户籍家庭申请条件，您确定选择该选项吗？", function() {
+                    window.location.href="fail.html";
+                }, function() {
+                    //点击取消后的回调函数
+                });
+            },
+            //自有产权住房
+            radiospe1_1:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+                this.zyf = 1;
+            },
+            radiospe1_2:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+                this.zyf = 0;
+            },
+            //承租直管房或单位公房
+            radiospe2_1:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+                this.dwgf = 1;
+            },
+            radiospe2_2:function(event){
+                //console.log(event.currentTarget);
+                $(event.currentTarget).addClass("choosed").siblings("li").removeClass("choosed");
+                $(event.currentTarget).parent(".radio_box").siblings(".desc").removeClass("warnning");
+                this.dwgf = 0;
+            },
+            //弹出
+            fixshowfuc:function(){
+                $(".fix_outer").fadeIn(100);
+            },
+            //对象1方法,判定是否执行更新数据
+            obj1fuc:function(bool){
+                if(bool==true){
+                    this.num = 1;
+                    this.objname = "1人";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //对象2方法,判定是否执行更新数据
+            obj2fuc:function(bool){
+                if(bool==true){
+                    this.num = 2;
+                    this.objname = "2人";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //对象3方法,判定是否执行更新数据
+            obj3fuc:function(bool){
+                if(bool==true){
+                    this.num = 3;
+                    this.objname = "3人";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //对象4方法,判定是否执行更新数据
+            obj4fuc:function(bool){
+                if(bool==true){
+                    this.num = 4;
+                    this.objname = "4人或以上";
+                    this.clearradiofuc();
+                }else{
+                    this.fixclosefuc();
+                }
+            },
+            //关闭选择层
+            fixclosefuc:function(){
+                $(".fix_outer").fadeOut(100);
+            },
+            //关闭+清除
+            clearradiofuc:function(){
+                $(".fix_outer").fadeOut(100,function(){
+                    var radio_choosed = $(".choosed");
+                    var warn_box = $(".warnning");
+                    //console.log(radio_choosed.length);
+                    for(var i=0;i<radio_choosed.length;i++){
+                        radio_choosed.eq(i).removeClass("choosed");
+                    }
+                    for(var j=0;j<warn_box.length;j++){
+                        warn_box.eq(j).removeClass("warnning");
+                    }
+                });
+            },
+            //跳转
+            submitfuc:function(){
+                //校验漏填
+                var radio_boxs=$(".radio_box");
+                //console.log(radio_boxs.length);
+                for(var i=0;i<radio_boxs.length;i++){
+                    if(radio_boxs.eq(i).find(".choosed").length==0){
+                        $.alert({
+                            text:"请补全问题相关信息！",
+                            onOK:function(){
+                                radio_boxs.eq(i).siblings(".desc").addClass("warnning");
+                                var h = radio_boxs.eq(i).siblings(".desc").offset().top;
+                                console.log(h);
+                                $(document).scrollTop(h);
+                            }
+                        });
+                        stopScroll($('.weui-mask'));
+                        return false;
+                    }
+                }
+                //后台传值判定跳转，bool(true or false)
+                var bool = true;
+                switch (bool) {
+                    case true:
+                        window.location.href="success.html"
+                        break;
+                    case false:
+                        window.location.href="fail.html"
+                        break;
+                }
+            }
+        }
+    });
+    vm1.obj1fuc(true);//初始化
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>家政服务详情</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+    <script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body class="grayBody">
+    <div class="jz_tit border_bottom">
+        <img style="width:0.28rem;" src="../../img/public_rental_house/jz2.png"/>
+        <b>维修服务</b><span>订单日期：2018-09-01</span>
+    </div>
+    <section class="jz_detail">
+        <div class="jz_item"><span>预约日期</span><p>2018-09-01</p></div>
+        <div class="jz_item"><span>服务地址</span><p>广州市黄浦区萝岗街道190号1022</p></div>
+        <div class="jz_item"><span>维修类型</span><p>空调</p></div>
+        <div class="jz_item"><span>联系人</span><p>吴剑波</p></div>
+        <div class="jz_item"><span>联系电话</span><p>15876525067</p></div>
+    </section>
+    <!--按钮分组，根据不同状态显示不同的组别-->
+    <div class="jz_btn_group group1">
+        <button>去支付</button>
+        <button class="back">关 闭</button>
+    </div>
+    <div class="jz_btn_group group2">
+        <button>服务完成确认</button>
+        <button class="back">关 闭</button>
+    </div>
+    <div class="jz_btn_group group3">
+        <button class="back">关 闭</button>
+    </div>
+    <div class="jz_btn_group group4">
+        <button>申请退款</button>
+        <button class="back">关 闭</button>
+    </div>
+    <!--评价星星弹出-->
+    <div class="star_fix_outer">
+        <div class="star_box">
+            <p>您确认服务已经完成吗？<br/>请对服务做出评价</p>
+            <ul class="stars"><li>☆</li><li>☆</li><li>☆</li><li>☆</li><li>☆</li></ul>
+            <div class="btn_box border_top">
+                <button class="border_right">取 消</button>
+                <button>确 认</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //按钮组
+    $(".jz_btn_group").eq(sessionStorage.getItem("card_num")).css("display","flex");
+    //回退
+    $(".back").click(function(){
+        window.history.go(-1);
+    })
+    //确认服务带出评价
+    $(".group2 button").eq(0).click(function(){
+        $(".star_fix_outer").show();
+        stopScroll($('.star_fix_outer'));
+    })
+    //取消
+    $(".star_fix_outer .btn_box button").eq(0).click(function(){
+        $(".star_fix_outer").hide();
+    })
+    //确认
+    $(".star_fix_outer .btn_box button").eq(1).click(function(){
+        $(".star_fix_outer").hide();
+    })
+    //星星
+    $(".stars li").click(function(){
+        $(this).html("★");
+        $(this).prevAll().html("★");
+        $(this).nextAll().html("☆");
+    })
+</script>
+</html>

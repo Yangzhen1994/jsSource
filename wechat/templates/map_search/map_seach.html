@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>地图找房</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <script rel="stylesheet" src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/common.js"></script>
+    <script rel="stylesheet" src="../../js/HttpUtils.js"></script>
+    <link rel="stylesheet" href="../../css/map_search.css">
+
+</head>
+<body>
+    <div class="header">
+        <img class="back" src="../../img/map/btn_back.svg" alt="">
+        <div class="search_wrap pr border_all">
+            <input type="search" id="search" placeholder="输入您想住的区域或小区" autocomplete="false">
+            <img src="../../img/glass.png" alt="">
+        </div>
+        <img class="filter_icon" src="../../img/map/btn_select.svg" alt="">
+    </div>
+    <div id="mapDiv">
+
+    </div>
+    <!--筛选-->
+    <div class="mask">
+        <div class="filter_card orther_area orther_area_wrap" id="ortherArea">
+            <div  class="wrap_ul">
+                <div class="rent_way border_bottom" style="height: 1.02rem">
+                    <p class="rent_way_title orther_title">方式</p>
+                    <ul class="clearfix" id="rentWay">
+                        <li class="fl">整租</li>
+                        <li class="fl">合租</li>
+                    </ul>
+                </div>
+                <div class="rent_bill border_bottom" style="height:2.28rem">
+                    <p class="rent_bill_title orther_title">租金</p>
+                    <ul class="clearfix" id="rentBill">
+                        <li class="fl">不限</li>
+                        <li class="fl"><1000元</li>
+                        <li class="fl w124">1000-1500元</li>
+                        <li class="fl w124">1500-2000元</li>
+                        <li class="fl w124">2500-3000元</li>
+                        <li class="fl w124">3000-5000元</li>
+                        <li class="fl">>5000元</li>
+                    </ul>
+                </div>
+                <div class="house_type border_bottom">
+                    <p class="house_type_title orther_title">房源类型</p>
+                    <ul class="clearfix" id="houseType">
+                        <li class="fl">政策房源</li>
+                        <li class="fl">个人房源</li>
+                        <li class="fl">品牌公寓</li>
+                        <li class="fl">平台房源</li>
+                        <li class="fl">中介房源</li>
+                    </ul>
+                </div>
+                <div class="house_acreage border_bottom">
+                    <p class="house_acreage_title orther_title">房源面积</p>
+                    <ul class="clearfix" id="area">
+                        <li class="fl">&le;10m<sup>2</sup></li>
+                        <li class="fl">10-20m<sup>2</sup></li>
+                        <li class="fl">20-40m<sup>2</sup></li>
+                        <li class="fl">40-60m<sup>2</sup></li>
+                        <li class="fl">60-80m<sup>2</sup></li>
+                        <li class="fl">80-100m<sup>2</sup></li>
+                        <li class="fl">100-120m<sup>2</sup></li>
+                        <li class="fl">&ge;120<sup>2</sup></li>
+                    </ul>
+                </div>
+                <div class="house_orientations border_bottom">
+                    <p class="house_orientations_title orther_title">房源朝向</p>
+                    <ul class="clearfix" id="orientation">
+                        <li class="fl">东</li>
+                        <li class="fl">南</li>
+                        <li class="fl">西</li>
+                        <li class="fl">北</li>
+                        <li class="fl">南北</li>
+                        <li class="fl">东西</li>
+                        <li class="fl">东南</li>
+                        <li class="fl">西南</li>
+                    </ul>
+
+                </div>
+                <div class="house_floor border_bottom" style="height: 1.02rem">
+                    <p class="house_floor_title orther_title">楼层</p>
+                    <ul class="clearfix" id='floor' style="padding-left: 0.28rem;padding-right: 0.1rem">
+                        <li class="fl">6层以下</li>
+                        <li class="fl">6-12层</li>
+                        <li class="fl">12层以上</li>
+
+
+                    </ul>
+
+                </div>
+                <div class="house_zhuangxiu border_bottom" style="height: 1.44rem">
+                    <p class="house_zhuangxiu_title orther_title" id="decorattion">装修</p>
+                    <ul class="clearfix">
+                        <li class="fl">毛坯</li>
+                        <li class="fl">普通装修</li>
+                        <li class="fl">精装修西</li>
+                        <li class="fl">豪华装修</li>
+
+                    </ul>
+
+                </div>
+                <div class="house_tese border_bottom" style="height: 2.2rem">
+                    <p class="house_tese_title orther_title">房源特色</p>
+                    <ul class="clearfix" id="feature">
+                        <li class="fl">首次出租</li>
+                        <li class="fl">独立阳台</li>
+                        <li class="fl">离地铁近</li>
+                        <li class="fl">独立卫生间</li>
+                        <li class="fl">有厨房</li>
+                        <li class="fl">家电齐全</li>
+                        <li class="fl">随时看房</li>
+                        <li class="fl">有电梯</li>
+                        <li class="fl">城壹认证</li>
+                        <li class="fl">政府认证</li>
+                    </ul>
+                </div>
+                <div class="house_arround border_bottom">
+                    <p class="house_arround_title orther_title">房源周边</p>
+                    <ul class="clearfix" id="arround">
+                        <li class="fl">交通</li>
+                        <li class="fl">超市</li>
+                        <li class="fl">金融</li>
+                        <li class="fl">医疗</li>
+                        <li class="fl">教育</li>
+                        <li class="fl">餐饮</li>
+                        <li class="fl">娱乐</li>
+                        <li class="fl">公园</li>
+                    </ul>
+                </div>
+                <div class="house_state" style="height: 1.65rem">
+                    <p class="house_state_title orther_title">房源状态</p>
+                    <ul class="clearfix" id="state">
+                        <li class="fl">立即入住</li>
+                        <li class="fl">可预订</li>
+                        <li class="fl">转租</li>
+                        <li class="fl">换租</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="pf orther_btns" style="z-index: 1999">
+            <button class="clear">重置</button>
+            <button class="confirm">确定</button>
+        </div>
+    </div>
+
+
+    <!--//搜索页-->
+    <div id="searchPop" class="weui-popup__container">
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+            <div class="pop_header border_bottom">
+            <div class="searchPop_wrap pr">
+                <input type="search" id="searchPopSearch" placeholder="输入您想住的区域或小区"  autocomplete="false">
+                <img src="../../img/glass.png" alt="">
+
+            </div>
+            <span class="pop_cancel" style="">取消</span>
+            </div>
+            <ul class="search_history" style="width: 100%">
+                <img src="../../img/map/no_history.png" alt="" class="no_history_img">
+            </ul>
+        </div>
+    </div>
+
+    <!--//房源列表-->
+    <div id="houseListPop" class="weui-popup__container">
+        <div class="weui-popup__overlay" style="background:rgba(0,0,0,.6) "></div>
+        <div class="weui-popup__modal">
+            <div class="house_list_header border_bottom">
+                <p class="building_name"></p>
+                <p class="building_count"></p>
+            </div>
+            <div id="mescrollWrap" style="height: 100%;width: 100%">
+                <div id="mescroll" class="mescroll">
+                    <!--展示上拉加载的数据列表-->
+                    <ul id="maphouseList" class="house_list">
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/house_list.js"></script>
+    <script src="../../js/map_search_logy.js"></script>
+
+
+    <script>
+        $('.mask,.house_list_header,.weui-popup__overlay,#mescrollWrap,.orther_btns').on('touchmove',function (e) {
+            e=event || window.event;
+            e.preventDefault()
+        });
+        $('.mask').on('click',function () {
+            $(this).css('transform','translateX(100%)')
+        })
+
+        $('.wrap_ul,.orther_btns').on('click',function (e) {
+            e=event || window.event
+            e.stopPropagation()
+        });
+        $('#ortherArea,#mescroll').on('touchmove',function (e) {
+            e=event || window.event;
+            e.stopPropagation()
+        });
+        $('.filter_icon').click(function () {
+            $('.mask').css('transform','translateX(0)')
+        })
+
+
+        //搜索页
+        $('.search_history').height(document.documentElement.clientHeight - $('.pop_header').height())
+        var popup = 0
+        $('.search_wrap').click(function () {
+
+            $(this).find('input').blur();
+
+
+
+             $("#searchPop").popup();
+            popup=1;
+            pushHistory();
+            $('#searchPopSearch').val($(this).find('input').val())
+        })
+        $('.pop_cancel').click(function () {
+            popup = 0;
+            $('#searchPopSearch').val('')
+            $('#search').val('')
+            $.closePopup()
+        })
+        window.addEventListener("popstate", function(e) {
+
+            if(popup){
+
+                setTimeout(function () {
+                   // alert("我监听到了浏览器的返回按钮事件啦");//根据自己的需求实现自己的功能
+                    $.closePopup();
+                    popup = 0;
+                })
+
+
+            }else{
+               //    alert(popup)
+                window.history.go(-1)//window.history.back(-2)
+            }
+
+        })
+        function pushHistory() {
+            var state = {
+                title: "title",
+                url: "#"
+            };
+            window.history.pushState(state, "title", "#");
+        }
+        //显示页
+        $('#mescroll').height($('#houseListPop').height()-$('.house_list_header').height())
+
+
+
+
+
+        var rejectWxArr = ['ortherArea']
+        rejectWxArr.forEach(function (item,index) {
+            var filterCard= new MeScroll(item, {
+                down:{
+                    use:false,
+                    isBounce:false
+                },
+                //上拉加载的配置项
+                up: {
+                    use:false,
+                    isBounce:false
+                }
+            });
+        })
+
+
+
+       /* var filterCard1= new MeScroll('mescroll', {
+            down:{
+                use:false,
+                isBounce:false
+            },
+            //上拉加载的配置项
+            up: {
+                use:false,
+                isBounce:false,
+            }
+        });*/
+/*
+        function getListData(page) {
+            var data = {
+                buildName:$('.building_name').text().trim(),
+                currentPage:1,
+            }
+            HttpUtils.get('../../mock/map_house.json',data,function (res) {
+                renderHouseList(res)
+            })
+        }*/
+
+
+        $('.house_list_header').on('click',function () {
+            window.location.href = './map_house_list.html'
+        })
+    </script>
+</body>
+</html>

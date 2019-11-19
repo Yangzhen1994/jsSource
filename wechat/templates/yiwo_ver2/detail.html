@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>壹窝社区</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yiwo2.css">
+</head>
+<body>
+    <header class="bb1"><h1>宝宝过敏起疙瘩怎么办</h1></header>
+    <div class="offerHeight"></div>
+    <section id="yiwo_detail">
+        <div class="user_box border_bottom" style="margin-bottom: 0.1rem;">
+            <img src="../../img/yiwo/user.jpg"/>
+            <div>
+                <b>城壹宜居管理员</b>
+                <span>2018/11/14 08:32</span>
+            </div>
+        </div>
+        <div id="wenzhang_box">
+            <p>如果孩子本身好好的，忽然脸上起了红疙瘩，甚至脖子上也快速起红块，而且可能眼睛都会痒的难受，孩子会抓眼睛，抓皮肤，眼睛都揉红，很可能是过敏了。</p>
+            <img src="../../img/yiwo/d1.png"/>
+            <p>不要慌张，也不要给孩子吃任何东西，赶紧赶到最近的医院，到皮肤过敏科去查看，如果轻微的话，医生会打些抗过敏的针或者吃点抗过敏的药，一般十几分钟后就会有所缓解。</p>
+            <p>不要慌张，也不要给孩子吃任何东西，赶紧赶到最近的医院，到皮肤过敏科去查看，如果轻微的话，医生会打些抗过敏的针或者吃点抗过敏的药，一般十几分钟后就会有所缓解。</p>
+            <p>不要慌张，也不要给孩子吃任何东西，赶紧赶到最近的医院，到皮肤过敏科去查看，如果轻微的话，医生会打些抗过敏的针或者吃点抗过敏的药，一般十几分钟后就会有所缓解。</p>
+            <p>不要慌张，也不要给孩子吃任何东西，赶紧赶到最近的医院，到皮肤过敏科去查看，如果轻微的话，医生会打些抗过敏的针或者吃点抗过敏的药，一般十几分钟后就会有所缓解。</p>
+        </div>
+    </section>
+    <section id="pl_box" class="mescroll">
+        <!--一条跟帖-->
+        <div class="items">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div>
+                    <b>用户</b>
+                    <span>2018/11/14 08:32</span>
+                </div>
+            </div>
+            <p>学到了！原来是这样！</p>
+        </div>
+        <!--一条跟帖-->
+        <div class="items">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div>
+                    <b>用户</b>
+                    <span>2018/11/14 08:32</span>
+                </div>
+            </div>
+            <p>学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！</p>
+        </div>
+        <!--一条跟帖-->
+        <div class="items">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div>
+                    <b>用户</b>
+                    <span>2018/11/14 08:32</span>
+                </div>
+            </div>
+            <p>学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！学到了！原来是这样！</p>
+        </div>
+    </section>
+    <div style="height:0.56rem"></div>
+    <section class="edit_box">
+        <input type="text" placeholder="写跟帖" maxlength="200"/>
+        <button>提 交</button>
+    </section>
+</body>
+<script src="../../js/frame/mescroll.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var mescroll = new MeScroll("pl_box", {
+    });
+    //获取当前时间
+    function nowDateFuc(){
+        var nowDate = new Date();
+        return nowDate.toLocaleDateString()+" "+nowDate.getHours()+":"+nowDate.getMinutes();
+    }
+
+    function sendfuc(){
+        if($(".edit_box input").val()==""){
+            $.alert('跟帖内容不能为空！');
+            stopScroll($('.weui-mask'));
+            return false;
+        }else{
+            var str = $(".edit_box input").val();//变量储存
+            $(".edit_box input").val("");//清空输入框
+            var send_node = [];
+            send_node.push('<div class="items">');
+            send_node.push('<div class="user_box">');
+            send_node.push('<img src="../../img/yiwo/user.jpg"/>');
+            send_node.push('<div>');
+            send_node.push('<b>用户</b>');
+            send_node.push('<span>'+nowDateFuc()+'</span>');
+            send_node.push('</div>');
+            send_node.push('</div>');
+            send_node.push('<p>'+str+'</p>');
+            send_node.push('</div>');
+            $.confirm({
+                title: '提示',
+                text: '是否提交跟帖内容？',
+                onOK: function () {
+                    setTimeout(function () {
+                        $("#pl_box").prepend(send_node.join(""));
+                        scrollToPlBox();
+                    },500)
+                },
+                onCancel: function () {
+                }
+            });
+
+        }
+    }
+
+    //点击发送
+    $(".edit_box button").click(function(){
+        sendfuc();
+    })
+    //页面拉到评论区
+    function scrollToPlBox(){
+        var h = $("#yiwo_detail").outerHeight();
+        $(document).scrollTop(h);
+    }
+</script>
+</html>

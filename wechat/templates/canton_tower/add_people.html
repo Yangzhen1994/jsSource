@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>广州塔购票</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/canton_tower.css">
+</head>
+<body class="grayBody">
+<section class="tb_box2">
+    <img src="../../img/canton_tower/img1.png"/>
+    <div class="detail_box">
+        <div class="box1">460米  摩天轮游乐套票(成人)</div>
+        <p>有效期：2018-10-24  星期三</p>
+        <p>兑票及入塔时段：09:30-12:00</p>
+        <div class="box2"><span>X 1</span><span>￥298.00元</span></div>
+    </div>
+</section>
+<section class="tb_box3">
+    <div class="box1">出行者信息</div>
+    <!--<div class="molabel">
+        <img class="img1" src="../../img/canton_tower/people.png">
+        <span>游客1姓名</span>
+        <input class="name" type="text" placeholder="请输入姓名"/>
+    </div>
+    <div class="molabel">
+        <img class="img3" src="../../img/canton_tower/idcard.png">
+        <span>游客1身份证号</span>
+        <input class="idcard" type="text" placeholder="请输入身份证号"/>
+    </div>-->
+</section>
+<div style="height:0.5rem;width:100%;"></div>
+<button id="buy_btn">确 认</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //传几张票进来，填些几个游客信息
+    boxfun(10);
+    //追加游客姓名身份证录入
+    function boxfun(num){
+        for(var i=0;i<num;i++){
+            var k=i+1;
+            var box_node=[];
+            box_node.push('<div class="molabel">');
+            box_node.push('<img class="img1" src="../../img/canton_tower/people.png">');
+            box_node.push('<span>游客'+ k +'姓名</span>');
+            box_node.push('<input class="name" type="text" placeholder="请输入姓名"/>');
+            box_node.push('</div>');
+            box_node.push('<div class="molabel">');
+            box_node.push('<img class="img3" src="../../img/canton_tower/idcard.png">');
+            box_node.push('<span>游客'+ k +'身份证号</span>');
+            box_node.push('<input class="idcard" type="text" placeholder="请输入身份证号"/>');
+            box_node.push('</div>');
+            $(".tb_box3").append(box_node.join(""));
+        }
+    }
+    //确认补全
+    $("#buy_btn").click(function(){
+        var names=$(".name");
+        var idcards=$(".idcard");
+        var box_length=names.length;
+        console.log(box_length);
+        for(var i=0;i<box_length;i++){
+            if(names.eq(i).val()==""){
+                $.alert("请填写"+names.eq(i).siblings("span").html()+"！");
+                stopScroll($('.weui-mask'));
+                return false;
+            }
+            if(idcards.eq(i).val()==""){
+                $.alert("请填写"+idcards.eq(i).siblings("span").html()+"！");
+                stopScroll($('.weui-mask'));
+                return false;
+            }
+            if(!DcUtils.isIdCard(idcards.eq(i).val())){
+                $.alert(idcards.eq(i).siblings("span").html()+"格式有误！");
+                stopScroll($('.weui-mask'))
+                return false;
+            }
+        }
+        $.alert("游客信息保存成功！");
+        setTimeout(function(){
+            window.location.href="ticket_buy.html";//跳转回购买页面，并且让#add_people_btn隐藏，程序自行补上
+        },400)
+    })
+</script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>在线签约</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/zuhuqianyue.css">
+
+</head>
+<body>
+<div class="wrapper weui-tab">
+    <div class="weui-navbar hide">
+        <a class="weui-navbar__item  weui-bar__item--on" href="#tab1" id="nav1">
+            1
+        </a>
+        <a class="weui-navbar__item" href="#tab2" id="nav2">
+            2
+        </a>
+        <a class="weui-navbar__item " href="#tab3" id="nav3">
+            3
+        </a>
+    </div>
+    <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="progress">
+                <ul class="clearfix pr">
+                    <div class="text1">租户申请</div>
+                    <div class="text2 host_about">房东确认签字</div>
+                    <div class="text3 ">租户签字</div>
+                    <div class="text4 host_about">租户在线支付</div>
+                    <div class="text5 ">支付成功</div>
+                    <div class="step step1 pa">1</div>
+                    <div class="step step2 pa">2</div>
+                    <div class="step step3 pa">3</div>
+                    <div class="step step4 pa">4</div>
+                    <div class="step step5 pa">5</div>
+                    <div class="bg_line pa"></div>
+                    <div class="progress_line pa" style="width: 25%"></div>
+                </ul>
+            </div>
+            <div class="form">
+                <ul>
+                    <li class="clearfix border_bottom">
+                        <input type="text" placeholder="请选择入住时间" id="inRoom" onclick="this.blur()">
+                        <img src="../../img/rili.svg" alt="" class="date_icon">
+                    </li>
+                    <li class="clearfix border_bottom">
+                        <select name="liveyear" id="liveYear">
+                            <option value="">请选择入住年限</option>
+                            <option value="1">1年</option>
+                            <option value="3">3年</option>
+                        </select>
+                            <img src="../../img/house_list/arrow-bottom.png" alt="">
+                    </li>
+                    <li class="clearfix border_bottom">
+                        <input type="text" placeholder="给房东捎个话" id="">
+                        <img src="../../img/house_detail/icons/btn_chat1.svg" alt="" class="date_icon">
+                    </li>
+                </ul>
+                <input type="text" id="timeHide" class="hide">
+            </div>
+            <span class="font14_4" style="display: inline-block;margin-top: 0.16rem"><img style="position: relative; top: 3px;margin-right: 2px;width: 0.16rem;height: 0.16rem" src="../../img/login/check_box_choosed.png" alt="">我同意<a href="./agreement.html" class="font14_4" style="text-decoration: underline;">《城壹宜居在线签约服务协议》</a></span>
+            <div class="next">
+                <button id="nextBtn">下一步</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $('select').on('change',function () {
+        $(this).css({'color':'#444'})
+    })
+    calendarPick1('inRoom', 'timeHide',closeHandle)
+    function calendarPick1(id,valueWrapId,closeCallback,closeNormalHandle){
+        //当天不能预约
+        var today = new Date(new Date())
+        var year = today.getFullYear()
+        var month = today.getMonth()+1
+        if(month<10){month='0'+month}
+        var date = today.getDate()
+        if(date<10){date='0'+date}
+        var day1 = year+'-'+month+'-'+date
+        var tomorrow = new Date();
+        tomorrow.setTime(tomorrow.getTime()+24*60*60*1000);
+        var year = tomorrow.getFullYear()
+        var month = tomorrow.getMonth()+1
+        if(month<10){month='0'+month}
+        var date = tomorrow.getDate()
+        if(date<10){date='0'+date}
+        var day2 = year+'-'+month+'-'+date
+        //拼接时间
+
+        //$('#'+id).val(year+'-'+month+'-'+date)
+        $("#"+id).calendar({
+            minDate:day1,//最小为今天 今天不可选
+            closeOnSelect:true,//用户选择一个时间后就自动关闭
+            dateFormat:'yyyy-mm-dd',
+            value:[day2], //默认是明天
+            onChange:function (p,values,displayValues) {
+                console.log(values,displayValues)
+                $('#'+valueWrapId).val(values)
+                // console.log( $('#'+valueWrapId).val())
+            },
+            onClose:function (p) {
+
+            }
+        });
+        $('#'+id).on('click',function () {
+            $('.weui-picker-container').on('touchmove',function (e) {
+                console.log(1)
+                e=event || window.event;
+                e.preventDefault()
+            })
+        })
+    }
+    $('#nextBtn').click(function () {
+        if(!$('#timeHide').val()){
+            $.alert('请选择入住时间')
+            return
+        }
+        if(!$('#liveYear').val()){
+
+            $.alert('请选择入住年限')
+            return
+        }
+        $.alert('提交成功，请等待房东确认')
+    })
+    function closeHandle(){
+        setTimeout(function () {
+            stopScroll($('.weui-mask'))
+            $.alert('请至少提前一天预约',function () {
+                $('#inRoom').val('')
+                $('#timeHide').val('')
+            })
+        },300)
+    }
+</script>
+</body>
+</html>

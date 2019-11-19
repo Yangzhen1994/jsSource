@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>跟帖回复</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yiwo3.css">
+</head>
+<body>
+<!--清空按钮-->
+<div id="clear_btn"><img src="../../img/yiwo/clear.svg"></div>
+<!--跟帖回复-->
+<section id="reply_list1" class="mescroll huati_list">
+    <!--空-->
+    <!--<div class="yiwo_empty_box"><img src="../../img/yiwo/empty.png"/>您还没发布过跟帖哦</div>-->
+    <!--一条数据-->
+    <div class="items">
+        <div class="user_box_outer">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+            </div>
+            <button class="delect_btn">删除</button>
+        </div>
+        <div class="detail_box">
+            <p class="p2">正文文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正</p>
+            <div class="zhutie_box">
+                <b>跟帖内容：</b>
+                <div class="user_box_outer">
+                    <div class="user_box">
+                        <img src="../../img/yiwo/user.jpg"/>
+                        <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+                    </div>
+                    <div class="more_box1"><span>2611阅读</span><span>106跟帖</span></div>
+                </div>
+                <a class="tita">好活动，正能量</a>
+            </div>
+        </div>
+    </div>
+    <!--一条数据-->
+    <div class="items">
+        <div class="user_box_outer">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+            </div>
+            <button class="delect_btn">删除</button>
+        </div>
+        <div class="detail_box">
+            <p class="p2">正文文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正</p>
+            <div class="zhutie_box">
+                <b>跟帖内容：</b>
+                <div class="user_box_outer">
+                    <div class="user_box">
+                        <img src="../../img/yiwo/user.jpg"/>
+                        <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+                    </div>
+                    <div class="more_box1"><span>2611阅读</span><span>106跟帖</span></div>
+                </div>
+                <a class="tita">好活动，正能量</a>
+            </div>
+        </div>
+    </div>
+    <!--一条数据-->
+    <div class="items">
+        <div class="user_box_outer">
+            <div class="user_box">
+                <img src="../../img/yiwo/user.jpg"/>
+                <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+            </div>
+            <button class="delect_btn">删除</button>
+        </div>
+        <div class="detail_box">
+            <p class="p2">正文文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正</p>
+            <div class="zhutie_box">
+                <b>跟帖内容：</b>
+                <div class="user_box_outer">
+                    <div class="user_box">
+                        <img src="../../img/yiwo/user.jpg"/>
+                        <div><i>用户昵称</i><span>2018/11/14 08:32</span></div>
+                    </div>
+                    <div class="more_box1"><span>2611阅读</span><span>106跟帖</span></div>
+                </div>
+                <a class="tita">好活动，正能量</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--跟帖回复 end-->
+</body>
+<script src="../../js/frame/mescroll.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var mescroll = new MeScroll("reply_list1", {
+        up: {
+            use:false,
+            isBounce:false
+        }
+    });
+    //删除
+    $(".delect_btn").each(function(){
+        $(this).click(function(){
+            $.confirm("确认删除此消息提醒吗?", function() {
+                //点击确认后的回调函数
+            }, function() {
+                //点击取消后的回调函数
+            });
+        })
+    })
+    //清空
+    $("#clear_btn").click(function(){
+        $.confirm("确认清空此消息提醒列表吗?", function() {
+            //点击确认后的回调函数
+        }, function() {
+            //点击取消后的回调函数
+        });
+    })
+</script>
+</html>

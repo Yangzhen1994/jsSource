@@ -1,0 +1,12 @@
+{
+  "appointDate":["05月16日 (三)","05月16日 (四)","05月17日 (五)","05月18日 (六)","05月18日 (七)","05月18日 (日)"],
+  "policyInfo":[{
+    "policyImg":"../../img/home/index_city1.png",
+    "policyTitle":"未来城市与大数据产业分享交流会成功举办",
+    "policyContent":"12月11日，由市城投集团旗下大学城公司主办的“未来城市与大数..."
+  },{
+    "policyImg":"../../img/home/index_city2.jpg",
+    "policyTitle":"未来城市与大数据产业分享交流会成功举办",
+    "policyContent":"12月11日，由市城投集团旗下大学城公司主办的“未来城市与大数..."
+  }]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "imgBelong":"封面",
+    "imgUrl":"../../mock/img/banner1.png,../../mock/img/banner2.png,../../mock/img/banner3.png"
+  },
+  {
+    "imgBelong":"卫生间",
+    "imgUrl":"../../mock/img/banner14.png"
+  },
+  {
+    "imgBelong":"起居室",
+    "imgUrl":"../../mock/img/banner7.png,../../mock/img/banner9.png"
+  },
+  {
+    "imgBelong":"厨房",
+    "imgUrl":"../../mock/img/banner15.png"
+  },
+  {
+    "imgBelong":"阳台",
+    "imgUrl":"../../mock/img/banner13.png"
+  },
+  {
+    "imgBelong":"餐厅",
+    "imgUrl":"../../mock/img/banner12.png"
+  }
+]

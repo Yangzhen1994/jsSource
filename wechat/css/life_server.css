@@ -1,0 +1,111 @@
+
+.life_sever{
+    padding-top:0.1rem;
+    padding-left:0.05rem;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 0.6rem;
+    background:#E8E9ED ;
+}
+.life_server_item{
+    width: 1.78rem;
+    height: 1.29rem;
+    /*padding-top:0.75rem;*/
+    position: relative;
+}
+
+.shenghuojiaofei_img{
+    background:url(../img/life_server/shenghuojiaofei.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+.zhengwu_img{
+    background:url(../img/life_server/zhengwufuwu.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+.yiliao_img{
+    background:url(../img/life_server/yiliaofuwu.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+.jinrong_img{
+    background:url(../img/life_server/jinrongfuwu.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+.zhinengyingjian_img{
+    background:url(../img/life_server/zhinengyingjian.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+
+.jiazheng_img{
+    background:url(../img/life_server/jiazhengfuwu.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+
+.wanggou_img{
+    background:url(../img/life_server/tuangoufuwu.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+
+.jiaoyu_img{
+    background:url(../img/life_server/jiaoyupeixun.png) no-repeat;
+    background-size: 1.84rem 1.35rem;
+}
+.tongxun_img .title{
+    text-shadow: 0 1px 3px rgba(59,131,255,0.50);
+}
+.shenghuojiaofei_img .title{
+    text-shadow: 0 2px 5px rgba(255,161,58,0.50);
+}
+.zhengwu_img .title{
+    text-shadow: 0 2px 4px rgba(254,134,13,0.50);
+}
+.jujia_img .title{
+    text-shadow: 0 2px 4px rgba(66,181,105,0.50);
+}
+.yiliao_img .title{
+    text-shadow: 0 2px 4px rgba(221,75,75,0.50);
+}
+.gouwu_img .title{
+    text-shadow: 0 2px 4px rgba(11,105,255,0.50);
+}
+.jinrong_img .title{
+    text-shadow: 0 2px 4px rgba(254,134,13,0.50);
+}
+.chuxing_img .title{
+    text-shadow: 0 2px 4px rgba(190,84,255,0.50)
+}
+
+
+.life_server_item .title{
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.14rem;
+
+    margin-bottom:0.05rem;
+}
+.life_server_item .sub_title{
+    opacity: 0.8;
+    font-family: PingFangSC-Regular;
+    font-size: 0.1rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.1rem;
+    height: 0.15rem;
+}
+
+.img_info{
+    position: absolute;
+    top: 83px;
+    /*left: 35px;*/
+    width: 1.78rem;
+}
+.shengluehao{
+    width: 1.59rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left: 0.14rem;
+}

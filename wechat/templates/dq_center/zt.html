@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>预约申请</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/dq_center.css">
+</head>
+<body>
+    <!--已通过-->
+    <div class="zt_box">
+        <img src="../../img/dq_center/success.svg"/>
+        <h4>恭喜您</h4>
+        <p>【一号会议室】2019-7-18 9：00至11：00 已预约成功， 请您按时到场。</p>
+    </div>
+    <!--已驳回-->
+    <div class="zt_box">
+        <img src="../../img/dq_center/fail.svg"/>
+        <h4>非常抱歉</h4>
+        <p>由于【xxxx】，暂无法申请该时段的【会议室】，请选择其它时间段进行预约，详情请前往党群服务中心咨询。</p>
+    </div>
+    <!--已经撤销-->
+    <div class="zt_box">
+        <img src="../../img/dq_center/revoke.svg"/>
+        <h4 style="margin-bottom: 0px;">已撤销</h4>
+    </div>
+    <!--信息框-->
+    <ul class="info_box">
+        <li><span>预约类别</span>会议室</li>
+        <li><span>姓名</span>吴剑波</li>
+        <li><span>联系方式</span>15876525067</li>
+        <li><span>预约日期</span>2019-07-15</li>
+        <li><span>开始时间</span>09:00</li>
+        <li><span>结束时间</span>15:00</li>
+        <li><span>参加人数</span>无</li>
+        <li><span>备注</span>无</li>
+    </ul>
+    <button id="back">返 回</button>
+</body>
+</html>

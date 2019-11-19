@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房源类别</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script rel="stylesheet" src="../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../js/common.js"></script>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        body{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.12rem 0.12rem 0 0.12rem;
+            background: #e8e9ed;
+        }
+        .house_type_list{
+            width: 100%;
+        }
+        .house_type_list li{
+            width: 3.51rem;
+            margin: 0 auto;
+            margin-bottom: 0.12rem;
+            height: 1.04rem;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .house_type_list li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .house_type_list li a p{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: absolute;
+            left: 0.22rem;
+
+        }
+        /**last放在 first前面 以防只有一个p标签是css覆盖*/
+        .house_type_list li a p:last-child{
+            color: #fff;
+            font-size: 0.13rem;
+            line-height: 0.13rem;
+            top: 0.6rem;
+        }
+        .house_type_list li a p:first-child{
+            color: #fff;
+            font-size: 0.18rem;
+            line-height: 0.18rem;
+            top: 0.34rem;
+        }
+        .house_type_list li:first-child{
+            background: url('../img/house_type/01_banner@3x.png');
+            background-size: 100% 100%;
+        }
+        .house_type_list li:nth-of-type(2){
+            background: url('../img/house_type/02_banner@3x.png');
+            background-size: 100% 100%;
+        }
+        .house_type_list li:nth-of-type(3){
+            background: url('../img/house_type/03_banner@3x.png');
+            background-size: 100% 100%;
+        }
+        .house_type_list li:nth-of-type(4){
+            background: url('../img/house_type/04_banner@3x.png');
+            background-size: 100% 100%;
+        }
+        .house_type_list li:nth-of-type(5){
+            background: url('../img/house_type/05_banner@3x.png');
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul class="house_type_list">
+        <li><a href="javascript:;">
+            <p>品牌公寓</p>
+            <p>魔方、窝趣、冠寓、红璞、蝌蚪</p>
+        </a></li>
+        <li><a href="javascript:;">
+            <p>中介房源</p>
+            <p>中原、新浪</p>
+        </a></li>
+        <li><a href="javascript:;">
+            <p>个人房源</p>
+            <p>整租、合租</p>
+        </a></li>
+        <li><a href="javascript:;">、
+            <p>政策房源</p>
+            <p>公租、人才</p></a></li>
+        <li><a href="javascript:;">
+            <p>平台房源</p>
+            <p>城壹、58、搜房网、安居客</p>
+        </a></li>
+    </ul>
+</body>
+</html>

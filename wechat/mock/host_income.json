@@ -1,0 +1,20 @@
+[
+  {
+    "income":"5880",
+    "room":"海珠区花果山小区4居室-南卧",
+    "start_time":"2018-03-01",
+    "end_time":"2019-03-01",
+    "payway":"季付",
+    "total_income":"23200",
+    "remain_income":"17320"
+  },
+  {
+    "income":"5880",
+    "room":"海珠区花果山小区4居室-北卧",
+    "start_time":"2018-03-01",
+    "end_time":"2019-03-01",
+    "payway":"季付",
+    "total_income":"23200",
+    "remain_income":"17320"
+  }
+]

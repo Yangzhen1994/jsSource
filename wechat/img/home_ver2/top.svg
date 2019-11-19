@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>置顶</title>
+    <desc>Created with Sketch.</desc>
+    <g id="61改版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="物业通知" transform="translate(-34.000000, -140.000000)" fill-rule="nonzero">
+            <g id="置顶" transform="translate(33.000000, 139.000000)">
+                <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M1.51727528,0.999434391 L14.4206388,0.999434391 L14.4206388,3.14999231 L1.51727528,3.14999231 L1.51727528,0.999434391 L1.51727528,0.999434391 Z M14.4206388,10.676953 L11.1947939,10.676953 L11.1947939,14.9780689 L4.74310417,14.9780689 L4.74310417,10.676953 L1.51727528,10.676953 L7.96896503,4.22527927 L14.4206388,10.676953 Z" id="形状" fill="#E45D5D"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,565 @@
+body{
+    background: #fff;
+
+}
+.slider_wraper{
+    width: 100%;
+    height: 2.19rem;
+
+}
+.cover{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+   pointer-events: none;
+    top:0;
+    left: 0;
+    z-index: 2;
+    background-image: linear-gradient(-180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.00) 25%,rgba(0,0,0,0.00) 75%,rgba(0,0,0,0.60) 100%);
+}
+.swiper-slide a img{
+
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+}
+.nav_list{
+    position: absolute;
+    width: 100%;
+    bottom:0.12rem;
+
+    z-index: 3;
+}
+.nav_list li{
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height:0.12rem;
+    float: left;
+}
+i.arrow {
+    border-left: 0.05rem solid transparent;
+    border-right: 0.05rem solid transparent;
+    width: 0;
+    height: 0;
+    -webkit-transition: all ease-in-out .1s;
+    -o-transition: all ease-in-out .1s;
+    -moz-transition: all ease-in-out .1s;
+    -ms-transition: all ease-in-out .1s;
+    transition: all ease-in-out .1s;
+    position: absolute;
+    border-bottom: 0.05rem solid #fff;
+    z-index: 9;
+    bottom: 0;
+    transform: translateX(-50%);
+
+}
+.house_brief,.house_matching,.room_info,.park_desc,.building_brief,.around_traffic,#mapResWrap,.report_link{
+    padding-top: 0.24rem;
+    padding-left: 0.18rem;
+    padding-right: 0.18rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+.around_traffic{
+    margin-bottom: 0.24rem;
+    display: flex;
+    display:-webkit-flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.report_link{
+    height: 0.8rem;
+    /*margin-bottom:0.49rem;*/
+    box-sizing: border-box;
+}
+.house_price{
+    margin-bottom: 0.14rem;
+}
+.house_title{
+    margin-bottom: 0.28rem;
+}
+.house_price,.house_title{
+    font-family: PingFangSC-Regular;
+    font-size: 0.22rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.26rem;
+}
+.tags{
+    display: flex;
+    display:-webkit-flex;
+    justify-content: flex-start;
+    padding-bottom: 0.02rem;
+    flex-wrap:wrap ;
+    padding-bottom: 0.1rem;
+}
+
+.tags li{
+    margin-right: 0.14rem;
+    background: rgba(255,130,0,0.10);
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    padding: 0.08rem 0.1rem;
+    font-size: 0.12rem;
+    line-height: 0.12rem;
+    color: #ff8200;
+    margin-bottom: 0.14rem;
+}
+/*.tags li:first-child{
+    background: rgba(255,130,0,0.20);
+}*/
+
+.house_infos{
+    display: flex;
+    display:-webkit-flex;
+    justify-content: space-between;
+    flex-wrap:wrap ;
+    padding: 0.21rem 0;
+}
+.house_infos li{
+    width: 25%;
+    text-align: center;
+    font-size: 0.14rem;
+    font-family: PingFangSC-Regular;  color: #444444;
+    letter-spacing: 0;
+    line-height: 1.5;
+}
+.mestro{
+    width: 100%;
+    font-size: 0.14rem;
+    font-family: PingFangSC-Regular;  color: #444444;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    min-height: 0.14rem;
+    padding: 0.24rem 0;
+    position: relative;
+}
+.mestro img{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+.mestro span{
+    display: inline-block;
+    font-size: 0.14rem;
+    font-family: PingFangSC-Regular;  color: #444444;
+    letter-spacing: 0;
+    opacity: 0.4;
+    min-height: 0.14rem;
+    left: 0.2rem;
+    position: absolute;
+
+}
+.mestro img{
+   width: 0.12rem;
+    height: 0.14rem;
+    position: absolute;
+  left: 0;
+}
+.house_matching .matching_title{
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height:  0.18rem;
+    height: 0.18rem;
+    margin-bottom: 0.25rem;
+}
+.layout_img{
+    width: 100%;
+    height: 2.24rem;
+    margin-bottom: 0.26rem;
+}
+.layout_img img.huxingtu{
+    width: 100%;
+    height: 100%
+}
+.matching_icon{
+    display: flex;
+    display:-webkit-flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.matching_icon>div{
+    width: 20%;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #444;
+    margin-bottom: 0.26rem;
+}
+.matching_icon img{
+    margin-bottom: 0.01rem;
+    width: 0.32rem;
+    height: 0.32rem;
+}
+.equip_name{
+    height: 0.14rem;
+    text-align: center;
+    line-height: 0.14rem;
+    font-family: PingFangSC-Regular;
+}
+.room_info_list,.building_brief_list{
+    width: 100%;
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height:0.14rem;
+}
+.room_info_list li,.building_brief_list li{
+    width: 100%;
+    height: 0.56rem;
+    line-height: 0.56rem;
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.10);
+    display: flex;
+    display:-webkit-flex;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 0.14rem;
+    color: #444;
+    font-family: PingFangSC-Regular;
+}
+.room_info_list li.already_live,.room_info_list li.already_live a{
+    color: rgba(0,0,0,0.40);
+}
+.to_detail_map{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    line-height:0.14rem;
+    display: inline-block;
+
+}
+.to_detail_map img{
+    opacity: 0.6 !important;
+    width: 0.06rem !important;
+    height: 0.1rem !important;
+    margin-left: 0.14rem !important;
+}
+#mapDiv{
+    width: 100%;
+    height: 2.2rem;
+}
+#mapResWrap{
+    padding-left: 0.36rem;
+}
+#mapResWrap li{
+
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    height: 0.14rem;
+    padding: 0 0 0.24rem 0;
+    position: relative;
+
+    list-style: disc;
+}
+
+#mapResWrap li img{
+    width: 0.3rem;
+    height: 0.04rem;
+    position: relative;
+    top:-0.0rem;
+}
+.report_area,.link_area{
+    width: 50%;
+    height:0.32rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+.content_wrap img{
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-left: 0.67rem;
+    margin-right: 0.06rem;
+}
+.report_area,.content_wrap,.link_area,.link_area a,.report_area a{
+    display: flex;
+    display:-webkit-flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.content_wrap{
+    flex-wrap: wrap;
+}
+.content_wrap p:first-child{
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.16rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 0.06rem;
+}
+.content_wrap p:last-child{
+    width: 100%;
+    font-family: PingFangSC-Regular;
+    font-size: 0.1rem;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 0.1rem;
+    margin-top: 0.05rem;
+    text-align: left;
+}
+
+.new_room{
+    overflow: hidden;
+}
+.new_room label{
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.18rem;
+}
+.new_room{
+    width:100%;
+    height: 2.98rem;
+    padding-top: 0.24rem;
+}
+.new_room_label{
+    padding-left: 0.18rem;
+    padding-right: 0.18rem;
+
+}
+.new_room_label label{
+    margin-bottom: 0.1rem;
+    display: block;
+}
+.new_room_item{
+    padding-left: 0.18rem;
+}
+.new_room .new_room_label p{
+    opacity: 0.3;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.12rem;
+    margin-bottom: 0.2rem;
+}
+.new_room_list{
+    height:2rem;
+    padding-left: 0.08rem;
+    display: -webkit-box;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    height: -webkit-calc(100% + 5px);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.new_room_list .item{
+    width:2.2rem;
+    height:1.9rem;
+    background: #FFFFFF;
+    box-shadow: 0 0 0.04rem 0 rgba(0,0,0,0.10);
+    border-radius: 0.02rem;
+    margin: 0.05rem;
+
+}
+.new_room_list .item .room_img{
+    text-align: center;
+}
+.new_room_list .item img{
+    width:2rem;
+    height:1.2rem;
+    margin-top: 0.1rem;
+}
+.new_room_list .item .room_name{
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.13rem;
+    margin:0.1rem;
+}
+
+.new_room_list .item  .room_price{
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #FF8200;
+    letter-spacing: 0;
+    line-height: 0.13rem;
+    margin:0 0.1rem 0.1rem 0.1rem;
+}
+.index_logo{
+    background: #F9F9F9;
+    height:0.88rem;
+    text-align: center;
+    padding-top: 0.24rem;
+    padding-bottom: 0.24rem;
+}
+.index_container{
+    padding-bottom: 0.6rem;
+}
+.index_logo img{
+    width: 0.23rem;
+    height: 0.17rem;
+}
+.index_logo span{
+    opacity: 0.6;
+    font-size: 0.17rem;
+}
+.index_logo_p{
+    opacity: 0.3;
+    font-family: PingFangSC-Regular;
+    font-size: 0.10rem;
+    color: #000000;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 0.10rem;
+}
+.qianyue_footer{
+    width: 100%;
+    height: 0.48rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-content: center;
+    position: fixed;
+    bottom: 0;
+}
+.fav{
+    width: 1.25rem;
+    height: 100%;
+    line-height:0.4rem;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    background: #fff;
+}
+.fav img{
+    width: 0.17rem;
+    height: 0.16rem;
+    display: block;
+    margin-top: -3px;
+    align-self: center;
+    margin-right:0.08rem;
+}
+.fav span{
+    display: block;
+    font-family: PingFangSC-Regular;
+    font-size: 0.16rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    position: relative;
+    top: 3px;
+    /*margin-right: 30px;*/
+}
+.yuyue_look{
+    background: #FFFFFF;
+    box-shadow: inset 0 0 0 0 rgba(0,0,0,0.10);
+    width: 1.25rem;
+    line-height: 0.48rem;
+    height: 100%;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    color: #444;
+    letter-spacing: 0;
+    font-size: 0.16rem;
+}
+.yuyue_look a{
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 16px;
+}
+.online_qianyue{
+    width: 1.25rem;
+    text-align: center;
+    line-height: 0.48rem;
+    height: 100%;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    color: #fff;
+    font-size: 0.16rem;
+}
+.BMap_bubble_title{
+
+}
+.icon_ara{
+    position: absolute;
+    top:0.15rem;
+    right: 0.14rem;
+    z-index: 3;
+}
+.icon_ara a{
+    margin-left: 0.22rem;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.icon_ara a:first-child{
+
+}
+.icon_ara a img{
+    width: 100%;
+    height: 100%;
+}
+.yuyue_look.w243
+{
+    width: 2.43rem;
+    background: #ff8200;
+    color: #fff !important;
+}
+.yuyue_look.w243 a{
+    color: #fff !important;
+}
+.fav.w132{
+    width: 1.32rem;
+    box-sizing: border-box;
+    justify-content: flex-start;
+}
+.fav.w132 img{
+    margin-left: 0.4rem;
+    margin-right: 0.12rem;
+}
+.cyrz{
+    background: rgba(255,130,0,0.10);
+}
+.cyrz:before{
+    border: 1px solid #ff8200;
+}
+.tags li:before{
+    border :0 !important;
+}
+.matching_title{
+    font-size: 0.18rem;
+}
+.room_info_list div{
+    font-size: 0.14rem;
+}
+/****出租类型***/
+.rent_way{
+   padding-left: 0.05rem;
+   padding-right: 0.05rem;
+    padding-top: 0.01rem;
+    padding-bottom: 0.01rem;
+    -moz-border-radius: 0.05rem;
+    -webkit-border-radius: 0.05rem;
+    border-radius: 0.05rem;
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    font-size: 0.18rem;
+    height: 0.23rem;
+}

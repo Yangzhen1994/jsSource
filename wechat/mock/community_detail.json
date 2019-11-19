@@ -1,0 +1,22 @@
+[
+  {
+    "imgBelong":"主图",
+    "imgUrl":"../../mock/img/banner1.png"
+  },
+  {
+    "imgBelong":"图一",
+    "imgUrl":"../../mock/img/banner14.png"
+  },
+  {
+    "imgBelong":"图二",
+    "imgUrl":"../../mock/img/banner7.png"
+  },
+  {
+    "imgBelong":"图三",
+    "imgUrl":"../../mock/img/banner15.png"
+  },
+  {
+    "imgBelong":"图四",
+    "imgUrl":"../../mock/img/banner13.png"
+  }
+]

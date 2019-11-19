@@ -1,0 +1,644 @@
+/*公租房base 1229原型 by Alen 2019-01-07*/
+.grayBody{background:#f1f1f1;}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+    color:#999;
+}
+input::-moz-placeholder,textarea::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#999;
+}
+input:-moz-placeholder,textarea::-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#999;
+}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+    color:#999;
+}
+.prh_select_box_outer{
+    position: fixed;
+    border-top:0.1rem solid #f1f1f1;
+    width:100%;
+    top:0px;
+    left:0px;
+}
+.prh_select_box{
+    padding:0.1rem;
+    position: relative;
+    background: #fff;
+    border-bottom: 0.04rem solid #f1f1f1;
+}
+.prh_select_box select{
+    display: block;
+    height: 0.32rem;
+    font-size: 0.14rem;
+    color: #424242;
+    box-sizing: border-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.04rem;
+    margin: 0 auto;
+    width: 3.4rem;
+    padding-left: 0.14rem;
+    background: #fff;
+}
+.prh_select_box select+img {
+    position: absolute;
+    display: block;
+    width: 0.1rem;
+    height: 0.08rem;
+    top: 0.23rem;
+    right: 0.26rem;
+}
+/*进度查询*/
+.progress_rbox{
+    height:calc(100% - 0.66rem);
+}
+/*推荐的房源*/
+#tj_house_outer{
+    position: fixed;
+    height:calc(100% - 0.66rem);
+}
+.tj_house .items{
+    padding:0.14rem 0.18rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+.tj_house .items a{
+    display: block;
+    overflow: hidden;
+    color:#444;
+    font-size: 0.16rem;
+    line-height: 0.24rem;
+}
+.tj_house .items img{
+    float:left;
+    width:1.2rem;
+    height:0.9rem;
+    margin-right: 0.1rem;
+}
+.tj_house .items .info_box{
+    float:right;
+    width:2.08rem;
+}
+.tj_house .items .info_box p:nth-child(1){
+    margin-bottom: 0.06rem;
+}
+.tj_house .items .info_box p:nth-child(2){
+    position: relative;
+    padding-left:0.14rem;
+    height:0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.14rem;
+    margin-bottom: 0.12rem;
+    color:#999;
+}
+.tj_house .items .info_box p:nth-child(2) img{
+    position: absolute;
+    width: 0.1rem;
+    height: 0.12rem;
+    top:0.06rem;
+    left:0px;
+}
+.tj_house .items .info_box p:nth-child(3){
+    color:#ff8200;
+}
+/*合同管理*/
+.step_outer{
+    padding:0.28rem 0px;
+    border-top:0.1rem solid #f1f1f1;
+    background:#fff;
+    border-bottom: 0.06rem solid #f1f1f1;
+}
+.step_outer ul{
+    width:3.52rem;
+    margin:0 auto;
+    height:0.56rem;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.step_outer ul li{
+    position: relative;
+    float:left;
+    width:0.56rem;
+    height:0.56rem;
+    text-align: center;
+    color:#fff;
+    font-size: 0.12rem;
+    background: #bebebe;
+    line-height: 0.56rem;
+    border-radius:50%;
+}
+.step_outer ul li:after{
+    content:"";
+    display: block;
+    position: absolute;
+    width:0.74rem;
+    height:0.03rem;
+    background: #bebebe;
+    top:0.26rem;
+    left:0.65rem;
+}
+.step_outer ul li.accept{background: #ff8200;}
+.step_outer ul li.accept:after{background: #ff8200;}
+.cstep1_box{
+    padding:0.24rem 0.12rem;
+    background: #fff;
+}
+.cstep1_box img{
+    display: block;
+    width:1.8rem;
+    margin:0 auto;
+    margin-bottom: 0.18rem;
+}
+.pz_book{
+    padding:0px 0.12rem;
+    line-height: 0.24rem;
+    font-size: 0.14rem;
+    color:#666;
+}
+.pz_book p{text-align: justify;text-indent: 2em;}
+.pz_book p:nth-child(1){text-indent: 0em;}
+.pz_book span{color:#ff8200;}
+.pz_book .giveUp{color:#999;margin-top: 0.1rem;}
+.message_box{
+    padding-top:0.18rem;
+    background: #fff;
+}
+.message_box .tit2{
+    line-height: 0.2rem;
+    overflow: hidden;
+    padding:0.06rem 0.16rem;
+}
+.message_box .tit2 span{
+    float:left;
+    font-size:0.18rem;
+    color: #000;
+}
+.message_box .tit2 a{
+    float: right;
+    font-size: 0.12rem;
+    color:#b7b2b2;
+}
+.message_box .box1{
+    overflow: hidden;
+    padding:0.14rem 0.12rem;
+}
+.message_box .box1 .left_box{
+    width:1.2rem;
+    height:0.9rem;
+    float:left;
+    position: relative;
+}
+.message_box .box1 .left_box .house_img{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.message_box .box1 .left_box .state_img{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    display: block;
+    width:100%;
+}
+.message_box .box1 .left_box .during{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    display: block;
+    width:100%;
+    height:0.3rem;
+    line-height: 0.3rem;
+    background-image: url("../img/public_rental_house/during.png");
+    background-size: 100% 100%;
+    color:#fff;
+    font-size: 0.13rem;
+    text-align: center;
+}
+.message_box .box1 .left_box span{
+    font-size: 0.12rem;
+    position: absolute;
+    color: #ff8200;
+    right: 0.05rem;
+    top: 0.05rem;
+    font-weight: 700;
+    line-height: 0.12rem;
+}
+.message_box .box1 .right_box{
+    float:right;
+    padding-top:0.02rem;
+    width:2.14rem;
+    line-height:0.22rem;
+    font-size: 0.12rem;
+    color: #444444;
+}
+.message_box .box1 .right_box .num{
+    font-size: 0.13rem;
+}
+.message_box .box1 .r12{
+    overflow: hidden;
+}
+.message_box .box1 .r12 span{
+    color: #ff8200;
+}
+.message_box .box1 .r12 span i{
+    font-size: 0.13rem;
+    font-style: normal;
+}
+.message_box .box1 .r12 span:nth-child(1){float:left;}
+.message_box .box1 .r12 span:nth-child(2){float:right;}
+.message_box .box1 .moreinfo span{margin:0px 0.08rem;}
+.message_box .box1 .moreinfo span:nth-child(1){margin-left:0px;}
+.message_box .box1 .adr{
+    position: relative;
+    padding-left:0.14rem;
+    color:#b7b2b2;
+    height:0.22rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.message_box .box1 .adr img{
+    display: block;
+    position: absolute;
+    width:0.1rem;
+    top:0.06rem;
+    left:0px;
+}
+.message_box .box2{
+    padding:0.1rem 0.2rem;
+    line-height: 0.26rem;
+    font-size: 0.14rem;
+}
+.orange{
+    color:#ff8200 !important;
+}
+.message_box .box3{
+    padding:0.1rem 0px;
+    font-size: 0.14rem;
+    line-height: 0.26rem;
+    overflow: hidden;
+}
+.message_box .box3 li{
+    float:left;
+    width:50%;
+    box-sizing: border-box;
+}
+.message_box .box3 li p{
+    padding-left:0.2rem;
+}
+.more_message_box{
+    padding:0px 0.12rem;
+    color:#666666;
+    font-size: 0.14rem;
+    border-bottom: 0.1rem solid #f1f1f1;
+}
+.more_message_box .item_box{
+    height:0.72rem;
+    line-height: 0.72rem;
+    position: relative;
+    padding-left:0.24rem;
+}
+.more_message_box .item_box:after{
+    content:">";
+    position:absolute;
+    line-height: 0.72rem;
+    top:0px;
+    right:0.1rem;
+    opacity: 0.2;
+    color: #000000;
+    font-size: 0.2rem;
+    font-weight: bold;
+}
+.more_message_box .item_box a{
+    display: block;
+    width:100%;
+    height:100%;
+    color:#666666;
+    font-size: 0.14rem;
+}
+.more_message_box .item_box img{
+    display: block;
+    position: absolute;
+    left:0rem;
+}
+.more_message_box .item_box .ms1{width:0.18rem;top:0.29rem;}
+.more_message_box .item_box .ms2{width:0.16rem;top:0.28rem;}
+.more_message_box .item_box .ms3{width:0.15rem;top:0.29rem;}
+.more_message_box .item_box .ms4{width:0.12rem;top:0.27rem;}
+.more_message_box .item_box .ms5{width:0.12rem;top:0.27rem;}
+.more_message_box .item_box .ms6{width:0.16rem;top:0.28rem;}
+.more_message_box .item_box .ms7{width:0.15rem;top:0.29rem;}
+/*退租申请*/
+.retire_outer{
+    padding:0.1rem 0.12rem;
+    color:#444;
+    font-size: 0.14rem;
+}
+#fail_box{
+    padding:0.07rem 0.2rem;
+    line-height: 0.22rem;
+    background: #fff;
+    position: relative;
+    color:#666;
+    font-size: 0.14rem;
+    text-indent: 1.6em;
+    border-radius: 0.04rem;
+    margin-bottom: 0.06rem;
+}
+#fail_box a{color:#ff8200;}
+#fail_box img{
+    display: block;
+    position: absolute;
+    width:0.16rem;
+    height:0.16rem;
+    top:0.1rem;
+    left:0.2rem;
+}
+.retire_box1{
+    background: #fff;
+    border-radius: 0.04rem;
+    padding:0px 0.12rem;
+    margin-bottom: 0.06rem;
+}
+.retire_box1 b{
+    display: block;
+    line-height: 0.44rem;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 0.16rem;
+    font-weight: normal;
+}
+.retire_box1 p{
+    line-height: 0.22rem;
+    padding:0.12rem 0px;
+    text-align: justify;
+}
+.retire_box2{
+    background: #fff;
+    border-radius: 0.04rem;
+    padding:0px 0.12rem;
+    padding-bottom: 0.14rem;
+}
+.retire_box2 .items{
+    padding:0.13rem 0px;
+    line-height: 0.3rem;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.retire_box2 .items span{
+    float:left;
+    width:0.9rem;
+}
+.retire_box2 .items input{
+    float:right;
+    width:2.3rem;
+    height:0.3rem;
+    text-align: right;
+    color:#666;
+}
+#retire_reason{
+    display: block;
+    clear: both;
+    width:100%;
+    border: 1px solid rgba(0,0,0,0.10);
+    padding:0.1rem 0.12rem;
+    resize:none;
+    height:0.6rem;
+    margin-top: 0.36rem;
+}
+.btj{
+    background-image: linear-gradient(90deg, #FFB126 0%, #FF7911 100%);
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    width:100%;
+    height:0.58rem;
+    line-height: 0.58rem;
+    color:#fff;
+    font-size: 0.16rem !important;
+    font-weight: normal !important;
+}
+/*退租通知书*/
+.rn_outer{padding:0.1rem 0.12rem;}
+.rn_box{
+    background: #fff;
+    padding:0px 0.18rem;
+    color:#666;
+    border-radius: 0.04rem;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+.rn_box p:nth-child(1){
+    line-height: 0.44rem;
+    border-bottom: 1px solid #f1f1f1;
+    color:#000;
+    text-indent: 0em;
+    margin-bottom: 0.08rem;
+}
+.rn_box p{
+    font-size:0.14rem;
+    text-align: justify;
+    line-height:0.22rem;
+    margin-bottom: 0.06rem;
+    text-indent: 2em;
+    color:#444;
+}
+.rn_box p.tar{
+    text-align: right;
+}
+.rn_box p span{color:#ff8200;}
+/*免押申请*/
+.radio_box{
+    line-height: 0.48rem;
+    position: relative;
+    padding-left:0.28rem;
+}
+.radio_box:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width:0.14rem;
+    height: 0.14rem;
+    box-sizing: border-box;
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+    top:0.17rem;
+    left:0.06rem;
+}
+.radio_box.choosed:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width:0.08rem;
+    height: 0.08rem;
+    box-sizing: border-box;
+    background: #ff8200;
+    border-radius: 50%;
+    top:0.2rem;
+    left:0.09rem;
+}
+.retire_box2 .radio_box a{
+    text-decoration: underline;
+    color:#007ce8;
+}
+.mianya_success{
+    height:calc(100% - 0.6rem);
+    border-top:0.1rem solid #f1f1f1;
+    border-bottom:0.1rem solid #f1f1f1;
+    box-sizing: border-box;
+    padding-top:24%;
+}
+.mianya_success img{
+    display: block;
+    width:1.8rem;
+    margin:0 auto;
+    margin-bottom: 0.24rem;
+}
+.mianya_success p{
+    line-height: 0.28rem;
+    font-size: 0.16rem;
+    padding:0px 0.3rem;
+}
+/*发票申请*/
+#invoices_outer{
+    border-top:0.1rem solid #f1f1f1;
+    position: fixed;
+    height:calc(100% - 0.6rem);
+}
+#invoices_box{
+    color:#444;
+    font-size: 0.14rem;
+    line-height:0.24rem ;
+    padding:0px 0.12rem;
+}
+#invoices_box .item_box{
+    box-sizing: border-box;
+    padding:0.12rem;
+    margin: 0 auto;
+    margin-bottom: 0.1rem;
+    background: #fff;
+    border-radius: 0.06rem;
+}
+#invoices_box .item_box .box1{
+    font-size: 0.16rem;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+}
+#invoices_box .item_box p{
+    position: relative;
+    margin-bottom: 0.02rem;
+}
+#invoices_box .item_box p span{
+    color:#ff8800;
+}
+#invoices_box .item_box .btn_box{
+    margin-top: 0.1rem;
+    padding-top:0.12rem;
+    padding-left:1.6rem;
+    overflow: hidden;
+    border-top: 1px solid #d8d8d8;
+}
+#invoices_box .item_box .btn_box button{
+    float:right;
+    box-sizing: border-box;
+    background: #ff8200;
+    line-height:0.24rem;
+    font-size: 0.14rem !important;
+    text-align: center;
+    border-radius: 0.04rem;
+    font-weight: normal !important;
+    color: #fff;
+    width:0.76rem;
+}
+.email_fix_outer{
+    position: fixed;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+    top:0px;
+    left:0px;
+    font-size: 0.14rem;
+    display: none;
+}
+.email_fix_outer .email_box{
+    width:3rem;
+    text-align: center;
+    border-radius: 0.06rem;
+    background: #fff;
+    margin:0 auto;
+    position: relative;
+    top:27%;
+}
+.email_fix_outer .email_box p{
+    padding-top:0.14rem;
+    line-height: 0.3rem;
+    margin-bottom:0.06rem;
+    font-size: 0.16rem;
+    color:#ff8200;
+}
+.email_fix_outer .email_box input{
+    border:1px solid #d8d8d8;
+    height:0.3rem;
+    width:80%;
+    margin:0 auto;
+    padding-left:0.08rem;
+    margin-bottom:0.12rem;
+}
+.email_fix_outer .btn_box{
+    overflow: hidden;
+}
+.email_fix_outer .btn_box button{
+    float:left;
+    width:50%;
+    line-height:0.4rem;
+    box-sizing: border-box;
+    font-size: 0.14rem !important;
+    color:#ff8200;
+    text-align: center;
+    font-weight: normal !important;
+    background: none;
+    outline: none;
+}
+.email_fix_outer .btn_box button:nth-child(1){
+    color:#666;
+}
+/*租金缴纳记录*/
+#pay_outer{
+    border-top:0.1rem solid #f1f1f1;
+    box-sizing: border-box;
+}
+#pay_record_box{
+    width:3.5rem;
+    margin: 0 auto;
+    line-height: 0.2rem;
+}
+#pay_record_box .record_item{
+    background: #fff;
+    padding:0.18rem 0.12rem 0.12rem 0.12rem;
+    margin-bottom: 0.06rem;
+    border-radius: 0.04rem;
+    position: relative;
+    font-size: 0.14rem;
+}
+#pay_record_box .box1{
+    color: #444;
+    overflow: hidden;
+    margin-bottom: 0.12rem;
+    font-weight: bold;
+}
+#pay_record_box .box1 span:nth-child(1){
+    float:left
+}
+#pay_record_box .box1 span:nth-child(2){
+    float:right;
+    color: #808080;
+}
+#pay_record_box .box2{
+    font-size:0.14rem;
+    color: #ff8200;
+    margin-bottom: 0.04rem;
+}
+#pay_record_box .box3{
+    font-size:0.12rem;
+    color: #7e7e7e;
+    line-height: 0.32rem;
+}

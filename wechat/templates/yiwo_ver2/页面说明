@@ -1,0 +1,12 @@
+壹窝社区ver2页面说明 （base原型11-26）
+
+index.html                主页
+
+my_list.html              我的帖子
+
+list.html                 帖子列表
+
+detail.html               详情页
+
+write.html                发帖（artEditor,可行性待验证）
+

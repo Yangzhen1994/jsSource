@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>入住登记表</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/check_in_form.css">
+    <link rel="stylesheet" href="../../css/frame/iosSelect.css"/>
+    <script src="../../js/frame/iosSelect.js"></script>
+    <script src="../../js/frame/iscroll.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <form class="check_in_form " id="checkInForm" action="heduixinxi2.html">
+            <div  class="border_bottom" style="padding-bottom: 0.32rem">
+                <p>小区信息</p>
+                <div class="input_area clearfix">
+                    <div class="clearfix">
+                        <label for=""><span>*</span>小区名称</label>
+                        <div class="fl pr select_wrap" name="building_name" style="width: 100%">
+                            <select>
+                                <option value="area" style="color: rgba(0,0,0,.4)">请选择小区</option>
+                            </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                        </div>
+                    </div>
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>楼栋号</label>
+                        <div class="pr input_wrap">
+                            <input class="build_num" type="text" value="" placeholder=""/><span class="pa unit">栋</span>
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="margin-left: 0.05rem">
+                        <label for=""><span>*</span>房间号</label>
+                        <div class="pr input_wrap w144">
+                            <input class="room_num" type="text" value="" placeholder="" name="room_num"/><span class="pa unit">室</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix border_bottom chengzhuren"  style="padding-bottom: 0.32rem">
+                <p style="margin-top: 0.32rem">承租人信息</p>
+                <div class="input_area clearfix">
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>姓名</label>
+                        <div class="pr input_wrap  w103" style="margin-left: 0">
+                            <input class="name" type="text" value="" placeholder=""  class="name" name="name"/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>性别</label>
+                        <div class="pr select_wrap  w103">
+                            <select class="sex" name="sex">
+                                <option value="boy" style="color: rgba(0,0,0,.4)">男</option>
+                                <option value="girl" style="color: rgba(0,0,0,.4)">女</option>
+                            </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                        </div>
+                    </div>
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>民族</label>
+                        <div class="pr select_wrap  w103">
+                            <select class="minzu" name="minzu">
+                                <option value="area" style="color: rgba(0,0,0,.4)">汉</option>
+                            </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                        </div>
+                    </div>
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>出生日期</label>
+                        <div class="pr input_wrap">
+                            <input name="birthday" id="rentalBith" class="birthday" type="text"/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="margin-left: 0.05rem">
+                        <label for=""><span>*</span>手机号码</label>
+                        <div class="pr input_wrap w144">
+                            <input class="phone" type="text" value="" placeholder="" name="phone_num"/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="width: 100%">
+                        <label for=""><span>*</span>身份证号码</label>
+                        <div class="pr input_wrap" style="width: 100%">
+                            <input class="id_card" type="text" value="" placeholder="" name="id_card" oninput="bindDate(this)"/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix  w_100 ">
+                        <label for=""><span>*</span>户口所在地</label>
+                        <div class="pr input_wrap w_100">
+                            <input class="hukou" type="text" value="" placeholder="" name="hukou"/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix hide">
+                        <label for=""><span>*</span>与住户关系</label>
+                        <div class="pr input_wrap w103">
+                            <input class="soliet" type="text" value="" placeholder="" name="soliet"/>
+                        </div>
+                    </div>
+
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>身体状况</label>
+                        <div class="pr input_wrap">
+                            <input name="body_healthy" class="body_healthy" type="text" value="" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="margin-left: 0.05rem">
+                        <label for=""><span>*</span>文化程度</label>
+                        <div class="pr select_wrap w144" style="margin-left: 0">
+                            <select name="wenhuachengdu" class="wenhuachengdu" type="text" value=""/>
+                                <option value="0">高中</option>
+                                <option value="1">大学</option>
+                            </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="width: 100%">
+                        <label for=""><span>*</span>工作单位</label>
+                        <div class="pr input_wrap" style="width: 100%">
+                            <input class="work_address" type="text" value="" placeholder="" name="work_address"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix ruzhuren_wrap"></div>
+            <div class="clearfix">
+
+                <div class="ruzhuren_area border_bottom" id="addBtn">
+                    <span style="font-size: 0.2rem;color: #ff8200;display:inline-block;margin-right: 0;margin-top: -0.04rem">+</span> 添加入住人
+                </div>
+
+
+            </div>
+            <div class="clearfix border_bottom" style="padding-bottom: 0.32rem">
+                <p>车辆情况</p>
+                <div class="input_area clearfix">
+                    <div class="fl clearfix">
+                        <label for="">机动车</label>
+                        <div class="pr input_wrap">
+                            <input class="car_count" type="text" value="" placeholder=""/><span class="pa unit">辆</span>
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="margin-left: 0.05rem">
+                        <label for="">车辆型号</label>
+                        <div class="pr input_wrap w144">
+                            <input class="car_type" type="text" value="" placeholder="" name=""/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix ">
+                        <label for="">车辆权属</label>
+                        <div class="pr select_wrap "  style="margin-left: 0">
+                            <select class="car_belong" type="text" value="" placeholder="" name="">
+                                <option value="1">自有</option>
+                            </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                        </div>
+                    </div>
+                    <div class="fl clearfix " style="margin-left: 0.05rem">
+                        <label for="">残疾人专用车</label>
+                        <div class="pr input_wrap w144">
+                            <input class="car_type" type="text" value="" placeholder="" name=""/><span class="pa unit">辆</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix border_bottom" style="padding-bottom: 1rem">
+                <p>紧急联系人</p>
+                <div class="clearfix choose_jinji input_area">
+                    <ul>
+                        <!--<li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                        <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                        <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>
+                        <li><img src="../../img/login/radio_box_no.png" alt=""><span>入住人一</span></li>-->
+                    </ul>
+
+                </div>
+                <div class="clearfix input_area">
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>联系人</label>
+                        <div class="pr input_wrap" style="width: 1.03rem;">
+                            <input name="link_man" class="link_man" type="text" value="" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix" style="margin-left: 0.05rem">
+                        <label for=""><span>*</span>联系电话</label>
+                        <div class="pr input_wrap" style="width: 2.02rem;">
+                            <input name="link_phone" class="phone" type="text" value="" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix">
+                        <label for=""><span>*</span>与住户关系</label>
+                        <div class="pr input_wrap" style="width: 1.03rem;">
+                            <input class="link_nexus" type="text" value="" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="fl clearfix" style="margin-left: 0.05rem">
+                        <label for=""><span>*</span>联系地址</label>
+                        <div class="pr input_wrap" style="width: 2.02rem;">
+                            <input class="link_address" type="text" value="" placeholder=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="btns ">
+            <button class="clear">保存</button>
+            <button type="submit" class="confirm" form="checkInForm">下一步</button>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script>
+        /******身份证日期焊死******/
+        function bindDate(obj) {
+            var str = $(obj).val()
+            if(DcUtils.isIdCard(str)){
+                var birthday = ''
+                if(str.length == 15){
+                    birthday = "19"+str.substr(6,6);
+                } else if(str.length == 18){
+                    birthday = str.substr(6,8);
+                }
+                birthday = birthday.substring(0,4)+'-'+birthday.substring(4,6)+'-'+birthday.substring(6,8);
+                $(obj).parent().parents('div').eq(0).prev().prev().find('input').val(birthday)
+                console.log($(obj).parent().parents('div').eq(0).prev().prev().find('input').val())
+            }
+        }
+        $('id_card')
+        pushHistory();//加一个
+        $(function(){
+            calendarPick1('rentalBith','rentalBith');
+        })
+        var bool=false;
+        setTimeout(function(){
+            bool=true;
+        },500);
+        window.addEventListener("popstate", function() {
+            if(bool)
+            {
+               $.confirm('返回后将丢失已填写的信息，确认返回么？',function () {
+                   window.history.go(-1)
+               },function () {
+                   bool=true;
+                   pushHistory();
+               })
+            }
+
+
+        },false)
+
+        function pushHistory() {
+            var state = {
+                title: "title",
+                url: "#"
+            };
+            window.history.pushState(state, "title", "#");
+        }
+        $('input,select').attr('required',true)
+        var chooJInji //选择的紧急联系儿
+        var index = 1;
+        $('#addBtn').click(function () {
+
+            //alert(index)
+            index++;
+            if(index>2){
+                var flag = true
+                var inputs = $('.add_people').eq(index-3).find('input,select')
+                console.log(inputs)
+                inputs.each(function (index1,item) {
+                    if($(item).val()==''){
+                        flag = false
+                        index--
+                        $.alert('请填完整上一个入住人',function () {
+                            $(item).focus()
+                        })
+                        stopScroll($('.weui-mask'))
+                        return false
+                    }
+                })
+                if(!flag){
+                    return
+                }
+            }
+            if(index>6){
+                $.alert('最多5个入住人')
+                stopScroll($('.weui-mask'))
+                return false
+            }
+            var html = $(".chengzhuren").clone()
+            html.find('p').eq(0).text('入住人'+index)
+            html.removeClass('chengzhuren')
+            html.find('.soliet').parent().parent().removeClass('hide')
+            html.find('.hukou').parent().parent().css('width','2.02rem')
+            html.addClass('ruzhuren'+index);
+            html.addClass('add_people');
+            html.find('input,select').val('')
+            html.find('input,select').each(function (index1,item) {
+                var oldName = $(item).attr('name')
+                var oldId = $(item).attr('id')
+                $(item).attr('name',oldName+index)
+                $(item).attr('id',oldId+index)
+            })
+
+
+            html.append('<div class="del pa" onclick="del(this)">删除</div>')
+            $('.ruzhuren_wrap').append(html);
+            calendarPick1('rentalBith'+index,'rentalBith'+index)
+            //$('.choose_jinji ul').html('')
+            //$('.add_people').each(function (index,item) {
+                var ruzhuren =  $('.choose_jinji ul').find('li').length*1 + 2
+                var li =  '<li onclick="bindEvent(this)"><img class="no" src="../../img/login/radio_box_no.png" alt=""><span>入住人'+ruzhuren+'</span></li>'
+                $('.choose_jinji ul').append(li)
+
+           // })
+
+        });
+
+
+        function del(obj) {
+            index--;
+            //alert(index)
+            $.confirm('确认删除么',function(){
+                removeRuzhu(obj)
+            },function () {
+                return
+            })
+            stopScroll($('.weui-mask'))
+
+            function removeRuzhu(obj) {
+                var delIndex = $(obj).parent().index()
+                $(obj).parent().remove();
+                //$('.choose_jinji ul').html('')
+                if($(obj).parent().find('p').eq(0).text()==chooJInji && chooJInji){
+                    $('.link_man').val('')
+                    $('.link_phone').val('')
+                    chooJInji=''
+                }
+                if ($('.add_people')) {
+                    $('.choose_jinji ul li').eq(delIndex).remove()
+                  //  alert(delIndex)
+                    for (var i = 0; i < $('.add_people').length; i++) {
+                        var newIndex = i * 1 + 2;
+                        $('.choose_jinji li').eq(i).find('span').text('入住人' + newIndex)
+                        $('.add_people').eq(i).find('p').eq(0).text('入住人' + newIndex);
+                        $('.add_people').eq(i).find('input,select').each(function (index1,item) {
+                            var oldName = $(item).attr('name')
+                            oldName = oldName.substring(0,oldName.length-1)
+                            if(i>0){
+                                $(item).attr('name',oldName+newIndex)
+                            }
+
+                        })
+                        //var ruzhuren = $('.add_people').eq(i).find('p').eq(0).text()
+                        //var li =  '<li onclick="bindEvent(this)"><img class="no" src="../../img/login/radio_box_no.png" alt=""><span>'+ruzhuren+'</span></li>'
+
+                    }
+
+
+                }
+                $.toast('已删除',600)
+            }
+            //cosnole.log($(this).parent())
+
+        }
+        //紧急联系人
+        function bindEvent(obj) {
+            chooJInji = $(obj).find('span').text()
+            var ruzhuIndex = $(obj).find('span').text().substring(4,$(obj).find('span').text().length-1)*1 -2
+            var name = $('.add_people').eq(ruzhuIndex).find('.name').val()
+            var phone = $('.add_people').eq(ruzhuIndex).find('.phone').val()
+            var inputs = $('.add_people').eq(ruzhuIndex).find('input,select')
+            var flag = true
+            inputs.each(function (index,item) {
+                if($(item).val()==''){
+                    flag = false
+                    $.alert('请填完整选择的入住人',function () {
+                        $('.link_man').val('')
+                        $('.link_phone').val('')
+                        $(item).focus()
+                    })
+                    stopScroll($('.weui-mask'))
+                    return false
+                }
+            })
+            if(!flag){
+                return
+            }else{
+                $('.link_man').val(name)
+                $('.link_phone').val(phone)
+            }
+            $(obj).find('img').removeClass('no')
+            $(obj).find('img').attr('src','../../img/login/radio_box_choosed.png')
+            $(obj).find('span').css('color','#ff8200')
+            $(obj).siblings('li').find('img').attr('src','../../img/login/radio_box_no.png')
+            $(obj).siblings('li').find('span').css('color','#444')
+            console.log($(obj).siblings('li').find('img'))
+
+        }
+
+        $('.clear').on('click',function () {
+           // $('input,select').val('')
+        })
+       /* $('.confirm').on('click',function () {
+
+            //验证通过
+            window.location.href='./heduixinxi2.html'
+        })*/
+       $('#checkInForm').on('submit',function () {
+           var flag =true
+           $('.phone').each(function (index,item) {
+               if(!checkMobile1($(item))){
+                   flag  = false
+                   return false
+               }
+           })
+            if(!flag){
+               return flag
+            }
+           /* var wraper = $('.wrapper').clone().html()
+            wraper = JSON.stringify(wraper)
+            window.sessionStorage.setItem('Html',wraper)*/
+       })
+
+        function checkMobile1(inputObj){
+            var value = $.trim(inputObj.val());
+            if(!DcUtils.isMobile(value)){
+                $.alert('手机号不正确',function () {
+                    inputObj.focus()
+                })
+                stopScroll($('.weui-mask'))
+
+                return false;
+            }
+            return true;
+        }
+
+
+
+        function calendarPick1(id,valueWrapId) {
+            var showRateDoms = $('#'+id);
+            showRateDoms.focus(function () {
+                showRateDoms.blur()
+            })
+            //var endshowRateDoms = $('#endDateInput');
+            showRateDoms.attr('data-year', '1');
+            showRateDoms.attr('data-month', '1');
+            showRateDoms.attr('data-date', '1');
+            //endshowRateDoms.attr('data-year', '1');
+            //endshowRateDoms.attr('data-month', '1');
+            //endshowRateDoms.attr('data-date', '1');
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            //年
+            var arr = [];
+            for (var i = year-118; i <= year; i++) {
+                arr.push({
+                    id: i + '',
+                    value: i + '年'
+                });
+            }
+            ;
+            //月
+            var arr1 = [];
+            for (var j = 1; j <= 12; j++) {
+                if (j < 10) {
+                    j = '0' + j
+                }
+                arr1.push({
+                    id: j + '',
+                    value: j + '月'
+                });
+            }
+            ;
+            //日
+            var arr2 = [];
+            for (var k = 1; k <= 31; k++) {
+                if (k < 10) {
+                    k = '0' + k
+                }
+                arr2.push({
+                    id: k + '',
+                    value: k + '日'
+                });
+            }
+            ;
+
+            showRateDoms.click(function () {
+                //var rateIds = showRateDoms.dataset['id'];
+                var oneLevelId = showRateDoms.attr('data-year');
+                var twoLevelId = showRateDoms.attr('data-month');
+                var threeLevelId = showRateDoms.attr('data-date');
+
+                var rateSelect = new IosSelect(3, [arr, arr1, arr2], {
+                    container: '.container',
+                    title: '起租日期',
+                    itemHeight: 38,
+                    itemShowCount: 5,
+                    oneLevelId: oneLevelId,
+                    twoLevelId: twoLevelId,
+                    threeLevelId: threeLevelId,
+                    callback: function (selectOneObj, selectTwoObj, selectThreeObj) {
+                        console.log(selectOneObj, selectTwoObj, selectThreeObj);
+                        var str = selectOneObj.value.replace('年','-') + selectTwoObj.value.replace('月','-') + selectThreeObj.value.replace('日','')
+                        showRateDoms.val(str.trim())
+                        showRateDoms.focus()
+                    },
+                    fallback:function () {
+                        showRateDoms.focus()
+                    },
+                    shadowback:function () {
+                        showRateDoms.focus()
+                    }
+                });
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--jqueryweui 需要放在适配js前不然会覆盖rem适配-->
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>城壹宜居</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/register_login.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/register_login.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 容器 -->
+        <div class="weui-tab">
+            <div class="weui-navbar">
+                <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+                    登录
+                </a>
+                <a class="weui-navbar__item" href="#tab2">
+                    注册
+                </a>
+            </div>
+            <div class="weui-tab__bd">
+                <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                    <div class="login_card clearfix">
+                        <ul class="radio_area clearfix">
+                            <li class="fl way_li_active" id="normalLoginLi"><img src="../../img/login/radio_box_choosed.png" alt=""><input type="radio" name="login_way" id="normalLogin" checked style="display: none"><label for="normalLogin">普通登录</label></li>
+                            <li class="fl" id="phoneLoginLi"><img src="../../img/login/radio_box_no.png" alt=""><input type="radio" name="login_way" id="phoneLogin" checked style="display: none"><label for="phoneLogin">手机验证登录</label></li>
+                        </ul>
+                        <form class="login_form default_way_form" id="defaultWayForm">
+                            <ul>
+                                <li class="border_bottom"><input type="text" name="username" id="username" class="username" placeholder="请输入账号" required minlength="4"></li>
+                                <li class="border_bottom"><input type="password" name="password" id="password" class="password" placeholder="请输入密码" required minlength="6"></li>
+                            </ul>
+                        </form>
+                        <form class="login_form phone_way_form hide" id="phoneWayForm">
+                            <ul>
+                                <li class="border_bottom"><input type="text" name="phone_num" id="phone" class="phone_num" placeholder="请输入手机号" pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$"></li>
+                                <li class="clearfix pr border_bottom"><input type="text" name="yzm" id="validateCode" class="yzm" placeholder="请输入验证码" style="width: 70%" required>
+                                    <span class="border_all pa yzm_btn_span"><input type="button" id="yzm" class="yzm_btn pa" value="获取验证码"></input></span>
+                                </li>
+                            </ul>
+                        </form>
+                        <div class="clearfix">
+                            <div class="fl remember_div">
+                                <img src="../../img/login/check_box_choosed.png" alt=""><input type="checkbox" id="rememberPwd" style="display: none" checked><label for="rememberPwd" class="remember_pwd">记住密码</label>
+                            </div>
+                            <div class="fr">
+                                <a href="forget_pwd.html" class="forget_pwd">忘记密码</a>
+                            </div>
+                        </div>
+                        <a class="login_btn" form="defaultWayForm">
+                            立即登录
+                        </a>
+                    </div>
+                </div>
+
+                <div id="tab2" class="weui-tab__bd-item">
+                    <div class="register_card clearfix">
+                    <form class="register_form">
+                        <ul>
+                            <li class="border_bottom"><input id="registerPhone" class="register_phone" type="text" placeholder="请输入手机号码" /></li>
+                            <li class="clearfix pr border_bottom"><input type="text" id="regvalidCode" name="register_yzm" class="register_yzm" placeholder="请输入验证码" style="width: 70%">
+                                <span class="yzm_btn_span border_all pa"><input type="button" id="reg-validate-btn" class="register_yzm_btn pa"  value="获取验证码"></input></span>
+                            </li >
+                            <li class="border_bottom">
+                                <input type="password" id="register_pwd" class="register_pwd" placeholder="请输入登录密码"/>
+                            </li>
+                            <li class="border_bottom">
+                                <input type="password" id="re_register_pwd" class="re_register_pwd" placeholder="请再次登录密码"/>
+                            </li>
+                            <div class="clearfix" style="color:#666;margin-top: 3%;">
+                                <div class="fl" style="font-size: 0.12rem" id="agreeDiv">
+                                    <img src="../../img/login/check_box_choosed.png" alt="" style="position: relative;top:3px;margin-right: 3px;width: 0.16rem"><input type="checkbox" id="agreeCheck" style="display: none" checked>已同意<a href="../agreements.html" class="font_org">《城壹宜居服务协议》</a></label>
+                                </div>
+                            </div>
+                        </ul>
+
+                        <a class="register_btn">立即注册</a>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('form').on('submit',function (e) {
+            e.preventDefault()
+        })
+        $('input').attr("autocomplete","off")
+    </script>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+</html>

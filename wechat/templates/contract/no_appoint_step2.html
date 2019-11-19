@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>合同管理</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/contract_no_appoint.css">
+
+</head>
+<body>
+<div class="wrapper weui-tab">
+    <div class="weui-navbar hide">
+        <a class="weui-navbar__item  weui-bar__item--on" href="#tab1" id="nav1">
+            1
+        </a>
+        <a class="weui-navbar__item" href="#tab2" id="nav2">
+            2
+        </a>
+        <a class="weui-navbar__item " href="#tab3" id="nav3">
+            3
+        </a>
+    </div>
+    <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+            <div class="progress">
+                <ul class="clearfix pr">
+                    <div class="text1">租户申请</div>
+                    <div class="text2 host_about font_org">房东确认签字</div>
+                    <div class="text3 ">租户签字</div>
+                    <div class="text4 host_about">租户在线支付</div>
+                    <div class="text5 ">支付成功</div>
+                    <div class="step step1 pa">1</div>
+                    <div class="step step2 pa host_allow">2</div>
+                    <div class="step step3 pa">3</div>
+                    <div class="step step4 pa">4</div>
+                    <div class="step step5 pa">5</div>
+                    <div class="bg_line pa"></div>
+                    <div class="progress_line pa" style="width: 25%"></div>
+                </ul>
+            </div>
+            <div class="my_room_detail_list">
+                <div class="info_label clearfix">
+                    <div class="house_info_label fl">等待房东确认签字中</div>
+                    <div class="look_contract_label fr">查看合同 <div class="fr"><img  src="../../img/personal/btn_to.svg" alt=""></div></div>
+                </div>
+                <div id="apponitWrap" class="house_detail">
+                    <ul id="myHouse" class="house_list ">
+                        <li class="clearfix pr  border_bottom" ><a href="http://www.baidu.com?houseId=1231231123"></a>
+                            <div class="house_img pr "><a href="http://www.baidu.com?houseId=1231231123"><img
+                                    src="../../mock/img/banner1.png" alt=""></a><a href="true" class="vr_round">VR</a>
+                                <img class="state_img" src="../../img/tags@2x/ddqrzt_01.png" alt="">
+                            </div>
+                            <div class="house_info "><p class="house_title">编码：CY-N201805091234</p>
+                                <div class="house_tips isAppointment clearfix">
+                                    <span class="house_floors">履约中</span>
+                                    <div class="price fr"><span class="price_before">￥</span>1149<span class="price_after"
+                                                                                                       style="font-size: 0.12rem">元/月</span>
+                                    </div>
+                                </div>
+                                <div class="pr has_mestro"><img src="../../img/house_list/map_icon_gray.png"
+                                                                alt=""><span>近地铁1号线XX站</span></div>
+                                <div class="tags"><span class="tag">城壹认证</span><span class="tag">采光好</span><span
+                                        class="tag">随时看房</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contract_data">
+                <p>2018/05/09-2019/05/09</p>
+                <div>1 年</div>
+
+            </div>
+            <div class="pay_type">
+                <div class="pay_data fl">
+                    <p>季付</p>
+                    <div>7800元/季</div>
+                </div>
+                <div class="pay_money fl">
+                    <p>押金</p>
+                    <div>押一付三</div>
+                </div>
+            </div>
+            <div class="next">
+                <button id="nextBtn">我要签字</button>
+            </div>
+            <div class="serve_hot_line">客服热线：<span>400-100-3696</span></div>
+            <div class="serve_hot_line_desc">发布过程中如有疑问可以拨打此号码</div>
+        </div>
+    </div>
+
+
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    calendarPick('inRoom', 'timeHide')
+    $('#nextBtn').click(function () {
+        window.location.href = "no_appoint_step3.html"
+    })
+</script>
+</body>
+</html>

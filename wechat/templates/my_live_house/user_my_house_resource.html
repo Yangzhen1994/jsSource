@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>我的房源详情</title>
+    <script rel="stylesheet" src="../../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/frame/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <script rel="stylesheet" src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/common.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <!--new-->
+    <link rel="stylesheet" href="../../css/my_house_resource.css">
+</head>
+<body>
+<div class="mock_margin"></div>
+<div class="my_room_detail">
+    <div class="my_room_detail_list">
+        <div class="info_label clearfix">
+            <div class="house_info_label fl">房源信息</div>
+            <div class="look_contract_label fr"><a href="../contract/look_contract.html" class="font_org">查看合同</a></div>
+        </div>
+
+        <div id="apponitWrap" class="house_detail">
+            <ul id="myHouse" class="house_list ">
+                <li class="clearfix pr" ><a href="http://www.baidu.com?houseId=1231231123"></a>
+                    <div class="house_img pr " style=""><a href="http://www.baidu.com?houseId=1231231123"><img
+                            src="../../mock/img/banner1.png" alt=""></a><a href="true" class="vr_round">VR</a>
+                        <div class="house_status">
+                            <img src="../../img/tags@2x/zqzt_02.png" alt="">
+                            <span>50</span>
+                        </div>
+                    </div>
+                    <div class="house_info "><p class="house_title">花果山小区4居室-南卧</p>
+                        <div class="house_tips clearfix"><span class="house_area">60.9m<sup>2</sup></span><span
+                                class="line">|</span><span class="house_floors">5/11层</span>
+                            <div class="price fr"><span class="price_before">￥</span>1149<span class="price_after"
+                                                                                               style="font-size: 0.12rem">元/月</span>
+                            </div>
+                        </div>
+                        <div class="pr has_mestro"><img src="../../img/house_list/map_icon_gray.png"
+                                                        alt=""><span>近地铁1号线XX站</span></div>
+                        <div class="tags"><span class="tag">城壹认证</span><span class="tag">采光好</span><span
+                                class="tag">随时看房</span></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="community">
+        <p class="person_info_label" >智慧社区</p>
+        <div class="list_item fl" >
+            <div >
+                <img src="../../img/my_room/fun_icon_01.png" alt="">
+                <p>电费</p>
+            </div>
+        </div>
+        <div class="list_item fl">
+            <div class="">
+                <img src="../../img/my_room/fun_icon_02.png" alt="">
+                <p>水费</p>
+            </div>
+        </div>
+        <div class="list_item fl">
+            <div class="">
+                <img src="../../img/my_room/fun_icon_03.png" alt="">
+                <p>保洁</p>
+            </div>
+        </div>
+        <div class="list_item fl">
+            <div class="construction">
+                <img src="../../img/my_room/fun_icon_04.png" alt="">
+                <p>建设中</p>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="mock_margin_6"></div>
+    <div class="person_form clearfix">
+        <p class="person_info_label" style="margin-top: 0.24rem;">房东信息</p>
+        <div class="about ">
+            <div class="person_icon fl">
+                <div class="touxiang">
+                    <img src="../../img/personal/head_icon.svg" alt="">
+                </div>
+                <img class="icon_certified" src="../../img/personal/certification.svg" alt="">
+            </div>
+            <div class="person_info fl">
+                <p class="person_name fl">帅叔</p>
+                <div class="star" id="star" data-score="5">
+                    <div class="fr"><span>9.5</span>分</div>
+                </div>
+                <div class="person_label">
+                    <p class="fl">读书</p>
+                    <p class="fl">喝茶</p>
+                    <p class="fl">旅游</p>
+                    <p class="fl">侠骨柔情</p>
+                </div>
+            </div>
+        </div>
+        <div class="info_item">
+            <span class="info_item_label">性别:</span>
+            <span><img src="../../img/personal/man.svg" alt=""></span>
+        </div>
+        <div class="info_item">
+            <span class="info_item_label">年龄:</span>
+            <span>80 萌叔</span>
+        </div>
+        <div class="info_item">
+            <span class="info_item_label">职业:</span>
+            <span class="info_item_label">产品经理</span>
+        </div>
+        <div class="info_item">
+            <span >星座:</span>
+            <span >处女座</span>
+        </div>
+        <div class="call">
+            <a href="tel:13102126201"><!--请修改电话-->
+                <img src="../../img/call.png" alt="">
+            </a>
+        </div>
+       <!-- <div class="btns">
+            <button class="clear">拒绝</button>
+            <button class="confirm">同意申请</button>
+        </div>-->
+    </div>
+
+
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+<script rel="stylesheet" src="../../js/jquery.raty.js"></script>
+<script>
+    /*********************预约日期******************************/
+
+    $(function () {
+        console.log($('.star'))
+        $.fn.raty.defaults.path = '../../img';
+        function star(obj,num) {
+            $(obj).raty({
+                size: 32,
+                targetKeep: true,
+                targetType: 'hint', //类型选择，nu   mber是数字值，hint，是设置的数组值
+                hints: ['差', '一般', '好', '非常好', '全五星'],
+//                score:num,//评星值
+                score: function() {
+                    return $(this).attr('data-score');
+                }
+
+            });
+        }
+        var ac = $('.star').find('span').text();
+        star('.star',ac);
+
+    })
+</script>
+</html>

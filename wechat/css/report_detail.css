@@ -1,0 +1,182 @@
+body{
+    background: #fff;
+}
+i{
+    color: #FF8200;
+    font-style: normal;
+}
+.wrapper{
+    width: 100%;
+    /*height: 100%;*/
+    background: #fff;
+}
+.card{
+    width: 100%;
+    background: #fff;
+    padding-left:0.18rem;
+    padding-right:0.18rem;
+    padding-bottom: 0.28rem;
+    padding-top: 0.32rem;
+    box-sizing: border-box;
+}
+.card>.error_type{
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-bottom: 0.1rem;
+}
+.note{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size:0.12rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.12rem;
+    margin-bottom: 0.18rem;
+}
+.mock_checkbox.choosed{
+
+    background: url("../img/house_detail/duigou_bg_icon.png") !important;
+    background-size: 100% 100% !important;
+}
+.mock_checkbox.choosed:before{
+    border: 0px solid #ff8200 !important;
+}
+.choose_area li{
+   width: 3.39rem;
+    margin: 0 auto;
+    height: 0.24rem;
+    line-height: 0.24rem;
+    margin-bottom: 0.18rem;
+}
+.choose_area li>div{
+    width: 50%;
+    text-align: left;
+}
+.choose_area li .mock_checkbox{
+    width: 0.24rem;
+    height: 0.24rem;
+    background: #FFFFFF;
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    box-sizing: border-box;
+    margin-right: 0.06rem;
+}
+.choose_area li .mock_checkbox:before{
+    border: 1px solid #ccc;
+}
+.choose_area li .error_desc{
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.24rem;
+    height: 100%;
+}
+.error_textarea_title{
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.18rem;
+    margin-bottom: 0.12rem;
+}
+.house_type_error_desc{
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    height: 0.8rem;
+    margin-bottom: 0.24rem;
+}
+.house_type_error_desc textarea{
+   width: 100%;
+    height: 100%;
+    resize: none;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 0.12rem;
+}
+.uplaod_tab{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 0.24rem;
+    font-family: PingFangSC-Regular;
+    font-size:0.14rem;
+    color: #444444;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    margin-bottom: 0.08rem;
+}
+.uplaod_tab>div.selected{
+    color: #ff8200;
+    border-bottom: 1px solid #ff8200;
+}
+.upload_op_area{
+    width: 100%;
+    opacity: 0.4;
+    background: rgba(211,211,211,0.60);
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    position: relative;
+    height: 1.8rem;
+}
+
+.upload_op_area label{
+    width: 1.28rem;
+    height: 0.96rem;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.10);
+    border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+.upload_op_area label>div{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.upload_op_area label img{
+    width: 0.32rem;
+    height: 0.32rem;
+
+}
+.upload_op_area label span{
+    display: block;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.12rem;
+    height: 0.12rem;
+}
+.submit{
+    width: 3rem;
+    height: 0.48rem;
+    margin: 0 auto;
+    margin-top: 0.32rem;
+
+}
+#submitBtn{
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+}
+.serve_hot_line{color: #FF8200}

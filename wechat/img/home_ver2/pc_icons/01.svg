@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>编组 32</title>
+    <desc>Created with Sketch.</desc>
+    <g id="元素" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标切图" transform="translate(-98.000000, -1234.000000)">
+            <g id="编组-32" transform="translate(96.000000, 1230.000000)">
+                <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="24" height="24"></rect>
+                <path d="M19.9742188,5.4578125 C19.034375,4.51796875 17.7851563,4 16.4585938,4 C15.1296875,4 13.8804688,4.51796875 12.9429688,5.4578125 L11,7.40078125 L11.5789063,7.9796875 L17.4523438,13.853125 L18.03125,14.4320312 L19.9742188,12.4890625 C20.9140625,11.5492187 21.4296875,10.3023437 21.4296875,8.9734375 C21.4320313,7.64453125 20.9140625,6.3953125 19.9742188,5.4578125 Z" id="路径" fill="#FFB467" fill-rule="nonzero"></path>
+                <path d="M5.29594155,19.2959415 L13.7959415,19.2959415 L13.7959415,8.04594155 C13.7959415,5.69873136 11.8931517,3.79594155 9.54594155,3.79594155 C7.19873136,3.79594155 5.29594155,5.69873136 5.29594155,8.04594155 L5.29594155,19.2959415 Z" id="矩形" stroke="#555555" stroke-width="1.5" transform="translate(9.545942, 11.545942) rotate(-45.000000) translate(-9.545942, -11.545942) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

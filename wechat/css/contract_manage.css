@@ -1,0 +1,73 @@
+body{
+   background:#E8E9ED
+}
+::-webkit-scrollbar {
+    /*display: none;*/
+    opacity: 0;
+}
+.my_room_detail{
+    width:100%;
+    height: 100%;
+    /*box-sizing: border-box;*/
+}
+.my_room_detail_list{
+    width: 100%;
+    height: 0.48rem;
+    background: #fff;
+    line-height: 0.48rem;
+    box-sizing: border-box;
+    position: fixed;
+    top:0;
+}
+.mock_margin{
+    width: 100%;
+    background:#E8E9ED;
+    position: fixed;
+    top:0.48rem;
+    height: 0.1rem;
+}
+.mescroll{
+    position: fixed;
+    top:0.48rem;
+    height: 91.3%;
+}
+.my_room_detail_list .item{
+    width: 50%;
+    height: 0.48rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 0.48rem;
+    text-align: center;
+    float: left;
+    box-sizing: border-box;
+}
+.my_room_detail_list .active{
+    color: #FF8200;
+    border-bottom:2px solid #FF8200;
+}
+.house_list li{
+    margin:0.1rem 0;
+}
+.house_list .house_info{
+    padding-top: 0.18rem;
+    padding-bottom: 0.14rem;
+    margin-top: -0.18rem;
+    padding-right: 0.12rem;
+}
+.weui-swiped-btn_warn{
+    background-image: linear-gradient(90deg, #FF7E7D 5%, #FC5455 95%);
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.96rem;
+}
+.cancel_appoint_warn{
+    font-family: PingFangSC-Medium;
+    font-size:0.1rem;
+    color: rgba(255,255,255,0.60);
+    letter-spacing: 0;
+}

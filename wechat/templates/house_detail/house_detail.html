@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>房屋详情</title>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/frame/swiper-3.4.2.min.css">
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/house_detail.css">
+    <style></style>
+</head>
+<body>
+<div style="padding-bottom: 50px;">
+    <div class="slider_wraper pr">
+        <div class="cover">
+
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+            </div>
+        </div>
+        <div class="nav">
+            <ul class="clearfix nav_list">
+
+            </ul>
+            <i class="arrow"></i>
+        </div>
+        <!--icon-->
+        <!--vr-->
+        <div class="icon_ara">
+            <!--360-->
+            <a href="javascript:;">
+                <img src="../../img/house_detail/icons/360.png" alt="">
+            </a>
+            <!--vr-->
+            <a href="javascript:;">
+                <img src="../../img/house_detail/icons/btn_vr.png" alt="">
+            </a>
+            <!--举报-->
+            <a href="./report_detal.html">
+                <img src="../../img/house_detail/icons/btn_service.svg" alt="">
+            </a>
+            <!--联系房东-->
+            <a href="tel:13102126201"><img src="../../img/house_detail/icons/btn_chat.svg" alt=""></a>
+            <!--收藏列表-->
+            <a href="../collect_list/my_collect.html"><img src="../../img/house_detail/icons/btn_cellection.svg" alt=""></a>
+        </div>
+
+    </div>
+    <!--房源简介-->
+    <div class="house_brief border_bottom">
+        <div class="house_price">￥1960/月(押一付三)<span class="rent_way">整</span></div>
+        <div class="house_title"><span class="font_org">城壹宜居</span>·海珠新港城4居室-05卧</div>
+        <ul class="tags border_bottom">
+            <li class="cyrz border_all">城壹认证</li>
+            <li>独立阳台</li>
+            <li>离地铁近</li>
+            <li>家电齐全</li>
+            <li>停车费： 2400元/月</li>
+            <li>租金含物业</li>
+            <li>仅限女生</li>
+        </ul>
+        <!--新加区域信息-->
+        <div class="house_infos house_area clearfix border_bottom" style="list-style: none;justify-content: flex-start">
+            <li class="border_right">越秀区</li>
+            <li class="border_right" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">下去名字下去名字下去名字下去名字下去名字下去名字下去名字</li>
+            <li class="" style="width:50%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">下去下去名字下去名字下去名字名字</li>
+        </div>
+        <ul class="clearfix house_infos border_bottom">
+            <li class="acreage pr border_right" style="line-height: 0.07rem">7.9m<sup>2</sup></li>
+            <li class="layout border_right">4室1厅</li>
+            <li class="floors border_right">6/6层</li>
+            <li class="orientations">南</li>
+        </ul>
+
+        <div class="mestro clearfix">
+            <img class="fl" src="../../img/house_detail/icons/map_icon.png" alt="">
+            <span class="fl">距5号线珠江新城站643米，步行约5分钟</span>
+        </div>
+    </div>
+    <!--房源配套-->
+    <div class="house_matching border_bottom">
+        <div class="matching_title" style="">房屋配套</div>
+        <div class="layout_img border_bottom">
+            <img src="../../img/house_detail/huxingtu.jpg" alt="" class="huxingtu">
+        </div>
+        <div class="matching_icon">
+            <div class="">
+                <img src="../../img/peitao_c/bed.png" alt="">
+                <div class="equip_name">床</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/yigui.png" alt="">
+                <div class="equip_name">衣柜</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/sofa.png" alt="">
+                <div class="equip_name">沙发</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/tv.png" alt="">
+                <div class="equip_name">电视</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/bingxiang.png" alt="">
+                <div class="equip_name">冰箱</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/kongtiao.png" alt="">
+                <div class="equip_name">空调</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/xiyiji.png" alt="">
+                <div class="equip_name">洗衣机</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/wifi.png" alt="">
+                <div class="equip_name">宽带</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/ranqi.png" alt="">
+                <div class="equip_name">燃气</div>
+            </div>
+            <div class="">
+                <img src="../../img/peitao_c/reshuiqi.png" alt="">
+                <div class="equip_name">热水器</div>
+            </div>
+        </div>
+    </div>
+    <!--房间信息-->
+    <div class="room_info border_bottom">
+        <div class="matching_title" style="margin-bottom: 0.03rem">房间信息</div>
+        <ul class="clearfix room_info_list">
+            <li class="border_bottom">
+                <div>02卧</div>
+                <div class="allow_rent">可出租</div>
+                <div>¥ 1890元/月</div>
+                <div>当前房源</div>
+            </li>
+            <li class="border_bottom">
+                <div>03卧</div>
+                <div class="allow_rent">可出租</div>
+                <div>¥ 1890元/月</div>
+                <div class="font_org"><a class="font_org" href="#">查看房源</a></div>
+            </li>
+            <li class="border_bottom already_live">
+                <div>04卧</div>
+                <div class="already_live">已入住</div>
+                <div>¥ 1890元/月</div>
+                <div class="font_org"><a class="font_org" href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;程序员</a></div>
+            </li>
+            <li class="already_live">
+                <div>05卧</div>
+                <div class="already_live">已入住</div>
+                <div>¥ 1890元/月</div>
+                <div class="font_org"><a class="font_org" href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;设计师</a></div>
+            </li>
+        </ul>
+    </div>
+    <!--小区介绍-->
+    <div class="building_brief border_bottom clearfix">
+        <div class="matching_title" style="margin-bottom: 0.14rem">小区介绍</div>
+        <ul class="clearfix building_brief_list">
+            <li class="border_bottom">
+                <div>建筑年代</div>
+                <div class="build_year">2017</div>
+            </li>
+            <li class="border_bottom">
+                <div>建筑类型</div>
+                <div class="build_year">塔楼</div>
+            </li>
+            <li class="border_bottom">
+                <div>建筑年代</div>
+                <div class="grening_rate">33%</div>
+            </li>
+            <li class="">
+                <div>容积率</div>
+                <div class="plot_rate">3.0</div>
+            </li>
+        </ul>
+    </div>
+    <!--周边及交通-->
+    <div class="around_traffic pr">
+        <div class="matching_title">周边及交通</div>
+        <div><a href="./house_detail_map.html" class="to_detail_map">详情查看<img src="../../img/arrow_right.png" alt=""></a></div>
+    </div>
+    <!--map-->
+    <div id="mapDiv"></div>
+    <div id="mapResWrap" class="border_bottom">
+        <ul>
+            <li><img src="../../img/loading.gif" alt=""></li>
+            <li><img src="../../img/loading.gif" alt="" style="width: 0.6rem"></li>
+            <li><img src="../../img/loading.gif" alt="" style="width: 0.9rem"></li>
+        </ul>
+    </div>
+    <!--我要举报 联系房东-->
+    <div class="report_link  clearfix">
+        <!--我要举报-->
+       <!-- <div class="fl report_area">
+            <a href="report_detal.html" style="display: flex;width: 100%;height: 100%">
+            <div class="content_wrap">
+                <img src="../../img/house_detail/report_c.png" alt="">
+            </div>
+            <div class="content_wrap">
+                <p>我要举报</p>
+                <p>举报属实可提升信用评分</p>
+            </div>
+            </a>
+        </div>-->
+        <div class="fl link_area" style="width: 100%">
+            <a href="javascript:;" style="display: flex;width: 100%;height: 100%">
+            <div class="content_wrap">
+                <img src="../../img/house_detail/icons/btn_chat2.svg" alt="">
+            </div>
+            <div class="content_wrap">
+                <p>联系房东</p>
+                <p>真实房东，直接面谈</p>
+            </div>
+            </a>
+        </div>
+    </div>
+    <!--同小区房源-->
+    <!--<div class="new_room border_bottom">
+        <div class="new_room_label clearfix">
+            <div class="fl">
+                <label>同小区房源</label>
+                <p class="room_type_P">用户画像，智能推荐</p>
+            </div>
+            <div class="fr">
+                 <p class="op1"><a href="javascript:;" class="to_detail_map">详情查看<img src="../../img/arrow_right.png" alt=""></a></p>
+            </div>
+        </div>
+        <div class="new_room_list">
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城1居室-南卧</p>
+                <p class="room_price">￥1340元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1670元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城3居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+        </div>
+    </div>-->
+    <!--热门推荐-->
+    <!--<div class="new_room border_bottom">
+        <div class="new_room_label clearfix">
+            <div class="fl">
+                <label>热门推荐</label>
+                <p class="room_type_P">用户画像，智能推荐</p>
+            </div>
+            <div class="fr">
+                <p class="op1"><a href="javascript:;" class="to_detail_map">详情查看<img src="../../img/arrow_right.png" alt=""></a></p>
+            </div>
+        </div>
+        <div class="new_room_list">
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城1居室-南卧</p>
+                <p class="room_price">￥1340元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城4居室-南卧</p>
+                <p class="room_price">￥1670元/月</p></div>
+            <div class="item">
+                <div class="room_img"><img src="../../img/home/index_city2.jpg"></div>
+                <p class="room_name">海珠新港城3居室-南卧</p>
+                <p class="room_price">￥1960元/月</p></div>
+        </div>
+    </div>-->
+    <!--logo-->
+    <div class="index_logo hide">
+        <img src="../../img/logo.svg" alt="">
+        <span>城壹宜君</span>
+        <p class="index_logo_p">传递信用 | 乐享生活</p>
+
+    </div>
+    <!--签约footer-->
+    <div class="pf qianyue_footer clearfix box_shadiow">
+        <div class="fav border_right">
+            <img src="../../img/house_detail/no_collected.png" alt="">
+            <span>收藏</span>
+        </div>
+        <div class="yuyue_look"><a href="woyaoyuyue.html" style="color: #444">预约看房</a></div>
+        <div class="online_qianyue"><a href="./qianyue_confirm_msg.html" style="color: #fff">在线签约</a></div>
+    </div>
+</div>
+
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script src="../../js/roomDetailMapLogy.js"></script>
+<script>
+
+    //获取滚动图片
+    HttpUtils.get('../../mock/house_detail_img.json','',function (res) {
+       res.forEach(function (item,index) {
+           var belong = item.imgBelong
+           var Imgarr = item.imgUrl.split(',');
+           $('.nav_list').append('<li group="'+belong+'">'+belong+'</li>')
+           Imgarr.forEach(function (item,index) {
+               var swiper = '<div class="swiper-slide">'+
+                   '<a href="javascript:;">'+
+                   '<img src="'+item+'" alt="" data-group="'+belong+'"/>'+
+                   '</a>'+
+                   '</div>'
+               $('.swiper-wrapper').append(swiper)
+           })
+       })
+        var width = document.documentElement.clientWidth
+        var length = $('.nav_list li').length
+       // console.log(width,length)
+        console.log($('i.arrow').width())
+        var arrowLeft = width/length/2
+        $('.nav_list li').css('width',width/length+'px')
+        $('i.arrow').css('left',arrowLeft+'px')
+        initSwiper('swiper-container');
+
+    });
+    function initSwiper(str) {
+       
+        var mySwiper = new Swiper('.'+str, {
+            loop: true,
+            autoplay: 2000,//可选选项，自动滑动
+            speed: 500,
+            width: document.documentElement.clientWidth,
+            // 如果需要分页器
+            autoplayDisableOnInteraction: false,
+            lazyLoading: true,
+            lazyLoadingInPrevNext: true,
+            // 这个为true时，↓才有用
+            lazyLoadingInPrevNextAmount: 4, // 设置在延迟加载图片时提前多少个slide
+            onSlideChangeEnd: function(swiper){
+                var index= swiper.activeIndex
+                var imgGroup = $('.swiper-slide').eq(index).find('img').attr('data-group')
+                console.log(imgGroup)//切换之后的 初始化也会触发
+                $('.nav_list li').each(function (index,item) {
+                    if($(item).text()==imgGroup){
+
+                        $('i.arrow').css('left',$(item).offset().left+$(item).width()/2+'px')
+                    }
+                })
+            }
+        })
+        $('.nav_list li').click(function () {
+            var belong = $(this).attr('group');
+            var index = ''
+            $.each($('.swiper-container img'),function (index1,item1) {
+                console.log($(item1).attr('data-group'))
+                if($(item1).attr('data-group')==belong){
+                    index = index1;
+                    return false
+                }
+            })
+            mySwiper.slideTo(index)
+        })
+    }
+    //收藏
+    $('.fav').click(function () {
+        if($(this).hasClass('faved')){
+            $.confirm('确定取消收藏么',function () {
+                $('.fav img').attr('src','../../img/house_detail/no_collected.png')
+                $('.fav span').text('收藏')
+                $('.fav').removeClass('faved')
+            },function () {
+
+            })
+        }else{
+            $.confirm('确定收藏么',function () {
+                $('.fav img').attr('src','../../img/house_detail/collected.png')
+                $('.fav span').text('已收藏')
+                $('.fav').addClass('faved')
+            },function () {
+
+            })
+        }
+
+        stopScroll($('.weui-mask'))
+    })
+</script>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+</html>

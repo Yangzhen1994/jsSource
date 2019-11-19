@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>租金缴纳记录</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+    <script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        /*复写本页面弹出框样式*/
+        .weui-dialog__bd{text-align: left;color:#444;font-size: 0.14rem;line-height: 0.24rem;}
+        .weui-dialog__hd{padding: 0.8em 1.6em .5em;}
+        .weui-dialog__ft .weui-dialog__btn:nth-child(1){color:#ff8200;font-size: 0.14rem;}
+        .weui-dialog__ft .weui-dialog__btn:nth-child(2){color:#666;font-size: 0.14rem;}
+    </style>
+</head>
+<body style="background:#f1f1f1;padding-top:0.1rem;">
+    <div id="mescroll" class="mescroll">
+        <section id="pay_record_box">
+            <div class="record_item">
+                <div class="box1"><span>第一期 房屋租金</span><span>已缴纳</span></div>
+                <p class="box2">账单周期：2018-11-29至 2018-12-28</p>
+                <p class="box3 border_bottom">租金金额：<span class="orange">5880</span> 元</p>
+                <div class="box4"><span class="done_btn">已申请</span></div>
+            </div>
+            <div class="record_item">
+                <div class="box1"><span>第二期 房屋租金</span><span>已缴纳</span></div>
+                <p class="box2">账单周期：2018-11-29至 2018-12-28</p>
+                <p class="box3 border_bottom">租金金额：<span class="orange">5880</span> 元</p>
+                <div class="box4"><span class="ok_btn">申请发票</span></div>
+            </div>
+            <div class="record_item">
+                <div class="box1"><span>第三期 房屋租金</span><span>已缴纳</span></div>
+                <p class="box2">账单周期：2018-11-29至 2018-12-28</p>
+                <p class="box3 border_bottom">租金金额：<span class="orange">5880</span> 元</p>
+                <div class="box4"><span class="ok_btn">申请发票</span></div>
+            </div>
+            <div class="record_item">
+                <div class="box1"><span>第四期 房屋租金</span><span>未缴纳</span></div>
+                <p class="box2">账单周期：2018-11-29至 2018-12-28</p>
+                <p class="box3 border_bottom">租金金额：<span class="orange">5880</span> 元</p>
+                <div class="box4">请确保2018年11月15日前，您登记的卡内有足够的金额</div>
+            </div>
+            <div class="record_item">
+                <div class="box1"><span>第五期 房屋租金</span><span>未缴纳</span></div>
+                <p class="box2">账单周期：2018-11-29至 2018-12-28</p>
+                <p class="box3 border_bottom">租金金额：<span class="orange">5880</span> 元</p>
+                <div class="box4">请确保2018年11月15日前，您登记的卡内有足够的金额</div>
+            </div>
+        </section>
+        <div style="height:0.2rem;"></div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var mescroll = new MeScroll("mescroll", {
+        up: {
+            use:false,
+            isBounce:false
+        }
+    });
+    //申请发票
+    $(".ok_btn").click(function(){
+        $.modal({
+            title: "",
+            text: "您正在申请开具电子发票，如需纸质发票，请通过合同管理--发票信息功能，修改发票基本信息。",
+            buttons: [
+                {
+                    text: "确定开具发票",
+                    onClick: function(){
+                        setTimeout(function () {
+                            $.alert({
+                                title: '',
+                                text: '您已申请了开具发票，电子发票将在3个工作日内发送您预留的电子邮箱，纸质发票请在5个工作日后，携带个人身份证，到XXXXXXXXX领取。<br/>客服热线：020-00000999 ',
+                                onOK: function () {
+                                    //点击确认
+                                }
+                            });
+                        },200)
+                    }
+                },
+                { text: "返 回", onClick: function(){ console.log(2)} },
+            ]
+        });
+    });
+    $(".done_btn").click(function(){
+        $.alert({
+            title: '',
+            text: '您已申请了开具发票，电子发票将在3个工作日内发送您预留的电子邮箱，纸质发票请在5个工作日后，携带个人身份证，到XXXXXXXXX领取。<br/>客服热线：020-00000999 ',
+            onOK: function () {
+                //点击确认
+            }
+        });
+    });
+</script>
+</html>

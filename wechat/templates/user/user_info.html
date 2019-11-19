@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--jqueryweui 需要放在适配js前不然会覆盖rem适配-->
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <!--<script src="../js/register_login.js"></script>-->
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/user_info.css">
+</head>
+<body>
+<div class="wrapper">
+    <!-- 容器 -->
+    <div class="weui-tab">
+        <div class="weui-navbar">
+            <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+                个人资料
+            </a>
+            <a class="weui-navbar__item" href="#tab2">
+                修改密码
+            </a>
+        </div>
+        <div class="weui-tab__bd">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <form id="userInfoForm" onsubmit="return false">
+                    <ul>
+                        <li class="clearfix">
+                            <label class="fl" for="">头&nbsp;&nbsp;&nbsp;&nbsp;像</label>
+
+                            <div class="avator preview_img fl">
+                                <div class="fr avator_wrap" id="uploader">
+                                    <div class="weui-uploader__bd" style="display: none">
+                                        <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                                        <div class="weui-uploader__input-box">
+                                            <input id="uploaderInput" class="weui-uploader__input" type="file"
+                                                   accept="image/*"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="../../img/avator.jpg" alt="" style="">
+                            </div>
+
+                            <div class="change_avator fl" id="avator">修改头像</div>
+                        </li>
+                        <li class="clearfix">
+                            <label class="fl" for="" style="margin-top: 0.13rem">昵&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+                            <div class="input_wrap fr">
+                                <input type="text" name="username" class="nick_name" value="测试测试坑坑">
+                            </div>
+
+                        </li>
+                        <li class="clearfix pr">
+                            <label class="fl" for="" style="margin-top: 0.13rem">职&nbsp;&nbsp;&nbsp;&nbsp;业</label>
+                            <div class="select_wrap fr">
+                                <select  name="major" class="major">
+                                    <option value=""></option>
+                                </select><img src="../../img/house_list/arrow-bottom.png" alt="">
+                            </div>
+
+                        </li>
+                        <li class="clearfix">
+                            <label class="fl" for="" style="margin-top: 0.13rem">当前号码</label>
+
+                            <input style="width: 1rem;height: 0.4rem" type="text" name="currentphone"
+                                   class="fl current_phone" value="13102333211" readonly>
+
+                            <span class="change_phone fr">修改手机号</span>
+                        </li>
+                        <li class="clearfix hide get_new_phone">
+                            <label class="fl" for="" style="margin-top: 0.13rem">新手机号码</label>
+
+                            <input style="height: 0.4rem" type="text" name="newphone" class="fl newphone">
+
+                        </li>
+                        <li class="clearfix hide get_new_phone">
+                            <label class="fl" for="" style="margin-top: 0.13rem">验证码</label>
+
+                            <input style="width: 1.47rem;height: 0.4rem" type="text" name="yzm" class="fl"
+                                   id="validateCode">
+
+                            <span class=" get_yzm fr">发送验证码</span>
+                        </li>
+                        <button class="save_edit_btn">
+                            保存修改
+                        </button>
+                    </ul>
+                </form>
+            </div>
+
+            <div id="tab2" class="weui-tab__bd-item">
+                <div class="change_pwd_card clearfix" style="margin-top:0.24rem">
+                    <ul class="radio_area clearfix">
+                        <li class="fl" id="normalChangeLi"><img src="../../img/login/radio_box_choosed.png"
+                                                                alt="" style="margin-top: 0;"><input type="radio" name="login_way"
+                                                                              id="normalChange" checked=""
+                                                                              style="display: none"><label
+                                for="normalChange" class="font_org">通过旧密码修改</label></li>
+                        <li class="fl" id="phoneChangeLi"><img src="../../img/login/radio_box_no.png" alt="" style="margin-top: 0;"><input
+                                type="radio" name="login_way" id="phoneChange" checked="" style="display: none"><label
+                                for="phoneChange">通过验证码修改</label></li>
+                    </ul>
+                    <form class="change_pwd_form default_way_form" id="defaultWayForm" onsubmit="return false">
+                        <ul>
+                            <li class="clearfix pr border_bottom"><input type="text" name="old_password"
+                                                                         class="old_password" placeholder="请输入旧密码"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                            <li class="clearfix pr border_bottom"><input type="password" name="new_password"
+                                                                         class="new_password" placeholder="请输入新密码"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                            <li class="clearfix pr border_bottom"><input type="password" name="confirm_password"
+                                                                         class="confirm_password"
+                                                                         placeholder="请再次输入新密码"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                        </ul>
+                    </form>
+                    <form class="change_pwd_form phone_way_form hide" id="phoneWayForm" novalidate="novalidate"
+                          onsubmit="return false">
+                        <ul>
+                            <li class="clearfix pr border_bottom"><input type="text" name="phone_num" class="phone_num"
+                                                                         placeholder="请输入手机号"
+                                                                         required="" aria-required="true"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                            <li class="clearfix pr border_bottom"><input type="text" name="yzm" id="validateCode1"
+                                                                         class="yzm" placeholder="请输入验证码"
+                                                                         style="width: 70%" required>
+                                <span class="border_all pa yzm_btn_span"><input type="button" id="yzm"
+                                                                                class="yzm_btn pa"
+                                                                                value="获取验证码"></input></span>
+                            </li>
+                            <li class="clearfix pr border_bottom"><input type="text" name="phone_way_new_password"
+                                                                         class="new_password" placeholder="请输入新密码"
+                                                                         required="" aria-required="true"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                            <li class="clearfix pr border_bottom"><input type="text" name="phone_way_confirm_password"
+                                                                         class="confirm_password" placeholder="请再次输入新密码"
+                                                                         required="" aria-required="true"><img
+                                    src="../../img/login/ok_gray.png" alt=""></li>
+                        </ul>
+                    </form>
+
+                    <button class="save_btn" form="defaultWayForm">
+                        保存修改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.1.3/weui.min.js"></script>
+<script src="../../js/edit_user_info.js"></script>
+</body>
+
+</html>

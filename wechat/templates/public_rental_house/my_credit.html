@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>社会信用</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+</head>
+<body class="grayBody">
+    <div class="credit_box1_outer">
+        <div class="cre_tit">
+            <span>社会信用 </span>
+            <img src="../../img/public_rental_house/point.png"/>
+        </div>
+        <div class="as">
+            <a class="border_bottom" href="#">服务协议</a>
+            <a class="border_bottom" href="#">隐私权政策</a>
+            <a href="#">信息及声明</a>
+        </div>
+        <div class="credit_box1">
+            <a class="a1" href="#">点击查看信用记录</a>
+            <a class="a2" href="my_mianya.html">我的免押</a>
+            <div class="canvas_box">
+                <canvas id="canvas_1" width="200" height="200"></canvas>
+                <canvas id="canvas_2" width="200" height="200"></canvas>
+                <div class="font_box"></div>
+            </div>
+            <p>评估时间：<span>2018年9月11日</span></p>
+        </div>
+    </div>
+    <div class="grade_all_box">
+        <div class="cre_tit" style="border-bottom: 1px solid #ccc;margin-bottom:0.16rem;">
+            <span>保障性住房扣分</span>
+            <a href="#">扣分管理办法>></a>
+        </div>
+        <div class="zhu_outer">
+            <div class="zhu"></div>
+            <p><span>0</span><span>-10</span><span>-20</span></p>
+            <div class="nowzhu"></div>
+        </div>
+    </div>
+    <div class="grade_box">
+        <h4>近两年扣分记录 </h4>
+        <ul>
+            <li><span>2018年8月1日：擅自接用公共绿化和消防水源</span><i>-2</i></li>
+            <li><span>2018年8月1日：擅自接用公共绿化和消防水源</span><i>-3</i></li>
+            <li><span>2018年8月1日：擅自接用公共绿化和消防水源</span><i>-4</i></li>
+        </ul>
+        <div class="more_btn">查看更多 ···</div>
+    </div>
+    <div style="height:0.2rem;"></div>
+</body>
+<script>
+    //下拉菜单,无协议，暂时隐藏不展示
+    /*$(".cre_tit img").click(function(){
+        if($(".as").css("display")=="none"){
+            $(".as").slideDown();
+        }else{
+            $(".as").slideUp();
+        }
+    })*/
+    //分数滑动
+    gradefun(-10);
+    function gradefun(num){
+        var leftVal = (Math.round(num * 10000)/100/-20).toFixed(2) + '%';
+        $(".nowzhu").animate({left:leftVal},1000);
+    }
+    //
+    $(".more_btn").click(function(){
+        //下拉加载更多
+        var node = $("<li><span>内容</span><i>+-</i></li><li><span>内容</span><i>+-</i></li><li><span>内容</span><i>+-</i></li>");
+        $(this).siblings("ul").append(node);
+    })
+    //canvas圆环
+    inte(621);
+    function inte(percent) {
+        var canvas_1 = document.querySelector('#canvas_1');
+        var canvas_2 = document.querySelector('#canvas_2');
+        var ctx_1 = canvas_1.getContext('2d');
+        var ctx_2 = canvas_2.getContext('2d');
+        ctx_1.lineWidth = 24;
+        ctx_1.strokeStyle = "rgba(255,255,255,0.4)";
+        //画底部的灰色圆环
+        ctx_1.beginPath();
+        ctx_1.arc(canvas_1.width / 2, canvas_1.height / 2, canvas_1.width / 2 - ctx_1.lineWidth / 2, 0, Math.PI * 2, false);
+        ctx_1.closePath();
+        ctx_1.stroke();
+        if (percent < 0 || percent > 800) {
+            throw new Error('percent must be between 0 and 800');
+            return
+        }
+        ctx_2.lineWidth = 24;
+        ctx_2.strokeStyle = "rgba(255,255,255,0.9)";
+        var angle = 0;
+        var timer;
+        var gewei=parseInt(percent%10);
+        function draw() {
+            timer = requestAnimationFrame(draw);
+            ctx_2.clearRect(0, 0, canvas_2.width, canvas_2.height)
+            //百分比圆环
+            ctx_2.beginPath();
+            ctx_2.arc(canvas_2.width / 2, canvas_2.height / 2, canvas_2.width / 2 - ctx_2.lineWidth / 2, 0, angle * Math.PI / 180, false);
+            var percentAge = parseInt((angle / 360) * 800);
+            if(percentAge>(percent-gewei)){
+                angle++;
+            }else{
+                angle+=5;
+            }
+            if (angle > (percent / 800 * 360)) {
+                percentAge = percent;
+                window.cancelAnimationFrame(timer);
+            };
+            ctx_2.stroke();
+            ctx_2.closePath();
+            ctx_2.save();
+            ctx_2.beginPath();
+            ctx_2.rotate(90 * Math.PI / 180)
+            ctx_2.font = '60px bold';
+            ctx_2.fillStyle = '#fff';
+            var text = percentAge;
+            ctx_2.fillText(text, 47, -86);
+            ctx_2.closePath();
+            ctx_2.restore();
+        }
+        draw();
+        //填充信用评价
+        setTimeout(function(){$(".canvas_box .font_box").html("信用极好")},1000)
+    }
+</script>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>机构接入申请</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        .tit{
+            padding-left:0.15rem;
+            font-size: 0.18rem;
+            color: #ff8200;
+            margin-top: 0.32rem;
+        }
+        .detail_box{
+            position: relative;
+            padding:10px 15px;
+        }
+        .detail_box:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid #e5e5e5;
+            color: #e5e5e5;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+            left: 15px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="warpper">
+        <div class="tit">机构接入申请</div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">机构名称</label></div>
+                <div class="weui-cell__bd">
+                    <input name="jigouname" class="weui-input require" type="text" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">联系人</label></div>
+                <div class="weui-cell__bd">
+                    <input name="linkman" class="weui-input require" type="text" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">电话</label></div>
+                <div class="weui-cell__bd">
+                    <input name="phone" class="phone weui-input require" type="tel" placeholder=""/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">邮箱</label></div>
+                <div class="weui-cell__bd">
+                    <input name="email" class="email weui-input require" type="tel" placeholder=""/>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">机构地址</label></div>
+                <div class="weui-cell__bd">
+                    <input name="adress" class="weui-input require" type="tel" placeholder=""/>
+                </div>
+            </div>
+            <div class="detail_box">
+                <div style="padding:10px 0px;">机构说明</div>
+                <textarea name="jigou_detail" class="weui-textarea" placeholder="请输入文本" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="btns">
+        <button class="clear">重置</button>
+        <button class="confirm">提交</button>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(function(){
+
+        $("button.clear").click(function(){
+            resetfuc();
+        })
+
+        $('.confirm').on('click', function () {
+            if (!validate()) {
+                return
+            }else{
+                $.alert("提交成功！");
+            }
+        })
+
+        //重置
+        function resetfuc(){
+            $('input[name="jigouname"]').val('');
+            $('input[name="linkman"]').val('');
+            $('input[name="phone"]').val('');
+            $('input[name="adress"]').val('');
+            $('input[name="email"]').val('');
+            $('textarea[name="jigou_detail"]').val('');
+        }
+        //表单验证
+        function validate() {
+            var objs = $(".weui-cells_form input");
+            for (var i = 0; i < objs.length; i++) {
+                var obj = objs.eq(i);
+                if (obj.hasClass("require")) {
+                    if ($.trim(obj.val()) == "") {
+                        var now_label = obj.parents(".weui-cell").find("label").html();
+                        console.log(now_label);
+                        $.alert(now_label + "不能为空", function () {
+                            obj.focus();
+                        });
+                        stopScroll($('.weui-mask'))
+                        obj.focus();
+                        return false;
+                    }else if(obj.hasClass("phone")){
+                        var str = $(".phone").val();
+                        if (!DcUtils.isMobile(str)) {
+                            $.alert("号码格式不正确", function () {
+                                obj.focus();
+                            });
+                            stopScroll($('.weui-mask'))
+                            return false;
+                        }
+                    }else if(obj.hasClass("email")){
+                        var str = $(".email").val();
+                        if (!DcUtils.isEmail(str)) {
+                            $.alert("邮箱格式不正确", function () {
+                                obj.focus();
+                            });
+                            stopScroll($('.weui-mask'))
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+    })
+</script>
+</html>

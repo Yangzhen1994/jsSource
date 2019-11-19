@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>申报信息填写</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/decoration_message.css">
+</head>
+<body>
+<div class="mock_margin"></div>
+<form id="decoration_message_form">
+    <div class="form_area clearfix">
+        <p style="text-align: center;">申报信息填写</p>
+        <div class="fl clearfix ml18">
+            <label for=""><span>*</span>住户姓名：</label>
+            <div class="pr input_wrap readonly">
+                <input name="user_name" label="住户姓名" class="user_name require" type="text" value="" placeholder=""/>
+            </div>
+        </div>
+        <div class="fr clearfix" style="margin-right:0.18rem;">
+            <label for=""><span>*</span>装修房号：</label>
+            <div class="pr input_wrap readonly">
+                <input name="room_number" label="装修房号" class="room_number require" type="text" value="" placeholder=""/>
+            </div>
+        </div>
+        <div class="fl clearfix ml18">
+            <label for=""><span>*</span>联系电话</label>
+            <div class="pr input_wrap readonly">
+                <input name="link_phone" label="联系电话" class="link_phone phone require" type="text" value="" placeholder=""/>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="check_input_area">
+            <label for=""><span>*</span>申请项目：</label>
+            <div class="choose_area" >
+                <ul class="clearfix" id="rentServices">
+                    <li class="clearfix">
+                        <div class="fl">
+                            <div class="mock_checkbox border_all fl"></div>
+                            <div class="error_desc fl">安装空调</div>
+                        </div>
+                        <div class="fl">
+                            <div class="mock_checkbox border_all fl"></div>
+                            <div class="error_desc fl">安装防盗网</div>
+                        </div>
+                        <div class="fl">
+                            <div class="mock_checkbox border_all fl"></div>
+                            <div class="error_desc fl">安装防盗门</div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="fl">
+                            <div class="mock_checkbox border_all fl"></div>
+                            <div class="error_desc fl">其他项目</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="date_area clearfix">
+            <label for=""><span>*</span>预约办理日期（10天内）:</label>
+            <div class="date_wrap">
+                <div class="fl date_item current" >
+                    <div class="date_item_week" >
+                        星期二
+                    </div>
+                    <div class="date_item_num">
+                        08
+                    </div>
+                </div>
+                <div class="fl date_item" >
+                    <div class="date_item_week" >
+                        星期二
+                    </div>
+                    <div class="date_item_num">
+                        08
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期三
+                    </div>
+                    <div class="date_item_num">
+                        09
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期四
+                    </div>
+                    <div class="date_item_num">
+                        10
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期五
+                    </div>
+                    <div class="date_item_num">
+                        11
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期六
+                    </div>
+                    <div class="date_item_num">
+                        12
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期日
+                    </div>
+                    <div class="date_item_num">
+                        13
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期一
+                    </div>
+                    <div class="date_item_num">
+                        14
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期一
+                    </div>
+                    <div class="date_item_num">
+                        14
+                    </div>
+                </div>
+                <div class="fl date_item">
+                    <div class="date_item_week">
+                        星期一
+                    </div>
+                    <div class="date_item_num">
+                        14
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix ml18">
+            <label for="" style="margin-top:0.1rem"><span>*</span>预约办理时间段：</label>
+            <div class="pr select_wrap">
+                <select name="install_time" label="安装时段" class="install_time" />
+                    <option value="">请选择时间段</option>
+                    <option value="9:00 - 10:00">9:00 - 10:00</option>
+                    <option value="10:00 - 11:00">10:00 - 11:00</option>
+                    <option value="11:00 - 12:00">11:00 - 12:00</option>
+                    <option value="14:00 - 15:00">14:00 - 15:00</option>
+                    <option value="15:00 - 16:00">15:00 - 16:00</option>
+                    <option value="16:00 - 17:00">16:00 - 17:00</option>
+                    <option value="17:00 - 17:30">17:00 - 17:30</option>
+                </select>
+            </div>
+        </div>
+        <div class="form_area clearfix ml18">
+            <label for="">申报说明：</label>
+            <div class="pr input_wrap" style="width: 3.35rem;height: 0.93rem">
+                <textarea name="remark" label="装修说明" class="remark"  placeholder="为方便我们能为您提供更好的服务，请填写说明"></textarea>
+            </div>
+        </div>
+    </div>
+</form>
+<div style="height:1rem"></div>
+<div class="btns btn_group1">
+    <button class="clear back" onclick="window.history.go(-1)">上一步</button>
+    <button class="confirm next">下一步</button>
+</div>
+<div class="btns btn_group2">
+    <button class="clear change">更改</button>
+    <button id="confirm" type="submit"  class="confirm">提交</button>
+</div>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //点击下一步
+    $('button.next').click(function () {
+        if(!validate()){return}
+        var daytime = $(".date_area .current").attr("date") + " " + $(".select_wrap option:selected").text()
+        console.log(daytime);
+        $.confirm({
+            title: '确认时间',
+            text: '你的申报时间为' + daytime + "<br/>是否确认？",
+            onOK: function () {
+                $(".btn_group1").hide();
+                $(".btn_group2").show();
+            },
+            onCancel: function () {
+            }
+        });
+
+    })
+    //更改
+    $('button.change').click(function () {
+        $(".btn_group1").show();
+        $(".btn_group2").hide();
+    })
+    //确认提交
+    $('#confirm').on('click',function () {
+        if(!validate()){return}
+        setTimeout(function () {
+            window.location.href = 'decoration_kongtiao_success.html'
+        },200)
+    })
+    function validate(){
+        var objs = $("input,select");
+        for(var i=0;i<objs.length;i++){
+            var obj = objs.eq(i);
+            if(obj.hasClass("require")){
+                if($.trim(obj.val())=="" && !obj.prop('disabled')){
+                    //console.log(obj.prop('disabled'))
+                    /* var label = obj.parent().prev().text().trim().replace(/\*!/,'');*/
+                    var label = obj.attr("label");
+                    $.alert("请填写"+label,function(){
+                        obj.focus();
+                    });
+                    stopScroll($('.weui-mask'))
+                    obj.focus();
+                    return false;
+                }
+            }
+        }
+
+        var phones = $(".phone");
+        for(var i=0;i<phones.length;i++){
+            var obj = phones.eq(i);
+            if(!DcUtils.isMobile(obj.val())){
+                $.alert("手机号码格式不正确",function(){
+                    obj.focus();
+                });
+                stopScroll($('.weui-mask'))
+                return false;
+            }
+        }
+
+        var xiangmu = $('.check_input_area .choosed')
+        console.log(xiangmu.length);
+        if(xiangmu.length==0){
+            $.alert("请选择申请项目！",function(){
+                obj.focus();
+            });
+            obj.focus();
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+
+        if($(".select_wrap option:selected").val() == ""){
+            $.alert("请选择预约时间段！",function(){
+                obj.focus();
+            });
+            obj.focus();
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+
+        return true;
+    }
+
+    // 框框点击筛选
+    $('.mock_checkbox').on('click',function () {
+        $(this).toggleClass('choosed')
+    });
+
+    //看房日期
+    //看房日期 1-仅周末，2-仅工作日，3-随时看房
+    var lookTime = 3
+    lookDateChoose(10)
+    function lookDateChoose(dayNum) {
+        var dateArr = []
+        var dayArr = []
+        var dateObj = new Date();
+        //获取年月日
+        var year = dateObj.getFullYear()
+        var month = dateObj.getMonth() + 1
+        var date = dateObj.getDate()
+        for (var i = 0; i < dayNum; i++) {
+            dateArr.push(new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate() + i));   //把未来几天的时间放到数组里
+            var day = "星期" + "日一二三四五六".charAt(dateArr[i].getDay());
+            dayArr.push({
+                week: day,
+                date: (dateArr[i].getMonth() + 1) + '-' + dateArr[i].getDate()
+            })
+        }
+        dayArr.forEach(function (item, index) {
+            $('.date_item').eq(index).attr('date', item.date)
+            $('.date_item').eq(index).find('.date_item_week').text(item.week)
+            if (item.week == '星期六' || item.week == '星期日') {
+                $('.date_item').eq(index).addClass('week')
+            }
+            var ndate = item.date.split('-')[1]
+            if (ndate < 10) {
+                var date = '0' + ndate
+            } else {
+                var date = ndate
+            }
+            $('.date_item').eq(index).find('.date_item_num').text(date)
+            $('.date_item').eq(0).find('.date_item_num').text('今天')
+        })
+
+        $('.date_item').click(function () {
+            if ($(this).hasClass('no_choosed')) {
+                return false
+            }
+            $(this).addClass('current')
+            $(this).siblings().removeClass('current')
+        })
+    }
+    $('.yuyue_submit').on('click',function () {
+        if(  !checkMobile($('#phone')) || !checkEmpty($('#validateCode')) || !checkEmpty($('#username'))){
+            return
+        }
+        $.toast('提交成功')
+    })
+</script>
+
+</body>
+</html>

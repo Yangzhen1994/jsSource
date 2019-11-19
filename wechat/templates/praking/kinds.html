@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>在线填报</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/parking.css">
+</head>
+<body>
+<section class="kinds_outer">
+    <ul class="kinds">
+        <li><a href="fill.html">本小区承租人自有车辆</a></li>
+        <li><a href="fill.html">承租人单位车辆</a></li>
+        <li><a href="fill.html">非小区住户车辆</a></li>
+    </ul>
+</section>
+</body>
+<script>
+    //缓存记录点击项
+    $(".kinds li").click(function(){
+        sessionStorage.setItem("kinds_num",$(this).index());
+    })
+</script>
+</html>

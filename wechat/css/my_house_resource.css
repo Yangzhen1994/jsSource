@@ -1,0 +1,190 @@
+body{
+   background:#fff
+}
+::-webkit-scrollbar {
+    opacity: 0;
+}
+.my_room_detail{
+    width:100%;
+    height: 100%;
+}
+.my_room_detail_list{
+    width: 100%;
+    height: 1.72rem;
+    /*margin-top:0.1rem;*/
+
+    background: #fff;
+    box-sizing: border-box;
+}
+.my_room_detail_list .info_label{
+    /*height:0.5rem;*/
+    padding-right:0.18rem;
+    padding-left:0.18rem;
+    margin-top:0.24rem;
+}
+.my_room_detail_list .info_label .house_info_label,.person_info_label{
+    font-family: PingFangSC-Medium;
+    font-size: 0.18rem;
+    color: #444444;
+    letter-spacing: 0;
+    /*line-height: 0.5rem;*/
+}
+.my_room_detail_list .info_label .look_contract_label{
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #FF8200;
+    letter-spacing: 0;
+    text-align: right;
+    /*line-height: 0.5rem;*/
+}
+
+.about{
+    box-sizing: border-box;
+    height: 1.12rem;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    padding: 5% 0;
+}
+.touxiang{
+    display: inline-block;
+    border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    border: 2px solid #ffca42;
+    box-sizing: border-box;
+    width: 0.6rem;
+    height: 0.6rem;
+}
+.touxiang img{
+    width:100%;
+    height: 100%;
+    border-radius: 50% 50%;
+    -moz-border-radius: 50% 50%;
+    -webkit-border-radius: 50% 50%;
+    vertical-align: top;
+}
+
+.person_form{
+    width:100%;
+    height:2.59rem;
+    background: #fff;
+    box-sizing: border-box;
+    padding-left:0.18rem;
+    position: relative;
+}
+.person_name{
+    margin-right: 15px;
+    margin-top: 0px;
+}
+.star{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.12px;
+    color: #000000;
+    letter-spacing: 0;
+    margin-top: 5px;
+}
+.person_label{
+    margin-top: 0.24rem;
+    overflow: hidden;
+    clear: both;
+}
+.person_label p{
+    background: rgba(255,130,0,0.10);
+    border-radius:0.01rem;
+    -webkit-border-radius:0.01rem;
+    -moz-border-radius:0.01rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.1rem;
+    color: #FF8200;
+    letter-spacing: 0;
+    line-height: 0.1rem;
+    padding: 0.05rem;
+    margin-right: 0.05rem;
+
+}
+.info_item{
+/*margin-top:0.2rem;*/
+margin-bottom:0.1rem;
+    width:38%;
+}
+
+.info_item span {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+.info_item span:first-child{
+    margin-right:0.2rem;
+}
+.person_icon{
+    position: relative;
+}
+.icon_certified{
+    position: absolute;
+}
+.my_room_detail button{
+    width:3rem;
+    height:0.48rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 4px;
+    margin-left: 5%;
+    font-family: PingFangSC-Medium;
+    font-size: 0.14rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+}
+.person_info{
+    margin-left:0.1rem;
+}
+.community{
+    height:1.58rem;
+    box-sizing: border-box;
+    background: #fff;
+    margin-bottom:0.05rem;
+    padding-left: 0.18rem;
+}
+.community .list_item{
+    width: 0.6rem;
+    height: 0.6rem;
+    margin: 0.10rem;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.community .list_item img{
+    width: 0.48rem;
+    height: 0.48rem;
+
+}
+.community .list_item p{
+    font-family: PingFangSC-Medium;
+    font-size:0.12rem;
+    color: #444444;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.community .list_item p{
+    margin-left: 3px;
+}
+.call img{
+    width:0.64rem;
+    height:0.64rem;
+    position: absolute;
+    bottom: -10px;
+    right: 24px;
+}
+.mock_margin{
+    width: 100%;
+    height:0.1rem;
+    background: #e8e9ed;
+}
+.mock_margin_6{
+    width: 100%;
+    height: 0.06rem;
+    background: #e8e9ed;
+}

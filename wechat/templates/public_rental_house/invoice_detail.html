@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>查看发票</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/frame/mescroll.css">
+    <link rel="stylesheet" href="../../css/public_rental_house.css">
+    <script src="../../js/frame/mescroll.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="background:#f1f1f1; padding-top:0.1rem;">
+<div id="mescroll" class="mescroll">
+    <section id="invoices_box">
+        <div class="item_box">
+            <div class="box1"><span>普通发票（电子）</span><span>已开票</span></div>
+            <p><span>开票时间：</span>2018-09-11</p>
+            <p><span>对应租期：</span>2018-11-29至 2018-12-28；<br/>2018-11-29至 2018-12-28；</p>
+            <p><span>发票抬头：</span><i>个人</i></p>
+            <div class="btn_box border_top">
+                <button>查看发票</button><!--在线下载-->
+                <button>发送邮箱</button>
+            </div>
+        </div>
+        <div class="item_box">
+            <div class="box1"><span>普通发票（纸质）</span><span>已领取</span></div>
+            <p><span>开票时间：</span>2018-09-11</p>
+            <p><span>对应租期：</span>2018-11-29至 2018-12-28；<br/>2018-11-29至 2018-12-28；</p>
+            <p><span>发票抬头：</span><i>企业</i></p>
+            <p><span>企业名称：</span>XXXXXXXXXXXXXXX</p>
+            <p class="spe"><span>纳税人识别号：</span>XXXXXXXXXXXXX</p>
+        </div>
+        <div class="item_box">
+            <div class="box1"><span>普通发票（纸质）</span><span>超期未领取</span></div>
+            <p><span>开票时间：</span>2018-09-11</p>
+            <p><span>对应租期：</span>2018-11-29至 2018-12-28；<br/>2018-11-29至 2018-12-28；</p>
+            <p><span>发票抬头：</span><i>企业</i></p>
+            <p><span>企业名称：</span>XXXXXXXXXXXXXXX</p>
+            <p class="spe"><span>纳税人识别号：</span>XXXXXXXXXXXXX</p>
+        </div>
+    </section>
+    <div style="height:0.2rem;"></div>
+</div>
+<!--邮箱填写弹出-->
+<div class="email_fix_outer">
+    <div class="email_box">
+        <p>发送到邮箱</p>
+        <input id="email" type="text" value="" placeholder="请填写邮箱地址"/>
+        <div class="btn_box border_top">
+            <button class="border_right">取 消</button><!--在线下载-->
+            <button>发 送</button>
+        </div>
+    </div>
+</div>
+<!--补上公共底部-->
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var mescroll = new MeScroll("mescroll", {
+        up: {
+            use:false,
+            isBounce:false
+        }
+    });
+    //查看下载
+    $("#invoices_box .btn_box button").eq(0).click(function(){
+
+    })
+    //发送邮箱
+    $("#invoices_box .btn_box button").eq(1).click(function(){
+        $(".email_fix_outer").show();
+        stopScroll($('.email_fix_outer'));
+    })
+
+    //取消
+    $(".email_fix_outer .btn_box button").eq(0).click(function(){
+        $(".email_fix_outer").hide();
+    })
+    //发送
+    $(".email_fix_outer .btn_box button").eq(1).click(function(){
+        if($("#email").val()==""){
+            $.alert("邮箱不能为空！");
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+        if(!DcUtils.isEmail($("#email").val())){
+            $.alert("邮箱格式有误！");
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+        setTimeout(function () {
+            window.location.href="invoice_electronic.html";
+        },200)
+    })
+</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>系统消息</title>
+    <script rel="stylesheet" src="../../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/frame/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/home.css">
+    <script rel="stylesheet" src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/common.js"></script>
+    <style>
+        body{
+            background: #E8E9ED;
+            height: 100%;
+        }
+        .main{
+            padding-bottom: 0.31rem;
+        }
+        .date{
+            background: #E8E9ED;
+            text-align: center;
+            position: absolute;
+            top:-0.36rem;
+            font-family: PingFangSC-Regular;
+            font-size: 0.12rem;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            padding: 0.04rem 0.12rem;
+            background: rgba(0,0,0,.2);
+            border-radius: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .info_list{
+            padding-top: 0.46rem;
+        }
+        .info_list li:first-child{
+            margin-top: 0;
+        }
+        .info_list li{
+            background: #fff;
+            position: relative;
+            width: 100%;
+            padding: 0.18rem;
+            box-sizing: border-box;
+            margin-top: 0.72rem;
+        }
+        .title{
+            font-family: PingFangSC-Medium;
+            font-size: 0.16rem;
+            color: #444444;
+            letter-spacing: 0;
+            line-height: 0.16rem;
+            height: 0.32rem;
+
+        }
+        .content,.content p{
+            font-family: PingFangSC-Regular;
+            font-size: 0.14rem;
+            color: #666666;
+            letter-spacing: 0;
+            text-align: justify;
+        }
+        .content{
+            line-height: 0.24rem;
+        }
+        .content p:last-child{
+            text-indent: 2em;
+        }
+        .state_icon{
+            top:-0.01rem;
+            right:0.18rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <ul class="info_list">
+            <li>
+                <a href="./system_info_detail.html">
+                    <div class="date">11:27</div>
+                    <div class="title border_bottom">
+                        续租确认
+                    </div>
+                    <div class="content">
+                        <p>亲爱的用户：</p>
+                        <p>大家好，2018年农历新年即将到来，在这辞旧迎新，阖家团圆之际，城壹宜居给大家拜个早年。
+                            祝大家狗年吉祥！百业兴旺</p>
+                    </div>
+                    <img class="pa state_icon" src="../../img/systeminfo/not_read.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./system_info_detail.html">
+                    <div class="date">16:27</div>
+                    <div class="title border_bottom">
+                        续租确认
+                    </div>
+                    <div class="content">
+                        <p>亲爱的用户：</p>
+                        <p>大家好，2018年农历新年即将到来，在这辞旧迎新，阖家团圆之际，城壹宜居给大家拜个早年。
+                            祝大家狗年吉祥！百业兴旺</p>
+                    </div>
+                </a>
+                <img class="pa state_icon" src="../../img/systeminfo/has_read.svg" alt="">
+            </li>
+
+            <li>
+                <a href="./system_info_detail.html">
+                <div class="date">5月21日 16:27</div>
+                <div class="title border_bottom">
+                    续租确认
+                </div>
+                <div class="content">
+                    <p>亲爱的用户：</p>
+                    <p>大家好，2018年农历新年即将到来，在这辞旧迎新，阖家团圆之际，城壹宜居给大家拜个早年。
+                        祝大家狗年吉祥！百业兴旺</p>
+                </div>
+                </a>
+                <img class="pa state_icon" src="../../img/systeminfo/has_read.svg" alt="">
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+/*壹窝社区样式表 by Alen since 2018/12/03*/
+body{color:#464646;background: #f1f1f1;}
+header{
+    height:0.24rem;
+    padding:0.1rem 0px;
+    line-height: 0.24rem;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    background: #fff;
+    z-index: 99;
+}
+header h1{
+    font-size: 0.18rem;
+    text-align: center;
+    font-weight: normal;
+    color:#444;
+}
+.toMe{
+    font-size: 0.14rem;
+    position: absolute;
+    line-height: 0.44rem;
+    right:0.14rem;
+    top:0px;
+    color:#464646;
+}
+header button{
+     font-size: 0.14rem !important;
+     position: absolute;
+     line-height: 0.44rem;
+     right:0.14rem;
+     top:0px;
+     color:#03BD13;
+    background: none;
+    outline: none;
+    font-weight:normal !important;
+ }
+header .back {
+    width: 0.16rem;
+    top:0.14rem;
+    left: 0.14rem;
+    position: absolute;
+}
+.toWrite{
+    width: 0.18rem;
+    top:0.13rem;
+    right: 0.14rem;
+    position: absolute;
+}
+.bb1{
+    border-bottom:0.1rem solid #f1f1f1;
+}
+.offerHeight{
+    height:0.54rem;
+    width:100%;
+}
+#kind_nav{
+    position:fixed;
+    top:0.44rem;
+    left:0px;
+    width:100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding:0px 0.04rem 0.1rem 0.04rem;
+    z-index: 99;
+}
+#kind_nav li{
+    float:left;
+    width:21%;
+    margin:0.1rem 2% 0px 2%;
+    font-size: 0.14rem;
+    text-align: center;
+    line-height:0.26rem;
+    border-radius: 0.13rem;
+}
+#kind_nav li.choosed{
+    color: #ffffff;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+}
+/*话题*/
+#huati_list .items{
+    background: #fff;
+    padding:0.12rem 0.16rem;
+    margin-bottom: 0.04rem;
+}
+#huati_list .items a{
+    display: block;
+    overflow: hidden;
+}
+#huati_list .items img{
+    width:1.44rem;
+    height:0.96rem;
+    float:left;
+    margin-right:0.12rem;
+}
+#huati_list .items .info_box{
+    height:0.96rem;
+    display: table-cell;
+    line-height:0.24rem;
+    color: #464646;
+    vertical-align: middle;
+    font-size: 0.16rem;
+    text-align: justify;
+}
+/*我的帖子*/
+.fix_bb1{
+    border-bottom: 0.1rem solid #f1f1f1;
+    width:100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+}
+#my_list{
+    height:calc(100% - 0.54rem);
+}
+#my_list .items{
+    padding:0.1rem 0.14rem;
+    background: #fff;
+    margin-bottom: 0.04rem;
+}
+#my_list .items a{
+    display: block;
+    overflow: hidden;
+    color:#464646;
+    line-height: 0.24rem;
+}
+#my_list .items .box1{
+    font-size: 0.14rem;
+    height:0.24rem;
+    width:84%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.06rem;
+}
+#my_list .items .box2{
+    overflow: hidden;
+}
+#my_list .items .box2 span{
+    color:#838383;
+    font-size: 0.12rem;
+    float:left;
+}
+#my_list .items .box2 span:nth-child(2){
+    float:right;
+    text-align:right;
+}
+.empty_box{
+    width:100%;
+    height:100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding-top:20%;
+    display: none;
+}
+.empty_box img{
+    display: block;
+    width:70%;
+    margin:0 auto;
+}
+.empty_box p{
+    font-size: 0.18rem;
+    text-align: center;
+    line-height: 0.24rem;
+    margin-top: -0.36rem;
+}
+/*list*/
+#yiwo_list{
+    height:calc(100% - 1.14rem);
+    box-sizing: border-box;
+}
+#yiwo_list .items{
+    background: #fff;
+    padding:0.12rem 0.16rem;
+    margin-bottom: 0.04rem;
+}
+#yiwo_list .items a{
+    display: block;
+    overflow: hidden;
+}
+#yiwo_list .items img{
+    width:1.44rem;
+    height:0.96rem;
+    float:left;
+}
+#yiwo_list .items .info_box{
+    width:1.86rem;
+    float:right;
+}
+#yiwo_list .items b{
+    display: block;
+    line-height: 0.22rem;
+    height:0.8rem;
+    overflow: hidden;
+    font-size: 0.14rem;
+    color:#444;
+    text-align: justify;
+    font-weight: normal;
+}
+#yiwo_list .items p{
+    font-size:0.12rem;
+    color: #838383;
+    line-height: 0.16rem;
+    height:0.16rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+/*详情页*/
+#yiwo_detail{
+    padding:0px 0.12rem;
+    background: #fff;
+    padding-bottom: 0.2rem;
+    border-bottom: 0.06rem solid #f1f1f1;
+}
+.user_box{
+    padding:0.1rem 0px;
+    overflow: hidden;
+}
+.user_box img{
+    float:left;
+    width:0.42rem;
+    height:0.42rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.12rem;
+}
+.user_box div{
+    padding-top:0.06rem;
+    line-height:0.18rem;
+}
+.user_box div b{
+    display: block;
+    font-size: 0.14rem;
+    font-weight: normal;
+}
+.user_box div span{
+    font-size: 0.12rem;
+    color:#838383;
+}
+#wenzhang_box p{
+    text-indent: 2em;
+    text-align: justify;
+    line-height: 0.28rem;
+    font-size: 0.14rem;
+}
+#wenzhang_box img{
+    display: block;
+    margin:0.1rem auto;
+    max-width: 100%;
+}
+#pl_box{
+    padding:0px 0.12rem;
+    height:auto;
+    box-sizing: border-box;
+}
+#pl_box .items{
+    border-bottom: 1px solid #f1f1f1;
+}
+#pl_box .items p{
+    padding:0px 0.1rem 0.1rem 0.1rem;
+    text-indent: 2em;
+    text-align: justify;
+    font-size: 0.13rem;
+    line-height: 0.22rem;
+}
+.edit_box{
+    display: block;
+    position: fixed;
+    width:100%;
+    height:0.56rem;
+    box-sizing: border-box;
+    bottom: 0px;
+    left:0px;
+    background: #F2F2F2;
+    padding:0.1rem 0.12rem;
+}
+.edit_box input{
+    float:left;
+    box-sizing: border-box;
+    height:0.36rem;
+    border:0.08rem solid #fff;
+    font-size:0.13rem !important;
+    width:2.58rem;
+    border-radius: 0.06rem;
+}
+.edit_box input::-webkit-input-placeholder{
+    color:#999;
+}
+.edit_box button{
+    float:right;
+    width:0.88rem;
+    height:0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.14rem !important;
+    font-weight: normal !important;
+    color:#fff;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.06rem;
+    text-align: center;
+}
+/*发帖*/
+.publish-article-title {
+    padding:0.1rem 0.15rem;
+    background: #fff;
+}
+.publish-article-title input{display: block;width:100%;}
+.publish-article-title input::-webkit-input-placeholder{color:#ccc;}
+.publish-article-content {
+    padding:0.15rem;
+    background: #fff;
+    border-top: 1px solid #d8d8d8;
+}
+.publish-article-content .article-content {
+    height:2rem;
+    font-size: 0.14rem;
+}
+.publish-article-content .article-content .placeholader{color:#ccc;}
+.publish-article-content .footer-btn {
+    text-align: center;
+    padding-top:0.1rem;
+    border-top: 1px solid #d8d8d8;
+    margin-top: 0.14rem;
+}
+.publish-article-content .footer-btn .upload-img {
+    display: inline-block;
+    vertical-align: bottom;
+    width:0.2rem;
+    height:0.18rem;
+    margin-right:0.1rem;
+    background: url(../img/yiwo/img.png) 0 no-repeat;
+    background-size: 100%;
+    position: relative;
+    top:-0.04rem;
+}

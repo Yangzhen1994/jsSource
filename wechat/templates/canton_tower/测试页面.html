@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>广州塔购票</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script rel="stylesheet" src="../../js/frame/swiper-3.4.2.jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/frame/swiper-3.4.2.min.css">
+    <script src="../../js/common.js"></script>
+    <script src="../../js/frame/LCalendar.js"></script>
+    <link rel="stylesheet" href="../../css/frame/LCalendar.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/canton_tower.css">
+    <style>
+        #card_outer{
+            position: fixed;
+            top:80%;
+            width:100%;
+            left:0px;
+        }
+    </style>
+</head>
+<body>
+<!-- 轮播 -->
+<section id="ct_banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../../img/canton_tower/img1.png"/></div>
+            <div class="swiper-slide"><img src="../../img/canton_tower/img1.png"/></div>
+            <div class="swiper-slide"><img src="../../img/canton_tower/img1.png"/></div>
+            <div class="swiper-slide"><img src="../../img/canton_tower/img1.png"/></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!--详细信息-->
+<section id="ct_detail" class="width350">
+    <div class="tit">460米 摩天轮游乐套票(成人)</div>
+    <div class="advs"><span>塔顶观光</span><span>摩天轮</span><span>悬空走廊</span><span>室内观光</span></div>
+    <div class="pri">¥298.00元</div>
+    <div class="molabel date_label">
+        <span>游玩日期</span>
+        <input id="date" type="text" placeholder="选择日期"/>
+        <img src="../../img/canton_tower/date.png"/>
+    </div>
+    <div class="molabel time_label">
+        <span>观光游览时段</span>
+        <input id="time" type="text" placeholder="选择时段"/>
+        <img src="../../img/canton_tower/date.png"/>
+    </div>
+    <div id="card_outer">
+        <h3>详情</h3>
+    </div>
+</section>
+</body>
+<script>
+    var ct_swiper = new Swiper('#ct_banner .swiper-container', {
+        loop:true,
+        autoplay:8000,
+        pagination: '#ct_banner .swiper-pagination',
+        paginationClickable: true
+    });
+    //日历调用
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#date', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(), //最小日期
+        'maxDate': '2030-12-31'//最大日期
+    });
+
+    var startx, starty;
+    //获得角度
+    function getAngle(angx, angy) {
+        return Math.atan2(angy, angx) * 180 / Math.PI;
+    };
+
+    //根据起点终点返回方向 1向上 2向下 3向左 4向右 0未滑动
+    function getDirection(startx, starty, endx, endy) {
+        var angx = endx - startx;
+        var angy = endy - starty;
+        var result = 0;
+
+        //如果滑动距离太短
+        if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+            return result;
+        }
+
+        var angle = getAngle(angx, angy);
+        if (angle >= -135 && angle <= -45) {
+            result = 1;
+        } else if (angle > 45 && angle < 135) {
+            result = 2;
+        } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+            result = 3;
+        } else if (angle >= -45 && angle <= 45) {
+            result = 4;
+        }
+
+        return result;
+    }
+    //手指接触屏幕
+    document.getElementById("card_outer").addEventListener("touchstart", function(e) {
+        startx = e.touches[0].pageX;
+        starty = e.touches[0].pageY;
+    }, false);
+    //手指离开屏幕
+    document.getElementById("card_outer").addEventListener("touchend", function(e) {
+        var endx, endy;
+        endx = e.changedTouches[0].pageX;
+        endy = e.changedTouches[0].pageY;
+        var direction = getDirection(startx, starty, endx, endy);
+        switch (direction) {
+            case 0:
+                console.log("未滑动！");
+                break;
+            case 1:
+                console.log("向上！");
+                $("#card_outer").animate({top:"0px"},500);
+                break;
+            case 2:
+                console.log("向下！")
+                break;
+            case 3:
+                console.log("向左！")
+                break;
+            case 4:
+                console.log("向右！")
+                break;
+            default:
+        }
+    }, false);
+</script>
+</html>

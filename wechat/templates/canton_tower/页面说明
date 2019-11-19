@@ -1,0 +1,17 @@
+广州塔项目
+
+index.html                主页（门票列表）
+
+order.html                我的订单
+
+introduce.html            广州塔购票-景点介绍
+
+order_detail.html         订单详情
+
+invoice_apply.html        申请发票
+
+invoice_detail.html       发票详情
+
+ticket_buy.html           购票
+
+add_people.html           添加出行人

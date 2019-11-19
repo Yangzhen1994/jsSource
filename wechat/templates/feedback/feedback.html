@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>问题反馈</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/feedback.css">
+</head>
+<body>
+    <div class="header_box border_bottom"><img src="../../img/feedback/Path.png" alt="" class="back">问题反馈<a href="my_problems.html">我的反馈</a></div>
+    <div class="offerHeight"></div>
+    <div class="tishi_box">
+        <img src="../../img/feedback/Group 2.png">
+        <p><strong>提示：</strong>本服务主要提供给广州城投住房租赁公司所辖保障房社区的租户使用，所受理问题仅限于以下类别，非以下类别问题您可以向其他单位咨询或反馈，如您需咨询、反馈保障房政策方面问题，可通过住保办网站或微信公众号反馈。</p>
+    </div>
+    <div class="business_box">
+        <div class="label1">
+            <span>请选择社区：</span>
+            <select name="" id="community">
+                <option value="未选择">请选择</option>
+                <option value="萝岗和苑">萝岗和苑</option>
+                <option value="棠德花苑">棠德花苑</option>
+            </select>
+            <img src="../../img/feedback/Triangle 2.png" alt="">
+        </div>
+        <div class="kinds">
+            <a href="feedback_fill.html" title="物业管理服务"><img src="../../img/feedback/kind1.png"></a>
+            <a href="feedback_fill.html" title="租赁合同业务"><img src="../../img/feedback/kind2.png"></a>
+            <a href="feedback_fill.html" title="租赁租金业务"><img src="../../img/feedback/kind3.png"></a>
+            <a href="feedback_fill.html" title="工程维修"><img src="../../img/feedback/kind4.png"></a>
+            <a href="feedback_fill.html" title="经适房业务"><img src="../../img/feedback/kind5.png"></a>
+            <a href="feedback_fill.html" title="商铺经营管理"><img src="../../img/feedback/kind6.png"></a>
+        </div>
+    </div>
+</body>
+<script>
+    function goback(){
+        window.history.go(-1);
+    }
+    $(".back").click(function(){
+        goback();
+    })
+    //缓存记录社区值
+    var community = $("#community option:selected").val();
+    sessionStorage.setItem("community",community);
+    $("#community").change(function(){
+        community = $("#community option:selected").val();
+        sessionStorage.setItem("community",community);
+    })
+    $(".kinds a").click(function(){
+        var kinds = $(this).attr("title");
+        sessionStorage.setItem("kinds",kinds);
+    })
+</script>
+</html>

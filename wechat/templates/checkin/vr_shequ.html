@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>VR公租房</title>
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        #fix_border{height:0.1rem;background:#f1f1f1;width:100%;position: fixed;top:0px;left:0px;z-index: 10;}
+        #vr_list{padding:0.22rem 0.1rem;padding-bottom: 0.6rem;}
+        #vr_list li:nth-child(2n+1){float:left;}
+        #vr_list li:nth-child(2n+2){float:right;}
+        #vr_list li{position: relative;height:1.23rem;width:1.72rem;margin-bottom: 0.11rem;box-sizing: border-box;
+            padding-top:0.76rem;text-align: center;}
+        #vr_list li img{position: absolute;height:1.23rem;width:1.72rem;top:0px;left:0px;z-index: 7;}
+        #vr_list li span{color:#fff;font-size: 0.16rem;position: relative;z-index: 8;line-height: 0.2rem;}
+    </style>
+</head>
+<body>
+<div id="fix_border"></div>
+<ul id="vr_list">
+    <li id="luogang"><img src="../../img/vr_shequ/colorful/1.png"/><span>萝岗和苑</span></li>
+    <li id="tangyue"><img src="../../img/vr_shequ/colorful/2.png"/><span>棠悦花园</span></li>
+    <li id="tangde"><img src="../../img/vr_shequ/colorful/3.png"/><span>棠德花苑</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/4.png"/><span>泰安花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/5.png"/><span>广氮花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/6.png"/><span>安厦花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/7.png"/><span>大田花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/8.png"/><span>苗和苑</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/9.png"/><span>亨元花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/10.png"/><span>瑞东花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/11.png"/><span>榕悦花园</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/12.png"/><span>佳兆业城市广场</span></li>
+    <li class="gray_box"><img src="../../img/vr_shequ/gray/13.png"/><span>保利瀚林花园</span></li>
+</ul>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    //跳转
+    $("#luogang").click(function(){
+        window.location.href=""
+    })
+    //未开通
+    $(".gray_box").each(function(){
+        $(this).click(function(){
+            $.alert("此小区尚未开通VR看房功能!");
+            stopScroll($('.weui-mask'));
+            return false;
+        })
+    })
+</script>
+</html>

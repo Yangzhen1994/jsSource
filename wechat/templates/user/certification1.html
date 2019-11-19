@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>实名认证</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/certification.css">
+</head>
+<body>
+    <div class="wrapper weui-tab">
+        <div class="weui-navbar hide">
+            <a class="weui-navbar__item  weui-bar__item--on" href="#tab1" id="nav1">
+                1
+            </a>
+            <a class="weui-navbar__item " href="#tab2" id="nav2">
+                2
+            </a>
+            <a class="weui-navbar__item " href="#tab3" id="nav3">
+                3
+            </a>
+        </div>
+
+        <div class="weui-tab__bd">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="progress">
+                    <ul class="clearfix pr">
+                        <div class="text1 font_org">上传证件</div>
+                        <div class="text2 font_org">活体验证</div>
+                        <div class="text3 font_org">完成认证</div>
+                        <div class="step step1 pa">1</div>
+                        <div class="step step2 pa">2</div>
+                        <div class="step step3 pa">3</div>
+                        <div class="bg_line pa"></div>
+                        <div class="progress_line pa"></div>
+                    </ul>
+                </div>
+                <div class="mock_margin"></div>
+                <div style="height: 100px;margin-top: 37px;margin-bottom: -25px;">
+                    <!--<div class="zhuyi_title">图片上传</div>-->
+                    <div class="zhuyi_content">请上传您本人的身份证正、反面照片。为保证您能顺利通过实名认证，请确保身份证居中并尽可能无其他背景边框，无高亮光斑，格式为JPG（JPEG）或BMP或PNG，大小不超过 5 MB。</div>
+                </div>
+                <div id="idCardZ" class="pr border_all">
+                    <div class="img_area">
+
+                    </div>
+                    <div class="tip">人像面</div>
+                    <label for="upInput1">
+                        <img src="../../img/upload_add_icon.png" alt="" id="uploadZ">
+                    </label>
+                    <input type="file" name="files" accept="image/*" style="display: none" id="upInput1"/>
+                </div>
+                <div id="idCardF" class="pr border_all">
+                    <div class="img_area">
+
+                    </div>
+                    <div class="tip">
+                        国徽面
+                    </div>
+                    <label for="upInput2">
+                        <img src="../../img/upload_add_icon.png" alt="" id="uploadF">
+                    </label>
+                    <input type="file" name="files" accept="image/*" style="display: none" id="upInput2"/>
+                </div>
+                <div id="confirm_area" class="hide">
+                    <p>请确认您的身份信息</p>
+                    <p><span style="">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><span id="realname">杨镇</span></p>
+                    <p><span style="">证件号码：</span><span id="IDCardNo">13032132313296316</span></p>
+                </div>
+                <div class="next">
+                    <button id="nextBtn">下一步</button>
+                </div>
+               <!-- <div class="serve_hot_line">客服热线：<span>400-100-3696</span></div>
+                <div class="serve_hot_line_desc">发布过程中如有疑问可以拨打此号码</div>-->
+            </div>
+            <div id="tab2" class="weui-tab__bd-item ">
+                <div class="progress">
+                    <div class="mock_margin2"></div>
+                    <ul class="clearfix pr">
+                        <div class="text1 font_org">上传证件</div>
+                        <div class="text2 font_org">活体验证</div>
+                        <div class="text3 font_org">完成认证</div>
+                        <div class="step step1 pa">1</div>
+                        <div class="step step2 pa light">2</div>
+                        <div class="step step3 pa">3</div>
+                        <div class="bg_line pa"></div>
+                        <div class="progress_line pa"></div>
+                    </ul>
+                </div>
+               <!-- <div class="back">
+                    <img src="../../img/house_list/back.png" alt="">
+                </div>
+                <div class="next2" style="transform: rotate(180deg)">
+                    <img src="../../img/house_list/back.png" alt="">
+                </div>-->
+                <div style="height: 100px;margin-top: 74px;">
+                    <!--<div class="zhuyi_title">视频上传</div>-->
+                    <div class="zhuyi_content">请上传您本人的面部视频，为保证您能顺利通过实名认证，视频要求时长不超过5秒，格式为主流视频格式（MP4或avi或wmv等），视频大小不超过10M。</div>
+                </div>
+                <div class="tip_area">
+                    <!--<p class="font14_4 mb24" style="font-family: PingFangSC-Medium;color:#FF8200!important;font-size: 20px;letter-spacing: 0;text-align: center;line-height: 20px;">请尽量保证以下条件</p>-->
+                    <p class="font14_4 mb24" style="font-family: PingFangSC-Medium;color:#FF8200!important;font-size: 20px;letter-spacing: 0;text-align: center;line-height: 20px;">请在视频录制时尽量确保</p>
+                    <div class="icon_wrap">
+                        <div>
+                            <img src="../../img/user_certification/face.png" alt="">
+                            <p class="icon_warp_p" style="margin-left: 0.4rem">脸部处在屏幕中央</p>
+                        <!--</div>-->
+                        <!--<div>-->
+                            <img src="../../img/user_certification/glass.png" alt="">
+                            <p class="icon_warp_p">摘下眼镜</p>
+
+
+                        </div>
+                        <div>
+                            <img src="../../img/user_certification/light.png" alt="">
+                            <p class="icon_warp_p" style="margin-left: 0.4rem">拍摄场景光线充足</p>
+                        <!--</div>-->
+                        <!--<div>-->
+                            <img src="../../img/user_certification/hat.png" alt="">
+                            <p class="icon_warp_p" >摘下帽子</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="next">
+                <label for="mockVideo" class="btn next" id="uploadBtn" style="margin-top: 0.84rem">
+                    <img src="../../img/user_certification/up_icon.png" alt="" style="width: 0.2rem;position: relative;left: -0.1rem;vertical-align: text-bottom"><a
+                        href="javascript:;" style="color: #fff">点我录制视频</a>
+                </label>
+                </div>
+                <input type="file"  style="display: none" id="mockVideo"  capture="camera" onblur="alert(2)">
+
+
+
+            </div>
+            <div id="tab3" class="weui-tab__bd-item">
+                <div class="progress">
+                    <ul class="clearfix pr">
+                        <div class="text1 font_org">上传证件</div>
+                        <div class="text2 font_org">活体验证</div>
+                        <div class="text3 font_org">完成认证</div>
+                        <div class="step step1 pa">1</div>
+                        <div class="step step2 pa light">2</div>
+                        <div class="step step3 pa light">3</div>
+                        <div class="bg_line pa"></div>
+                        <div class="progress_line pa" style="width: 100%"></div>
+                    </ul>
+                    <div class="ok_img_wrap">
+                        <img src="../../img/tags/01.png" alt="">
+                    </div>
+                    <div class="ok_text">
+                        <p>认证成功</p>
+                        <p>系统已成功审核您的实名认证</p>
+                    </div>
+                    <div class="confirm">
+                        <button id="confirmBrn">确定</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+    <script>
+        var formData = new FormData();
+        var fileReaderArr = [];
+        $('#tab1 input[type=file]').on('change', function () {
+            handleInputChange(this)
+        });
+        $('#nextBtn').on('click', function () {
+            var f1 = $('#upInput1')[0].files[0];
+            var f2 = $('#upInput2')[0].files[0];
+            //console.log(f1,f2)
+            if (!f1 || !f2) {
+               $.alert('请选择2张图片！');
+                stopScroll($('.weui-mask'))
+                return false
+            } else if (f1.size === f2.size) {
+                $.alert('图片重复');
+                stopScroll($('.weui-mask'))
+                return false
+            } else {
+                transformFileToFormData(f1);
+                transformFileToFormData(f2);
+                uploadImg(formData);
+                //上传成功的
+               // readerImg(f1, '#upInput1', 1);
+              //  readerImg(f2, '#upInput2', 2);
+            }
+        });
+
+        //tab2
+        $('#nav2').on('click',function () {
+
+               if(isAndroid() && isWx()){
+                   $('#uploadBtn').find('a').text('点击上传您录制好的视频')
+                    $.alert('视频长度不能超过5s，否则可能会认证失败',function () {
+                        $('#mockVideo').attr('accept','video/*')//加这个属性调摄像头拍照
+                        $('#mockVideo').trigger('click');
+
+                    })
+               }else{
+                   $.alert('视频长度不能超过5s，否则可能会认证失败',function () {
+                       $('#mockVideo').attr('accept','video/*')//加这个属性调摄像头拍照
+
+                   })
+               }
+                $('#uploadBtn').on('click',function () {
+                    if(isAndroid() && isWx()){$('#mockVideo').attr('accept','')}//微信端安卓删除这个上传之前录好的文件 不删则无法获取file
+                    $('.btn').trigger('click');
+                })
+               $('#mockVideo').on('change', function () {
+                   var f1 = $('#mockVideo')[0].files[0];
+                   //alert(f1)
+                   if (!f1) {
+                       $.alert('请按提示录制视频！');
+                       return;
+                   }
+                   if(f1.type.indexOf('video')<0){
+                       $.alert('请上传视频格式的文件！');
+                       return;
+                   }
+
+
+                   var loadIndex;
+                   //上传视频操作 complete后 请清楚input的val $('#mockVideo').val('')解决再点击不处罚的问题
+
+               });
+
+
+        })
+        $('.back').on('click',function () {
+            $('#nav1').trigger('click')
+        })
+        $('.next2').on('click',function () {
+            $('#nav3').trigger('click')
+        })
+        function handleInputChange(obj) {
+            var file = event.target.files[0];
+            readerImg(file, obj)
+        }
+
+        // 将File append进 FormData
+        function readerImg(file, obj,index) {
+            //预览
+            var reader = new FileReader();
+            reader.onload = (function (file) {
+                return function (e) {
+                    var src = e.target.result;
+                    $(obj).siblings('.img_area').html('')
+                    //console.log(src)
+                    console.log(obj)
+                    var img = new Image()
+                    img.setAttribute('src',src)
+                    $(obj).siblings('.img_area').append(img);
+                    $(obj).siblings('.img_area').append(img);
+                    $(obj).parent().addClass('choosed')
+                    $(obj).siblings('label').find('img').css('opacity',0)
+                    //$(obj).siblings('.img_area').css('background', 'url(' + src + ') no-repeat');
+                    //$(obj).siblings('.img-area').css('background-size', '100% 100%');
+                   /* if (index && index === 1) {
+                        fileReaderArr.push(src)
+                    }
+                    if (index && index === 2) {
+                        fileReaderArr.push(src)
+                    }*/
+                   /* if (fileReaderArr.length === 2) {
+                        uploadImg(formData);
+                    }*/
+                };
+            })(file);
+
+            reader.readAsDataURL(file);
+        }
+
+        function transformFileToFormData(file) {
+            // 自定义formData中的内容
+            // type
+            formData.append('type', file.type);
+            // size
+            formData.append('size', file.size || "image/jpeg");
+            // name
+            formData.append('name', file.name);
+            // lastModifiedDate
+            formData.append('lastModifiedDate', file.lastModifiedDate);
+            // append 文件
+            formData.append('files', file);
+        }
+
+        function uploadImg(formData) {
+            var loadIndex;
+            $.ajax({
+                type: "POST",//通常会用到两种：GET,POST。默认是：GET
+                url: '${request.contextPath}/livable/user/realname/confirm',//(默认: 当前页地址) 发送请求的地址
+                beforeSend: function () {
+                    $.showLoading("加载中...");
+                    stopScroll($('.weui-toast'))
+                    stopScroll($('.weui-mask_transparent'))
+                },
+                data: formData,
+                contentType: false, // 注意这里应设为false
+                processData: false,   //  告诉jquery不要处理发送的数据
+                success: function (result) {
+                    if (result.code === 200) {
+                        $('#realname').text(result.data.name);
+                        $('#IDCardNo').text(result.data.number);
+                        $('#confirm_area').show();
+
+                        $('#nextBtn').off('click').on('click', function () {
+
+                            $('#nav2').trigger('click')
+                        });
+                    } else {
+                        $.alert(result.message);
+                    }
+                }, //请求成功
+                error: function (error) {
+                    //模拟ajax时间1000ms成功
+                    $('#confirm_area').show();
+                    setTimeout(function () {
+                        $.hideLoading();
+                        //$('#nav2').trigger('click')
+                        $('#nextBtn').off('click').on('click', function () {
+
+                            $('#nav2').trigger('click')
+                        });
+                    },1000)
+
+                    console.log(error)
+                },//请求出错
+                complete: function () {
+                    formData.delete('type')
+                    formData.delete('size')
+                    formData.delete('name')
+                    formData.delete('file')
+                    formData.delete('lastModifiedDate')
+                }//请求完成
+            });
+        }
+        $('#confirmBrn').click(function(){
+
+
+            window.location.href="../rent_personal.html"
+        })
+
+    </script>
+</body>
+
+</html>

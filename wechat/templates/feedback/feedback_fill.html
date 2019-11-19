@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>填写问题反馈</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/feedback.css">
+</head>
+<body style="background:#F5F5F5;">
+    <div class="header_box border_bottom"><img src="../../img/feedback/Path.png" alt="" class="back">问题反馈<a href="my_problems.html">我的反馈</a></div>
+    <div class="offerHeight"></div>
+    <div class="problem_box">
+        <textarea id="problem" rows="4" maxlength="2000" placeholder="请详细描述问题，限2000字哦~"></textarea>
+        <!--图片上传区域-->
+        <div class="upload_op_area">
+            <div class="weui-gallery" id="gallery">
+                <span class="weui-gallery__img" id="galleryImg"></span>
+                <div class="weui-gallery__opr">
+                    <a href="javascript:" class="weui-gallery__del">
+                        <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <div class="weui-uploader">
+                            <div class="weui-uploader__bd">
+                                <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                                <div class="weui-uploader__input-box">
+                                    <span>添加图片</span>
+                                    <input id="uploaderInput" class="weui-uploader__input zjxfjs_file" type="file" accept="image/*" multiple="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--图片上传区域-->
+    </div>
+    <div class="add_box1">
+        <span></span>
+        <span></span>
+    </div>
+    <div class="add_box2">
+        <p><em>姓名</em><span id="name">张先生</span></p>
+        <p><em>电话</em><span id="tel">15876525067</span></p>
+    </div>
+    <button id="sumbit_btn">提   交</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    function goback(){
+        window.history.go(-1);
+    }
+    $(".back").click(function(){
+        goback();
+    })
+    $(".add_box1 span").eq(0).html(sessionStorage.getItem("community"));
+    $(".add_box1 span").eq(1).html(sessionStorage.getItem("kinds"));
+    $("#tel").html(($("#tel").html().replace(/^(\d{3})\d{4}(\d+)/,"$1****$2")));
+    //上传图片mock
+    $('.uplaod_tab div').click(function () {
+        $(this).addClass('selected')
+        $(this).siblings().removeClass('selected')
+    });
+    var tmpl = '<li class="weui-uploader__file pr" style="background-image:url(#url#)"></li>',
+        $gallery = $("#gallery"),
+        $galleryImg = $("#galleryImg"),
+        $uploaderInput = $("#uploaderInput"),
+        $uploaderFiles = $("#uploaderFiles"),
+        imgWrapList = [],
+        count=0,
+        formData = new FormData();
+    $uploaderInput.on("change", function(e) {
+        var src, url = window.URL || window.webkitURL || window.mozURL,
+            files = e.target.files;
+        if(count>=3 || files.length>3){
+            $.alert('最多上传3张图片');
+            stopScroll($('.weui-mask'))
+            return false;
+        }
+        var isOver = false
+        for(var i = 0, len = files.length; i < len; ++i) {
+            var file = files[i];
+
+            imgWrapList.forEach(function (item,index) {
+                if(file.size == item.size && file.name == item.name){
+                    isOver = true
+                    $.alert('图片重复',function () {
+                        isOver = false
+                        $("#uploaderInput").val('')
+                    });
+                    stopScroll($('.weui-mask'))
+                    return false;
+                }
+            })
+            if(isOver){
+                return
+            }
+            imgWrapList.push(file)
+            console.log(imgWrapList)
+            if (file.size > 5* 1024 * 1024) {
+                $.alert('请上传不超过5M的图片');
+                stopScroll($('.weui-mask'))
+                return false;
+            }
+            transformFileToFormData(file)
+
+            if(url) {
+                src = url.createObjectURL(file);
+            } else {
+                src = e.target.result;
+            }
+            count++
+            console.log(count)
+            var tmpl1 = tmpl;
+            console.log(tmpl1)
+            $uploaderFiles.append($(tmpl1.replace('#url#', src)));
+            $.ajax(
+                {
+                    type: "POST",//通常会用到两种：GET,POST。默认是：GET
+                    url:'90',//(默认: 当前页地址) 发送请求的地址
+                    data: formData,
+                    contentType: false, // 注意这里应设为false
+                    processData: false,   //  告诉jquery不要处理发送的数据
+                    success: function(res){
+                    }, //请求成功
+                    error:function(){
+                    },//请求出错
+                    // 这里的逻辑应放在success中为了测试卸载了complete
+                    // '1231.png'+count 英替换为回掉的res.name 之类的
+                    //
+                    complete: function (res) {
+                        $("#uploaderInput").val('');
+                    }//请求完成
+                });
+        }
+
+    });
+    var index; //第几张图片
+    $uploaderFiles.on("click", "li", function() {
+        index = $(this).index();
+        $galleryImg.attr("style", this.getAttribute("style"));
+        $gallery.fadeIn(100);
+    });
+    $gallery.on("click", function() {
+        $gallery.fadeOut(100);
+    });
+    //删除图片（是否需要？
+    //）
+    $(".weui-gallery__del").click(function() {
+        $uploaderFiles.find("li").eq(index).remove();
+        console.log(imgWrapList)
+        imgWrapList.splice(index,1);
+        console.log(imgWrapList)
+        count--;
+        //对应删除库里的图片？
+    });
+    function transformFileToFormData(file) {
+        // 自定义formData中的内容
+        // type
+        formData.append('type', file.type);
+        // size
+        formData.append('size', file.size || "image/jpeg");
+        // name
+        formData.append('name', file.name);
+        // lastModifiedDate
+        formData.append('lastModifiedDate', file.lastModifiedDate);
+        // append 文件
+        formData.append('files', file);
+
+    }
+    /*提交*/
+    $('#sumbit_btn').click(function (){
+        if($("#problem").val()==""){
+            $.alert('请输入你要反馈的问题！');
+            stopScroll($('.weui-mask'));
+            return false;
+        }
+        $.alert('反馈成功！');
+    })
+</script>
+</html>

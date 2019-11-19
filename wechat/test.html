@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script rel="stylesheet" src="js/frame/jquery-1.8.2.min.js"></script>
+</head>
+<body style="padding: 40px">
+<div style="margin: 0 40px;height: 500px;background: red;">
+    <div id="child" style="height: 80px;background: #ccc">
+        test1
+    </div>
+    <div id="child222" style="width: 100%;margin-top:20px;height: 80px;background: #ccc;margin-left: -80px">
+        test1
+    </div>
+</div>
+<!--
+<div style='padding:0 30px;width: 20px;height: 20px;background: red'><div id='child'></div></div>
+
+<input type="radio"  name="radio2">这是radioA
+<input type="radio"  name="radio2">这是radioB
+
+<label for="mockVideo" class="btn" style="display: ">
+    <a href="javascript:;"><img src="${request.contextPath}/static/wechat/img/authentication/video_icon.png" alt="" style="vertical-align:inherit"><span>点击录制视频</span></a>
+</label>
+<button id="btn" type="button" class="mui-btn mui-btn-blue mui-btn-block">按钮</button>
+<input type="file"  style="display: none" id="mockVideo"  capture="camera" onblur="alert(2)">-->
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $('#child222').width(document.documentElement.clientWidth)
+    if(isAndroid() && isWx()){
+        $('.btn').find('a').eq(0).find('span').eq(0).text('点击上传您录制好的视频')
+
+
+    }else{
+        $('#mockVideo').attr('accept','video/*')//加这个属性调摄像头拍照
+    }
+    $('.btn').trigger('click');
+
+    $('.btn').on('click', function () {
+        alert(1)
+        if(isAndroid() && isWx()){
+
+                $('#mockVideo').attr('accept','video/*')//加这个属性调摄像头拍照
+               // $('#mockVideo').trigger('click');
+
+
+        }else{
+            $('#mockVideo').attr('accept','video/*')//加这个属性调摄像头拍照
+        }//微信端安卓删除这个上传之前录好的文件 不删则无法获取file
+       // $('#mockVideo').trigger('click');
+    });
+
+
+
+    $('.btn').trigger('click')
+    $('#mockVideo').on('change', function () {
+        var f1 = $('#mockVideo')[0].files[0];
+        alert(f1)
+        if (!f1) {
+            layer.msg('请按提示录制视频！');
+            return;
+        }
+        if(f1.type.indexOf('video')<0){
+            layer.msg('请上传录制好视频格式的文件！');
+            return;
+        }
+
+
+        var loadIndex;
+
+    });
+
+    function transformFileToFormData(file) {
+        // 自定义formData中的内容
+        var formData = new FormData();
+        // type
+        formData.append('type', file.type);
+        // size
+        formData.append('size', file.size || "image/jpeg");
+        // name
+        formData.append('name', file.name);
+        // lastModifiedDate
+        formData.append('lastModifiedDate', file.lastModifiedDate);
+        // append 文件
+        formData.append('file', file);
+        return formData;
+    }
+    //判断是否微信登陆
+    function isWx() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //是否是安卓
+    function isAndroid() {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+        return isAndroid
+    }
+
+
+
+
+      /*  document.querySelector('#btn').addEventListener('click',function () {
+            // 调用原生android摄像头
+            var VIDEOZOOM = 200;
+            var MediaStore = plus.android.importClass("android.provider.MediaStore");
+            var Intent = plus.android.importClass("android.content.Intent");
+            // 导入后可以使用new方法创建类的示例对象
+            var intent = new Intent("android.media.action.VIDEO_CAPTURE");
+            intent.putExtra("android.intent.extra.videoQuality", 1);//0 means low quality, 1 means high quality
+            //intent.putExtra("android.provider.MediaStore.EXTRA_OUTPUT", url);
+            intent.putExtra("android.intent.extra.durationLimit", 3);//设置录像时间
+
+            var main = plus.android.runtimeMainActivity();
+            main.startActivityForResult(intent,VIDEOZOOM);
+            //获取返回参数
+            main.onActivityResult = function(requestCode, resultCode, data) {
+                var context = main;
+                plus.android.importClass(data);
+                var uri = data.getData();
+                var resolver = context.getContentResolver();
+                plus.android.importClass(resolver);
+                var cursor = resolver.query(uri, null, null, null, null);
+                plus.android.importClass(cursor);
+                cursor.moveToFirst();
+                var column = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+                // 获取录制的视频路径
+                var filePath = cursor.getString(column);
+
+                // 解析视频文件的属性
+                plus.io.resolveLocalFileSystemURL(filePath,function(entry) {
+                    entry.file(function(file){
+                        console.log("size=="+file.size);
+                        console.log("name=="+file.name);
+                    });
+                }, function (e) {
+                    console.log("Resolve file URL failed: " + e.message);
+                });
+            };
+        })*/
+      var str = '/portal/service/list';
+      var arr = str.split('/')
+      arr.splice(1,1)
+        var result = arr.join('/')
+        console.log(result)
+    /**字符串替换function**/
+    var str = '130324199410296316';
+    var res = plusXing(str,4,0)// str 前面保留位数 后面保留位数
+    alert(res)
+    function plusXing (str,frontLen,endLen) {
+       var len = str.length-frontLen-endLen;
+       var xing = '';
+       for (var i=0;i<len;i++) {
+             xing+='*';
+             }
+        return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
+         }
+</script>
+
+</html>

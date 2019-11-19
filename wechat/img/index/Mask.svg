@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="37px" viewBox="0 0 375 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页_首屏" transform="translate(0.000000, -189.000000)" fill="#FFFFFF">
+            <g id="01_banner">
+                <path d="M0,226 L375,226 L375,189 C334.88148,209.308406 275.88148,219.308406 198,219 C119.810901,219.308406 53.8109006,209.308406 0,189 L0,226 Z" id="Mask"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,71 @@
+body{
+   background:#eaeaeb
+}
+.border_bottom:before{
+    border: 0;
+}
+::-webkit-scrollbar {
+    /*display: none;*/
+    opacity: 0;
+}
+.appoint_room{
+    width:100%;
+    height: 100%;
+    /*box-sizing: border-box;*/
+}
+.appoint_date_list{
+    width:100%;
+    height:0.48rem;
+    background: #fff;
+    /*padding:10px 0;*/
+    display: -webkit-box;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+    -webkit-box-sizing: border-box;
+    /*box-sizing: border-box;*/
+    /*height: -webkit-calc(100% + 5px);*/
+    overflow-x: auto;
+    overflow-y: hidden;
+    line-height: 0.48rem;
+    padding-top:0.11rem;
+}
+.appoint_date_list .item{
+    width: 1.11rem;
+    height: 0.26rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 0.26rem;
+    text-align: center;
+}
+.appoint_date_list .active{
+    color: #ffffff;
+    border-radius: 1rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+}
+.house_list li{
+    margin:0.1rem 0;
+}
+.house_list .house_info{
+
+    padding-right: 0.12rem;
+    height: 100%;
+}
+.weui-swiped-btn_warn{
+    background-image: linear-gradient(90deg, #FF7E7D 5%, #FC5455 95%);
+    font-family: PingFangSC-Medium;
+    font-size: 0.16rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 0.96rem;
+    width:1.28rem;
+}
+.cancel_appoint_warn{
+    font-family: PingFangSC-Medium;
+    font-size:0.1rem;
+    color: rgba(255,255,255,0.60);
+    letter-spacing: 0;
+    /*line-height: 12px;*/
+}

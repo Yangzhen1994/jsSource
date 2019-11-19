@@ -1,0 +1,48 @@
+#installForm{
+    padding-bottom: 0.68rem;
+}
+.mock_margin{
+    width: 100%;
+    height: 0.1rem;
+    background: #e8e9ed;
+}
+.select_wrap,.input_wrap {
+    width: 1.57rem;
+    height:0.4rem;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    box-sizing: border-box;
+    padding-right: 0;
+    color: #444;
+    background: #fff;
+
+
+}
+.select_wrap img {
+    position: absolute;
+    width: 0.10rem;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0.04rem;
+    height: 0.06rem;
+}
+.input_wrap img{
+    position: absolute;
+    width: 0.16rem;
+    height: 0.16rem;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0.04rem;
+}
+input,select,textarea{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    padding-left: 5px;
+    background: #fff;
+}
+textarea{
+    padding: 5px;
+}

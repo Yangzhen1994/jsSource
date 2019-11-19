@@ -1,0 +1,245 @@
+
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+    color:rgba(0,0,0,.1);
+}
+input::-moz-placeholder,textarea::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:rgba(0,0,0,.1);
+}
+input:-moz-placeholder,textarea::-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:rgba(0,0,0,.1);
+}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+    color:rgba(0,0,0,.1);
+}
+input{
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+.wrapper{
+
+    background: #fff;
+   /* height: 100%;*/
+    overflow-x: hidden;
+}
+.check_in_form{
+    padding: 0 0.18rem;
+    box-sizing: border-box;
+}
+#checkInForm>div>p{
+    font-size: 0.18rem;
+    color: #444;
+    margin-top: 0.32rem;
+}
+#checkInForm>div label{
+    opacity: 0.4;
+    font-family: PingFangSC-Regular;
+    font-size: 0.14rem;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 0.14rem;
+    display: block;
+    margin-top: 0.24rem;
+    margin-bottom: 0.12rem;
+    line-height: 0.14rem    ;
+}
+#checkInForm>div label span{
+    margin-right: 0;
+    display: inline-block;
+
+    color: rgba(252,84,85,1);
+    position: relative;
+
+    top:0.01rem;
+}
+#rentingInfoList{
+    padding: 0 0.18rem;
+    box-sizing: border-box;
+    padding-top: 0.2rem;
+}
+
+
+.input_area{
+    padding-left: 0.18rem;
+    padding-right: 0.11rem;
+}
+
+.check_in_form .select_wrap,.input_wrap {
+    width: 1.6rem;
+    height:0.4rem;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    -webkit-border-radius: 0.02rem;
+    box-sizing: border-box;
+    padding-right: 0;
+    color: #444;
+    background: #fff;
+
+}
+
+.w103{
+    width: 0.99rem !important;
+    margin-left: 0.06rem;
+}
+.w144{
+    width: 1.44rem !important;
+}
+.check_in_form .select_wrap.w144{
+    width: 1.44rem;
+    margin-left: 0.06rem;
+}
+.check_in_form .w_100{width:100%}
+.check_in_form select{background: #fff;width: 100%;height: 100%;padding: 5px;}
+.check_in_form .select_wrap img{position: absolute;width: 0.10rem;    transform: translateY(-50%);
+    top:50%;right: 0.04rem;height: 0.06rem}
+.check_in_form span {
+    color: #ff4320;
+    margin-right: 10px;
+}
+
+.check_in_form .input_wrap input{
+    background: #fff;
+    width: 100%;
+    height: 100%;
+
+}
+.check_in_form .input_wrap img{
+    width: 0.16rem;
+    height: 0.16rem;
+    position: absolute;
+    right: 8px;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.check_in_form .rent_title_input {
+    border: 1px solid #e4e4e4;
+    height: 36px;
+    width: 412px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.check_in_form .rent_other_input {
+    border: 1px solid #e4e4e4;
+    height: 36px;
+    width: 257px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.check_in_form .rent_textarea {
+    width: 542px;
+    height: 132px;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    color: #7e7c81;
+    box-sizing: border-box;
+    padding: 5px;
+    outline: none;
+}
+
+.rent_card .tab li :first-child {
+    border-bottom: unset;
+}
+
+.rent_card .tab li {
+    width:210px;
+    margin-right: 4px;
+}
+
+#request{
+    padding: 0.1rem;
+    width: 100%;
+    height: 0.8rem;
+    font-size: 0.12rem;
+    box-sizing: border-box;
+    resize: none;
+}
+.tips{
+    width: 100%;
+    text-align: center;
+    font-size: 0.14rem;
+    font-family: PingFangSC-Regular;
+    margin-top: 0.17rem;
+
+    color: #444;
+}
+.tips img{
+    position: relative;
+    vertical-align: middle;
+    position: relative;
+    top:-1px;
+    left: -6px;
+}
+.serve_hot_line,.serve_hot_line_desc{
+    width: 100%;
+    font-size: 0.12rem;
+    text-align: center;
+}
+.serve_hot_line{
+    margin-top: 0.34rem;
+    margin-bottom:0.1rem;
+    color: rgba(0,0,0,.1);
+}
+.serve_hot_line_desc{
+    color: #D8D8D8;
+    margin-bottom: 0.32rem;
+}
+#tab2{
+    padding-bottom: 0.68rem;
+}
+
+#inRoom{
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+.ruzhuren_area{
+    width: 100%;
+    box-sizing: border-box;
+    height: 0.68rem;
+    line-height: 0.68rem;
+    color: #ff8200;
+    text-align: center;
+    font-size: 0.18rem;
+}
+.unit{
+    position: absolute;
+    right:0.08rem;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 0.14rem;
+    color: rgba(0,0,0,.4) !important;
+}
+.border_bottom:before{
+    width: 200%;
+    left: -50px;
+}
+.del{
+    right: 0;
+    top:0rem;
+    font-size: 0.14rem;
+    color: #ff8200;
+}
+.check_in_form li{
+    margin-top: 0.24rem;
+}
+
+.choose_jinji li img{
+width: 0.22rem;
+    height: 0.22rem;
+    vertical-align: middle;
+    position: relative;
+    margin-right: 0.05rem;
+}
+.choose_jinji li{
+    width: 33%;
+    white-space: nowrap;
+    float: left;
+}
+.choose_jinji li span{
+    font-size: 0.14rem;
+    color: #444;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta content="text/html;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>续租</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <script src="../../js/frame/jquery-1.8.2.min.js"></script>
+    <script src="../../js/DcUtils.js"></script>
+    <script src="../../js/HttpUtils.js"></script>
+    <script src="../../js/common.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/continue_relieve.css">
+
+</head>
+<body>
+    <div class="header_box"><img src="../../img/house_list/back.png" alt="" class="back">续租</div>
+    <div class="form1">
+        <div class="label1">续租起始日期：<span>2019-03-03</span></div>
+        <div class="label2 border_bottom">
+            <select name="" id="select1">
+                <option value="0">请选择续租期</option>
+                <option value="1">暂无数据</option>
+                <option value="2">暂无数据</option>
+            </select>
+            <img src="../../img/house_list/arrow-bottom.png" alt="">
+        </div>
+        <div class="label3">
+            <select name="" id="select2">
+                <option value="0">请付款方式</option>
+                <option value="1">押一付一</option>
+                <option value="2">暂无数据</option>
+            </select>
+            <img src="../../img/house_list/arrow-bottom.png" alt="">
+        </div>
+        <div class="label4">
+            <span>续租租金：</span><input id="zujin" type="text" value="2100"/><i>元/月</i>
+        </div>
+        <span class="font14_4" style="display: inline-block;margin-top: 0.16rem"><img style="position: relative; top: 3px;margin-right: 2px;width: 0.16rem;height: 0.16rem" src="../../img/login/check_box_choosed.png" alt="">我同意<a href="renewa_agreement1.html" class="font14_4" style="text-decoration: underline;">《在线签约服务协议》</a></span>
+        <div class="next"><button id="nextBtn">下一步</button></div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $('#nextBtn').click(function () {
+        if($("#select1 option:selected").val() == 0){
+            $.alert('请选择续租期');
+            return
+        }
+        if($("#select2 option:selected").val() == 0){
+            $.alert('请选择合同付款方式');
+            return
+        }
+        if($("#zujin").val() == ""){
+            $.alert('请输入合同租金')
+            return
+        }
+        window.location.href="renewa_agreement2.html"
+    })
+    function goback(){
+        window.history.go(-1);
+    }
+    $(".back").click(function(){
+        goback();
+    })
+</script>
+</html>

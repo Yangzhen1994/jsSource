@@ -1,0 +1,169 @@
+body{background: #f1f1f1;}
+.header_box{
+    height:0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    position: fixed;
+    font-size:0.2rem;
+    color: #030303;
+    letter-spacing: -0.48px;
+    background: #FFFFFF;
+    width:100%;
+    z-index: 10;
+}
+.header_box .back{
+    width: 0.12rem;
+    top:50%;
+    left: 0.14rem;
+    position: absolute;
+    transform: translateY(-50%);
+}
+.header_box .fill_btn{
+    width: 0.2rem;
+    top:50%;
+    right: 0.19rem;
+    position: absolute;
+    transform: translateY(-50%);
+}
+.jiaoge1_box{
+    background: #fff;
+    padding:0px 0.08rem;
+    font-size: 0.14rem;
+    color:#444;
+    padding-bottom: 0.2rem;
+}
+.jiaoge1_box .box1{
+    line-height: 0.36rem;
+    overflow: hidden;
+    border-bottom: 1px solid #EBEBEB;
+    padding:0.1rem 0.06rem;
+}
+.jiaoge1_box .box1 span:nth-child(1){
+    float:left;
+}
+.jiaoge1_box .box1 span:nth-child(2){
+    color:#ff8200;
+    float: right;
+}
+.jiaoge1_box .box1 p{
+    clear:both;
+    line-height: 0.22rem;
+    color: #757575;
+    text-align: justify;
+}
+.jiaoge1_box table{
+    border-top:1px solid #EBEBEB;
+    border-left:1px solid #EBEBEB;
+    width:100%;
+    margin-top: 0.1rem;
+    border-collapse:collapse;
+    border-spacing:0;
+    text-align: center;
+}
+.jiaoge1_box table th{
+    padding:0.15rem 0px;
+    line-height: 0.2rem;
+    border-bottom:1px solid #EBEBEB;
+    border-right:1px solid #EBEBEB;
+    font-size:0.13rem;
+    color: #666666;
+    background: #f1f1f1;
+    width:33.333333%;
+}
+.jiaoge1_box table td{
+    padding:0.1rem 0px;
+    line-height: 0.2rem;
+    border-bottom:1px solid #EBEBEB;
+    border-right:1px solid #EBEBEB;
+    font-size: 0.12rem;
+}
+/*填写*/
+.jiaoge2_box{
+    background: #fff;
+    padding:0px 0.08rem;
+    font-size: 0.14rem;
+    color:#444;
+    padding-bottom: 0.2rem;
+}
+.molabel{
+    line-height: 0.2rem;
+    overflow: hidden;
+    border-bottom: 1px solid #EBEBEB;
+    padding:0.18rem 0.06rem;
+}
+.molabel span{
+    float:left;
+}
+.molabel input{
+    float:right;
+    width:2rem;
+    height:0.2rem;
+    text-align: right;
+}
+.molabel input::-webkit-input-placeholder{
+    color:#ccc;
+}
+.jiaoge2_box .box1{
+    height:0.4rem;
+}
+.jiaoge2_box .box1 span{
+    line-height: 0.4rem;
+    float:right;
+    font-size:0.12rem;
+    color: #FF8504;
+    padding-right:0.1rem;
+}
+.jiaoge2_box table{
+    border-top:1px solid #EBEBEB;
+    border-left:1px solid #EBEBEB;
+    width:100%;
+    margin-top: 0.1rem;
+    border-collapse:collapse;
+    border-spacing:0;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+.jiaoge2_box table th{
+    padding:0.15rem 0px;
+    line-height: 0.2rem;
+    border-bottom:1px solid #EBEBEB;
+    border-right:1px solid #EBEBEB;
+    font-size:0.13rem;
+    color: #666666;
+    background: #f1f1f1;
+    width:25%;
+}
+.jiaoge2_box table td{
+    padding:0.05rem 0.04rem;
+    line-height: 0.3rem;
+    border-bottom:1px solid #EBEBEB;
+    border-right:1px solid #EBEBEB;
+    font-size: 0.12rem;
+    vertical-align: middle;
+}
+.jiaoge2_box table td input{
+    width:100%;
+    text-align: center;
+    height:0.3rem;
+    box-sizing: border-box;
+}
+.jiaoge2_box table td input.edit{
+    border:1px solid #EBEBEB;
+}
+.jiaoge2_box table td img{
+    width:0.2rem;
+    height:0.2rem;
+    margin:0px 0.04rem;
+    position: relative;
+    top:0.05rem;
+}
+.jiaoge2_box button{
+    display: block;
+    margin:0 auto;
+    line-height: 0.4rem;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    width: 80%;
+    color: #fff;
+    font-weight: normal !important;
+}

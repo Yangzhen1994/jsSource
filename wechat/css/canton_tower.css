@@ -1,0 +1,753 @@
+/*广州塔项目样式表 by Alen 2018-10-26*/
+body{
+    color:#444;
+    font-size: 0.14rem;
+}
+.grayBody{
+    background: #f1f1f1;
+}
+.width350{
+    width:3.5rem;
+    margin:0 auto;
+}
+input::placeholder{
+    color:#bfbfbf;
+}
+header{
+    height:0.44rem;
+    background: #fff;
+}
+.header_box{
+    position: fixed;
+    height:0.44rem;
+    line-height: 0.44rem;
+    text-align: center;
+    font-size: 0.18rem;
+    width:100%;
+    background: #fff;
+    z-index: 10;
+}
+.header_box .back{
+    position: absolute;
+    width:0.16rem;
+    top:0.14rem;
+    left:0.14rem;
+}
+.header_box .to_order{
+    position: absolute;
+    width:0.17rem;
+    top:0.11rem;
+    right:0.14rem;
+}
+#list_hd_outer{
+    height:0.48rem;
+    background: #fff;
+}
+#list_hd_outer .tags{
+    position: fixed;
+    height:0.48rem;
+    box-sizing: border-box;
+    padding:0.11rem 0.5rem;
+    line-height: 0.24rem;
+    border-top:1px solid #f1f1f1;
+    border-bottom:1px solid #f1f1f1;
+    background: #fff;
+    width:100%;
+    top:0.44rem;
+    left:0rem;
+    z-index: 10;
+}
+#list_hd_outer .tags span{
+    width:1.2rem;
+    float:left;
+    text-align: center;
+    font-size: 0.14rem;
+    border-radius: 0.12rem;
+}
+#list_hd_outer .tags span:nth-child(2){
+    float:right;
+}
+#list_hd_outer .tags .selectd{
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    color:#fff;
+}
+#list_box.mescroll{
+    height:calc(100% - 0.92rem);
+}
+#list_box .items{
+    padding:0.16rem 0.12rem;
+    border-bottom: 1px solid #f1f1f1;
+    background: #fff;
+}
+#list_box .items a{display: block;overflow: hidden;}
+#list_box .items img{
+    float:left;
+    width:1.2rem;
+    height:0.9rem;
+}
+#list_box .items .detail_box{
+    width:2.2rem;
+    float:right;
+}
+#list_box .items .detail_box p{
+    line-height: 0.18rem;
+    height: 0.18rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:#444;
+}
+#list_box .items .detail_box .advs{
+    padding:0.06rem 0rem 0.02rem 0rem;
+    height:0.52rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#list_box .items .detail_box .advs span{
+    float:left;
+    padding:0rem 0.04rem;
+    color:#ff8200;
+    font-size: 0.12rem;
+    background: #ffefdc;
+    margin-right:0.04rem;
+    line-height: 0.18rem;
+    margin-bottom: 0.04rem;
+}
+#list_box .items .detail_box .pri{
+    line-height: 0.2rem;
+    color:#ff8200;
+    font-size: 0.16rem;
+}
+/*广州塔购票，景点详情*/
+#ct_banner{
+    width:100%;
+    height:2.38rem;
+    overflow: hidden;
+}
+#ct_banner img{
+    display: block;
+    width:100%;
+    height:2.38rem;
+}
+#ct_banner .swiper-pagination-bullet{
+    background: #fff;
+    opacity: 1;
+    border:none;
+}
+#ct_banner .swiper-pagination-bullet-active{
+    background: #ff8200;
+    opacity: 1;
+}
+#ct_detail{
+    padding-bottom: 0.2rem;
+}
+#ct_detail .tit{
+    font-size: 0.18rem;
+    color: #3F3F3F;
+    line-height: 0.5rem;
+    height:0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#ct_detail .advs{
+    overflow: hidden;
+}
+#ct_detail .advs span{
+    float:left;
+    padding:0rem 0.08rem;
+    color:#ff8200;
+    font-size: 0.12rem;
+    background: #ffefdc;
+    margin-right:0.1rem;
+    line-height: 0.28rem;
+    margin-bottom: 0.1rem;
+}
+#ct_detail .pri{
+    font-size: 0.18rem;
+    color: #ff8200;
+    line-height: 0.36rem;
+    padding-bottom: 0.04rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+#ct_detail .molabel{
+    padding:0.12rem 0px;
+    height:0.32rem;
+    position: relative;
+    line-height: 0.32rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+#ct_detail .molabel span{
+    float:left;
+}
+#ct_detail .molabel input,#ct_detail .molabel select{
+    float:right;
+    width:1.9rem;
+    border:1px solid #f1f1f1;
+    height:0.32rem;
+    box-sizing: border-box;
+    padding-left:0.1rem;
+    color:#666;
+}
+#ct_detail .molabel p{
+    float:right;
+    text-align: right;
+    padding-right:0.1rem;
+}
+#ct_detail .molabel p i{
+    padding-left:0.1rem;
+    color:#ff8200;
+    font-style: normal;
+}
+#ct_detail .num_label input{
+    width:0.4rem;
+    text-align: center;
+    padding:0rem;
+    margin:0rem 0.08rem;
+    border-color:#ccc;
+    color:#ff8200;
+}
+#ct_detail .num_label i{
+    float:right;
+    line-height: 0.18rem;
+    width:0.18rem;
+    border:1px solid #ffbd78;
+    color:#ffbd78;
+    text-align: center;
+    font-size: 0.14rem;
+    font-style: normal;
+    position: relative;
+    top:0.08rem;
+}
+#ct_detail .num_label i.no{
+    border:1px solid #ccc;
+    color:#ccc;
+}
+#ct_detail .molabel img{
+    position: absolute;
+    display: block;
+    width:0.18rem;
+    top:0.2rem;
+    right:0.1rem;
+}
+#ct_detail .time_label img{
+    width:0.11rem;
+    top:0.2rem;
+    right:0.12rem;
+}
+#card_outer{
+    padding-top:0.1rem;
+}
+#card_outer h3{
+    line-height: 0.4rem;
+}
+#card_outer h3.fix{
+    margin-bottom: 0.48rem;
+}
+#card_outer .card_hd{
+    padding:0.12rem 0.04rem;
+    height:0.24rem;
+    line-height: 0.24rem;
+    background: #fff;
+    padding-left:0.36rem;
+}
+#card_outer .card_hd.fix{
+    position: fixed;
+    top:0rem;
+    left:0.125rem;
+    width:3.5rem;
+    height:0.48rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #f1f1f1;
+}
+#card_outer .card_hd span{
+    width:1.2rem;
+    float:left;
+    text-align: center;
+    font-size: 0.14rem;
+    border-radius: 0.12rem;
+    margin-right:0.3rem;
+}
+#card_outer .card_hd .selectd{
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    color:#fff;
+}
+#card_outer .card_box{
+    border-top: 1px solid #f1f1f1;
+    padding-top: 0.2rem;
+    font-size: 0.14rem;
+    line-height: 0.24rem;
+}
+#card_outer .card_box b{
+    font-size: 0.16rem;
+}
+#card_outer .card_box p{
+    text-align: justify;
+    text-indent: 2em;
+    padding:0.04rem 0rem;
+}
+#card_outer .card_box img{
+    display: block;
+    margin:0.1rem auto;
+    max-width: 100%;
+}
+.hide{
+    display: none;
+}
+.yjimg{
+    display: block;
+    width:100%;
+    padding-bottom: 0.48rem;
+    border-top:1px solid #f1f1f1;
+}
+#buy_btn{
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    color:#fff;
+    height:0.48rem;
+    line-height: 0.48rem;
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    display: block;
+    width:100%;
+}
+/*订单列表*/
+#order_list{
+    border-top:0.1rem solid #f1f1f1;
+    box-sizing: border-box;
+}
+#order_list .items{
+    padding:0.16rem 0.12rem;
+    margin-bottom: 0.04rem;
+    background: #fff;
+}
+#order_list .items>a{display: block;overflow: hidden;color:#444;}
+#order_list .items img{
+    float:left;
+    width:1.2rem;
+    height:0.9rem;
+}
+#order_list .items .detail_box{
+    width:2.2rem;
+    float:right;
+    line-height: 0.22rem;
+    padding-top:0.01rem;
+}
+#order_list .items .box1,#order_list .items .box2,#order_list .items .box3,#order_list .items .box4{
+    height:0.22rem;
+    overflow: hidden;
+}
+#order_list .items .box1 span:nth-child(1){
+    float:left;
+    width:70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#order_list .items .box1 span:nth-child(2){
+    float: right;
+    color:#ff8200;
+}
+#order_list .items .box2 span:nth-child(1){
+    float:left;
+    width:84%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.12rem;
+}
+#order_list .items .box2 span:nth-child(2){
+    float: right;
+    font-size: 0.12rem;
+    color: #858585;
+}
+#order_list .items .box3{
+    font-size: 0.12rem;
+    color: #858585;
+}
+#order_list .items .box4 span{
+    float:right;
+    font-size: 0.16rem;
+    color:#ff8200;
+}
+#order_list .items .box4 i{
+    float:left;
+    font-style: normal;
+    color: #858585;
+}
+#order_list .items .box4 i.wait_btn{
+    position: relative;
+    padding-left:0.2rem;
+}
+#order_list .items .box4 i.wait_btn:before{
+    content:"";
+    display: block;
+    position: absolute;
+    width:0.15rem;
+    height:0.14rem;
+    background-size: 100% 100%;
+    background-image: url("../img/canton_tower/wait.png");
+    top:0.04rem;
+    left:0rem;
+}
+#order_list .items .btn_box{
+    margin-top:0.16rem;
+    border-top:1px solid #f1f1f1;
+    padding-top:0.08rem;
+    height:0.26rem;
+}
+#order_list .items .btn_box button{
+    height:0.26rem;
+    border: 1px solid #FF8200;
+    width:0.72rem;
+    color:#ff8200;
+    text-align: center;
+    line-height: 0.24rem;
+    border-radius: 0.04rem;
+    float:right;
+    font-size: 0.14rem !important;
+    font-weight: normal !important;
+    background: #fff;
+    outline: none;
+    position: relative;
+    top:0.04rem;
+}
+#order_list .items .btn_box button.sq{
+    color:#fff;
+    background: #ff8200;
+}
+/*订单详情*/
+.odbox1{
+    border-top:0.1rem solid #f1f1f1;
+    margin-bottom: 0.1rem;
+    background: #fff;
+}
+.odbox1 .box1{
+    padding:0.16rem 0.1rem;
+    margin-bottom: 0.04rem;
+    overflow: hidden;
+}
+.odbox1 .box1 img{
+    float:left;
+    width:1.2rem;
+    height:0.9rem;
+}
+.odbox1 .box1 .detail_box{
+    width:2.26rem;
+    float:right;
+    padding-top:0.02rem;
+}
+.odbox1 .box1 .detail_box p{
+    height:0.22rem;
+    overflow: hidden;
+    font-size: 0.12rem;
+    line-height: 0.22rem;
+}
+.odbox1 .box1 .detail_box p i{
+    font-style: normal;
+    color:#858585;
+}
+.odbox1 .box1 .detail_box .p1 span:nth-child(1){
+    float:left;
+    width:84%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.14rem;
+}
+.odbox1 .box1 .detail_box .p1 span:nth-child(2){
+    float:right;
+    font-size: 0.14rem;
+}
+.odbox1 .box2{
+    width:3.5rem;
+    margin:0 auto;
+    line-height: 0.46rem;
+    overflow: hidden;
+    border-top: 1px solid #f1f1f1;
+}
+.odbox1 .box2 span:nth-child(1){float:left;}
+.odbox1 .box2 span:nth-child(2){float:right;font-size: 0.16rem;color:#ff8200;}
+.odbox2{
+    margin-bottom: 0.1rem;
+    background: #fff;
+    padding:0.16rem 0.12rem;
+}
+.odbox2 p{line-height: 0.24rem;text-align: justify;margin-bottom: 0.04rem;}
+.odbox2 img{display: block;width:1.82rem;margin:0 auto;}
+.odbox2 .line{height:1px;background: #d8d8d8;margin:0.16rem 0px;}
+.odbox2 p.w96{width:96%;margin:0 auto;margin-bottom: 0.04rem;text-indent: 2em;}
+/*申请发票*/
+.invoice_apply_box{border-top:0.1rem solid #f1f1f1;}
+.invoice_apply_box .item_box{
+    line-height: 0.3rem;
+    padding: 0.09rem 0.125rem;
+    position: relative;
+    border-bottom: 1px solid #f3eaea;
+    overflow: hidden;
+    background: #fff;
+}
+.invoice_apply_box .box1{margin-bottom: 0.1rem;}
+.invoice_apply_box .box2{background: #fff;padding-bottom:0.16rem;}
+.invoice_apply_box .item_box b{
+    float:left;
+    width:30%;
+}
+.invoice_apply_box .item_box .kinds{
+    float:left;
+    width:70%;
+}
+.invoice_apply_box .item_box .kinds li{
+    float:left;
+    margin-right:0.2rem;
+    width:0.84rem;
+    background: #CCCCCC;
+    border-radius:0.04rem;
+    color:#fff;
+    text-align: center;
+}
+.invoice_apply_box .item_box .kinds li.choosed{
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+}
+.invoice_apply_box .item_box input{
+    float:left;
+    width:70%;
+    height:0.3rem;
+}
+.invoice_apply_box input::-webkit-input-placeholder{
+    font-size: 0.14rem;
+    color:rgba(0,0,0,0.4);
+}
+.invoice_apply_box .selects{
+    padding:0.1rem 0px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+.invoice_apply_box select{
+    float:left;
+    width:1.04rem;
+    height:0.3rem;
+    box-sizing: border-box;
+    border-radius: 0.04rem;
+    padding-left: 0.1rem;
+    background: url("../img/house_list/arrow-bottom.png") #F8F8F8 0.84rem 0.13rem no-repeat;
+    background-size: 0.1rem auto;
+    border: 1px solid #DFDFDF;
+    position: relative;
+}
+.invoice_apply_box input.block{
+    display: block;
+    width:100%;
+    box-sizing: border-box;
+    border-radius: 0.04rem;
+    padding-left: 0.1rem;
+    height:0.34rem;
+    border: 1px solid #DFDFDF;
+    background:#F8F8F8;
+    position: relative;
+}
+.invoice_apply_box button {
+    display: block;
+    outline: none;
+    width: 3rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    margin: 0.2rem auto;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    border-radius: 0.04rem;
+    font-weight: normal !important;
+    color: #fff;
+}
+.invoice_apply_box .notice{
+    padding-left:0.2rem;
+    color:#858585;
+    line-height: 0.16rem;
+    position: relative;
+    width:3.5rem;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+.invoice_apply_box .notice span{
+    position: absolute;
+    display: block;
+    left:0px;
+    top:0px;
+    line-height: 0.14rem;
+    width:0.16rem;
+    height:0.16rem;
+    text-align: center;
+    border:1px solid #ff8200;
+    border-radius: 0.08rem;
+    color:#ff8200;
+    font-size: 0.12rem;
+    box-sizing: border-box;
+}
+#invoices_detail_box{
+    border-top:0.1rem solid #f1f1f1;
+    padding:0rem 0.125rem;
+    background:#fff;
+}
+#invoices_detail_box li{
+    border-bottom: 1px solid #f1f1f1;
+    padding:0.15rem 0.04rem;
+    line-height: 0.26rem;
+    overflow: hidden;
+}
+#invoices_detail_box li span:nth-child(1){float:left;}
+#invoices_detail_box li span:nth-child(2){float:right;}
+/*购票*/
+.tb_box1{
+    border-top:0.1rem solid #f1f1f1;
+    height:0.72rem;
+    padding-left:0.4rem;
+    background: #fff;
+    line-height: 0.72rem;
+    position: relative;
+}
+.tb_box1 span{
+    position: absolute;
+    display: block;
+    width:0.14rem;
+    height:0.14rem;
+    border:1px solid #ccc;
+    border-radius: 50%;
+    top:0.28rem;
+    left:0.2rem;
+}
+.tb_box1 span.choosed:before{
+    content:"";
+    position: absolute;
+    display: block;
+    width:0.08rem;
+    height:0.08rem;
+    background: #ff8200;
+    border-radius: 50%;
+    top:0.03rem;
+    left:0.03rem;
+}
+.tb_box1 a{color:#ff8200;text-decoration: underline;}
+.tb_box2{
+    border-top:0.1rem solid #f1f1f1;
+    padding:0.16rem 0.12rem;
+    margin-bottom: 0.1rem;
+    background: #fff;
+    overflow: hidden;
+}
+.tb_box2 img{
+    float:left;
+    width:1.2rem;
+    height:0.9rem;
+}
+.tb_box2 .detail_box{
+    width:2.2rem;
+    float:right;
+    padding-top:0.02rem;
+}
+.tb_box2 .detail_box .box1{
+    height:0.22rem;
+    line-height: 0.22rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.16rem;
+}
+.tb_box2 .detail_box p{
+    height:0.22rem;
+    overflow: hidden;
+    font-size: 0.12rem;
+    line-height: 0.22rem;
+    color:#565656;
+}
+.tb_box2 .detail_box .box2{height:0.22rem;line-height: 0.22rem;}
+.tb_box2 .detail_box .box2 span:nth-child(1){float:left;font-size: 0.12rem;}
+.tb_box2 .detail_box .box2 span:nth-child(2){float:right;font-size: 0.16rem;color:#ff8200;}
+.tb_box3{background: #fff;padding:0px 0.125rem;}
+.tb_box3 .box1{
+    line-height: 0.54rem;
+    font-size: 0.16rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+.tb_box3 .molabel{
+    position: relative;
+    padding:0.12rem 0px 0.12rem 0.24rem;
+    overflow: hidden;
+    border-bottom: 1px solid #f1f1f1;
+}
+.tb_box3 .molabel span{
+    float:left;
+    line-height:0.3rem;
+}
+.tb_box3 .molabel img{
+    position: absolute;
+}
+.tb_box3 .molabel .img1{
+    width:0.16rem;
+    height:0.14rem;
+    top:0.19rem;
+    left:0rem;
+}
+.tb_box3 .molabel .img3{
+    width:0.18rem;
+    height:0.13rem;
+    top:0.2rem;
+    left:0rem;
+}
+.tb_box3 .molabel .img2{
+    width:0.09rem;
+    height:0.15rem;
+    top:0.19rem;
+    left:0.05rem;
+}
+.tb_box3 .molabel input{
+    height:0.3rem;
+    float:right;
+    text-align: right;
+    color:#444 !important;
+}
+#add_people_btn{
+    line-height: 0.54rem;
+    text-align: center;
+    position:relative;
+    font-size: 0.16rem;
+}
+#add_people_btn img{
+    position: absolute;
+    width:0.16rem;
+    left:0.72rem;
+    top:0.19rem;
+}
+#add_people_btn span{
+    color:#ff8200;
+    padding:0px 0.04rem;
+}
+.buy_btn_box{
+    position: fixed;
+    height:0.48rem;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    line-height: 0.48rem;
+    text-align: center;
+    font-size: 0.16rem;
+}
+.total_price{
+    float:left;
+    width:50%;
+    background:#fff;
+}
+.total_price span{
+    color:#ff8200;
+}
+.buy_btn_box button{
+    float:right;
+    width:50%;
+    color: #fff;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    border:none;
+    outline: none;
+    background-image: linear-gradient(90deg, #FFAB42 0%, #FF8200 100%);
+    font-weight: normal !important;
+}
